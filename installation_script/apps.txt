@@ -1,0 +1,12 @@
+CPUID.HWMonitor
+SpotifyAB.SpotifyMusic_zpdnekdrzrea0
+Valve.Steam
+Ubisoft.Connect
+Google.Drive
+WhatsApp.WhatsApp
+EpicGames.EpicGamesLauncher
+Telegram.TelegramDesktop
+GOG.Galaxy
+Nvidia.GeForceExperience
+ElectronicArts.EADesktop
+Discord.Discord
