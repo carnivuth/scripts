@@ -1,0 +1,11 @@
+[Unit]
+Description=Low battery notification deamon
+
+
+[Service]
+ExecStart=/home/matteo/scripts/system/battery/battery.sh
+Restart=always
+
+
+[Install]
+WantedBy=default.target
