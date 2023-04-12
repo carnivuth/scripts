@@ -1,8 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # setting parameters
 NOTIFY=TRUE
-LIMIT=93
+LIMIT=20
 while :
 do
     PERCENTAGE=$(upower -i $(upower -e |grep BAT1) |grep percentage |cut -d':' -f2 |cut -d '%' -f1 |xargs)
