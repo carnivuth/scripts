@@ -1,4 +1,4 @@
-#!/bin/bash +x
+#!/bin/bash 
 INDEX="readme.md"
 # check parameters
 [ ! -d "$1" ] && echo "wrong parameters" && exit 1
