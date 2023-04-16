@@ -1,0 +1,6 @@
+[Unit]
+Description=create home backup service
+
+
+[Service]
+ExecStart=borg create /storage/borg::Home-$(date -I) /home/matteo
