@@ -6,6 +6,6 @@ INDEX="readme.md"
 [ -f "$INDEX" ] && rm $INDEX
 echo '# INDEX' >$INDEX
 ls "$1"/pages | while read PAGE; do
-    echo " - [$PAGE](<pages/$PAGE>)" >> $INDEX
+    echo " - [$( echo "$PAGE"| cut -d'.' -f 1)](<pages/$PAGE>)" >> $INDEX
 done
 mv "$INDEX" "$1"
