@@ -3,7 +3,6 @@
 # setting parameters
 NOTIFY=TRUE
 LIMIT=3
-notify-send -a "Low Battery" -u critical "low battery" "the system will be shut down"
 
 while :
 do
