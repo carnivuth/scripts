@@ -5,7 +5,7 @@ Description=Low battery notification deamon
 [Service]
 ExecStart=/home/matteo/scripts/system/battery/battery.sh
 Restart=always
-
+Environment="DISPLAY=:0" "XAUTHORITY=/home/matteo/.Xauthority"
 
 [Install]
 WantedBy=default.target
