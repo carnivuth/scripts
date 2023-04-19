@@ -3,4 +3,4 @@ Description=create home backup service
 
 
 [Service]
-ExecStart=borg create /storage/borg::Home-$(date -I) /home/matteo
+ExecStart=/home/matteo/scripts/borg/home_backup.sh 
