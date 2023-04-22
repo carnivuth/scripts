@@ -46,8 +46,6 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
 			dm-tool lock
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
@@ -57,6 +55,8 @@ run_cmd() {
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 				i3-msg exit
+			elif [[ "$DESKTOP_SESSION" == 'awesome' ]]; then
+				killall awesome
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 			fi
