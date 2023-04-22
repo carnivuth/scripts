@@ -1,7 +1,7 @@
 
 
 [Unit]
-Description=Run borg backup on /home/matteo folder weekly
+Description=Run borg backup on user home folder weekly
 
 [Timer]
 OnCalendar=weekly
