@@ -9,6 +9,7 @@ if [ -f "${dir}/${theme}.rasi"  ]; then
     rofi \
         -no-lazy-grub \
         -dmenu  \
+        -p 'networks'  \
         -theme ${dir}/${theme}.rasi 
 
 else
@@ -16,5 +17,7 @@ else
     rofi \
         -no-lazy-grub \
         -show -dmenu \
+        -p 'networks'  \
+
 
 fi
