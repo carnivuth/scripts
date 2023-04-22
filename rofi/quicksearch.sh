@@ -6,8 +6,12 @@ theme='snorlax-line'
 prompt= 'browse with firefox'
 # rofi cmd
 run_rofi() {
+	if [ -f "${dir}/${theme}.rasi"  ]; then
 
-	 rofi -dmenu -p "$prompt" -theme ${dir}/${theme}.rasi
+		 rofi -dmenu -p "$prompt" -theme ${dir}/${theme}.rasi
+	else
+		 rofi -dmenu -p "$prompt" 
+	fi
 }
 
 # main

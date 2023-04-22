@@ -38,11 +38,20 @@ fi
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dmenu \
-		-p "$prompt" \
-		-mesg "$mesg" \
-		-markup-rows \
-		-theme ${dir}/${theme}.rasi
+	if [ -f "${dir}/${theme}.rasi"  ]; then
+
+		rofi -dmenu \
+			-p "$prompt" \
+			-mesg "$mesg" \
+			-markup-rows \
+			-theme ${dir}/${theme}.rasi
+	else
+		rofi -dmenu \
+			-p "$prompt" \
+			-mesg "$mesg" \
+			-markup-rows \
+
+	fi
 }
 
 # Pass variables to rofi dmenu

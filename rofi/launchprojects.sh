@@ -11,7 +11,12 @@ FOLDERS=( "/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home
 # Pass variables to wofi dmenu
 run_rofi() {
 
+if [ -f "${dir}/${theme}.rasi"  ]; then
 	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu -theme ${dir}/${theme}.rasi
+else
+	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu 
+
+fi
 }
 # show wofi with folders
 chosen="$(run_rofi)"
