@@ -5,7 +5,7 @@ dir="$HOME/.config/rofi/quicksearch"
 theme='snorlax-line'
 
 # prompt colon
-prompt= 'browse with firefox'
+prompt='search with firefox'
 
 # rofi cmd
 run_rofi() {
