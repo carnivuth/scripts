@@ -7,12 +7,14 @@ if [ -f "${dir}/${theme}.rasi"  ]; then
 
 ## Run
     rofi \
+        -no-lazy-grub \
         -dmenu  \
         -theme ${dir}/${theme}.rasi 
 
 else
 ## Run without theme
     rofi \
+        -no-lazy-grub \
         -show -dmenu \
 
 fi
