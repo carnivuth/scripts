@@ -24,7 +24,6 @@ bluetooth_print() {
                 fi
             done
 
-            #printf '\n'
         else
             echo ' off'
         fi
