@@ -1,0 +1,3 @@
+#!/bin/bash
+logseq & 
+firefox https://virtuale.unibo.it &
