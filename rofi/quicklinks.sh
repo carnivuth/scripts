@@ -4,6 +4,10 @@
 dir="$HOME/.config/rofi/quicklinks"
 theme='snorlax-line'
 
+if [ "$#" -eq 1 ]; then 
+    theme="$1"
+fi
+
 # Theme Elements
 prompt='Quick Links'
 mesg="Using '$BROWSER' as web browser"
@@ -11,19 +15,6 @@ mesg="Using '$BROWSER' as web browser"
 
 
 # Options
-layout=`cat ${dir}/${theme}.rasi | grep 'USE_ICON' | cut -d'=' -f2`
-if [[ "$layout" == 'NO' ]]; then
-	option_1=" browser"
-	option_2=" mailer"
-	option_3=" Youtube"
-	option_4=" Github"
-	option_5=" Reddit"
-	option_6=" Virtuale"
-	option_7=" Whatsapp"
-	option_9=" Drive"
-
-	
-else
 	option_1=""
 	option_2=""
 	option_3=""
@@ -33,8 +24,6 @@ else
 	option_7=""
 	option_9=""
 
-	
-fi
 
 # Rofi CMD
 rofi_cmd() {

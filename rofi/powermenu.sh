@@ -4,6 +4,10 @@
 dir="$HOME/.config/rofi/powermenu"
 theme='snorlax-line'
 
+if [ "$#" -eq 1 ]; then 
+    theme="$1"
+fi
+
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
 host="$(cat /etc/hostname)"

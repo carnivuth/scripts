@@ -4,6 +4,10 @@
 dir="$HOME/.config/rofi/quicksearch"
 theme='snorlax-line'
 
+if [ "$#" -eq 1 ]; then 
+    theme="$1"
+fi
+
 # prompt colon
 prompt='search with firefox'
 

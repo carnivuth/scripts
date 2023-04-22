@@ -2,10 +2,14 @@
 
 dir="$HOME/.config/rofi/launchproject"
 theme='snorlax-line'
-if [ "$#" -eq 1 ] ; then
+if [ "$#" -gt 0 ] ; then
 prompt="open project with $1"
 else
 prompt="open project with code"
+fi
+
+if [ "$#" -eq 2 ]; then 
+    theme="$2"
 fi
 #project folders
 FOLDERS=( "/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home/matteo/.config" "/home/matteo/universita/iss/iss_2023_matteo_longhi" "/home/matteo/universita/iss/iss_2023_matteo_longhi/projects" "/home/matteo/universita/iss/isslab23" )

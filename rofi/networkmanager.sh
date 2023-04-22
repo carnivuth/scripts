@@ -3,6 +3,10 @@
 dir="$HOME/.config/rofi/networkmanager/"
 theme='snorlax-line'
 
+if [ "$#" -eq 1 ]; then 
+    theme="$1"
+fi
+
 if [ -f "${dir}/${theme}.rasi"  ]; then
 
 ## Run
