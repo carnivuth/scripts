@@ -2,7 +2,11 @@
 
 dir="$HOME/.config/rofi/launchproject"
 theme='snorlax-line'
-
+if [ "$#" -eq 1 ] ; then
+prompt="open project with $1"
+else
+prompt="open project with code"
+fi
 #project folders
 FOLDERS=( "/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home/matteo/.config" "/home/matteo/universita/iss/iss_2023_matteo_longhi" "/home/matteo/universita/iss/iss_2023_matteo_longhi/projects" "/home/matteo/universita/iss/isslab23" )
 
@@ -11,9 +15,9 @@ FOLDERS=( "/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home
 run_rofi() {
 
 if [ -f "${dir}/${theme}.rasi"  ]; then
-	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu -theme ${dir}/${theme}.rasi
+	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu -p "${prompt}" -theme ${dir}/${theme}.rasi
 else
-	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu 
+	echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/ ; done)" | rofi -dmenu -p "${prompt}"
 
 fi
 }
