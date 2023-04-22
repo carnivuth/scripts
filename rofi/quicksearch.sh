@@ -1,9 +1,12 @@
 #!/bin/bash
+
 # theme
 dir="$HOME/.config/rofi/quicksearch"
 theme='snorlax-line'
+
 # prompt colon
 prompt= 'browse with firefox'
+
 # rofi cmd
 run_rofi() {
 	if [ -f "${dir}/${theme}.rasi"  ]; then

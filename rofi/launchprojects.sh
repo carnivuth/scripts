@@ -3,12 +3,11 @@
 dir="$HOME/.config/rofi/launchproject"
 theme='snorlax-line'
 
-#!/bin/bash
 #project folders
 FOLDERS=( "/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home/matteo/.config" "/home/matteo/universita/iss/iss_2023_matteo_longhi" "/home/matteo/universita/iss/iss_2023_matteo_longhi/projects" "/home/matteo/universita/iss/isslab23" )
 
-#wofi utilities
-# Pass variables to wofi dmenu
+
+# rofi cmd
 run_rofi() {
 
 if [ -f "${dir}/${theme}.rasi"  ]; then
@@ -18,10 +17,10 @@ else
 
 fi
 }
-# show wofi with folders
+# main
 chosen="$(run_rofi)"
 echo $chosen
-# open selected folder on IDE default code
+# open selected folder on $1 parameter default code
 if [ -d "$chosen"  ] ; then
 	if [ "$#" -eq 1 ] ; then
 		"$1" "$chosen"
