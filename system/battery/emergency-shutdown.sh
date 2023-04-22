@@ -3,6 +3,7 @@
 # setting parameters
 NOTIFY=TRUE
 LIMIT=3
+TIME_BEFORE_SHUTDOWN=2
 
 while :
 do
@@ -14,10 +15,10 @@ do
     else
         if [[ "$PERCENTAGE" -lt $LIMIT ]]; then 
             if [ "$NOTIFY" == "TRUE" ]; then
-            notify-send -a "Low Battery" -u critical "low battery" "the system will be shut down"
-            sleep 2 
-            systemctl poweroff
-            NOTIFY=FALSE
+                notify-send -a "Low Battery" -u critical "low battery" "the system will be shut down in $TIME_BEFORE_SHUTDOWN seconds"
+                sleep $TIME_BEFORE_SHUTDOWN 
+                systemctl poweroff
+                NOTIFY=FALSE
             fi
         fi
     fi 
