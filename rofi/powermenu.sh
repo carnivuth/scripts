@@ -14,8 +14,6 @@ reboot=''
 lock=''
 suspend=''
 logout=''
-yes=''
-no=''
 
 # Rofi CMD
 rofi_cmd() {
