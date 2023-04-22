@@ -18,4 +18,4 @@
     - bluetooth deamon script
  - ### NOTIFICATIONS
     - simple notification script to play sound
-![gif](img/laptop.gif)
+    
