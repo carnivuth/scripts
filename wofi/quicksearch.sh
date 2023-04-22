@@ -1,11 +1,11 @@
-#!/bin/bash
-
+#!/bin/bashù
 
 # wofi cmd
 run_wofi() {
 
 	 wofi --show dmenu --prompt='firefox search' --heigh="5%"
 }
+
 # main
 chosen="$(run_wofi)"
 if [ "$chosen" != "" ]; then 
