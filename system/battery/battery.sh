@@ -24,7 +24,7 @@ do
         fi
     fi 
     # check for battery status changes
-    if [ "$STATE" != "discharging" ] && [ "$PREC_STATE" != "$STATE" ]; then 
+    if [ "$STATE" != "discharging" ] && [ "$PREC_STATE" != "$STATE" ] && [ "$STATE" != "fully-charged" ]; then 
         
         notify-send -a "System charging" -u normal "system charging" "system is under charge"
     fi 
