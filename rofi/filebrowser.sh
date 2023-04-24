@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 dir="$HOME/.config/rofi/filebrowser/"
-theme='snorlax-center'
+theme='snorlax-line'
 if [ "$#" -eq 1 ]; then 
     theme="$1"
 fi
