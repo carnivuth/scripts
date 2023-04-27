@@ -1,0 +1,11 @@
+[Unit]
+Description=updates notification deamon
+
+
+[Service]
+ExecStart=/home/matteo/scripts/system/updates/updates.sh
+Restart=always
+Environment="DISPLAY=:0" "XAUTHORITY=/home/matteo/.Xauthority"
+
+[Install]
+WantedBy=default.target
