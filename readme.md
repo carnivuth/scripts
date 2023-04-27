@@ -18,4 +18,6 @@
     - bluetooth deamon script
  - ### NOTIFICATIONS
     - simple notification script to play sound
+ - ### UPDATES
+    - update scripts and systemd units (credits to Kyle Keen)
     
