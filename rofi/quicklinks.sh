@@ -31,10 +31,10 @@ rofi_cmd() {
 }
 
 # Pass variables to rofi dmenu
-
 run_rofi() {
 	 echo -e "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd
 }
+
 # Execute Command
 run_cmd() {
 	# youtube
@@ -58,8 +58,6 @@ run_cmd() {
 	# prolog engine
 	elif [[ "$1" == "${options[6]}" ]]; then
 		firefox --new-window 'https://swish.swi-prolog.org/' &
-
-	
 	fi
 }
 
