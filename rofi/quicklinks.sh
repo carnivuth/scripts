@@ -10,20 +10,9 @@ fi
 
 # Theme Elements
 prompt='Quick Links'
-mesg="Using '$BROWSER' as web browser"
-
-
 
 # Options
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
-	option_7=""
-	option_9=""
-
+options=( "" "" "" "" "" "" "")
 
 # Rofi CMD
 rofi_cmd() {
@@ -31,41 +20,44 @@ rofi_cmd() {
 
 		rofi -dmenu \
 			-p "$prompt" \
-			-mesg "$mesg" \
 			-markup-rows \
 			-theme ${dir}/${theme}.rasi
 	else
 		rofi -dmenu \
 			-p "$prompt" \
-			-mesg "$mesg" \
 			-markup-rows \
 
 	fi
 }
 
 # Pass variables to rofi dmenu
-run_rofi() {
-	echo -e "$option_3\n$option_4\n$option_5\n$option_6\n$option_7\n$option_9" | rofi_cmd
-}
 
+run_rofi() {
+	 echo -e "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd
+}
 # Execute Command
 run_cmd() {
-	if [[ "$1" == '--opt1' ]]; then
-		firefox --new-window 'https://www.google.com/' &
-	elif [[ "$1" == '--opt2' ]]; then
-		thunderbird &
-	elif [[ "$1" == '--opt3' ]]; then
+	# youtube
+	if [[ "$1" == "${options[1]}" ]]; then
 		firefox --new-window 'https://www.youtube.com/' &
-	elif [[ "$1" == '--opt4' ]]; then
+	# github
+	elif [[ "$1" == "${options[1]}" ]]; then
 		firefox --new-window 'https://www.github.com/' &
-	elif [[ "$1" == '--opt5' ]]; then
+	# reddit
+	elif [[ "$1" == "${options[2]}" ]]; then
 		firefox --new-window 'https://www.reddit.com/' &
-	elif [[ "$1" == '--opt6' ]]; then
+	# virtuale
+	elif [[ "$1" == "${options[3]}" ]]; then
 		firefox --new-window 'https://virtuale.unibo.it/' &
-	elif [[ "$1" == '--opt7' ]]; then
+	# whatsapp web
+	elif [[ "$1" == "${options[4]}" ]]; then
 		firefox --new-window 'https://web.whatsapp.com/' &
-	elif [[ "$1" == '--opt9' ]]; then
+	# google drive
+	elif [[ "$1" == "${options[5]}" ]]; then
 		firefox --new-window 'https://drive.google.com' &
+	# prolog engine
+	elif [[ "$1" == "${options[6]}" ]]; then
+		firefox --new-window 'https://swish.swi-prolog.org/' &
 
 	
 	fi
@@ -73,33 +65,5 @@ run_cmd() {
 
 # Actions
 chosen="$(run_rofi)"
-printf $chosen
-case ${chosen} in
-    $option_1)
-		run_cmd --opt1
-        ;;
-    $option_2)
-		run_cmd --opt2
-        ;;
-    $option_3)
-		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
-        ;;
-    $option_5)
-		run_cmd --opt5
-        ;;
-    $option_6)
-		run_cmd --opt6
-        ;;
-	$option_7)
-		run_cmd --opt7
-        ;;
-	$option_9)
-		run_cmd --opt9
-        ;;
+run_cmd "$chosen"
 
-	*)
-		;;
-esac
