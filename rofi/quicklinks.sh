@@ -38,7 +38,7 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	# youtube
-	if [[ "$1" == "${options[1]}" ]]; then
+	if [[ "$1" == "${options[0]}" ]]; then
 		firefox --new-window 'https://www.youtube.com/' &
 	# github
 	elif [[ "$1" == "${options[1]}" ]]; then
