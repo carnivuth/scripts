@@ -12,7 +12,8 @@ fi
 prompt='Quick Links'
 
 # Options
-options=( "" "" "" "" "" "" "")
+#options=( "" "" "" "" "" "" "" "pokemon-showdown")
+options=( "Youtube" "Github" "Reddit" "Virtuale" "Whatsapp" "Google-Drive" "Prolog-Engine" "Pokemon-Showdown")
 
 # Rofi CMD
 rofi_cmd() {
@@ -55,9 +56,11 @@ run_cmd() {
 	# google drive
 	elif [[ "$1" == "${options[5]}" ]]; then
 		firefox --new-window 'https://drive.google.com' &
-	# prolog engine
+	# prolog engine 
 	elif [[ "$1" == "${options[6]}" ]]; then
 		firefox --new-window 'https://swish.swi-prolog.org/' &
+	elif [[ "$1" == "${options[7]}" ]]; then
+		firefox --new-window 'https://play.pokemonshowdown.com/' &
 	fi
 }
 
