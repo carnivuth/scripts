@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Reddit
+Comment=Reddit website
+Icon=
+Exec=firefox --new-window 'https://www.reddit.com/' 
+Terminal=false
+Categories=Media;Social

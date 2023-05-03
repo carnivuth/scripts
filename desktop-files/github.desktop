@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Github
+Comment=Github website
+Icon=
+Exec=firefox --new-window 'https://www.github.com/' 
+Terminal=false
+Categories=code

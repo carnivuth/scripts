@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Logseq
+Comment=Application for taking notes
+Icon=/home/matteo/.local/share/icons/logseq_logo.png
+Exec=/home/matteo/.local/bin/logseq
+Terminal=false
+Categories=Notes;university

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Virtuale
+Comment=university portal
+Icon=
+Exec=firefox --new-window 'https://virtuale.unibo.it/' 
+Terminal=false
+Categories=university

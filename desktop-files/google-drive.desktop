@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Google Drive
+Comment=Google Drive website
+Icon=
+Exec=firefox --new-window 'https://drive.google.com' 
+Terminal=false
+Categories=files;drive

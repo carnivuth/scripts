@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Whatsapp
+Comment=whatsapp web 
+Icon=
+Exec=firefox --new-window 'https://web.whatsapp.com/' 
+Terminal=false
+Categories=Message

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Prolog Engine
+Comment=Prolog Engine website
+Icon=
+Exec=firefox --new-window 'https://swish.swi-prolog.org/' 
+Terminal=false
+Categories=Code;AI;university

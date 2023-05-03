@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Pokemon Showdown
+Comment=Pokemon Showdown website
+Icon=
+Exec=firefox --new-window 'https://play.pokemonshowdown.com/' 
+Terminal=false
+Categories=Games;Pokemon
