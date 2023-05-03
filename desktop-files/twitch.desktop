@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Twitch
+Comment=Twitch website
+Icon=
+Exec=firefox --new-window 'https://www.twitch.tv/' 
+Terminal=false
+Categories=Video
