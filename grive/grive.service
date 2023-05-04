@@ -1,0 +1,6 @@
+[Unit]
+Description=sync google drive with drive
+
+
+[Service]
+ExecStart=/home/matteo/scripts/grive/sync.sh

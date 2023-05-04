@@ -1,0 +1,11 @@
+
+
+[Unit]
+Description=Run grive sync script
+
+[Timer]
+OnBootSec=3min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
