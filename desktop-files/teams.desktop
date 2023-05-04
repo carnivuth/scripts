@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Teams
+Comment=Teams website
+Icon=firefox
+Exec=firefox --new-window 'https://teams.microsoft.com/' 
+Terminal=false
+Categories=Videocall
