@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Master Duel Meta
+Comment=Master Duel Meta website
+Icon=firefox
+Exec=firefox --new-window 'https://www.masterduelmeta.com/' 
+Terminal=false
+Categories=Gaming
