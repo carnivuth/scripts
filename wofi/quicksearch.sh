@@ -1,4 +1,4 @@
-#!/bin/bashù
+#!/bin/bash
 
 # wofi cmd
 run_wofi() {
