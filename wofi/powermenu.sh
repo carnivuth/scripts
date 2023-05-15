@@ -1,15 +1,13 @@
 #!/bin/bash
-#project folders
+#power options
 OPTIONS=( "Shutdown" "reboot" "sleep" "exit" "lock" )
-#wofi utilities
 
-
-# Pass variables to rofi dmenu
+# wofi command
 run_wofi() {
 
 	echo -e "$(for OPTION in ${OPTIONS[@]}; do echo $OPTION  ; done)" | wofi --show dmenu
 }
-# show rofi with folders
+# main
 chosen="$(run_wofi)"
 if [  "$chosen" == "shutdown"  ]; then
 	systemctl shutdown
