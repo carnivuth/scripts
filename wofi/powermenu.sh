@@ -1,6 +1,6 @@
 #!/bin/bash
 #power options
-OPTIONS=( "Shutdown" "reboot" "sleep" "exit" "lock" )
+OPTIONS=( "shutdown" "reboot" "sleep" "exit" "lock" )
 
 # wofi command
 run_wofi() {
