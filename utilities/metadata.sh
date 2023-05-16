@@ -20,15 +20,16 @@ for FILES in "$SRC_FOLDER"/*.opus ;do
     NAME="$(echo $FILES | rev| cut -d"/" -f1|rev)"
     
     # get metadata values from names
-    ARTIST="$(echo $NAME|cut -d"-" -f1-3|sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
-    TITLE="$(echo $NAME|cut -d"-" -f4| cut -d '(' -f1)"
+    ARTIST="$(echo $NAME|cut -d"-" -f1|cut -d"]" -f2|sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
+    ALBUM="$(echo $NAME|cut -d"-" -f1|cut -d"]" -f2|sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
+    TITLE="$(echo $NAME|cut -d"-" -f2| cut -d '[' -f1|sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
     
     # print logs
     #echo "$TITLE" "separatore" "$NAME" >> "$SRC_FOLDER"/logs
     echo  "$NAME" "separatore" "$TITLE" "separatore" "$NAME"
     
     # ffmpeg decoding
-    ffmpeg -y -i "$FILES" -acodec copy -metadata title="$TITLE" -metadata album="$ARTIST" "$DEST_FOLDER"/"$TITLE".opus 2>>/dev/null >>/dev/null 
+    ffmpeg -y -i "$FILES" -acodec copy -metadata title="$TITLE" -metadata album="$ALBUM" -metadata artist="$ARTIST"  "$DEST_FOLDER"/"$TITLE".opus 2>>/dev/null >>/dev/null 
 
 done
 
