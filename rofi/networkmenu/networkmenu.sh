@@ -26,10 +26,17 @@ rofi_cmd() {
 
 # print rofi menu to user with possible options
 print_networks() {
-	 echo -e "$(nmcli -f ssid device wifi list | grep -v SSID)" | rofi_cmd ${prompt}
+	 echo -e "$(nmcli -f ssid device wifi list -rescan no| grep -v SSID)" | rofi_cmd ${prompt}
 }
+
+# print rofi menu to ask for password
 ask_password(){
     rofi_cmd ${prompt_pwd}
+}
+
+# send notification
+notify(){
+    notify-send -a "Network-menu" -u "$1" "$2" "$3"
 }
 
 # main
@@ -41,7 +48,7 @@ if [ "$selected" == '' ]; then exit 0; fi
 # connect to network
 if [ "$(nmcli connection | grep "$selected")" != "" ]; then
 
-    nmcli device wifi connect "$selected"
+    nmcli device wifi connect "$selected" && notify normal "connected" "connected to $selected"
 
 elif [ "$(nmcli -f ssid device wifi list -rescan no | grep "$selected" )" != '' ]; then 
     
@@ -50,6 +57,6 @@ elif [ "$(nmcli -f ssid device wifi list -rescan no | grep "$selected" )" != '' 
     #check for empty password
     if [ "$password" == '' ]; then exit 0; fi
 
-    nmcli device wifi connect "$selected" password "$password"
+    nmcli device wifi connect "$selected" password "$password" && notify normal "connected" "connected to $selected"
 
 fi
