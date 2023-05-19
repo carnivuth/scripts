@@ -10,7 +10,7 @@ run_wofi() {
 # main
 chosen="$(run_wofi)"
 if [  "$chosen" == "shutdown"  ]; then
-	systemctl shutdown
+	systemctl poweroff
 fi
 if [  "$chosen" == "reboot"  ]; then
 	systemctl reboot
