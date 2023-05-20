@@ -11,6 +11,7 @@
     - power menu applet
     - quicklinks applet
     - quicksearch applet
+    - you can find rofi .rasi file [here](https://github.com/carnivuth/big-tux-setup/tree/main/.config/rofi) 
  - ### BATTERY
     - low battery notification script
     - emergency shutdown script
@@ -21,4 +22,3 @@
     - simple notification script to play sound
  - ### UPDATES
     - update scripts and systemd units (credits to Kyle Keen)
-    
