@@ -4,6 +4,7 @@
 source ~/scripts/rofi/networkmenu/notify.sh
 source ~/scripts/rofi/networkmenu/rescanwifinetworks.sh
 source ~/scripts/rofi/networkmenu/connect.sh
+source ~/scripts/rofi/networkmenu/deleteconnection.sh
 
 # set rofi theme 
 dir="$HOME/.config/rofi/networkmenu/"
@@ -64,7 +65,7 @@ if [ "$selected" == '' ]; then exit 0; fi
         ;;
         ${options[2]})
         # delete connetion
-        notify normal "TODO" "implement"
+            delete_connection 
 	    	exit 0
         ;;
         ${options[3]})

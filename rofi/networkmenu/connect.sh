@@ -27,7 +27,7 @@ connect_to_network(){
         #check for empty password
         if [ "$password" == '' ]; then exit 0; fi
 
-            nmcli device wifi connect "$network" password "$password" && notify normal "connected" "connected to $network"
+        nmcli device wifi connect "$network" password "$password" && notify normal "connected" "connected to $network"
 
-fi
+    fi
 }
