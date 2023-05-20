@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# source files
+source ~/scripts/rofi/networkmenu/notify.sh
 # set rofi theme 
 dir="$HOME/.config/rofi/networkmenu/"
 theme='snorlax-line'
@@ -34,10 +35,7 @@ ask_password(){
     rofi_cmd ${prompt_pwd}
 }
 
-# send notification
-notify(){
-    notify-send -a "Network-menu" -u "$1" "$2" "$3"
-}
+
 
 # main
 selected=$(print_networks| xargs)
@@ -60,3 +58,11 @@ elif [ "$(nmcli -f ssid device wifi list -rescan no | grep "$selected" )" != '' 
     nmcli device wifi connect "$selected" password "$password" && notify normal "connected" "connected to $selected"
 
 fi
+
+# options
+# disable networking
+# disable bluetooth
+# disable wifi
+# list connection 
+# delete connetion
+# rescan wifi networks
