@@ -6,6 +6,7 @@
     - systemd timer
  - ### ROFI
     - launch application script
+    - network menu script
     - open project with different ides
     - power menu applet
     - quicklinks applet
