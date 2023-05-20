@@ -1,7 +1,10 @@
 #!/bin/bash
+
 # source files
 source ~/scripts/rofi/networkmenu/notify.sh
 source ~/scripts/rofi/networkmenu/rescanwifinetworks.sh
+source ~/scripts/rofi/networkmenu/connect.sh
+
 # set rofi theme 
 dir="$HOME/.config/rofi/networkmenu/"
 theme='snorlax-line'
@@ -10,8 +13,8 @@ if [ "$#" -eq 1 ]; then
 fi
 
 # prompts
-prompt='Networks'
-prompt_pwd='Password'
+prompt_connections='Connections'
+prompt_options='Options'
 
 # options
 # rescan wifi networks
@@ -19,7 +22,7 @@ prompt_pwd='Password'
 # list connection 
 # disable wifi
 # disable networking
-options=( 'rescan-wifi-networks' "delete-connection" "list-connections" "disable-wifi" "disable-networking" )
+options=( 'connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'list-connections' 'disable-wifi' 'disable-networking' )
 
 # Rofi CMD
 rofi_cmd() {
@@ -34,66 +37,53 @@ rofi_cmd() {
 	fi
 }
 
-# print rofi menu to user with possible options
-print_networks() {
-	 echo -e "$(nmcli -f ssid device wifi list -rescan no| grep -v SSID | grep -E -v '^--' )" "\n" "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd ${prompt}
+print_options(){
+	 echo -e  "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd ${prompt_options}
+
 }
 
-# print rofi menu to ask for password
-ask_password(){
-    rofi_cmd ${prompt_pwd}
-}
 
 
 
 # main
-selected=$(print_networks| xargs)
+selected=$(print_options| xargs)
 
-# if no network was selected exit
+# if no option was selected exit
 if [ "$selected" == '' ]; then exit 0; fi
-
-
-
-#if selected is an option, exec option
 
     case ${selected} in
         ${options[0]})
+        # connect to network
+            connect_to_network
+            exit 0
+        ;;
+        ${options[1]})
         # rescan wifi networks
             rescan_wifi_networks
             exit 0
         ;;
-        ${options[1]})
-        # delete connetion
-	    	exit 0
-        ;;
         ${options[2]})
-        # list connetion
+        # delete connetion
+        notify normal "TODO" "implement"
 	    	exit 0
         ;;
         ${options[3]})
-        # disable wifi
+        # list connetion
+        notify normal "TODO" "implement"
 	    	exit 0
         ;;
         ${options[4]})
+        # disable wifi
+        notify normal "TODO" "implement"
+	    	exit 0
+        ;;
+        ${options[5]})
         # disable networking
+        notify normal "TODO" "implement"
 	    	exit 0
         ;;
     esac
 
-# connect to network
-if [ "$(nmcli connection | grep "$selected")" != "" ]; then
 
-    nmcli device wifi connect "$selected" && notify normal "connected" "connected to $selected"
-
-elif [ "$(nmcli -f ssid device wifi list -rescan no | grep "$selected" )" != '' ]; then 
-    
-    #ask for network password
-    password=$(ask_password)
-    #check for empty password
-    if [ "$password" == '' ]; then exit 0; fi
-
-    nmcli device wifi connect "$selected" password "$password" && notify normal "connected" "connected to $selected"
-
-fi
 
 
