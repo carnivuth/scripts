@@ -5,7 +5,7 @@ source ~/scripts/rofi/networkmenu/notify.sh
 source ~/scripts/rofi/networkmenu/rescanwifinetworks.sh
 source ~/scripts/rofi/networkmenu/connect.sh
 source ~/scripts/rofi/networkmenu/deleteconnection.sh
-
+source ~/scripts/rofi/networkmenu/togglewifi.sh
 # set rofi theme 
 dir="$HOME/.config/rofi/networkmenu/"
 theme='snorlax-line'
@@ -23,7 +23,7 @@ prompt_options='Options'
 # list connection 
 # disable wifi
 # disable networking
-options=( 'connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'list-connections' 'disable-wifi' 'disable-networking' )
+options=( 'connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'list-connections' 'toggle-wifi' 'disable-networking' )
 
 # Rofi CMD
 rofi_cmd() {
@@ -74,8 +74,8 @@ if [ "$selected" == '' ]; then exit 0; fi
 	    	exit 0
         ;;
         ${options[4]})
-        # disable wifi
-        notify normal "TODO" "implement"
+        # toggle wifi
+            toggle_wifi
 	    	exit 0
         ;;
         ${options[5]})
