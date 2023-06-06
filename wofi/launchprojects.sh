@@ -13,7 +13,7 @@ chosen="$(run_wofi)"
 echo $chosen
 # open selected folder on IDE default code
 if [ -d "$chosen"  ] ; then
-	if [ "$#" -eq 1 ] ; then
+	if [ "$#" -gt 1 ] ; then
 		"$1" "$chosen"
 	else
 		code "$chosen"
