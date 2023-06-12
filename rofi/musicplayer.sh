@@ -7,7 +7,7 @@ theme='snorlax-line'
 prompt='music player'
 #music folder
 folder="$HOME/Musica"
-if [ "$#" -gt 0 ]; then
+if [ "$#" -gt 1 ]; then
     theme="$1":
 fi
 rofi_cmd() {
