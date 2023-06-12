@@ -2,19 +2,19 @@
 
 dir="$HOME/.config/rofi/launcher/"
 theme='snorlax-line'
-if [ "$#" -eq 1 ]; then 
+if [ "$#" -eq 1 ]; then
     theme="$1"
 fi
-if [ -f "${dir}/${theme}.rasi"  ]; then
+if [ -f "${dir}/${theme}.rasi" ]; then
 
-## Run
+    ## Run
     rofi \
         -show drun \
-        -theme ${dir}/${theme}.rasi 
+        -theme ${dir}/${theme}.rasi
 
 else
-## Run without theme
+    ## Run without theme
     rofi \
-        -show drun \
+        -show drun
 
 fi

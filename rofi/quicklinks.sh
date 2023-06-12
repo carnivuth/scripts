@@ -4,8 +4,8 @@
 dir="$HOME/.config/rofi/quicklinks"
 theme='snorlax-line'
 
-if [ "$#" -eq 1 ]; then 
-    theme="$1"
+if [ "$#" -eq 1 ]; then
+	theme="$1"
 fi
 
 # Theme Elements
@@ -13,11 +13,11 @@ prompt='Quick Links'
 
 # Options
 #options=( "" "" "" "" "" "" "" "pokemon-showdown")
-options=( "Youtube" "Github" "Reddit" "Virtuale" "Whatsapp" "Google-Drive" "Prolog-Engine" "Pokemon-Showdown")
+options=("Youtube" "Github" "Reddit" "Virtuale" "Whatsapp" "Google-Drive" "Prolog-Engine" "Pokemon-Showdown")
 
 # Rofi CMD
 rofi_cmd() {
-	if [ -f "${dir}/${theme}.rasi"  ]; then
+	if [ -f "${dir}/${theme}.rasi" ]; then
 
 		rofi -dmenu \
 			-p "$prompt" \
@@ -26,14 +26,14 @@ rofi_cmd() {
 	else
 		rofi -dmenu \
 			-p "$prompt" \
-			-markup-rows \
+			-markup-rows
 
 	fi
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	 echo -e "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd
+	echo -e "$(for opt in ${options[@]}; do echo "$opt"; done)" | rofi_cmd
 }
 
 # Execute Command
@@ -56,7 +56,7 @@ run_cmd() {
 	# google drive
 	elif [[ "$1" == "${options[5]}" ]]; then
 		firefox --new-window 'https://drive.google.com' &
-	# prolog engine 
+	# prolog engine
 	elif [[ "$1" == "${options[6]}" ]]; then
 		firefox --new-window 'https://swish.swi-prolog.org/' &
 	elif [[ "$1" == "${options[7]}" ]]; then
@@ -67,4 +67,3 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 run_cmd "$chosen"
-

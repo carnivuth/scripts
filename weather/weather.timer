@@ -1,0 +1,12 @@
+
+
+[Unit]
+
+Description=Run weather notifications
+
+[Timer]
+OnCalendar=00/2:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

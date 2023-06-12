@@ -1,0 +1,6 @@
+[Unit]
+Description=run weather notifications 
+
+
+[Service]
+ExecStart=/home/matteo/scripts/weather/weather.sh 
