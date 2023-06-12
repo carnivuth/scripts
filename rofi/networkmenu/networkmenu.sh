@@ -15,8 +15,7 @@ if [ "$#" -eq 1 ]; then
 fi
 
 # prompts
-prompt_connections='Connections'
-prompt_options='Options'
+prompt_options='Network Options'
 
 # options
 # rescan wifi networks
@@ -40,7 +39,7 @@ rofi_cmd() {
 }
 
 print_options(){
-	 echo -e  "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd ${prompt_options}
+	 echo -e  "$(for opt in ${options[@]}; do echo "$opt"; done )" | rofi_cmd "${prompt_options}"
 
 }
 
