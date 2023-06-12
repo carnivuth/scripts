@@ -11,6 +11,7 @@
     - power menu applet
     - quicklinks applet
     - quicksearch applet
+    - music player applet
     - you can find rofi .rasi file [here](https://github.com/carnivuth/big-tux-setup/tree/main/.config/rofi) 
  - ### BATTERY
     - low battery notification script
