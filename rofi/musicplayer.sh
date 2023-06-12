@@ -7,7 +7,7 @@ theme='snorlax-line'
 prompt='music player'
 #music folder
 folder="$HOME/Musica"
-if [ "$#" -eq 1 ]; then
+if [ "$#" -gt 0 ]; then
     theme="$1":
 fi
 rofi_cmd() {
@@ -32,11 +32,11 @@ chosen="$(print_playlists)"
 
 #run playlist
 if [[ -d "$folder/$chosen" ]]; then
-    mpv="$(pidof mpv)"
-    if [ "$mpv" != '' ]; then
-        kill $mpv
+    vlc="$(pidof vlc)"
+    if [ "$vlc" != '' ]; then
+        kill $vlc
     fi
-    mpv "$folder/$chosen" &
+    cvlc "$folder/$chosen" &
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
