@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Google Photo
+Comment=Google Photo website
+Icon=firefox
+Exec=firefox --new-window 'https://photo.google.com' 
+Terminal=false
+Categories=files;drive
