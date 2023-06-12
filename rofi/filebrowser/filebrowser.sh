@@ -5,7 +5,7 @@ theme='snorlax-line'
 
 #prompt
 prompt='file browser'
-if [ "$#" -eq 1 ]; then 
+if [ "$#" -gt 1 ]; then 
     theme="$1":
 fi
 rofi_cmd() {
