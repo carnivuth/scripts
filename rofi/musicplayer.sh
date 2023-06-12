@@ -1,6 +1,6 @@
 #!/bin/bash
 # set rofi theme
-dir="$HOME/.config/rofi/filebrowser/"
+dir="$HOME/.config/rofi/musicplayer"
 theme='snorlax-line'
 
 #prompt
@@ -31,7 +31,7 @@ print_playlists() {
 chosen="$(print_playlists)"
 
 #run playlist
-if [[ -d "$folder/$chosen" ]]; then
+if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
     vlc="$(pidof vlc)"
     if [ "$vlc" != '' ]; then
         kill $vlc
