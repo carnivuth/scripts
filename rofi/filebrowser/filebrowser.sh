@@ -1,12 +1,12 @@
 #!/bin/bash
 # set rofi theme
-dir="$HOME/.config/rofi/filebrowser/"
+dir="$HOME/.config/rofi/filebrowser"
 theme='snorlax-line'
 
 #prompt
 prompt='file browser'
 if [ "$#" -gt 1 ]; then
-	theme="$1":
+	theme="$1"
 fi
 rofi_cmd() {
 	if [ -f "${dir}/${theme}.rasi" ]; then
