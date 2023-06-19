@@ -35,8 +35,9 @@ if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
     vlc="$(pidof vlc)"
     if [ "$vlc" != '' ]; then
         kill $vlc
+        sleep 1
     fi
-    cvlc "$folder/$chosen" &
+    vlc --qt-start-minimized "$folder/$chosen" &
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
