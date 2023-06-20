@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Linkedin
+Comment=Linkedin website
+Icon=firefox
+Exec=firefox --new-window 'https://www.linkedin.com' 
+Terminal=false
+Categories=Social
