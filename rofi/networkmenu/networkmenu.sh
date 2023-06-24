@@ -20,10 +20,9 @@ prompt_options='Network Options'
 # options
 # rescan wifi networks
 # delete connetion
-# list connection
 # toggle wifi
 # toggle networking
-options=('connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'list-connections' 'toggle-wifi' 'toggle-networking')
+options=('connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'toggle-wifi' 'toggle-networking')
 
 # Rofi CMD
 rofi_cmd() {
@@ -66,16 +65,11 @@ ${options[2]})
     exit 0
     ;;
 ${options[3]})
-    # list connetion
-    notify normal "TODO" "implement"
-    exit 0
-    ;;
-${options[4]})
     # toggle wifi
     toggle_wifi
     exit 0
     ;;
-${options[5]})
+${options[4]})
     # disable networking
     toggle_network
     exit 0
