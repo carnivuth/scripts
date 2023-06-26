@@ -32,12 +32,13 @@ chosen="$(print_playlists)"
 
 #run playlist
 if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
-    vlc="$(pidof vlc)"
+    vlc="$(cat /$HOME/scripts/rofi/musicplayer/log)"
     if [ "$vlc" != '' ]; then
         kill $vlc
         sleep 1
     fi
     vlc --qt-start-minimized "$folder/$chosen" &
+    echo $! > /$HOME/scripts/rofi/musicplayer/log
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
