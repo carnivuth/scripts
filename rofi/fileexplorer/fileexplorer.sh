@@ -23,6 +23,9 @@ rofi_cmd() {
 get_history(){
 	cat "$HOME"/scripts/rofi/fileexplorer/history |uniq | tail -n5 
 }
+get_history_size(){
+	 wc -l "$HOME"/scripts/rofi/fileexplorer/history  | cut -d" " -f1
+}
 
 print_contents() {
 	{ get_history; ls "$1";  } | rofi_cmd "${prompt}"
@@ -39,7 +42,17 @@ while [[ -d "$curpath/$chosen" && "$chosen" != '' ]]; do
 	chosen="$(print_contents "$curpath")"
 done
 #open file
-if [[ -f "$curpath/$chosen" ]]; then
-	echo "$curpath/$chosen" >> "$HOME"/scripts/rofi/fileexplorer/history
-	xdg-open "$curpath/$chosen"
+if [[ -f "$curpath/$chosen" || -f "$chosen" ]]; then
+	if [[ "$(get_history_size)" -gt 1 ]];then 
+		rm "$HOME"/scripts/rofi/fileexplorer/history
+	fi
+	case $chosen in
+	/*)
+		xdg-open "$chosen"
+		;;
+	*) 
+		echo "$curpath/$chosen" >> "$HOME"/scripts/rofi/fileexplorer/history
+		xdg-open "$curpath/$chosen"
+		 ;;
+	esac
 fi
