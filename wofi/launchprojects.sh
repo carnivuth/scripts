@@ -1,6 +1,6 @@
 #!/bin/bash
 #project folders
-FOLDERS=("/home/matteo/universita" "/home/matteo/.themes" "/home/matteo" "/home/matteo/.config" "/home/matteo/universita/iss/iss_2023_matteo_longhi" "/home/matteo/universita/iss/iss_2023_matteo_longhi/projects" "/home/matteo/universita/iss/isslab23")
+FOLDERS=("$HOME/universita" "$HOME/.themes" "$HOME" "$HOME/.config" "$HOME/universita/iss/iss_2023_matteo_longhi" "$HOME/universita/iss/iss_2023_matteo_longhi/projects" "$HOME/universita/iss/isslab23")
 
 #wofi utilities
 # Pass variables to wofi dmenu

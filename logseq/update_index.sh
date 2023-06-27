@@ -1,5 +1,5 @@
 #!/bin/bash
-PATH=/home/matteo/appunti
+PATH="$HOME"/appunti
 ls  "$PATH" | while read REPO ;do
- ./create_index.sh /home/matteo/appunti/"$REPO"
+ ./create_index.sh "$HOME"/appunti/"$REPO"
 done
