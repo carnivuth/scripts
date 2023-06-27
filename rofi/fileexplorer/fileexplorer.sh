@@ -20,11 +20,15 @@ rofi_cmd() {
 
 	fi
 }
+get_history(){
+	cat "$HOME"/scripts/rofi/fileexplorer/history |uniq | tail -n5 
+}
 
 print_contents() {
-	ls "$1" | rofi_cmd "${prompt}"
+	{ get_history; ls "$1";  } | rofi_cmd "${prompt}"
 
 }
+
 
 #main
 curpath="$HOME"
@@ -36,5 +40,6 @@ while [[ -d "$curpath/$chosen" && "$chosen" != '' ]]; do
 done
 #open file
 if [[ -f "$curpath/$chosen" ]]; then
+	echo "$curpath/$chosen" >> "$HOME"/scripts/rofi/fileexplorer/history
 	xdg-open "$curpath/$chosen"
 fi
