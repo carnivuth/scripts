@@ -29,6 +29,9 @@ get_history(){
 get_history_size(){
 	 wc -l "$HOME"/scripts/rofi/fileexplorer/history  | cut -d" " -f1
 }
+get_history_size(){
+	 wc -l "$HOME"/scripts/rofi/fileexplorer/history  | cut -d" " -f1
+}
 
 print_contents() {
 	{ get_history; ls "$1";  } | rofi_cmd "${prompt}"
