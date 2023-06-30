@@ -29,19 +29,19 @@ get_history(){
 get_history_size(){
 	 wc -l "$HOME"/scripts/rofi/fileexplorer/history  | cut -d" " -f1
 }
-get_history_size(){
-	 wc -l "$HOME"/scripts/rofi/fileexplorer/history  | cut -d" " -f1
-}
 
 print_contents() {
+	 ls "$1" | rofi_cmd "${prompt}"
+
+}
+print_contents_and_history() {
 	{ get_history; ls "$1";  } | rofi_cmd "${prompt}"
 
 }
 
-
 #main
 curpath="$HOME"
-chosen="$(print_contents "$HOME")"
+chosen="$(print_contents_and_history "$HOME")"
 #cicle inside directory
 while [[ -d "$curpath/$chosen" && "$chosen" != '' ]]; do
 	curpath="$curpath/$chosen"
