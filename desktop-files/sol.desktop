@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Studenti Online
+Comment=Studenti Online website
+Icon=firefox
+Exec=firefox --new-window 'https://studenti.unibo.it' 
+Terminal=false
+Categories=Social
