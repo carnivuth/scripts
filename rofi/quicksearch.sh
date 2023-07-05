@@ -24,5 +24,12 @@ run_rofi() {
 # main
 chosen="$(run_rofi)"
 if [ "$chosen" != "" ]; then
-	firefox --new-window --search "$chosen"
+	case "$chosen" in
+	https*)
+		xdg-open "$chosen"
+		;;
+	*) 
+			firefox --new-window --search "$chosen"
+		 ;;
+	esac
 fi
