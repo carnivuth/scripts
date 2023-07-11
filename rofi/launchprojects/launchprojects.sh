@@ -12,7 +12,11 @@ if [ "$#" -eq 2 ]; then
 	theme="$2"
 fi
 #project folders
-FOLDERS=("$HOME/universita" "$HOME/universita/fondamenti_intelligenza_artificiale" "$HOME/.themes" "$HOME" "$HOME/.config" "$HOME/universita/iss/iss_2023_matteo_longhi" "$HOME/universita/iss/iss_2023_matteo_longhi/projects" "$HOME/universita/iss/isslab23")
+if [ -f "./folders.sh" ]; then 
+source ./folders.sh
+else
+FOLDERS=( "$HOME" )
+fi
 
 # rofi cmd
 run_rofi() {
