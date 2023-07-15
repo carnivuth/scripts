@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Nordpass
+Comment=Nordpass website
+Icon=firefox
+Exec=firefox --new-window 'https://app.nordpass.com/' 
+Terminal=false
+Categories=Security
