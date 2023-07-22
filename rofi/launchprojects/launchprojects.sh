@@ -12,8 +12,8 @@ if [ "$#" -eq 2 ]; then
 	theme="$2"
 fi
 #project folders
-if [ -f "./folders.sh" ]; then 
-source ./folders.sh
+if [ -f "$HOME/scripts/rofi/launchprojects/folders.sh" ]; then 
+source "$HOME/scripts/rofi/launchprojects/folders.sh"
 else
 FOLDERS=( "$HOME" )
 fi
