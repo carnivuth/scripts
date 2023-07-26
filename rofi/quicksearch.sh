@@ -28,6 +28,9 @@ if [ "$chosen" != "" ]; then
 	https*)
 		xdg-open "$chosen"
 		;;
+	http*)
+		xdg-open "$chosen"
+		;;
 	*) 
 			firefox --new-window --search "$chosen"
 		 ;;
