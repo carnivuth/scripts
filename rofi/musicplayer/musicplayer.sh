@@ -7,8 +7,8 @@ theme='snorlax-line'
 prompt='music player'
 #music folder
 folder="$HOME/Musica"
-if [ "$#" -gt 1 ]; then
-    theme="$1":
+if [ "$#" -gt 0 ]; then
+    theme="$1"
 fi
 rofi_cmd() {
     if [ -f "${dir}/${theme}.rasi" ]; then
