@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Docker Hub
+Comment=Docker hub website
+Icon=firefox
+Exec=firefox --new-window 'https://hub.docker.com/' 
+Terminal=false
+Categories=coding
