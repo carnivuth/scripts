@@ -46,7 +46,6 @@ vlc="$(cat $HOME/scripts/rofi/musicplayer/log)"
 fi
 
 #run playlist
-
 if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
     vlc="$(cat $HOME/scripts/rofi/musicplayer/log)"
     if [ "$vlc" != '' ]; then
