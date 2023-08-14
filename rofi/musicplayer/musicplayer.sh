@@ -37,6 +37,12 @@ vlc="$(cat $HOME/scripts/rofi/musicplayer/log)"
         kill $vlc
         rm $HOME/scripts/rofi/musicplayer/log
     fi
+    glava="$(cat $HOME/scripts/rofi/musicplayer/log-glava)"
+    if [ "$glava" != '' ]; then
+        kill $glava
+        rm $HOME/scripts/rofi/musicplayer/log-glava
+    fi
+
 fi
 
 #run playlist
@@ -47,8 +53,15 @@ if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
         kill $vlc
         sleep 1
     fi
+    glava="$(cat $HOME/scripts/rofi/musicplayer/log-glava)"
+    if [ "$glava" != '' ]; then
+        kill $glava
+        sleep 1
+    fi
     vlc --qt-start-minimized "$folder/$chosen" &
     echo $! > $HOME/scripts/rofi/musicplayer/log
+    glava --desktop &
+    echo $! > $HOME/scripts/rofi/musicplayer/log-glava
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
