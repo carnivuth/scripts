@@ -30,7 +30,17 @@ print_playlists() {
 #main
 chosen="$(print_playlists)"
 
+#kill vlc command
+if [[ "$chosen" == "stop" ]];then
+vlc="$(cat $HOME/scripts/rofi/musicplayer/log)"
+    if [ "$vlc" != '' ]; then
+        kill $vlc
+        rm $HOME/scripts/rofi/musicplayer/log
+    fi
+fi
+
 #run playlist
+
 if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
     vlc="$(cat $HOME/scripts/rofi/musicplayer/log)"
     if [ "$vlc" != '' ]; then
