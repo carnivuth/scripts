@@ -21,9 +21,10 @@ for FILES in "$SRC_FOLDER"/*.opus; do
 
     # get metadata values from names
     #ARTIST="$(echo $NAME|cut -d"-" -f1|cut -d"]" -f2|sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
-    ALBUM="$(echo $NAME | cut -d"-" -f1 | sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
-    TITLE="$(echo $NAME | cut -d"-" -f2 | cut -d '[' -f1 | sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
-
+    #ALBUM="$(echo $NAME | cut -d"-" -f1 | sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
+    #TITLE="$(echo $NAME | cut -d"-" -f2 | cut -d '[' -f1 | sed -re 's/^[[:blank:]]+|[[:blank:]]+$//g' -e 's/[[:blank:]]+/ /g')"
+ALBUM="yu-gi-oh-5ds-sound-duel-1"
+TITLE="$(echo $NAME|cut -d"." -f1)"
     # print logs
     #echo "$TITLE" "separatore" "$NAME" >> "$SRC_FOLDER"/logs
     #echo  "$NAME" "separatore" "$TITLE" "separatore" "$NAME"
