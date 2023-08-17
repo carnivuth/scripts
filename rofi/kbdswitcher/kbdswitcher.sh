@@ -1,7 +1,7 @@
 #!/bin/bash
 # set rofi theme
 dir="$HOME/.config/rofi/kbdswitcher"
-theme='snorlax-line'
+theme='snorlax-center'
 
 #prompt
 prompt='keyboard switcher'
