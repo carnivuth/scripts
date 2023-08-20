@@ -12,6 +12,7 @@
     - quicklinks applet
     - quicksearch applet
     - music player applet
+    - game launcher applet
     - file explorer with history applet
     - you can find rofi .rasi file [here](https://github.com/carnivuth/big-tux-setup/tree/main/.config/rofi) 
  - ### BATTERY
@@ -24,3 +25,7 @@
     - simple notification script to play sound
  - ### UPDATES
     - update scripts and systemd units (credits to Kyle Keen)
+ - ### UTILITIES 
+    - script for metadata editing
+    - script for downloading youtube playlists
+    - script for cutting videos 
