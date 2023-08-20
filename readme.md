@@ -12,7 +12,7 @@
     - quicklinks applet
     - quicksearch applet
     - music player applet
-    - game launcher applet
+    - desmume game launcher applet
     - file explorer with history applet
     - you can find rofi .rasi file [here](https://github.com/carnivuth/big-tux-setup/tree/main/.config/rofi) 
  - ### BATTERY
