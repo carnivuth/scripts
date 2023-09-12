@@ -1,0 +1,3 @@
+#!/bin/bash
+SCRIPTS_LOGS_FOLDER="/var/log/scripts"
+SCRIPTS_HOME_FOLDER="$HOME/scripts"
