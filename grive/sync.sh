@@ -1,2 +1,5 @@
 #!/bin/bash
-grive -p /home/matteo/google-drive 2>> /home/matteo/scripts/grive/logs >> /home/matteo/scripts/grive/logs
+source $HOME/scripts/settings.sh
+# grive home folder set as needed
+FOLDER="$HOME/google-drive"
+grive -p "$FOLDER" 2>> "$SCRIPTS_LOGS_FOLDER/sync.logs" >> "$SCRIPTS_LOGS_FOLDER/sync.logs"
