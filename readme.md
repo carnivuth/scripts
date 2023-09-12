@@ -4,7 +4,7 @@
  - ### BACKUP
     - borg backup script for user directory
     - systemd timer
- - ### ROFI
+ - ### [ROFI](rofi/readme.md)
     - launch application script
     - network menu script
     - open project with different ides
