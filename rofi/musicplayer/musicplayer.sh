@@ -2,8 +2,8 @@
  source "$HOME/scripts/settings.sh"
 
 # set rofi theme
-dir="$HOME/.config/rofi/musicplayer"
-theme='snorlax-line'
+dir="$ROFI_CONFIG_FOLDER/musicplayer"
+theme="$DEFAULT_THEME"
 
 #prompt
 prompt='music player'
