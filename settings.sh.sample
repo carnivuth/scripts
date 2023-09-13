@@ -1,4 +1,8 @@
 #!/bin/bash
 SCRIPTS_LOGS_FOLDER="/var/log/scripts"
-SCRIPTS_RUN_FOLDER="/var/run/scripts"
 SCRIPTS_HOME_FOLDER="$HOME/scripts"
+SCRIPTS_RUN_FOLDER="/tmp/scripts"
+if [[ ! -d "$SCRIPTS_RUN_FOLDER" ]] ;then mkdir "$SCRIPTS_RUN_FOLDER"; fi
+ROFI_CONFIG_FOLDER="$HOME/.config/rofi"
+SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
+DEFAULT_THEME="snorlax-line-bottom"
