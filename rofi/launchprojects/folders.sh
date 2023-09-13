@@ -1,2 +1,2 @@
 #!/bin/bash
-FOLDERS=("$HOME" "$HOME/.config")
+ARRAY=("$HOME" "$HOME/.config")

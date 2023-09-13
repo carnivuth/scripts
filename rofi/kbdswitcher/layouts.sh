@@ -1,2 +1,2 @@
 #!/bin/bash
-LAYOUTS=("us" "it")
+ARRAY=("us" "it")

@@ -1,7 +1,10 @@
 #!/usr/bin/bash
 
-dir="$HOME/.config/rofi/launchproject"
-theme='snorlax-line'
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
+
+dir="$ROFI_CONFIG_FOLDER/launchproject"
+theme="$DEFAULT_THEME"
 if [ "$#" -gt 0 ]; then
 	prompt="open project with $1"
 else
@@ -11,20 +14,18 @@ fi
 if [ "$#" -eq 2 ]; then
 	theme="$2"
 fi
-#project folders
-if [ -f "$HOME/scripts/rofi/launchprojects/folders.sh" ]; then 
-source "$HOME/scripts/rofi/launchprojects/folders.sh"
-else
-FOLDERS=( "$HOME" )
-fi
+
+#import values from array
+array_importer "$SCRIPTS_HOME_FOLDER/rofi/launchprojects/folders.sh" "$HOME"
+
 
 # rofi cmd
 run_rofi() {
 
 	if [ -f "${dir}/${theme}.rasi" ]; then
-		echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}" -theme ${dir}/${theme}.rasi
+		echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}" -theme ${dir}/${theme}.rasi
 	else
-		echo -e "$(for dir in ${FOLDERS[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}"
+		echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}"
 
 	fi
 }
