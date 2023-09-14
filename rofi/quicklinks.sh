@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+#OBSOLETE!!!!!!
+
 # Current Theme
 dir="$HOME/.config/rofi/quicklinks"
 theme='snorlax-line'

@@ -4,15 +4,10 @@ source $HOME/scripts/settings.sh
 source $SCRIPTS_LIBS_FOLDER/array_importer.sh
 source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-array_importer "$SCRIPTS_HOME_FOLDER/rofi/kbdswitcher/layouts.sh" 'us'
-
-rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 
-
-
-#prompt
-prompt='keyboard switcher'
-
 #import values from array
+array_importer "$SCRIPTS_HOME_FOLDER/rofi/kbdswitcher/layouts.sh" 'us' 
+
+rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 'keyboard switcher'
 
 print_layouts() {
     echo -e "$(for l in ${ARRAY[@]}; do echo $l; done)" | rofi_cmd $prompt

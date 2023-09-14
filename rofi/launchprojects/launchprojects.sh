@@ -2,35 +2,23 @@
 
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-dir="$ROFI_CONFIG_FOLDER/launchproject"
-theme="$DEFAULT_THEME"
-if [ "$#" -gt 0 ]; then
-	prompt="open project with $1"
-else
-	prompt="open project with code"
-fi
-
-if [ "$#" -eq 2 ]; then
-	theme="$2"
-fi
+rofi_theme_setup $ROFI_CONFIG_FOLDER/launchproject "$2" "project launcher"
 
 #import values from array
 array_importer "$SCRIPTS_HOME_FOLDER/rofi/launchprojects/folders.sh" "$HOME"
 
 
+
 # rofi cmd
-run_rofi() {
+print_menu() {
 
-	if [ -f "${dir}/${theme}.rasi" ]; then
-		echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}" -theme ${dir}/${theme}.rasi
-	else
-		echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi -dmenu -p "${prompt}"
+	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi_cmd
 
-	fi
 }
 # main
-chosen="$(run_rofi)"
+chosen="$(print_menu)"
 echo $chosen
 # open selected folder on $1 parameter default code
 if [ -d "$chosen" ]; then

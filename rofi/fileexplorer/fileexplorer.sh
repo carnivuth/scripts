@@ -1,10 +1,7 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
-rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 
-
-#prompt
-prompt='file explorer'
+rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 'file explorer'
 
 #max history size
 max_size=50

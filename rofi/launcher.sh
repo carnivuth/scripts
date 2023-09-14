@@ -1,10 +1,9 @@
 #!/usr/bin/bash
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+host="$(cat /etc/hostname)"
+rofi_theme_setup "$ROFI_CONFIG_FOLDER/launcher" "$1" "run applications"
 
-dir="$HOME/.config/rofi/launcher/"
-theme='snorlax-line'
-if [ "$#" -eq 1 ]; then
-    theme="$1"
-fi
 if [ -f "${dir}/${theme}.rasi" ]; then
 
     ## Run

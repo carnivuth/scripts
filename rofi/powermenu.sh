@@ -1,16 +1,8 @@
-#!/usr/bin/bash
-
-# Current Theme
-dir="$HOME/.config/rofi/powermenu"
-theme='snorlax-line'
-
-if [ "$#" -eq 1 ]; then
-	theme="$1"
-fi
-
-# CMDs
-uptime="$(uptime -p | sed -e 's/up //g')"
+#!/bin/bash
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 host="$(cat /etc/hostname)"
+rofi_theme_setup "$ROFI_CONFIG_FOLDER/powermenu" "$1" "$host"
 
 # Options
 shutdown=' shutdown'
@@ -19,24 +11,9 @@ lock=' lock'
 suspend=' suspend'
 logout=' logout'
 
-# Rofi CMD
-rofi_cmd() {
-	if [ -f "${dir}/${theme}.rasi" ]; then
-		rofi -dmenu \
-			-p "$host" \
-			-mesg "Uptime: $uptime" \
-			-theme ${dir}/${theme}.rasi
-	else
-		rofi -dmenu \
-			-p "$host" \
-			-mesg "Uptime: $uptime"
 
-	fi
-}
-
-# Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd $prompt
 }
 
 # Execute Command

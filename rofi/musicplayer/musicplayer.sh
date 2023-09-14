@@ -1,31 +1,16 @@
 #!/bin/bash
- source "$HOME/scripts/settings.sh"
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-# set rofi theme
-dir="$ROFI_CONFIG_FOLDER/musicplayer"
-theme="$DEFAULT_THEME"
+rofi_theme_setup $ROFI_CONFIG_FOLDER/musicplayer "$2" "music player"
 
-#prompt
-prompt='music player'
-#music folder
-folder="$HOME/Musica"
-if [ "$#" -gt 0 ]; then
-    theme="$1"
-fi
-rofi_cmd() {
-    if [ -f "${dir}/${theme}.rasi" ]; then
-        rofi -dmenu \
-            -p "$1" \
-            -theme ${dir}/${theme}.rasi
-    else
-        rofi -dmenu \
-            -p "$1"
+#import values from array
+array_importer "$SCRIPTS_HOME_FOLDER/rofi/musicplayer/folders.sh" "$HOME"
 
-    fi
-}
 
 print_playlists() {
-    ls "$folder" | rofi_cmd "${prompt}"
+    echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)"  | rofi_cmd "${prompt}"
 
 }
 

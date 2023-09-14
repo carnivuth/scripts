@@ -1,28 +1,11 @@
 #!/bin/bash
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-# theme
-dir="$HOME/.config/rofi/quicksearch"
-theme='snorlax-line'
-
-if [ "$#" -eq 1 ]; then
-	theme="$1"
-fi
-
-# prompt colon
-prompt='search with firefox'
-
-# rofi cmd
-run_rofi() {
-	if [ -f "${dir}/${theme}.rasi" ]; then
-
-		rofi -dmenu -p "$prompt" -theme ${dir}/${theme}.rasi
-	else
-		rofi -dmenu -p "$prompt"
-	fi
-}
+rofi_theme_setup $ROFI_CONFIG_FOLDER/quicksearch "$2" "search with firefox"
 
 # main
-chosen="$(run_rofi)"
+chosen="$(rofi_cmd)"
 if [ "$chosen" != "" ]; then
 	case "$chosen" in
 	https*)

@@ -1,32 +1,20 @@
-#!/usr/bin/bash
+#!/bin/bash
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-dir="$HOME/.config/rofi/ndslauncher"
-theme='snorlax-line'
+rofi_theme_setup $ROFI_CONFIG_FOLDER/ndslauncher "$2" "open nds games with desmume"
 
-prompt="open nds games with desmume"
+#import values from array
+array_importer "$SCRIPTS_HOME_FOLDER/rofi/ndslauncher/folders.sh" "$HOME"
 
-if [ "$#" -eq 1 ]; then
-	theme="$1"
-fi
-#project folders
-if [ -f "$HOME/scripts/rofi/ndslauncher/folders.sh" ]; then
-	source "$HOME/scripts/rofi/ndslauncher/folders.sh"
-else
-	FOLDER="$HOME"
-fi
 
 # rofi cmd
-run_rofi() {
-
-	if [ -f "${dir}/${theme}.rasi" ]; then
-		echo -e "$(ls  "$FOLDER"/)" | rev| cut -d'.' -f2- | rev  |rofi -dmenu -p "${prompt}" -theme ${dir}/${theme}.rasi
-	else
-		echo -e "$( ls  "$FOLDER"/)" |rev| cut -d'.' -f2- | rev | rofi -dmenu -p "${prompt}"
-
-	fi
+print_roms() {
+	for dir in ${ARRAY[@]}; do echo -e "$(ls  "$dir"/)" ; done | rev| cut -d'.' -f2- | rev  | rofi_cmd
 }
 # main
-chosen="$(run_rofi)"
+chosen="$(print_roms)"
 echo $chosen
 # open selected folder on $1 parameter default code
 if [ -f "$FOLDER/$chosen.nds" ]; then

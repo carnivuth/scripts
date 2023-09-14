@@ -1,2 +1,2 @@
 #!/bin/bash
-FOLDER="$HOME/Games/emulators/iso/nds"
+ARRAY=("$HOME/Games/emulators/iso/nds")

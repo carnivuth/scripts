@@ -1,21 +1,17 @@
 #!/bin/bash
 
 # source files
-source ~/scripts/rofi/networkmenu/notify.sh
-source ~/scripts/rofi/networkmenu/rescanwifinetworks.sh
-source ~/scripts/rofi/networkmenu/connect.sh
-source ~/scripts/rofi/networkmenu/deleteconnection.sh
-source ~/scripts/rofi/networkmenu/togglewifi.sh
-source ~/scripts/rofi/networkmenu/togglenetwork.sh
-# set rofi theme
-dir="$HOME/.config/rofi/networkmenu/"
-theme='snorlax-line'
-if [ "$#" -eq 1 ]; then
-    theme="$1"
-fi
+source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/notify.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/rescanwifinetworks.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/connect.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/deleteconnection.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/togglewifi.sh"
+source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/togglenetwork.sh"
+source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-# prompts
-prompt_options='Network Options'
+
+rofi_theme_setup "$ROFI_CONFIG_FOLDER/networkmenu" "$1" 'network menu'
 
 # options
 # rescan wifi networks
@@ -24,21 +20,10 @@ prompt_options='Network Options'
 # toggle networking
 options=('connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'toggle-wifi' 'toggle-networking')
 
-# Rofi CMD
-rofi_cmd() {
-    if [ -f "${dir}/${theme}.rasi" ]; then
-        rofi -dmenu \
-            -p "$1" \
-            -theme ${dir}/${theme}.rasi
-    else
-        rofi -dmenu \
-            -p "$1"
 
-    fi
-}
 
 print_options() {
-    echo -e "$(for opt in ${options[@]}; do echo "$opt"; done)" | rofi_cmd "${prompt_options}"
+    echo -e "$(for opt in ${options[@]}; do echo "$opt"; done)" | rofi_cmd "$prompt"
 
 }
 

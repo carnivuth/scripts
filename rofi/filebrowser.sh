@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+#OBSLOETE!!!!!!!!!
+
 dir="$HOME/.config/rofi/filebrowser/"
 theme='snorlax-line'
 if [ "$#" -eq 1 ]; then
