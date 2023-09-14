@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+
+#OBSLOETE!!!!!!!!!
+
 dir="$HOME/.config/rofi/networkmanager/"
 theme='snorlax-line'
 
