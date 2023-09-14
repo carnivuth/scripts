@@ -11,13 +11,13 @@ array_importer "$SCRIPTS_HOME_FOLDER/rofi/ndslauncher/folders.sh" "$HOME"
 
 # rofi cmd
 print_roms() {
-	for dir in ${ARRAY[@]}; do echo -e "$(ls  "$dir"/)" ; done | rev| cut -d'.' -f2- | rev  | rofi_cmd
+	for dir in ${ARRAY[@]}; do echo -e "$(ls  "$dir"/*)" ; done   | rofi_cmd
 }
 # main
 chosen="$(print_roms)"
 echo $chosen
 # open selected folder on $1 parameter default code
-if [ -f "$FOLDER/$chosen.nds" ]; then
-	desmume "$FOLDER/$chosen.nds" &
+if [ -f "$chosen" ]; then
+	desmume "$chosen" &
 
 fi
