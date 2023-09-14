@@ -29,3 +29,10 @@
     - script for metadata editing
     - script for downloading youtube playlists
     - script for cutting videos 
+## PROJECT STRUCTURE
+ `/lib` contains some utitilities that are used by the rofi applets
+
+## INSTALLATION
+ - clone repo under home directory
+ - `cp settings.sh.sample settings.sh`
+ - adjust `settings.sh` values 
