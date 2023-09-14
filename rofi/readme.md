@@ -1,5 +1,6 @@
 # ROFI APPLETS
  - this folder contains some rofi applets for everyday workflow
+ ## STYLE
  - there are no styles so you can customize it with your own 
     - the style folder structure must be as follow
     ~~~
@@ -15,4 +16,3 @@
                 |
                 ---"....."
     ~~~
-
