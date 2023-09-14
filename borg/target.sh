@@ -1,1 +1,1 @@
-TARGET="$HOME"
+ARRAY=("$HOME")
