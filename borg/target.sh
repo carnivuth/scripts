@@ -1,1 +1,1 @@
-ARRAY=("$HOME")
+ARRAY=("$HOME" "$HOME/.config")
