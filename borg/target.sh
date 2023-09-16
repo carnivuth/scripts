@@ -1,1 +1,1 @@
-ARRAY=("$HOME" "$HOME/.config")
+ARRAY=("$HOME" "$HOME/.config" "$HOME/Musica" "$HOME/Immagini" "$HOME/Video")

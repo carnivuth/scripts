@@ -15,5 +15,5 @@ export BORG_PASSCOMMAND="secret-tool lookup borg-repository home"
 
 for TARGET in ${ARRAY[@]}; do 
     NAME="$(echo $TARGET | rev | cut -d '/' -f 1 | rev)"
-    borg create --info "$BACKUP_FOLDER::$NAME-$(date +%c)" "$TARGET" 2>> "$SCRIPTS_LOGS_FOLDER/home_backup.logs" >> "$SCRIPTS_LOGS_FOLDER/home_backup.logs"
+    borg create --info "$BACKUP_FOLDER::$NAME-$(date +%c)" "$TARGET" 2>> "$SCRIPTS_LOGS_FOLDER/home_backup.logs" >> "$SCRIPTS_LOGS_FOLDER/home_backup.logs" &
  done
