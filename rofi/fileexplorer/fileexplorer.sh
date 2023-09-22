@@ -7,10 +7,10 @@ rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 'file explorer'
 max_size=50
 
 get_history(){
-	cat "$SCRIPTS_RUN_FOLDER/fileexplorer.history" |uniq | tail -n5 
+	cat "$SCRIPTS_LOCAL_FOLDER/fileexplorer.history" |uniq | tail -n5 
 }
 get_history_size(){
-	 wc -l "$SCRIPTS_RUN_FOLDER/fileexplorer.history"  | cut -d" " -f1
+	 wc -l "$SCRIPTS_LOCAL_FOLDER/fileexplorer.history"  | cut -d" " -f1
 }
 
 print_contents() {
@@ -33,14 +33,14 @@ done
 #open file
 if [[ -f "$curpath/$chosen" || -f "$chosen" ]]; then
 	if [[ "$(get_history_size)" -gt $max_size ]];then 
-		rm "$SCRIPTS_RUN_FOLDER/fileexplorer.history"
+		rm "$SCRIPTS_LOCAL_FOLDER/fileexplorer.history"
 	fi
 	case $chosen in
 	/*)
 		xdg-open "$chosen"
 		;;
 	*) 
-		echo "$curpath/$chosen" >> "$SCRIPTS_RUN_FOLDER/fileexplorer.history"
+		echo "$curpath/$chosen" >> "$SCRIPTS_LOCAL_FOLDER/fileexplorer.history"
 		xdg-open "$curpath/$chosen"
 		 ;;
 	esac
