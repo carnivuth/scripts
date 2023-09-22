@@ -11,7 +11,7 @@ if [[ "$1" == "--help" ]]; then
     echo "-a:   awk program file to get artist from filename -a ''awk program''"
     echo "-l:   awk program file to get album from filename -l ''awk program''"
     echo "-f:   format of audio files"
-    echo "some program examples:"
+    echo "some awk program examples:"
     echo "get song title from a 'artist-title' filename and trim withespaces: " 
     echo '  BEGIN{FS="-"}{gsub(/^[ \t]+|[ \t]+$/, "");print $2}' 
     exit 0
@@ -39,10 +39,10 @@ while getopts t:a:l:f: flag; do
     esac
 done
 
-echo "TITLE_PROGRAM: $TITLE_PROGRAM"
-echo "ARTIST_PROGRAM: $ARTIST_PROGRAM"
-echo "ALBUM_PROGRAM: $ALBUM_PROGRAM"
-echo "FILE_FORMAT: $FILE_FORMAT"
+echo "TITLE_PROGRAM: $TITLE_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+echo "ARTIST_PROGRAM: $ARTIST_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+echo "ALBUM_PROGRAM: $ALBUM_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+echo "FILE_FORMAT: $FILE_FORMAT" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 
 if [[ ! -d "$SRC_FOLDER" ]]; then
     echo "first parameter must be a folder"
@@ -62,7 +62,7 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
 
     # get name file
     NAME="$(echo $FILE | rev | cut -d"/" -f1 |cut -d"." -f2| rev )"
-    echo $NAME
+
     # get metadata values from names
     if [[ "$ARTIST_PROGRAM" != '' ]]; then
         ARTIST="$(echo $NAME | awk -E "$ARTIST_PROGRAM")"
@@ -75,7 +75,7 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
         TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM")"
     fi
     # print logs
-    echo " processing $NAME file with $TITLE - $ALBUM - $ARTIST metadata " >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+    echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 
     # ffmpeg decoding
     ffmpeg -y -i "$FILE" -acodec copy -metadata album="$ALBUM" -metadata title="$TITLE" -metadata artist="$ARTIST" "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT" 2>>"$SCRIPTS_LOGS_FOLDER/metadata.logs" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
