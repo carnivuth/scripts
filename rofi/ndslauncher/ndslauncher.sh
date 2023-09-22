@@ -17,7 +17,15 @@ print_roms() {
 chosen="$(print_roms)"
 echo $chosen
 # open selected folder on $1 parameter default code
-if [ -f "$chosen" ]; then
-	desmume "$chosen" &
 
+if [ -f "$chosen" ]; then
+
+	if [[ $chosen == *.nds ]];then
+	
+		desmume "$chosen" &
+	
+	elif [[ $chosen == *.gba  ]]; then
+    
+	   mgba "$chosen" &	
+fi
 fi
