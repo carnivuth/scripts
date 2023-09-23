@@ -39,6 +39,7 @@ while getopts t:a:l:f: flag; do
     esac
 done
 
+# log metadata programs
 echo "TITLE_PROGRAM: $TITLE_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 echo "ARTIST_PROGRAM: $ARTIST_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 echo "ALBUM_PROGRAM: $ALBUM_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
@@ -74,7 +75,7 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
     if [[ "$TITLE_PROGRAM" != '' ]]; then
         TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM")"
     fi
-    # print logs
+    # log metadata
     echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 
     # ffmpeg decoding
