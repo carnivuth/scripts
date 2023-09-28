@@ -6,14 +6,12 @@ rofi_theme_setup "$ROFI_CONFIG_FOLDER/launcher" "$1" "run applications"
 
 if [ -f "${dir}/${theme}.rasi" ]; then
 
-    ## Run
-    rofi \
-        -show drun \
-        -theme ${dir}/${theme}.rasi
-
-else
-    ## Run without theme
-    rofi \
-        -show drun
+     rofi -show drun \
+            -p "$1" \
+            -config ${dir}/${theme}.rasi
+    else
+        rofi -show drun \
+            -p "$1" \
+            -config $DEFAULT_THEME_PATH
 
 fi

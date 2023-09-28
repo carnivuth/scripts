@@ -3,6 +3,7 @@
 # $1 absolute path to theme directory
 # $2 theme filename without extension
 # $3 rofi prompt
+source "$HOME/scripts/settings.sh"
 rofi_theme_setup() {
     dir="$1"
     theme="$DEFAULT_THEME"
@@ -16,10 +17,12 @@ rofi_cmd() {
     if [ -f "${dir}/${theme}.rasi" ]; then
         rofi -dmenu \
             -p "$1" \
-            -theme ${dir}/${theme}.rasi
+            -config ${dir}/${theme}.rasi
     else
         rofi -dmenu \
-            -p "$1"
+            -p "$1" \
+            -config $DEFAULT_THEME_PATH
+
 
     fi
 }
