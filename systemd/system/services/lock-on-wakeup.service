@@ -1,0 +1,11 @@
+[Unit]
+Description=Lock screen when waking up
+Before=sleep.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=dm-tool lock ; sleep 2
+Environment=XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+
+[Install]
+WantedBy=sleep.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
