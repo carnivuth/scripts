@@ -1,6 +1,0 @@
-[Unit]
-Description=create home backup 
-
-
-[Service]
-ExecStart=/home/matteo/scripts/borg/home_backup.sh 
