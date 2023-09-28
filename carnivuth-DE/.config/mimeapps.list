@@ -1,0 +1,30 @@
+[Default Applications]
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop
+x-scheme-handler/eclipse+installer=_home_matteo_Downloads_eclipse-installer_.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-J8DZ71.desktop
+message/rfc822=userapp-Thunderbird-J8DZ71.desktop
+x-scheme-handler/mid=userapp-Thunderbird-J8DZ71.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-NKB071.desktop
+text/calendar=userapp-Thunderbird-NKB071.desktop
+application/x-extension-ics=userapp-Thunderbird-NKB071.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-NKB071.desktop
+application/pdf=mupdf.desktop
+image/png=mupdf.desktop
+image/jpeg=mupdf.desktop
+application/link=firefox.desktop
+inode/directory=thunar.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+x-scheme-handler/discord-694795560288256021=discord-694795560288256021.desktop
+audio/mpeg=vlc.desktop
+video/mp4=vlc.desktop
+audio/opus=vlc.desktop
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-J8DZ71.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-J8DZ71.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-NKB071.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-NKB071.desktop;

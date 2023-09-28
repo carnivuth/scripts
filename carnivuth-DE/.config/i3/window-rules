@@ -1,0 +1,23 @@
+#remove borders from i3 windows
+for_window [class="^.*"] border pixel 0
+
+# set floating as default configuration for some programs
+for_window [class="Thunar"] floating enabled ; move position center
+for_window [class="Blueman-manager"] floating enabled ; move position center
+for_window [class="Pavucontrol"] floating enabled; move position center
+for_window [title="Steam - News"] floating enabled; move position center
+for_window [title="Save As"] floating enabled; move position center
+for_window [title="LXRAD Window"] floating enabled; move position center
+for_window [class="Lxappearance"] floating enabled ; move position center
+for_window [class="Lightdm-gtk-greeter-settings"] floating enabled; move position center
+for_window [class="Telegram"] floating enabled; move position center;
+for_window [class="Conky"] floating enabled; move position center
+#for_window [class="vlc"] floating enabled; move position center
+for_window [class="mpv"] floating enabled; move position center
+
+#lock spotify to workspace 10
+for_window [class="Spotify"] move to workspace $ws10; workspace number $ws10
+
+#lock steam games to workspace 10
+for_window [class="steam_app_*"] floating disabled;
+for_window [class="steam_app_*"] move to workspace $ws10; workspace number $ws10
