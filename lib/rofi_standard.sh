@@ -18,11 +18,12 @@ rofi_cmd() {
         rofi -dmenu \
             -p "$1" \
             -config ${dir}/${theme}.rasi
-    else
+    elif [ -f "${DEFAULT_THEME_PATH}/${theme}.rasi" ]; then
         rofi -dmenu \
             -p "$1" \
-            -config $DEFAULT_THEME_PATH
-
-
+            -config ${DEFAULT_THEME_PATH}/${theme}.rasi
+    else
+        rofi -dmenu \
+            -p "$1" 
     fi
 }
