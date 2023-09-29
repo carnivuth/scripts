@@ -98,7 +98,7 @@ bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id $folder/rofi/launcher.sh default-line-bottom
-bindsym $mod+Shift+d exec --no-startup-id $folder/rofi/launcher.sh default-center:
+bindsym $mod+Shift+d exec --no-startup-id $folder/rofi/launcher.sh default-center
 
 #change focus
 # alternatively, you can use the cursor keys:
