@@ -15,7 +15,15 @@
 
 
 ## ROFI APPLETS
- - i made a lot of rofi applets for day to day use
+ - i made a lot of rofi applets for day to day use:
+- - launch application script
+- - network menu script
+- - open project with different ides
+- - power menu applet
+- - quicklinks applet
+- - quicksearch applet
+- - music player applet
+- - file explorer with history applet
  ### STYLE  
 - the rofi config folder structure must be as follow
 
