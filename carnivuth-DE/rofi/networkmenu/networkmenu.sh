@@ -2,12 +2,12 @@
 
 # source files
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/notify.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/rescanwifinetworks.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/connect.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/deleteconnection.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/togglewifi.sh"
-source "$SCRIPTS_HOME_FOLDER/rofi/networkmenu/togglenetwork.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/notify.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/rescanwifinetworks.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/connect.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/deleteconnection.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/togglewifi.sh"
+source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/togglenetwork.sh"
 source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
 
