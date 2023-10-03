@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages 
 echo 'installing packages'
-packets='pavucontrol firefox brightnessctl code alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc'
+packets='pavucontrol firefox brightnessctl code alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman'
 sudo pacman -S $packets
 
 # copy config files
