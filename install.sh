@@ -1,4 +1,5 @@
 #!/bin/bash
+cp settings.sh.sample setting.sh
 source "$HOME/scripts/settings.sh"
 
 # install DE
