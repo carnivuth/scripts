@@ -187,8 +187,8 @@ bindsym $mod+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.s
 bindsym $mod+Shift+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-center
 
 #launch nds game launcher
-bindsym $mod+g exec --no-startup-id $folder/rofi/ndslauncher/ndslauncher.sh default-line-bottom
-bindsym $mod+Shift+g exec --no-startup-id $folder/rofi/ndslauncher/ndslauncher.sh default-center
+bindsym $mod+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-line-bottom
+bindsym $mod+Shift+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-center
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
