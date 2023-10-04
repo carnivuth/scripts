@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
 source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
 
-rofi_theme_setup $ROFI_CONFIG_FOLDER/musicplayer "$2" "music player"
+rofi_theme_setup $ROFI_CONFIG_FOLDER/musicplayer "$1" "music player"
 
 #import values from array
 array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/musicplayer/folders.sh" "$HOME"
