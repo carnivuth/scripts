@@ -186,7 +186,7 @@ bindsym $mod+Shift+j exec --no-startup-id $folder/rofi/launchprojects/launchproj
 bindsym $mod+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-line-bottom
 bindsym $mod+Shift+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-center
 
-#launch nds game launcher
+#launch github repo viewer
 bindsym $mod+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-line-bottom
 bindsym $mod+Shift+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-center
 
