@@ -6,5 +6,5 @@ echo -e "
 [color]
     background=     ${COLORS[13]}
     foreground=     ${COLORS[0]}
-    icon=          ${COLORS[1]}
+    icon=          ${COLORS[2]}
 " > "$HOME/.config/polybar/colors/wal-colors.ini"
