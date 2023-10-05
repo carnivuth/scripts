@@ -4,8 +4,6 @@ bluetooth_print() {
     bluetoothctl | while read -r; do
         if [ "$(systemctl is-active "bluetooth.service")" == "active" ] && [ "$(bluetoothctl show | grep -o "Powered: yes")" == "Powered: yes" ]; then
             echo 'On'
-            notify-send -a 'bluetooth' 'bluetooth is on' 'bluetooth is on'
-
             devices_paired=$(bluetoothctl devices Paired | grep Device | cut -d ' ' -f 2)
             counter=0
 
@@ -27,7 +25,6 @@ bluetooth_print() {
 
         else
             echo 'Off'
-            notify-send -a 'bluetooth' 'bluetooth is off' 'bluetooth is off'
 
         fi
     done
