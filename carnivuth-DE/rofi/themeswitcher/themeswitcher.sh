@@ -14,7 +14,7 @@ array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/themeswitcher/folders.sh"
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*; done)" | rofi_cmd
+	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*; done)" | rofi_cmd "${prompt}"
 
 }
 # main
