@@ -5,11 +5,11 @@ host="$(cat /etc/hostname)"
 rofi_theme_setup "$ROFI_CONFIG_FOLDER/powermenu" "$1" "$host"
 
 # Options
-shutdown=' shutdown'
-reboot=' reboot' 
-lock=' lock'
-suspend=' suspend'
-logout=' logout'
+shutdown=''
+reboot='' 
+lock=''
+suspend=''
+logout=''
 
 
 run_rofi() {

@@ -167,7 +167,8 @@ bindsym $mod+Shift+Print exec --no-startup-id flameshot gui &
 bindsym $mod+t exec --no-startup-id telegram-desktop  
 
 #launch powermenu
-bindsym $mod+p exec --no-startup-id $folder/rofi/powermenu.sh default-line-bottom
+bindsym $mod+p exec --no-startup-id $folder/rofi/powermenu.sh default-center
+bindsym $mod+Shift+p exec --no-startup-id $folder/rofi/powermenu.sh default-line-bottom
 
 # launch browser
 bindsym $mod+s exec --no-startup-id $folder/rofi/quicksearch.sh default-line-bottom

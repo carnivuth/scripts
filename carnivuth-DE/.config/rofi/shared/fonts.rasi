@@ -1,6 +1,8 @@
 * {
-    //font: "Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular";
-    
-//font: "Hack:style=Regular 10";
-font: "JetBrains Mono Nerd Font 10";
+font: "Font Awesome 6 Free,Font Awesome 6 Free Solid:style=Solid:size=13;4";
+font: "Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular:size=13;4";
+font: "Font Awesome v4 Compatibility,Font Awesome v4 Compatibility Regular:style=Regular:size=13;4";
+font: "Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular:size=13;4";
+font: "Hack:style=Regular 10";
+
 }
