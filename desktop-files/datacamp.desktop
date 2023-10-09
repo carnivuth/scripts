@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Datacamp
+Comment=Datacamp website
+Icon=firefox
+Exec=firefox --new-window 'https://app.datacamp.com' 
+Terminal=false
+Categories=Learning
