@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Proxmox
-Comment=Proxmox admin panel
-Icon=firefox
-Exec=firefox --new-window 'https://snorlax:8006' 
-Terminal=false
-Categories=Homelab,server
