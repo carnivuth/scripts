@@ -14,7 +14,7 @@ array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/themeswitcher/folders.sh"
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*.png; done)" | rofi_cmd "${prompt}"
+	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*.png;ls -d "$dir"/*.jpg;ls -d "$dir"/*.jpeg; done)" | rofi_cmd "${prompt}"
 
 }
 # main
