@@ -65,17 +65,17 @@ error-message {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     5;
-    lines:                       1;
+    columns:                     1;
+    lines:                       5;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
-    layout:                      vertical;
+    layout:                      horizontal;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     15px;
+    spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -87,8 +87,8 @@ listview {
 element {
     enabled:                     true;
     spacing:                     0px;
-    margin:                      0px;
-    padding:                     40px 10px;
+    margin:                      0px 20px;
+    padding:                     40px 40px;
     border:                      0px solid;
     border-radius:               0px;
     cursor:                      pointer;
