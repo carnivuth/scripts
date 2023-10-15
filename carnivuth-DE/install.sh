@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='ttf-dejavu mpv thunderbird thunar adwaita-icon-theme pop-icon-theme pavucontrol firefox brightnessctl ttf-font-awesome code python-pywal alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman dunst'
+packets='lightdm-webkit2-greeter lightdm-webkit-theme-litarvan light-locker lightdm ttf-dejavu mpv thunderbird thunar adwaita-icon-theme pop-icon-theme pavucontrol firefox brightnessctl ttf-font-awesome code python-pywal alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman dunst'
 sudo pacman -S $packets
 
 # copy config files
@@ -32,3 +32,6 @@ cat $HOME/.config/gtk-4.0/bookmarks | while read folder; do
         mkdir -p "/$f"
     fi
 done
+
+
+

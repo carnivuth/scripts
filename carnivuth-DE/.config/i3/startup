@@ -10,6 +10,9 @@ exec --no-startup-id nm-applet
 #detect monitor layout
 exec_always --no-startup-id autorandr -c
 
+#enable lock daemon
+exec_always --no-startup-id light-locker --lock-on-lid 
+
 #start polybar
 exec_always --no-startup-id  .config/polybar/modernbar/launch.sh
 

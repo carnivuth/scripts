@@ -222,7 +222,7 @@ bindsym $mod+k exec --no-startup-id conky
 bindsym $mod+Shift+r restart
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "dm-tool lock "
+bindsym $mod+l exec --no-startup-id "light-locker-command -l"
 
 #exit i3
 bindsym $mod+Shift+q exit
