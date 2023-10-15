@@ -97,8 +97,8 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id $folder/rofi/launcher.sh default-line-bottom
-bindsym $mod+Shift+d exec --no-startup-id $folder/rofi/launcher.sh default-center
+bindsym $mod+Shift+d exec --no-startup-id $folder/rofi/launcher.sh default-line-bottom
+bindsym $mod+d exec --no-startup-id $folder/rofi/launcher.sh default-center
 
 #change focus
 # alternatively, you can use the cursor keys:
@@ -171,7 +171,8 @@ bindsym $mod+p exec --no-startup-id $folder/rofi/powermenu.sh default-center
 bindsym $mod+Shift+p exec --no-startup-id $folder/rofi/powermenu.sh default-line-bottom
 
 # launch browser
-bindsym $mod+s exec --no-startup-id $folder/rofi/quicksearch.sh default-line-bottom
+bindsym $mod+s exec --no-startup-id $folder/rofi/quicksearch.sh default-center
+bindsym $mod+Shift+s exec --no-startup-id $folder/rofi/quicksearch.sh default-line-bottom
 
 # launch filemanager
 bindsym $mod+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-line-bottom
