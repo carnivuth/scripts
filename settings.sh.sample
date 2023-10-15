@@ -16,3 +16,5 @@ SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
 DEFAULT_THEME="default-line-bottom"
 DEFAULT_THEME_PATH="$ROFI_CONFIG_FOLDER/default"
 FLAMESHOT_FOLDER="$HOME/Images/screenshots"
+#no space allowed only absolute paths
+GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\n"
