@@ -13,7 +13,7 @@ cp -r "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.config/"* "$HOME/.config/"
 # setting up flameshot savePath folder
 echo 'setting flameshot savePath folder'
 if [[ ! -d "$FLAMESHOT_FOLDER" ]]; then
-    mkdir "$FLAMESHOT_FOLDER"
+    mkdir -p "$FLAMESHOT_FOLDER"
 fi
 echo "savePath=$FLAMESHOT_FOLDER" >>"$HOME/.config/flameshot/flameshot.ini"
 
@@ -28,6 +28,6 @@ echo 'creating bookmarks folders'
 cat $HOME/.config/gtk-4.0/bookmarks | while read folder; do
     f=$(echo $folder | cut -d '/' -f 4-)
     if [[ ! -d "/$f" ]]; then
-        mkdir "/$f"
+        mkdir -p "/$f"
     fi
 done
