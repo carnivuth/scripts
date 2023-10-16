@@ -1,2 +1,3 @@
 - fix wierd autorandr behaviour
 - fix i3 workspaces disposition
+- - fixed with installation script and settings file 
