@@ -33,5 +33,11 @@ cat $HOME/.config/gtk-4.0/bookmarks | while read folder; do
     fi
 done
 
+# enabling lightdm
+echo 'enabling lightdm'
+sudo systemctl enable lightdm
 
-
+# configuring workspaces on multiple monitors
+echo 'configuring workspaces on multiple monitors'
+sed -i "s/set \$screen1 /set \$screen1 $SCREEN1/g" $HOME/.config/i3/bindings
+sed -i "s/set \$screen2 /set \$screen2 $SCREEN2/g" $HOME/.config/i3/bindings

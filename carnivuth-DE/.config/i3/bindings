@@ -13,17 +13,19 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $screen1 
+set $screen2 
 # set workspace on all monitors
-workspace $ws1 output eDP-1 
-workspace $ws2 output HDMI-1-0
-workspace $ws3 output eDP-1 
-workspace $ws4 output HDMI-1-0
-workspace $ws5 output eDP-1 
-workspace $ws6 output HDMI-1-0
-workspace $ws7 output eDP-1 
-workspace $ws8 output HDMI-1-0
-workspace $ws9 output eDP-1 
-workspace $ws10 output HDMI-1-0
+workspace $ws1 output $screen1 
+workspace $ws2 output $screen2
+workspace $ws3 output $screen1 
+workspace $ws4 output $screen2
+workspace $ws5 output $screen1 
+workspace $ws6 output $screen2
+workspace $ws7 output $screen1 
+workspace $ws8 output $screen2
+workspace $ws9 output $screen1 
+workspace $ws10 output $screen2
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
