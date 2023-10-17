@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='at'
+packets='at yt-dlp ffmpeg awk'
 sudo pacman -S $packets
 
 # copy config files
