@@ -3,7 +3,7 @@
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
 
-array_importer "$SCRIPTS_HOME_FOLDER/borg/target.sh" "$HOME" 
+array_importer "$SCRIPTS_HOME_FOLDER/systemd/scripts/target.sh" "$HOME" 
 
 #folder where backups are stored
 BACKUP_FOLDER="/storage/borg"
