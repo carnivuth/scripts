@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"46a9781a59d05683","x":140,"y":-400,"width":250,"height":84,"type":"text","text":"# PROGETTO SCRIPTS"},
+		{"id":"9f66c691b6852708","type":"text","text":"# FUNZIONALITA DI BACKUP CONFIGURAZIONI","x":-420,"y":-180,"width":319,"height":128},
+		{"id":"18ec09a546ae1178","x":440,"y":-180,"width":250,"height":60,"type":"text","text":"# UTILITIES"},
+		{"id":"df1e615d2ca0ba53","type":"text","text":"#BUG controllare file di settings cartelle home_backup script","x":265,"y":160,"width":250,"height":87},
+		{"id":"11c5bb08ebab3c36","x":377,"y":-53,"width":250,"height":60,"type":"text","text":"#  HOME_BACKUP"}
+	],
+	"edges":[
+		{"id":"9af0d3d5ed7d676b","fromNode":"11c5bb08ebab3c36","fromSide":"bottom","toNode":"df1e615d2ca0ba53","toSide":"top"},
+		{"id":"fe96edd510e7408e","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"9f66c691b6852708","toSide":"top"},
+		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
+		{"id":"b7e5119fd6a99276","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"}
+	]
+}
