@@ -1,15 +1,17 @@
 {
 	"nodes":[
-		{"id":"46a9781a59d05683","x":140,"y":-400,"width":250,"height":84,"type":"text","text":"# PROGETTO SCRIPTS"},
-		{"id":"9f66c691b6852708","type":"text","text":"# FUNZIONALITA DI BACKUP CONFIGURAZIONI","x":-420,"y":-180,"width":319,"height":128},
-		{"id":"18ec09a546ae1178","x":440,"y":-180,"width":250,"height":60,"type":"text","text":"# UTILITIES"},
-		{"id":"df1e615d2ca0ba53","type":"text","text":"#BUG controllare file di settings cartelle home_backup script","x":265,"y":160,"width":250,"height":87},
-		{"id":"11c5bb08ebab3c36","x":377,"y":-53,"width":250,"height":60,"type":"text","text":"#  HOME_BACKUP"}
+		{"id":"46a9781a59d05683","type":"text","text":"# PROGETTO SCRIPTS","x":140,"y":-400,"width":250,"height":84},
+		{"id":"95604445afa272cf","x":480,"y":-446,"width":250,"height":177,"type":"text","text":"#external_tag_file script che fanno uso della funzione array importer per caricare da file un array configurabile su cui eseguire operazioni"},
+		{"id":"9f66c691b6852708","type":"text","text":"# FUNZIONALITA DI BACKUP CONFIGURAZIONI","x":-360,"y":-118,"width":319,"height":128},
+		{"id":"df1e615d2ca0ba53","type":"text","text":"#FIXED controllare file di settings cartelle home_backup script","x":0,"y":300,"width":250,"height":87},
+		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #external_path_file per configurare le cartelle target per il backup","x":100,"y":-20,"width":250,"height":226},
+		{"id":"18ec09a546ae1178","type":"text","text":"# UTILITIES","x":320,"y":-178,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"9af0d3d5ed7d676b","fromNode":"11c5bb08ebab3c36","fromSide":"bottom","toNode":"df1e615d2ca0ba53","toSide":"top"},
 		{"id":"fe96edd510e7408e","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"9f66c691b6852708","toSide":"top"},
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
-		{"id":"b7e5119fd6a99276","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"}
+		{"id":"b7e5119fd6a99276","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"},
+		{"id":"32a8fd5680ab3884","fromNode":"46a9781a59d05683","fromSide":"right","toNode":"95604445afa272cf","toSide":"left"}
 	]
 }
