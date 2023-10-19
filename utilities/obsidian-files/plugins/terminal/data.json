@@ -7,7 +7,6 @@
   "focusOnNewInstance": true,
   "hideStatusBar": "focused",
   "language": "",
-  "lastReadChangelogVersion": "3.12.3",
   "newInstanceBehavior": "newHorizontalSplit",
   "noticeTimeout": 5,
   "openChangelogOnUpdate": true,
@@ -61,7 +60,7 @@
     },
     "linuxExternalDefault": {
       "args": [],
-      "executable": "alacritty",
+      "executable": "xterm",
       "name": "",
       "platforms": {
         "linux": true
@@ -127,6 +126,5 @@
       "type": "integrated",
       "useWin32Conhost": true
     }
-  },
-  "recovery": {}
+  }
 }
