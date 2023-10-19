@@ -27,14 +27,16 @@ if [[ ! -d "$vault" ]]; then
     mkdir -p "$vault"
 fi
 
-echo "create subfolders "
 if [[ ! -d "$vault/journals" ]]; then
+    echo "create subfolders journals"
     mkdir "$vault/journals"
 fi
 if [[ ! -d "$vault/assets" ]]; then
+    echo "create subfolders assets"
     mkdir "$vault/assets"
 fi
 if [[ ! -d "$vault/pages" ]]; then
+    echo "create subfolders pages"
     mkdir "$vault/pages"
 fi
 
