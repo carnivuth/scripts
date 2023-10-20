@@ -42,7 +42,7 @@ fi
 
 if [[ ! -d "$vault/.obsidian" || "$reset" == '1' ]]; then
     echo "copying obsidian files"
-    cp -r $SCRIPTS_HOME_FOLDER/utilities/obsidian-files "$vault/.obsidian"
+    cp -r $SCRIPTS_HOME_FOLDER/utilities/obsidian-files/* "$vault/.obsidian"
 fi
 
 # create git repo if --git is set
