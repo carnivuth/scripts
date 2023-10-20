@@ -1,19 +1,21 @@
 {
 	"nodes":[
-		{"id":"3cc73a33f7d1f315","x":720,"y":-54,"width":250,"height":326,"type":"file","file":"CREATE_OBSIDIAN_VAULT.md"},
 		{"id":"46a9781a59d05683","type":"text","text":"# PROGETTO SCRIPTS","x":140,"y":-400,"width":250,"height":84},
 		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file script che fanno uso della funzione array importer per caricare da file un array configurabile su cui eseguire operazioni","x":480,"y":-446,"width":250,"height":177},
 		{"id":"9f66c691b6852708","type":"text","text":"# FUNZIONALITA DI BACKUP CONFIGURAZIONI","x":-360,"y":-118,"width":319,"height":128},
-		{"id":"df1e615d2ca0ba53","type":"text","text":"#FIXED controllare file di settings cartelle home_backup script","x":0,"y":300,"width":250,"height":87},
 		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #external_path_file per configurare le cartelle target per il backup","x":100,"y":-20,"width":250,"height":226},
-		{"id":"18ec09a546ae1178","type":"text","text":"# UTILITIES","x":320,"y":-178,"width":250,"height":60}
+		{"id":"18ec09a546ae1178","type":"text","text":"# UTILITIES","x":320,"y":-178,"width":250,"height":60},
+		{"id":"3cc73a33f7d1f315","type":"file","file":"CREATE_OBSIDIAN_VAULT.md","x":980,"y":-118,"width":434,"height":254},
+		{"id":"bcb141bfbfa2ca48","x":520,"y":93,"width":320,"height":388,"type":"file","file":"pages/UPDATE_VAULTS.md"}
 	],
 	"edges":[
-		{"id":"9af0d3d5ed7d676b","fromNode":"11c5bb08ebab3c36","fromSide":"bottom","toNode":"df1e615d2ca0ba53","toSide":"top"},
 		{"id":"fe96edd510e7408e","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"9f66c691b6852708","toSide":"top"},
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
 		{"id":"b7e5119fd6a99276","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"},
 		{"id":"32a8fd5680ab3884","fromNode":"46a9781a59d05683","fromSide":"right","toNode":"95604445afa272cf","toSide":"left"},
-		{"id":"99d4095dc8510738","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"3cc73a33f7d1f315","toSide":"top"}
+		{"id":"99d4095dc8510738","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"3cc73a33f7d1f315","toSide":"top"},
+		{"id":"e0895df7d3e43688","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"bcb141bfbfa2ca48","toSide":"top"},
+		{"id":"5779f012746dfbd5","fromNode":"bcb141bfbfa2ca48","fromSide":"right","toNode":"3cc73a33f7d1f315","toSide":"left"},
+		{"id":"8d956545f7c9aea1","fromNode":"3cc73a33f7d1f315","fromSide":"left","toNode":"bcb141bfbfa2ca48","toSide":"right"}
 	]
 }
