@@ -3,4 +3,8 @@
 - add option for git repo creation
 - add new plugins
 - support for updating config files
-
+- options 
+- `--git`
+	- create a git repository with gitignore and first commit
+-  `--reset`
+	- recreate `.obsidian` folder with config from `utilities/obsidian-files` folder 
