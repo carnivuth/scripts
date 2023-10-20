@@ -8,3 +8,6 @@ settings.sh
 vaults
 workspace.json
 target.sh
+configfiles
+systemfiles
+homefiles
