@@ -5,8 +5,9 @@
 		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #datafile #external_data_file `target.sh` to configure folder's path to backup with borg under `systemd/scripts`\n- format [ARRAY_DATA_FILE](ARRAY_DATA_FILE.md)","x":100,"y":40,"width":250,"height":334},
 		{"id":"18ec09a546ae1178","type":"text","text":"# UTILITIES","x":320,"y":-178,"width":250,"height":60},
 		{"id":"3cc73a33f7d1f315","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":980,"y":-118,"width":434,"height":437},
-		{"id":"bcb141bfbfa2ca48","x":520,"y":93,"width":320,"height":388,"type":"file","file":"pages/UPDATE_VAULTS.md"},
-		{"id":"47d1ac6d9b795fe1","x":-500,"y":-581,"width":300,"height":348,"type":"file","file":"pages/ARRAY_DATA_FILE.md"}
+		{"id":"bcb141bfbfa2ca48","type":"file","file":"pages/UPDATE_VAULTS.md","x":520,"y":93,"width":320,"height":388},
+		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-500,"y":-581,"width":300,"height":348},
+		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-540,"y":30,"width":450,"height":355}
 	],
 	"edges":[
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
@@ -16,6 +17,7 @@
 		{"id":"e0895df7d3e43688","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"bcb141bfbfa2ca48","toSide":"top"},
 		{"id":"5779f012746dfbd5","fromNode":"bcb141bfbfa2ca48","fromSide":"right","toNode":"3cc73a33f7d1f315","toSide":"left"},
 		{"id":"8d956545f7c9aea1","fromNode":"3cc73a33f7d1f315","fromSide":"left","toNode":"bcb141bfbfa2ca48","toSide":"right"},
-		{"id":"ef5e586dd148cd58","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"47d1ac6d9b795fe1","toSide":"right"}
+		{"id":"ef5e586dd148cd58","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"47d1ac6d9b795fe1","toSide":"right"},
+		{"id":"1788fd62fe246d78","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"ea9b1da6c494331f","toSide":"top"}
 	]
 }

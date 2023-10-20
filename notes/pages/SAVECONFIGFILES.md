@@ -1,0 +1,6 @@
+- #datafile  under `utilities/backup-files` to edit files to copy
+- files are 
+	- `configfiles` for files under `.config` folder 
+	- `systemfiles` for files under `$HOME` folder
+	- `homefiles` for files under `/etc` folder
+- the scripts copy all files under the `$SCRIPTS_VAR_FOLDER` and compress them in `$SCRIPTS_LOCAL_FOLDER`
