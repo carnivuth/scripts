@@ -5,5 +5,5 @@ secret.sh
 history
 settings.sh
 *.awk
-
+vaults
 workspace.json
