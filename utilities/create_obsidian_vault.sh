@@ -2,7 +2,7 @@
 source "$HOME/scripts/settings.sh"
 
 if [[ "$1" == '--help' ]]; then
-    echo 'usage create_obsidian_folder.sh <vault path> [--git] [--reset]' 
+    echo 'usage create_obsidian_folder.sh <vault path> [--git] [--reset]'
     exit 0
 fi
 
@@ -54,13 +54,9 @@ if [[ "$git" == '1' ]]; then
         cd "$vault"
         git init
     fi
-    echo "creating gitignore"
     if [[ ! -f "$vault/.gitignore" ]]; then
+        echo "creating gitignore"
         echo '.obsidian/workspace.json' >"$vault/.gitignore"
-        echo "commiting gitignore"
-        cd "$vault"
-        git add .gitignore
-        git commit -m 'added gitignore'
 
     fi
 fi
