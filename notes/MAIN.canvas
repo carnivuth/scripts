@@ -7,7 +7,9 @@
 		{"id":"3cc73a33f7d1f315","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":980,"y":-118,"width":434,"height":437},
 		{"id":"bcb141bfbfa2ca48","type":"file","file":"pages/UPDATE_VAULTS.md","x":520,"y":93,"width":320,"height":388},
 		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-500,"y":-581,"width":300,"height":348},
-		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-540,"y":30,"width":450,"height":355}
+		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-540,"y":30,"width":450,"height":355},
+		{"id":"a657f2dab203a72e","type":"text","text":"# ROFI MENUS","x":165,"y":-731,"width":250,"height":60},
+		{"id":"1e96d4fe1380170b","type":"file","file":"pages/VAULTLAUNCHER.md","x":360,"y":-960,"width":320,"height":60}
 	],
 	"edges":[
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
@@ -18,6 +20,8 @@
 		{"id":"5779f012746dfbd5","fromNode":"bcb141bfbfa2ca48","fromSide":"right","toNode":"3cc73a33f7d1f315","toSide":"left"},
 		{"id":"8d956545f7c9aea1","fromNode":"3cc73a33f7d1f315","fromSide":"left","toNode":"bcb141bfbfa2ca48","toSide":"right"},
 		{"id":"ef5e586dd148cd58","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"47d1ac6d9b795fe1","toSide":"right"},
-		{"id":"1788fd62fe246d78","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"ea9b1da6c494331f","toSide":"top"}
+		{"id":"1788fd62fe246d78","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"ea9b1da6c494331f","toSide":"top"},
+		{"id":"235e195314e9c724","fromNode":"46a9781a59d05683","fromSide":"top","toNode":"a657f2dab203a72e","toSide":"bottom"},
+		{"id":"77673a46ed6aea3f","fromNode":"a657f2dab203a72e","fromSide":"top","toNode":"1e96d4fe1380170b","toSide":"bottom"}
 	]
 }

@@ -16,6 +16,7 @@ kanban-plugin: basic
 
 **Complete**
 - [x] script for config file backup
+- [x] create a scripy for obsidian vault fastopen
 - [x] script for obsidian vault update
 - [x] remove useless lock-on-wakeup service
 - [x] fix i3 workspace disposition with custom xrandr monitor
