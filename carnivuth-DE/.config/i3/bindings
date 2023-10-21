@@ -179,16 +179,22 @@ bindsym $mod+Shift+s exec --no-startup-id $folder/rofi/quicksearch.sh default-li
 # launch filemanager
 bindsym $mod+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-line-bottom
 bindsym $mod+Shift+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-center
+
 #launch project menu
 #code
 bindsym $mod+c exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh code default-line-bottom
 bindsym $mod+Shift+c exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh code default-center
+
 #intellij idea
-bindsym $mod+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-line-bottom
-bindsym $mod+Shift+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-center
-#fleet
-bindsym $mod+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-line-bottom
-bindsym $mod+Shift+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-center
+#bindsym $mod+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-line-bottom
+#bindsym $mod+Shift+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-center
+##fleet
+#bindsym $mod+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-line-bottom
+#bindsym $mod+Shift+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-center
+
+#launch obsidian vaults launcher
+bindsym $mod+z exec --no-startup-id $folder/rofi/vaultlauncher/vaultlauncher.sh default-line-bottom
+bindsym $mod+Shift+z exec --no-startup-id $folder/rofi/vaultlauncher/vaultlauncher.sh default-center
 
 #launch github repo viewer
 bindsym $mod+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-line-bottom
