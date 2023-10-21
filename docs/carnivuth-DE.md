@@ -13,6 +13,15 @@
 ## INSTALLATION
 - run `carnivuth-DE/install.sh` to install software dependencies with pacman and copy config files to `$HOME/.config` folder **this will overwrite existing configs**
 
+## CONFIGURATION 
+- some rofi scripts use a `folder.sh` file placed under the applet folder in `rofi/<applet-name>` to load specific configuration parameter, the format is
+
+```bash
+#!/bin/bash
+ARRAY=("/some/path" "$HOME/some/other/path")
+
+```
+
 
 ## ROFI APPLETS
  - i made a lot of rofi applets for day to day use:
@@ -24,10 +33,31 @@
 - - quicksearch applet
 - - music player applet
 - - file explorer with history applet
+- - obsidian menu for opening vaults
+- - github repo viewer menu
+
+
  ### STYLE  
-- the rofi config folder structure must be as follow
+- the applets accept a parameter for the configuration file to load for example
+
+```bash
+./scripts/carnivuth-DE/rofi/musicplayer/musicplayer.sh default
 
 ```
+will try to load 
+
+`$HOME/.config/rofi/musicplayer/default.rasi`
+
+with the following file as fallback
+
+`$HOME/.config/rofi/default/default.rasi`
+
+
+- the rofi config folder structure must be as follow
+
+
+
+```bash
 $HOME/.config
     |
     ---rofi
@@ -49,6 +79,4 @@ $HOME/.config
             ---"....."
 ```
 
-- script under `carnivuth-DE/rofi` folder are configure to use the `default-<config-name>.rasi` file if there isn't a config file with the same name in the `<applet-folder-name>` folder
-
-- the environment is configured to use pywal for setting the theme
+- the environment is configured to use pywal for setting the theme and themes in `$HOME/.config/rofi/default` import `$HOME/.cache/wal/colors-rofi-dark.rasi` so it will brake if this file is not present
