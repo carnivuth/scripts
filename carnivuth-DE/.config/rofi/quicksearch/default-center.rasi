@@ -44,9 +44,9 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     0px;
     margin:                      0px;
-    padding:                     15px;
+    padding:                     20px;
     border:                      0px solid;
     border-radius:               0px;
     children:                    [ "prompt", "entry" ];
@@ -64,8 +64,10 @@ entry {
     text-color:                  inherit;
     cursor:                      text;
     placeholder-color:           inherit;
-    cursor-size:             2px;
-    placeholder:           "search..";
+    placeholder:           "search";
+    font: "Hack:style=Bold 20";     
+    horizontal-align:             0.5;                
+
 }
 
 /*****----- Listview -----*****/
@@ -77,7 +79,7 @@ listview {
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
-    reverse:                     false;
+    textreverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
     
