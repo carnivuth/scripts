@@ -19,3 +19,5 @@ echo "coping $SOURCE" to
 cp -r "$SOURCE" "$SCRIPTS_RUN_FOLDER/config.backup.home.$timestamp"
 done
 tar -cvzf "$SCRIPTS_LOCAL_FOLDER/configs.$timestamp.tar.gz"   -C "$SCRIPTS_RUN_FOLDER" "config.backup.home.$timestamp" "config.backup.system.$timestamp" "config.backup.config.$timestamp"
+
+echo "created archive configs.$timestamp.tar.gz in $SCRIPTS_LOCAL_FOLDER"
