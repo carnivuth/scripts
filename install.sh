@@ -38,6 +38,7 @@ SAMPLE_FILES=( "$SCRIPTS_HOME_FOLDER/utilities/vaults" "$SCRIPTS_HOME_FOLDER/car
 echo 'copying sample files'
 for file in ${SAMPLE_FILES[@]}; do 
     if [[ ! -f "$file" ]];then
+        echo 'copying $file'
         cp  "$file.sample"  "$file" 
     fi
 done
