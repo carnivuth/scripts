@@ -6,17 +6,18 @@ kanban-plugin: basic
 
 ## BUGS
 
+- [ ] polybar not setting color on first startup
 
 
 ## TODO
 
-- [ ] add sample files for folder configuration
-- [ ] add creation on install script of sample file
 
 
 ## COMPLETED
 
 **Complete**
+- [x] add sample files for folder configuration
+- [x] add creation on install script of sample file
 - [x] script for config file backup
 - [x] create a scripy for obsidian vault fastopen
 - [x] script for obsidian vault update
