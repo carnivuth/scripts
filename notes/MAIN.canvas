@@ -6,13 +6,13 @@
 		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-120,"y":111,"width":450,"height":355},
 		{"id":"46a9781a59d05683","type":"text","text":"#  SCRIPTS PROJECT","x":65,"y":-623,"width":250,"height":84},
 		{"id":"1e96d4fe1380170b","type":"file","file":"pages/VAULTLAUNCHER.md","x":600,"y":-1580,"width":320,"height":60},
-		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-650,"y":-1017,"width":300,"height":348},
-		{"id":"32bef82ffb4d6f42","x":-700,"y":-623,"width":400,"height":400,"type":"file","file":"pages/DEPENDENCIES.md"},
-		{"id":"8362f99b812e4633","x":190,"y":-1060,"width":400,"height":157,"type":"file","file":"pages/carnivuth-DE.md"},
-		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file scripts\nthat load an array from an external file for configurations","x":-300,"y":-1017,"width":250,"height":177},
-		{"id":"22bb19d38248ec87","x":680,"y":-642,"width":400,"height":103,"type":"file","file":"pages/DESKTOP-FILES.md"},
-		{"id":"f26c133264686fad","x":760,"y":-274,"width":400,"height":103,"type":"file","file":"pages/UTILITIES.md"},
-		{"id":"bc7a183d9a3dd427","x":-175,"y":-274,"width":400,"height":103,"type":"file","file":"pages/systemd-units.md"}
+		{"id":"8362f99b812e4633","type":"file","file":"pages/carnivuth-DE.md","x":190,"y":-1060,"width":400,"height":157},
+		{"id":"22bb19d38248ec87","type":"file","file":"pages/DESKTOP-FILES.md","x":680,"y":-642,"width":400,"height":103},
+		{"id":"f26c133264686fad","type":"file","file":"pages/UTILITIES.md","x":760,"y":-274,"width":400,"height":103},
+		{"id":"bc7a183d9a3dd427","type":"file","file":"pages/systemd-units.md","x":-175,"y":-274,"width":400,"height":103},
+		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-760,"y":-1017,"width":300,"height":348},
+		{"id":"32bef82ffb4d6f42","type":"file","file":"pages/DEPENDENCIES.md","x":-810,"y":-571,"width":400,"height":400},
+		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file scripts\nthat load an array from an external file for configurations","x":-300,"y":-1070,"width":250,"height":177}
 	],
 	"edges":[
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"f26c133264686fad","toSide":"top"},
