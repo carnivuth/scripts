@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='borg'
+packets='borg upower'
 sudo pacman -S $packets
 
 # installing services
