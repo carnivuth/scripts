@@ -10,6 +10,8 @@ kanban-plugin: basic
 
 ## TODO
 
+- [ ] add sample files for folder configuration
+- [ ] add creation on install script of sample file
 
 
 ## COMPLETED
