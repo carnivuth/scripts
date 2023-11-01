@@ -1,5 +1,6 @@
 #!/bin/bash
-SCRIPTS_LOGS_FOLDER="/var/log/scripts"
+SCRIPTS_LOGS_FOLDER="$HOME/.local/scripts/log"
+if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi
 
 SCRIPTS_HOME_FOLDER="$HOME/scripts"
 
