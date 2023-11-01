@@ -29,7 +29,6 @@ ARRAY=("/some/path" "$HOME/some/other/path")
 
 ```
 
-
 ## ROFI APPLETS
  
 i made a lot of rofi applets for day to day use:

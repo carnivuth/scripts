@@ -11,6 +11,11 @@ kanban-plugin: basic
 
 ## TODO
 
+- [ ] add documentation for every applets
+- [ ] add documetation for systemd units
+- [ ] add documentation for utilities
+- [ ] add documentation for single utilities
+- [ ] add documentation for single systemd units
 
 
 ## COMPLETED

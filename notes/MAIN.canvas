@@ -1,27 +1,33 @@
 {
 	"nodes":[
-		{"id":"46a9781a59d05683","type":"text","text":"#  SCRIPTS PROJECT","x":140,"y":-400,"width":250,"height":84},
-		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file scripts\nthat load an array from an external file for configurations","x":480,"y":-446,"width":250,"height":177},
-		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #datafile #external_data_file `target.sh` to configure folder's path to backup with borg under `systemd/scripts`\n- format [ARRAY_DATA_FILE](ARRAY_DATA_FILE.md)","x":100,"y":40,"width":250,"height":334},
-		{"id":"18ec09a546ae1178","type":"text","text":"# UTILITIES","x":320,"y":-178,"width":250,"height":60},
-		{"id":"3cc73a33f7d1f315","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":980,"y":-118,"width":434,"height":437},
-		{"id":"bcb141bfbfa2ca48","type":"file","file":"pages/UPDATE_VAULTS.md","x":520,"y":93,"width":320,"height":388},
-		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-500,"y":-581,"width":300,"height":348},
-		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-540,"y":30,"width":450,"height":355},
-		{"id":"a657f2dab203a72e","type":"text","text":"# ROFI MENUS","x":165,"y":-731,"width":250,"height":60},
-		{"id":"1e96d4fe1380170b","type":"file","file":"pages/VAULTLAUNCHER.md","x":360,"y":-960,"width":320,"height":60}
+		{"id":"3cc73a33f7d1f315","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":1330,"y":69,"width":434,"height":437},
+		{"id":"bcb141bfbfa2ca48","type":"file","file":"pages/UPDATE_VAULTS.md","x":760,"y":93,"width":320,"height":388},
+		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #datafile #external_data_file `target.sh` to configure folder's path to backup with borg under `systemd/scripts`\n- format [ARRAY_DATA_FILE](ARRAY_DATA_FILE.md)","x":390,"y":121,"width":250,"height":334},
+		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-120,"y":111,"width":450,"height":355},
+		{"id":"46a9781a59d05683","type":"text","text":"#  SCRIPTS PROJECT","x":65,"y":-623,"width":250,"height":84},
+		{"id":"1e96d4fe1380170b","type":"file","file":"pages/VAULTLAUNCHER.md","x":600,"y":-1580,"width":320,"height":60},
+		{"id":"47d1ac6d9b795fe1","type":"file","file":"pages/ARRAY_DATA_FILE.md","x":-650,"y":-1017,"width":300,"height":348},
+		{"id":"32bef82ffb4d6f42","x":-700,"y":-623,"width":400,"height":400,"type":"file","file":"pages/DEPENDENCIES.md"},
+		{"id":"8362f99b812e4633","x":190,"y":-1060,"width":400,"height":157,"type":"file","file":"pages/carnivuth-DE.md"},
+		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file scripts\nthat load an array from an external file for configurations","x":-300,"y":-1017,"width":250,"height":177},
+		{"id":"22bb19d38248ec87","x":680,"y":-642,"width":400,"height":103,"type":"file","file":"pages/DESKTOP-FILES.md"},
+		{"id":"f26c133264686fad","x":760,"y":-274,"width":400,"height":103,"type":"file","file":"pages/UTILITIES.md"},
+		{"id":"bc7a183d9a3dd427","x":-175,"y":-274,"width":400,"height":103,"type":"file","file":"pages/systemd-units.md"}
 	],
 	"edges":[
-		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"18ec09a546ae1178","toSide":"top"},
-		{"id":"b7e5119fd6a99276","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"},
-		{"id":"32a8fd5680ab3884","fromNode":"46a9781a59d05683","fromSide":"right","toNode":"95604445afa272cf","toSide":"left"},
-		{"id":"99d4095dc8510738","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"3cc73a33f7d1f315","toSide":"top"},
-		{"id":"e0895df7d3e43688","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"bcb141bfbfa2ca48","toSide":"top"},
+		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"f26c133264686fad","toSide":"top"},
+		{"id":"b7e5119fd6a99276","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"},
+		{"id":"32a8fd5680ab3884","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"95604445afa272cf","toSide":"bottom"},
+		{"id":"99d4095dc8510738","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"3cc73a33f7d1f315","toSide":"top"},
+		{"id":"e0895df7d3e43688","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"bcb141bfbfa2ca48","toSide":"top"},
 		{"id":"5779f012746dfbd5","fromNode":"bcb141bfbfa2ca48","fromSide":"right","toNode":"3cc73a33f7d1f315","toSide":"left"},
 		{"id":"8d956545f7c9aea1","fromNode":"3cc73a33f7d1f315","fromSide":"left","toNode":"bcb141bfbfa2ca48","toSide":"right"},
 		{"id":"ef5e586dd148cd58","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"47d1ac6d9b795fe1","toSide":"right"},
-		{"id":"1788fd62fe246d78","fromNode":"18ec09a546ae1178","fromSide":"bottom","toNode":"ea9b1da6c494331f","toSide":"top"},
-		{"id":"235e195314e9c724","fromNode":"46a9781a59d05683","fromSide":"top","toNode":"a657f2dab203a72e","toSide":"bottom"},
-		{"id":"77673a46ed6aea3f","fromNode":"a657f2dab203a72e","fromSide":"top","toNode":"1e96d4fe1380170b","toSide":"bottom"}
+		{"id":"1788fd62fe246d78","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"ea9b1da6c494331f","toSide":"top"},
+		{"id":"77673a46ed6aea3f","fromNode":"8362f99b812e4633","fromSide":"top","toNode":"1e96d4fe1380170b","toSide":"bottom"},
+		{"id":"ab4caec54931c8e9","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"32bef82ffb4d6f42","toSide":"right"},
+		{"id":"3fc5cd0697480228","fromNode":"46a9781a59d05683","fromSide":"top","toNode":"8362f99b812e4633","toSide":"bottom"},
+		{"id":"8a60500fb04c8ef8","fromNode":"46a9781a59d05683","fromSide":"right","toNode":"22bb19d38248ec87","toSide":"left"},
+		{"id":"a3e1847453a6eacd","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"bc7a183d9a3dd427","toSide":"top"}
 	]
 }
