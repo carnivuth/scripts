@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Studenti online
-Comment=university portal
-Icon=firefox
-Exec=firefox --new-window 'https://studenti.unibo.it/sol' 
-Terminal=false
-Categories=university
