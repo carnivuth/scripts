@@ -19,7 +19,7 @@ some systemd timers for everyday use
 
 ### [UTILITIES](./notes/pages/UTILITIES.md)  
  
-some utilities scripts to speedup some operation and make everyday sysadmin operation less a pain
+some utilities scripts to speedup some operation and make everyday sysadmin operations less painfull
 
 ## SUPPORTED SYSTEMS
 
