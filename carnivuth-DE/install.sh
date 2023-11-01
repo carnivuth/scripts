@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='xorg-xinput gnome-themes-extra jq bluez-utils loupe evince lightdm-webkit2-greeter lightdm-webkit-theme-litarvan light-locker lightdm ttf-dejavu mpv thunderbird thunar adwaita-icon-theme pop-icon-theme pavucontrol firefox brightnessctl ttf-font-awesome code python-pywal alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman dunst'
+packets='pamixer xorg-xinput gnome-themes-extra jq bluez-utils loupe evince lightdm-webkit2-greeter lightdm-webkit-theme-litarvan light-locker lightdm ttf-dejavu mpv thunderbird thunar adwaita-icon-theme pop-icon-theme pavucontrol firefox brightnessctl ttf-font-awesome code python-pywal alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman dunst'
 sudo pacman -S $packets
 
 # copy config files
