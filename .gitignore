@@ -13,3 +13,4 @@ systemfiles
 homefiles
 folders.sh
 account.sh
+rclone-mounts.json
