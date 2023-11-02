@@ -1,6 +1,6 @@
 [
     { 
         "mount": "google drive", 
-        "path": "/home/matteo/google-drive" 
+        "path": "/path/to/google-drive" 
     }
 ]
