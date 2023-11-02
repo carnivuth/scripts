@@ -1,0 +1,6 @@
+[Unit]
+Description=mount rclone storage 
+
+
+[Service]
+ExecStart=/home/matteo/scripts/systemd/scripts/rclone_mount_all.sh 
