@@ -17,6 +17,7 @@ kanban-plugin: basic
 - [ ] add documentation for single utilities
 - [ ] add documentation for single systemd units
 - [ ] refactor config file in a single folder
+- [ ] fix systemd units path
 
 
 ## COMPLETED
