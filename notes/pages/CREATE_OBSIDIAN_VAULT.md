@@ -1,8 +1,5 @@
-- script for creation of an empty obsidian vault with default configurations
-- refactor of script
-- add option for git repo creation
-- add new plugins
-- support for updating config files
+script for creation of an empty obsidian vault with default configurations
+
 - options 
 - `--git`
 	- create a git repository with gitignore and first commit
