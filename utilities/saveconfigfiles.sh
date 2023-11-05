@@ -1,4 +1,5 @@
 #!/bin/bash
+# documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/SAVECONFIGFILES.md
 source "$HOME/scripts/settings.sh"
 timestamp="$(date +%s)"
 
