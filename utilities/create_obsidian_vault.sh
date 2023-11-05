@@ -1,4 +1,5 @@
 #!/bin/bash
+# documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/CREATE_OBSIDIAN_VAULT.md
 source "$HOME/scripts/settings.sh"
 
 if [[ "$1" == '--help' ]]; then
