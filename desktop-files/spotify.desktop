@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Spotify
+Comment=Spotify website
+Icon=firefox
+Exec=firefox --new-window 'https://open.spotify.com' 
+Terminal=false
+Categories=Music
