@@ -8,6 +8,10 @@ array_importer "$SCRIPTS_HOME_FOLDER/systemd/scripts/target.sh" "$HOME"
 #folder where backups are stored
 BACKUP_FOLDER="/storage/borg"
 
+if [[ ! -d "$BACKUP_FOLDER" ]]; then
+mkdir -p "$BACKUP_FOLDER"
+fi
+
 ## remember to add record on gnome keyring !! 
 ## echo "passphrase"| secret-tool store borg-repository repo-name --label="borg passphrase"
 
