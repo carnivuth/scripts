@@ -9,10 +9,10 @@ chosen="$(rofi_cmd "${prompt}" )"
 if [ "$chosen" != "" ]; then
 	case "$chosen" in
 	https*)
-		xdg-open "$chosen"
+		firefox --new-window "$chosen"
 		;;
 	http*)
-		xdg-open "$chosen"
+		firefox --new-window "$chosen"
 		;;
 	*) 
 			firefox --new-window --search "$chosen"
