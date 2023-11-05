@@ -16,7 +16,7 @@ for_window [class="Conky"] floating enabled; move position center
 for_window [class="mpv"] floating enabled; move position center
 
 #lock spotify to workspace 10
-for_window [class="Spotify"] move to workspace $ws10; workspace number $ws10
+for_window [title="Spotify.*"] move to workspace $ws10; workspace number $ws10
 
 #lock steam games to workspace 10
 for_window [class="steam_app_*"] floating disabled;
