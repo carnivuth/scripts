@@ -1,8 +1,8 @@
 {
 	"nodes":[
+		{"id":"234b53259c3dbabc","x":390,"y":121,"width":250,"height":334,"type":"file","file":"pages/HOME_BACKUP.md"},
 		{"id":"3cc73a33f7d1f315","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":1330,"y":69,"width":434,"height":437},
 		{"id":"bcb141bfbfa2ca48","type":"file","file":"pages/UPDATE_VAULTS.md","x":760,"y":93,"width":320,"height":388},
-		{"id":"11c5bb08ebab3c36","type":"text","text":"#  HOME_BACKUP\n\n- #datafile #external_data_file `target.sh` to configure folder's path to backup with borg under `systemd/scripts`\n- format [ARRAY_DATA_FILE](ARRAY_DATA_FILE.md)","x":390,"y":121,"width":250,"height":334},
 		{"id":"ea9b1da6c494331f","type":"file","file":"pages/SAVECONFIGFILES.md","x":-120,"y":111,"width":450,"height":355},
 		{"id":"46a9781a59d05683","type":"text","text":"#  SCRIPTS PROJECT","x":65,"y":-623,"width":250,"height":84},
 		{"id":"1e96d4fe1380170b","type":"file","file":"pages/VAULTLAUNCHER.md","x":600,"y":-1580,"width":320,"height":60},
@@ -14,11 +14,12 @@
 		{"id":"32bef82ffb4d6f42","type":"file","file":"pages/DEPENDENCIES.md","x":-810,"y":-571,"width":400,"height":400},
 		{"id":"95604445afa272cf","type":"text","text":"#external_tag_file scripts\nthat load an array from an external file for configurations","x":-300,"y":-1070,"width":250,"height":177},
 		{"id":"a72061b223334878","type":"file","file":"pages/RCLONE MOUNT ALL.md","x":-810,"y":106,"width":400,"height":400},
-		{"id":"37f621240813b14f","x":1880,"y":93,"width":400,"height":342,"type":"file","file":"pages/UPDATE_MAIN_BRANCH.md"}
+		{"id":"37f621240813b14f","type":"file","file":"pages/UPDATE_MAIN_BRANCH.md","x":1880,"y":93,"width":440,"height":308},
+		{"id":"b1e2442da73931ad","x":555,"y":1080,"width":250,"height":60,"type":"text","text":""}
 	],
 	"edges":[
 		{"id":"702e25009074af28","fromNode":"46a9781a59d05683","fromSide":"bottom","toNode":"f26c133264686fad","toSide":"top"},
-		{"id":"b7e5119fd6a99276","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"11c5bb08ebab3c36","toSide":"top"},
+		{"id":"b7e5119fd6a99276","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"234b53259c3dbabc","toSide":"top"},
 		{"id":"32a8fd5680ab3884","fromNode":"46a9781a59d05683","fromSide":"left","toNode":"95604445afa272cf","toSide":"bottom"},
 		{"id":"99d4095dc8510738","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"3cc73a33f7d1f315","toSide":"top"},
 		{"id":"e0895df7d3e43688","fromNode":"f26c133264686fad","fromSide":"bottom","toNode":"bcb141bfbfa2ca48","toSide":"top"},
