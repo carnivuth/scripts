@@ -1,5 +1,6 @@
 #!/bin/bash
 #make backups with borg 
+#documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/HOME_BACKUP.md
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
 
