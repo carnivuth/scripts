@@ -6,4 +6,7 @@ systemd units and timers for everyday tasks automation
 
 script for cloud storage automount at startup
 
+- ### [HOME_BACKUP](HOME_BACKUP.md)
+
+utility for folder backup
 
