@@ -13,3 +13,7 @@ random bash scripts utilities
 - ### [UPDATE_VAULTS](UPDATE_VAULTS.md)
 
 	utility for vault settings update
+
+- ### [UPDATE_MAIN_BRANCH](UPDATE_MAIN_BRANCH.md)
+
+	utility for updating repository main branch
