@@ -1,5 +1,6 @@
 #!/bin/bash
 #mount remote storage with rclone 
+#documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/RCLONE%20MOUNT%20ALL.md
 source "$HOME/scripts/settings.sh"
 
 cat "$SCRIPTS_HOME_FOLDER/systemd/scripts/rclone-mounts.json" | jq -rc '.[]' | while read mountpoint; do
