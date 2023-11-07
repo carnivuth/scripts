@@ -33,16 +33,27 @@ ARRAY=("/some/path" "$HOME/some/other/path")
  
 i made a lot of rofi applets for day to day use:
 
--  launch application script
--  network menu script
--  open project with different ides
--  power menu applet
--  quicklinks applet
--  quicksearch applet
--  music player applet
--  file explorer with history applet
--  obsidian menu for opening vaults
--  github repo viewer menu
+- ### [LAUNCHER](LAUNCHER.md)
+
+- ### [PROJECTLAUNCHER](PROJECTLAUNCHER.md)
+	
+	open project with different ides
+
+- ### [NETWORKMENU](NETWORKMENU.md)
+	
+- ### [POWERMENU](POWERMENU.md)
+
+- ### [QUICKSEARCH](QUICKSEARCH.md)  
+
+- ### [MUSICPLAYER](MUSICPLAYER.md)
+
+- ### [FILEEXPLORER](FILEEXPLORER.md)
+
+- ### [VAULTLAUNCHER](VAULTLAUNCHER.md) 
+
+ obsidian menu for opening vaults
+
+- ### [GITHUBREPOVIEWER](GITHUBREPOVIEWER.md)
 
  ### STYLE  
  
