@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+#documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/PROJECTLAUNCHER.md
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
 source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
