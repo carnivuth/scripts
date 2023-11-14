@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Duelling nexus
+Comment=Duelling nexus website
+Icon=firefox
+Exec=firefox --new-window 'https://duelingnexus.com'
+Terminal=false
+Categories=Game
