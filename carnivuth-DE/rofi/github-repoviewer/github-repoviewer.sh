@@ -10,7 +10,14 @@ get_file(){
 }
 
 print_menu() {
-    get_file
+    # check if cache is valid
+    birth_date="$(stat .local/scripts/repos.json  | grep Birth | cut -d' ' -f 3)"
+    today="$(date +%F)"
+    if [[ "$birth_date" != "$today"  ]]; then
+        rm "$SCRIPTS_LOCAL_FOLDER/repos.json"
+        get_file
+    fi
+    
     echo -e "$(cat $SCRIPTS_LOCAL_FOLDER/repos.json | jq -r '.[] | .html_url')" | rofi_cmd "${prompt}"
 
 }
