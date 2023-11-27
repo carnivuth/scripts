@@ -38,7 +38,7 @@ SAMPLE_FILES=( "$SCRIPTS_HOME_FOLDER/systemd/scripts/rclone-mounts.json" "$SCRIP
 echo 'copying sample files'
 for file in ${SAMPLE_FILES[@]}; do 
     if [[ ! -f "$file" ]];then
-        echo 'copying $file'
+        echo "copying $file"
         cp  "$file.sample"  "$file" 
     fi
 done
