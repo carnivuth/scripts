@@ -18,6 +18,9 @@ for_window [class="mpv"] floating enabled; move position center
 #lock spotify to workspace 10
 for_window [title="Spotify.*"] move to workspace $ws10; workspace number $ws10
 
+#lock thunderbird to workspace 9
+for_window [title="thunderbird"] move to workspace $ws9; workspace number $ws9
+
 #lock steam games to workspace 10
 for_window [class="steam_app_*"] floating disabled;
 for_window [class="steam_app_*"] move to workspace $ws10; workspace number $ws10
