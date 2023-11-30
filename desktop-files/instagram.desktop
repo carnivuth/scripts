@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Instagram
+Comment=Instagram website
+Icon=firefox
+Exec=firefox --new-window 'https://www.instagram.com' 
+Terminal=false
+Categories=Social
