@@ -40,3 +40,6 @@ exec_always --no-startup-id libinput-gestures-setup autostart start &
 
 #launch telegram
 exec --no-startup-id telegram-desktop  -startintray &
+
+#launch tunderbird
+exec --no-startup-id thunderbird &

@@ -1,5 +1,13 @@
 #!/bin/bash
-cp settings.sh.sample settings.sh
+
+## check on settings.sh file
+if [[ ! -f "$HOME/scripts/settings.sh" ]]; then 
+    echo 'no settings.sh file found, run: '
+    echo "cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh"
+    echo 'and edit the variables as you like'
+    exit 1
+fi 
+
 source "$HOME/scripts/settings.sh"
 
 # install DE
@@ -38,7 +46,7 @@ SAMPLE_FILES=( "$SCRIPTS_HOME_FOLDER/systemd/scripts/rclone-mounts.json" "$SCRIP
 echo 'copying sample files'
 for file in ${SAMPLE_FILES[@]}; do 
     if [[ ! -f "$file" ]];then
-        echo 'copying $file'
+        echo "copying $file"
         cp  "$file.sample"  "$file" 
     fi
 done
