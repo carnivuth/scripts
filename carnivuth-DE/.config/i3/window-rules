@@ -28,7 +28,7 @@ for_window [title="WhatsApp.*"] move to workspace $ws9; workspace number $ws9
 for_window [title="Instagram.*"] move to workspace $ws9; workspace number $ws9
                          
 #lock thunderbird to workspace 9
-for_window [title="thunderbird"] move to workspace $ws9; workspace number $ws9
+for_window [class="thunderbird"] move to workspace $ws9; workspace number $ws9
 
 #lock steam games to workspace 10
 for_window [class="steam_app_*"] floating disabled;
