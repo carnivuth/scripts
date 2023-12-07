@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Cardmarket
+Comment=Cardmarket website
+Icon=firefox
+Exec=firefox --new-window 'https://www.cardmarket.com' 
+Terminal=false
+Categories=Cards,Shopping,Game
