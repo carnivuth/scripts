@@ -1,6 +1,6 @@
 #remove borders from i3 windows
-for_window [class="^.*"] border pixel 0
-
+#for_window [class="^.*"] border pixel 0
+default_border pixel 1
 # set floating as default configuration for some programs
 for_window [class="Thunar"] floating enabled ; move position center
 for_window [class="Blueman-manager"] floating enabled ; move position center
@@ -18,8 +18,8 @@ for_window [class="mpv"] floating enabled; move position center
 #lock spotify to workspace 10
 for_window [title="Spotify.*"] move to workspace $ws10; workspace number $ws10
 
-#lock discord to workspace 10
-for_window [class="discord"] move to workspace $ws10; workspace number $ws10
+#lock discord to workspace 9
+for_window [class="discord"] move to workspace $ws9; workspace number $ws9
 
 #lock whatsapp to workspace 9                                       
 for_window [title="WhatsApp.*"] move to workspace $ws9; workspace number $ws9
