@@ -8,8 +8,8 @@ sudo pacman -S $packets
 
 # copy config files
 echo 'coping config files'
- mkdir -p "$HOME/.config/"
-cp -r "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.config/"* "$HOME/.config/"
+mkdir -p "$HOME/.config/"
+ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.config/"* "$HOME/.config/"
 
 # setting up flameshot savePath folder
 echo 'setting flameshot savePath folder'
