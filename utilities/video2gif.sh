@@ -27,4 +27,4 @@ if [[ ! -f "$SRC_FILE" ]]; then
 fi
 
 # run ffmpeg 
-ffmpeg -i "$1"     -vf "fps=10,scale=640:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse"     -loop 0 "$OUT_FILE-$(date '+%s')".gif
+ffmpeg -i "$1" -v quiet -y -stats -vf "fps=10,scale=640:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "$OUT_FILE-$(date '+%s')".gif
