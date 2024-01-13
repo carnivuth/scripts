@@ -79,7 +79,7 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
     echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" 
 
     # ffmpeg decoding
-    ffmpeg -y  -stats -i "$FILE" -acodec copy \
+    ffmpeg -y -v quiet -stats -i "$FILE" -acodec copy \
         -metadata album="$ALBUM" \
         -metadata title="$TITLE" \
         -map 0:0 -metadata:s:a:0 title="$TITLE" \
