@@ -76,10 +76,16 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
         TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM" | awk  '{$1=$1};1')"
     fi
     # log metadata
-    echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+    echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" 
 
     # ffmpeg decoding
-    ffmpeg -y -i "$FILE" -acodec copy -metadata album="$ALBUM" -metadata title="$TITLE" -metadata artist="$ARTIST" "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT" 2>>"$SCRIPTS_LOGS_FOLDER/metadata.logs" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+    ffmpeg -y  -stats -i "$FILE" -acodec copy \
+        -metadata album="$ALBUM" \
+        -metadata title="$TITLE" \
+        -map 0:0 -metadata:s:a:0 title="$TITLE" \
+        -metadata Title="$TITLE" \
+        -metadata artist="$ARTIST" \
+       "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT" 
 
 done
 
