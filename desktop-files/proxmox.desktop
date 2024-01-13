@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Proxmox
+Comment= Proxmox interface
+Icon=firefox
+Exec=firefox --new-window 'https://castleterra:8006' 
+Terminal=false
+Categories=Network,homelab
