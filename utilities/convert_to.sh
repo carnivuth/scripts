@@ -33,6 +33,8 @@ for FILE in $SRC_FOLDER/*; do
     # get name file
     NAME="$(echo $FILE | rev | cut -d"/" -f1 |cut -d"." -f2| rev | awk  '{$1=$1};1')"
 
+    # print
+    echo "CONVERTING $NAME TO $FORMAT"
     # encode with ffmpeg
-    ffmpeg -v quiet -y -stats -i "$FILE" "$DEST_FOLDER/$NAME.$FORMAT"
+    ffmpeg -v quiet -y -stats -i "$FILE" "$DEST_FOLDER/$NAME.$FORMAT" &
 done
