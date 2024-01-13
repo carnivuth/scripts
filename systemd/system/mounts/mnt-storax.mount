@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount storax Share at boot
+After=nss-lookup.target
+[Mount]
+What=//storax/public
+Where=/mnt/storax
+Options=_netdev,credentials=/etc/samba/credentials/storax,iocharset=utf8,rw
+Type=cifs
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target

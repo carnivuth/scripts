@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='borg upower'
+packets='borg upower jq rclone'
 sudo pacman -S $packets
 
 # installing services

@@ -22,8 +22,8 @@ include ./startup
 ######################################### GAPS ##############################################
 
 #window gaps settings
-set $gaps_value 8
-gaps inner $gaps_value
+#set $gaps_value 8
+#gaps inner $gaps_value
 
 ######################################### GAPS ##############################################
 

@@ -62,18 +62,18 @@ fi
 for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
 
     # get name file
-    NAME="$(echo $FILE | rev | cut -d"/" -f1 |cut -d"." -f2| rev )"
+    NAME="$(echo $FILE | rev | cut -d"/" -f1 |cut -d"." -f2| rev | awk  '{$1=$1};1')"
 
     # get metadata values from names
     if [[ "$ARTIST_PROGRAM" != '' ]]; then
-        ARTIST="$(echo $NAME | awk -E "$ARTIST_PROGRAM")"
+        ARTIST="$(echo $NAME | awk -E "$ARTIST_PROGRAM"| awk  '{$1=$1};1')"
 
     fi
     if [[ "$ALBUM_PROGRAM" != '' ]]; then
-        ALBUM="$(echo $NAME | awk -E "$ALBUM_PROGRAM")"
+        ALBUM="$(echo $NAME | awk -E "$ALBUM_PROGRAM"| awk  '{$1=$1};1')"
     fi
     if [[ "$TITLE_PROGRAM" != '' ]]; then
-        TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM")"
+        TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM" | awk  '{$1=$1};1')"
     fi
     # log metadata
     echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
