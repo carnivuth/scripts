@@ -6,5 +6,6 @@
   "newFileFolderPath": "pages",
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "assets"
+  "attachmentFolderPath": "assets",
+  "showInlineTitle": false
 }
