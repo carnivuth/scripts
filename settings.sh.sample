@@ -18,7 +18,4 @@ DEFAULT_THEME="default-line-bottom"
 DEFAULT_THEME_PATH="$ROFI_CONFIG_FOLDER/default"
 FLAMESHOT_FOLDER="$HOME/Images/screenshots"
 #no space allowed only absolute paths
-GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\nfile://$HOME/Images\nfile://$HOME/Videos\n"    
-#setup multiple screen for workspaces
-SCREEN1=eDP-1
-SCREEN2=HDMI-1-0
+GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\nfile://$HOME/Images\nfile://$HOME/Videos\n"

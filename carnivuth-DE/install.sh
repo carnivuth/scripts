@@ -3,7 +3,45 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='network-manager-applet playerctl pamixer xorg-xinput gnome-themes-extra jq bluez-utils loupe evince lightdm-webkit2-greeter lightdm-webkit-theme-litarvan light-locker lightdm ttf-dejavu mpv thunderbird thunar adwaita-icon-theme pop-icon-theme pavucontrol firefox brightnessctl ttf-font-awesome code python-pywal alacritty autorandr python-pywal feh conky flameshot i3-wm picom polybar rofi vlc blueman dunst'
+packets='
+network-manager-applet 
+playerctl 
+pamixer 
+xorg-xinput 
+gnome-themes-extra 
+jq 
+bluez-utils 
+loupe 
+evince 
+lightdm-webkit2-greeter 
+lightdm-webkit-theme-litarvan 
+light-locker 
+lightdm 
+ttf-dejavu 
+mpv 
+thunderbird 
+thunar 
+adwaita-icon-theme 
+pop-icon-theme 
+pavucontrol 
+firefox 
+brightnessctl 
+ttf-font-awesome 
+code 
+python-pywal 
+alacritty 
+autorandr 
+python-pywal 
+feh 
+conky 
+flameshot 
+i3-wm 
+picom 
+polybar 
+rofi 
+vlc 
+blueman 
+dunst'
 sudo pacman -S $packets
 
 # copy config files
@@ -36,8 +74,3 @@ done
 # enabling lightdm
 echo 'enabling lightdm'
 sudo systemctl enable lightdm
-
-# configuring workspaces on multiple monitors
-echo 'configuring workspaces on multiple monitors'
-sed -i "s/set \$screen1 /set \$screen1 $SCREEN1/g" $HOME/.config/i3/bindings
-sed -i "s/set \$screen2 /set \$screen2 $SCREEN2/g" $HOME/.config/i3/bindings

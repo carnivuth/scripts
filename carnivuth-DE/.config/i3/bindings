@@ -13,8 +13,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-set $screen1 
-set $screen2 
+set $screen1 eDP-1
+set $screen2 HDMI-1-0
 # set workspace on all monitors
 workspace $ws1 output $screen1 
 workspace $ws2 output $screen2
@@ -177,7 +177,7 @@ bindsym $mod+s exec --no-startup-id $folder/rofi/quicksearch.sh default-center
 bindsym $mod+Shift+s exec --no-startup-id $folder/rofi/quicksearch.sh default-line-bottom
 
 # launch filemanager
-bindsym $mod+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-line-bottom
+bindsym $mod+e exec --no-startup-id thunar
 bindsym $mod+Shift+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-center
 
 #launch project menu
