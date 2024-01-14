@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='at yt-dlp ffmpeg gawk'
+packets='yt-dlp ffmpeg gawk'
 sudo pacman -S $packets
 
 # copy config files
@@ -12,7 +12,3 @@ if [[ "$(cat $HOME/.bashrc | grep $SCRIPTS_HOME_FOLDER/utilities/)" == "" ]]; th
     echo "export PATH=$SCRIPTS_HOME_FOLDER/utilities/:$PATH" >>"$HOME/.bashrc"
     export PATH="$SCRIPTS_HOME_FOLDER/utilities/:$PATH"
 fi
-
-# enabling at daemon
-echo 'enabling at daemon'
-sudo systemctl enable --now atd
