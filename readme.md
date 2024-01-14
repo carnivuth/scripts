@@ -39,7 +39,7 @@ there is an installation script for every functionality called `install.sh` and 
 
 ## CONFIGURATION
 
-the global `install.sh` creates a `settings.sh` file that is imported in every script, it contains:
+the global `install.sh` requires a `settings.sh` file that is imported in every script, it contains:
 
 - some path variables used by scripts to create logs files etc...
 
@@ -48,8 +48,6 @@ the global `install.sh` creates a `settings.sh` file that is imported in every s
 - flameshot folder for screenshots
 
 - some gtk bookmarks for thunar to display
-
-- screen names ( output of `xrandr` ) for dual monitor setup 
 
 it also create default [configuration files for single scripts](./notes/pages/ARRAY_DATA_FILE.md) that need them
 
