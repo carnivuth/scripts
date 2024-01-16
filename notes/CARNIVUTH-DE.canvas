@@ -2,7 +2,7 @@
 	"nodes":[
 		{"id":"bdfd589b30d7ca3f","type":"file","file":"pages/carnivuth-DE.md","x":-505,"y":698,"width":400,"height":157},
 		{"id":"4107fbb2e0c9fbee","type":"file","file":"pages/QUICKSEARCH.md","x":-380,"y":-849,"width":400,"height":194},
-		{"id":"020362bd07f42076","type":"file","file":"pages/VAULTLAUNCHER.md","x":1585,"y":-2,"width":320,"height":542},
+		{"id":"020362bd07f42076","type":"file","file":"pages/utilities/VAULTLAUNCHER.md","x":1585,"y":-2,"width":320,"height":542},
 		{"id":"b354c05373e6ae33","type":"file","file":"pages/MUSICPLAYER.md","x":1385,"y":-855,"width":400,"height":400},
 		{"id":"e58346d27e2b7073","type":"file","file":"pages/PROJECTLAUNCHER.md","x":985,"y":-2,"width":400,"height":400},
 		{"id":"f4545743097f40f9","type":"file","file":"pages/LAUNCHER.md","x":705,"y":-802,"width":400,"height":400},

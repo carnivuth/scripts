@@ -1,11 +1,11 @@
 {
 	"nodes":[
-		{"id":"5f98bbbc254ff164","type":"file","file":"pages/CREATE_OBSIDIAN_VAULT.md","x":-510,"y":-577,"width":434,"height":437},
-		{"id":"6f206b109f77826f","type":"file","file":"pages/UPDATE_VAULTS.md","x":-1080,"y":-553,"width":320,"height":388},
-		{"id":"51c063b63213bc96","type":"file","file":"pages/UTILITIES.md","x":-1080,"y":-920,"width":400,"height":103},
-		{"id":"d7354c6c920acf73","type":"file","file":"pages/SAVECONFIGFILES.md","x":-1820,"y":-600,"width":450,"height":355},
-		{"id":"928ac2d4b3c8a9cb","type":"file","file":"pages/UPDATE_MAIN_BRANCH.md","x":20,"y":-517,"width":440,"height":308},
-		{"id":"96dc7da4dc548d4a","type":"file","file":"pages/VIDEO2GIF.md","x":-1520,"y":-140,"width":400,"height":400}
+		{"id":"5f98bbbc254ff164","type":"file","file":"pages/utilities/CREATE_OBSIDIAN_VAULT.md","x":-510,"y":-577,"width":434,"height":437},
+		{"id":"6f206b109f77826f","type":"file","file":"pages/utilities/UPDATE_VAULTS.md","x":-1080,"y":-553,"width":320,"height":388},
+		{"id":"51c063b63213bc96","type":"file","file":"pages/utilities/UTILITIES.md","x":-1080,"y":-920,"width":400,"height":103},
+		{"id":"d7354c6c920acf73","type":"file","file":"pages/utilities/SAVECONFIGFILES.md","x":-1820,"y":-600,"width":450,"height":355},
+		{"id":"928ac2d4b3c8a9cb","type":"file","file":"pages/utilities/UPDATE_MAIN_BRANCH.md","x":20,"y":-517,"width":440,"height":308},
+		{"id":"96dc7da4dc548d4a","type":"file","file":"pages/utilities/VIDEO2GIF.md","x":-1520,"y":-140,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"0baf1cab35a1c464","fromNode":"5f98bbbc254ff164","fromSide":"left","toNode":"6f206b109f77826f","toSide":"right"},
