@@ -17,3 +17,7 @@ random bash scripts utilities
 - ### [UPDATE_MAIN_BRANCH](UPDATE_MAIN_BRANCH.md)
 
 	utility for updating repository main branch
+
+- ### [METADATA](METADATA.md)
+
+	utility for editing metadata of audio files
