@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Gitlab
+Comment=Gitlab interface
+Icon=firefox
+Exec=firefox --new-window 'https://pokelab.ddns.net/gitlab' 
+Terminal=false
+Categories=Network,homelab
