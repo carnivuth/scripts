@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Gitlab
 Comment=Gitlab interface
 Icon=firefox
-Exec=firefox --new-window 'https://pokelab.ddns.net/gitlab' 
+Exec=firefox --new-window 'https://delgit.ddns.net'
 Terminal=false
 Categories=Network,homelab
