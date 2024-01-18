@@ -12,8 +12,12 @@ for_window [class="Lxappearance"] floating enabled ; move position center
 for_window [class="Lightdm-gtk-greeter-settings"] floating enabled; move position center
 for_window [class="Telegram"] floating enabled; move position center;
 for_window [class="Conky"] floating enabled; move position center
-#for_window [class="vlc"] floating enabled; move position center
 for_window [class="mpv"] floating enabled; move position center
+
+# vlc rules
+#for_window [class="vlc"] floating enabled; move position center
+for_window [title="Current Media Information"] floating enabled; move position center
+
 
 #lock spotify to workspace 10
 for_window [title="Spotify.*"] move to workspace 10; workspace number 10
