@@ -1,6 +1,7 @@
 #remove borders from i3 windows
 #for_window [class="^.*"] border pixel 0
 default_border pixel 1
+default_floating_border pixel 0
 # set floating as default configuration for some programs
 for_window [class="Thunar"] floating enabled ; move position center
 for_window [class="Blueman-manager"] floating enabled ; move position center
@@ -41,3 +42,6 @@ for_window [title="Steam Settings"] floating enabled; move position center
 for_window [class="steam_app_*"] border pixel 0;
 for_window [class="steam_app_*"] floating disabled;
 for_window [class="steam_app_*"] move to workspace 8; workspace number 8
+
+#nextcloud rules
+for_window [class="Nextcloud"] floating enabled; move position center
