@@ -14,7 +14,7 @@ array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/launchprojects/folders.sh
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | menu_cmd "${prompt}"
+	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | menu_cmd "project launcher"
 
 }
 # main
