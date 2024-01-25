@@ -2,9 +2,9 @@
 #documentation at https://github.com/carnivuth/scripts/blob/main/notes/pages/PROJECTLAUNCHER.md
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
-rofi_theme_setup $ROFI_CONFIG_FOLDER/launchproject "$2" "project launcher"
+menu_theme_setup launchprojects 
 
 #import values from array
 array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/launchprojects/folders.sh" "$HOME"
@@ -14,7 +14,7 @@ array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/launchprojects/folders.sh
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | rofi_cmd "${prompt}"
+	echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)" | menu_cmd "${prompt}"
 
 }
 # main

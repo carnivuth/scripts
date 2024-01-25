@@ -1,19 +1,19 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 host="$(cat /etc/hostname)"
-rofi_theme_setup "$ROFI_CONFIG_FOLDER/powermenu" "$1" "$host"
+menu_theme_setup "powermenu"
 
 # Options
-shutdown=''
-reboot='' 
-lock=''
-suspend=''
-logout=''
+shutdown=' shutdown'
+reboot=' reboot' 
+lock=' lock'
+suspend=' suspend'
+logout=' logout'
 
 
-run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd $prompt
+print_powermenu() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | menu_cmd $prompt
 }
 
 # Execute Command
@@ -42,7 +42,7 @@ run_cmd() {
 }
 
 # Actions
-chosen="$(run_rofi)"
+chosen="$(print_powermenu)"
 case ${chosen} in
 $shutdown)
 	run_cmd --shutdown
@@ -51,8 +51,11 @@ $reboot)
 	run_cmd --reboot
 	;;
 $lock)
+
 	if [[ -x '/usr/bin/betterlockscreen' ]]; then
 		betterlockscreen -l
+	elif [[ -x '/usr/bin/swaylock' ]]; then
+		swaylock -i /usr/share/hyprland/wall_anime_4K.png
 	elif [[ -x '/usr/bin/dm-tool' ]]; then
 		dm-tool lock
 	elif [[ -x '/usr/bin/i3lock' ]]; then

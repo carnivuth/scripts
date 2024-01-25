@@ -1,11 +1,11 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
-rofi_theme_setup $ROFI_CONFIG_FOLDER/quicksearch "$1" "search with firefox"
+menu_theme_setup quicksearch 
 
 # main
-chosen="$(rofi_cmd "${prompt}" )"
+chosen="$(menu_cmd "${prompt}" )"
 if [ "$chosen" != "" ]; then
 	case "$chosen" in
 	https*)

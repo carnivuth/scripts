@@ -1,15 +1,15 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
-rofi_theme_setup $ROFI_CONFIG_FOLDER/vaultlauncher "$1" "obsidian vault launcher"
+rofi_theme_setup vaultlauncher 
 
 #import values from array
 array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/vaultlauncher/folders.sh" "$HOME"
 
 print_vaults() {
-    echo -e "$(for vault in ${ARRAY[@]}; do echo "$vault"; done)" | rofi_cmd "${prompt}"
+    echo -e "$(for vault in ${ARRAY[@]}; do echo "$vault"; done)" | menu_cmd "${prompt}"
 
 }
 

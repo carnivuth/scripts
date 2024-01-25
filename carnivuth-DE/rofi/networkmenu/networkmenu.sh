@@ -8,10 +8,10 @@ source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/connect.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/deleteconnection.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/togglewifi.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/networkmenu/togglenetwork.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
 
-rofi_theme_setup "$ROFI_CONFIG_FOLDER/networkmenu" "$1" 'network menu'
+menu_theme_setup networkmenu
 
 # options
 # rescan wifi networks
@@ -23,7 +23,7 @@ options=('connect-to-network' 'rescan-wifi-networks' 'delete-connection' 'toggle
 
 
 print_options() {
-    echo -e "$(for opt in ${options[@]}; do echo "$opt"; done)" | rofi_cmd "$prompt"
+    echo -e "$(for opt in ${options[@]}; do echo "$opt"; done)" | menu_cmd "$prompt"
 
 }
 

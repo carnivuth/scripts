@@ -11,6 +11,7 @@ SCRIPTS_RUN_FOLDER="/tmp/scripts"
 if [[ ! -d "$SCRIPTS_RUN_FOLDER" ]] ;then mkdir -p "$SCRIPTS_RUN_FOLDER"; fi
 
 ROFI_CONFIG_FOLDER="$HOME/.config/rofi"
+WOFI_CONFIG_FOLDER="$HOME/.config/wofi"
 
 SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
 
