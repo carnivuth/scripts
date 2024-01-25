@@ -13,3 +13,8 @@ menu_cmd() {
             -s "$STYLE"\
             -c "$CONFIG"
 }
+
+app_cmd() {
+        wofi  --show drun \
+            -p "$1" 
+}

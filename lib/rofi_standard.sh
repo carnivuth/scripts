@@ -13,3 +13,9 @@ menu_cmd() {
             -p "$1" \
             -config ${theme}
 }
+
+app_cmd() {
+        rofi  -drun \
+            -p "$1" \
+            -config ${theme}
+}
