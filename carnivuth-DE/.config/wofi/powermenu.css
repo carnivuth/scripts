@@ -1,0 +1,35 @@
+/*#window{
+    opacity: 0.9;
+    border:  0px;
+    margin:  0px;
+    font-family: monospace;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+#outer-box{}
+#entry.label{
+}
+#entry{
+font-weight:bold;
+font-size: 600%;
+border: none;
+justify-content: center;
+}
+
+#scroll{}
+#inner-box{
+
+}
+#text{
+}
+#unselected{}
+#selected{
+    margin-left: 750px;
+
+}
+*/
+
+#text{
+    margin-left: 125px;
+}
