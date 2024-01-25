@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Discord
+Comment=Discord website
+Icon=firefox
+Exec=firefox --new-window 'https://discord.com/app'
+Terminal=false
+Categories=Video;Game
