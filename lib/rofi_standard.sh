@@ -4,26 +4,18 @@
 # $2 theme filename without extension
 # $3 rofi prompt
 source "$HOME/scripts/settings.sh"
-rofi_theme_setup() {
-    dir="$1"
-    theme="$DEFAULT_THEME"
-    if [[ "$#" -gt 1 && "$2" != '' ]]; then
-        theme="$2"
-    fi
-    prompt="$3"
+menu_theme_setup() {
+    theme="$ROFI_CONFIG_FOLDER/$1/$1.rasi"
 }
 # $1 rofi prompt
-rofi_cmd() {
-    if [ -f "${dir}/${theme}.rasi" ]; then
-        rofi -dmenu \
+menu_cmd() {
+        rofi  -dmenu \
             -p "$1" \
-            -config ${dir}/${theme}.rasi
-    elif [ -f "${DEFAULT_THEME_PATH}/${theme}.rasi" ]; then
-        rofi -dmenu \
+            -config ${theme}
+}
+
+app_cmd() {
+        rofi  -show drun \
             -p "$1" \
-            -config ${DEFAULT_THEME_PATH}/${theme}.rasi
-    else
-        rofi -dmenu \
-            -p "$1" 
-    fi
+            -config ${theme}
 }

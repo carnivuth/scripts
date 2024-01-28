@@ -2,14 +2,14 @@
 prompt_networks='Networks'
 prompt_pwd='Password'
 
-# print rofi menu to ask for password
+# print menu to ask for password
 ask_password() {
-    rofi_cmd ${prompt_pwd}
+    menu_cmd ${prompt_pwd}
 }
 
 # print network list
 print_networks() {
-    echo -e "$(nmcli -f ssid device wifi list -rescan no | grep -v SSID | grep -E -v '^--')" | rofi_cmd ${prompt_networks}
+    echo -e "$(nmcli -f ssid device wifi list -rescan no | grep -v SSID | grep -E -v '^--')" | menu_cmd ${prompt_networks}
 }
 
 connect_to_network() {

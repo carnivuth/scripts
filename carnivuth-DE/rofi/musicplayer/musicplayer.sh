@@ -1,16 +1,16 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
-rofi_theme_setup $ROFI_CONFIG_FOLDER/musicplayer "$1" "music player"
+menu_theme_setup musicplayer
 
 #import values from array
 array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/musicplayer/folders.sh" "$HOME"
 
 
 print_playlists() {
-    echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)"  | rofi_cmd "${prompt}"
+    echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)"  | menu_cmd "${prompt}"
 
 }
 

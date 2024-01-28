@@ -1,0 +1,26 @@
+allow_images=true
+hide_scroll=true
+insensitive=true
+columns=3
+hide_search=false
+width=60%
+height=40%
+
+
+
+#mode=drun
+#filter_rate=50
+#insensitive=true
+#allow-markup=true
+#term=alacritty
+#layer=overlay# Theme# Also check ./style.css
+#colors=colors
+#image_size=85
+#allow_images=true# Position
+#width=1600
+#height=810
+#halign=fill
+#orientation=vertical
+#content_halign=fill
+# This hide executable actions
+#no_actions=true
