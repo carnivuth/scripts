@@ -8,7 +8,7 @@ menu_theme_setup(){
 
 # $1 wofi prompt
 menu_cmd() {
-        wofi  -dmenu \
+        wofi -d -dmenu \
             -p "$1" \
             -s "$STYLE"\
             -c "$CONFIG"

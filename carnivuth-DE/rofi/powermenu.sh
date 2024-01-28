@@ -5,11 +5,16 @@ host="$(cat /etc/hostname)"
 menu_theme_setup "powermenu"
 
 # Options
-shutdown=' shutdown'
-reboot=' reboot' 
-lock=' lock'
-suspend=' suspend'
-logout=' logout'
+shutdown='  shutdown'
+reboot='  reboot' 
+lock='  lock'
+suspend='  suspend'
+logout='  logout'
+#shutdown=''
+#reboot='' 
+#lock=''
+#suspend=''
+#logout=''
 
 
 print_powermenu() {
