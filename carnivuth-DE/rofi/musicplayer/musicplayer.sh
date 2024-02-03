@@ -44,10 +44,12 @@ if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
         kill $glava
         sleep 1
     fi
-    vlc --qt-start-minimized "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log &
+    #vlc --qt-start-minimized "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log &
+    mpv --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log &
     echo $! > $SCRIPTS_RUN_FOLDER/pid.vlc
-    glava --desktop 2 >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log &
-    echo $! > $SCRIPTS_RUN_FOLDER/pid.glava
+    #glava --desktop 2 >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log &
+    #echo $! > $SCRIPTS_RUN_FOLDER/pid.glava
+    #playlist_name="$(echo $chosen | rev | cut -d'/' -f1 | rev )"
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
