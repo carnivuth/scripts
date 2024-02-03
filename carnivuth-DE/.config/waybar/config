@@ -7,6 +7,8 @@
     "height": 10,
     "spacing": 0,
     "modules-left": [
+        "custom/weather",
+        "mpris",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -15,6 +17,7 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "custom/vpn",
         "battery",
         "tray"
     ],
@@ -57,14 +60,8 @@
             "9": "9",
             "active": "󱓻",
             "urgent": "󱓻"
-        },
-        //"persistent-workspaces": {
-        //    "1": [],
-        //    "2": [],
-        //    "3": [],
-        //    "4": [],
-        //    "5": []
-        //}
+        }
+       
     },
     "memory": {
         "interval": 5,
@@ -180,6 +177,7 @@
     },
     "mpris": {
         "format": "{player_icon} {dynamic}",
+        "format-len": 1,
         "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
             "spotify": "",
@@ -188,7 +186,7 @@
         "dynamic-order": [
             "title"
         ],
-        "interval": 5,
+        "interval": 1,
         "status-icons": {
             "paused": "⏸"
         },
@@ -197,13 +195,24 @@
         ]
     },
     "custom/weather": {
-        "format": "{}",
-        "format-alt": "{alt}",
-        "format-alt-click": "click-left",
-        "interval": 3600,
         "return-type": "json",
-        "exec": "~/.config/waybar/weather-waybar-module.sh",
-        "exec-if": "ping openweathermap.org -c1",
-        "signal": 8
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "/home/matteo/scripts/carnivuth-DE/waybar/weather.sh",
     },
+    "custom/vpn": {
+        "format": "VPN ",
+        "exec": "echo '{\"class\": \"connected\"}'",
+        "exec-if": "test -d /proc/sys/net/ipv4/conf/wg0",
+        "return-type": "json",
+        "interval": 5
+    },
+    "custom/pacman": {
+        "format": "{}",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "signal": 8
+    }
 }

@@ -27,6 +27,7 @@ window#waybar.hidden {
 #backlight,
 #pulseaudio,
 #mpd,
+#custom-pacman,
 #mpris,
 #custom-weather{
   border-radius: 8px 8px 8px 8px;
@@ -46,6 +47,7 @@ window#waybar.hidden {
 #cpu,
 #backlight,
 #pulseaudio,
+#custom-vpn,
 #network {
   font-size: 16px;
 }
@@ -101,7 +103,9 @@ window#waybar.hidden {
 #custom-launcher,
 #custom-powermenu,
 #tray,
+#custom-vpn,
 #network,
+#custom-pacman,
 #mpd,
 #mpris,
 #custom-weather{
@@ -177,7 +181,7 @@ window#waybar.hidden {
   
   font-size: 13px;
 }
-
+#custom-vpn,
 #network {
   padding-left: 0.2em;
   color: #268bd2;
