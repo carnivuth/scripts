@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
-Name=Jenkins
-Comment=Jenkins interface
+Name=Nextcloud
+Comment=Nextcloud interface
 Icon=firefox
-Exec=firefox --new-window 'https://arcible.ddns.net' 
+Exec=firefox --new-window 'https://pokelab.ddns.net'
 Terminal=false
 Categories=Network,homelab
