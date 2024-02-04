@@ -16,5 +16,7 @@ menu_cmd() {
 
 app_cmd() {
         wofi  --show drun \
-            -p "$1" 
+            -p "$1" \
+            -s "$STYLE"\
+            -c "$CONFIG"
 }
