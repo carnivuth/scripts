@@ -37,6 +37,8 @@ run_cmd() {
 			bspc quit
 		elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 			i3-msg exit
+		elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
+		    hyprctl dispatch exit
 		elif [[ "$DESKTOP_SESSION" == 'awesome' ]]; then
 			killall awesome
 		elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
