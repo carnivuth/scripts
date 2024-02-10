@@ -22,8 +22,8 @@ chosen="$(print_menu)"
 echo $chosen
 # open selected folder on $1 parameter default code
 if [ -d "$chosen" ]; then
-	if [ "$#" -eq 1 ]; then
-		"$1" "$chosen"
+	if [ "$#" -gt 0 ]; then
+		"$@" "$chosen"
 	else
 		code "$chosen"
 	fi
