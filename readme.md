@@ -5,7 +5,7 @@ personal desktop customizations + some usefull scripts and tools for everyday us
 
 ## CONTENTS
 
-### [CARNIVUTH DE](./notes/pages/carnivuth-DE.md)
+### [CARNIVUTH DE](./notes/pages/carnivuth-DE/carnivuth-DE.md)
 
 personal i3 customizations and scripts for xorg graphical session
 
@@ -17,7 +17,7 @@ desktop files for some websites and applications
 
 some systemd timers for everyday use
 
-### [UTILITIES](./notes/pages/UTILITIES.md)  
+### [UTILITIES](./notes/pages/utilities/UTILITIES.md)  
  
 some utilities scripts to speedup some operations and make everyday sysadmin tasks less painful
 
