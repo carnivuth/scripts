@@ -1,3 +1,3 @@
-timeout 1800 'swaylock -f -i /usr/share/hyprland/wall_anime_4K.png '
+timeout 1800 'swaylock -f -i $HOME/Pictures/wallpapers/wall2.png '
 timeout 1805 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
-before-sleep 'swaylock -f -i /usr/share/hyprland/wall_anime_4K.png '
+before-sleep 'swaylock -f -i $HOME/Pictures/wallpapers/wall2.png '

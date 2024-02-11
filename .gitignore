@@ -6,6 +6,7 @@ secret.sh
 history
 settings.sh
 *.awk
+.jukit
 vaults
 workspace.json
 target.sh
