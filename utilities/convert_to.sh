@@ -35,6 +35,11 @@ for FILE in $SRC_FOLDER/*; do
 
     # print
     echo "CONVERTING $NAME TO $FORMAT"
+    
     # encode with ffmpeg
-    ffmpeg -v quiet -y -stats -i "$FILE" "$DEST_FOLDER/$NAME.$FORMAT" &
+    ffmpeg \
+        -y -stats \
+        -i "$FILE" \
+        -c:v h264_nvenc \
+        "$DEST_FOLDER/$NAME.$FORMAT" & 
 done
