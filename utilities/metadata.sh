@@ -2,7 +2,7 @@
 #import files
 source "$HOME/scripts/settings.sh"
 
-# hep
+# help
 if [[ "$1" == "--help" ]]; then
     echo "small script to edit metadata of audio files with awk and ffmpeg"
     echo "parameters: src-folder dest-folder"
@@ -16,6 +16,7 @@ if [[ "$1" == "--help" ]]; then
     echo '  BEGIN{FS="-"}{gsub(/^[ \t]+|[ \t]+$/, "");print $2}' 
     exit 0
 fi
+
 # exit if wrong parameters
 if [[ "$#" -lt 2 ]]; then
     echo "wrong parameters, parameters are:"
@@ -29,7 +30,7 @@ DEST_FOLDER="$2"
 shift
 shift
 
-# get parameters
+# get option parameters
 while getopts t:a:l:f: flag; do
     case "${flag}" in
     t) TITLE_PROGRAM=${OPTARG} ;;
@@ -45,6 +46,7 @@ echo "ARTIST_PROGRAM: $ARTIST_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 echo "ALBUM_PROGRAM: $ALBUM_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 echo "FILE_FORMAT: $FILE_FORMAT" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
 
+# check the src folder existance
 if [[ ! -d "$SRC_FOLDER" ]]; then
     echo "first parameter must be a folder"
     exit 1
@@ -55,10 +57,12 @@ if [[ ! -d "$DEST_FOLDER" ]]; then
     mkdir "$DEST_FOLDER"
 fi
 
+# set default file format to opus if no format is provided
 if [[ "$FILE_FORMAT" == '' ]]; then
     FILE_FORMAT='opus'
 fi
 
+# main loop
 for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
 
     # get name file
@@ -75,7 +79,7 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
     if [[ "$TITLE_PROGRAM" != '' ]]; then
         TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM" | awk  '{$1=$1};1')"
     fi
-    # log metadata
+    
     echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" 
 
     # ffmpeg decoding
