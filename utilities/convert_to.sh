@@ -17,6 +17,13 @@ SRC_FOLDER="$1"
 DEST_FOLDER="$2"
 FORMAT="$3"
 
+function wait_n_proc {
+    n_proc="$(nproc --all)"
+   while [ `jobs | wc -l` -ge $n_proc ]
+   do
+      sleep 3
+   done
+}
 
 if [[ ! -d "$SRC_FOLDER" ]]; then
     echo "first parameter must be a folder"
@@ -37,9 +44,11 @@ for FILE in $SRC_FOLDER/*; do
     echo "CONVERTING $NAME TO $FORMAT"
     
     # encode with ffmpeg
-    ffmpeg \
+    wait_n_proc ; ffmpeg \
         -y -stats \
         -i "$FILE" \
         -c:v h264_nvenc \
-        "$DEST_FOLDER/$NAME.$FORMAT" & 
+        "$DEST_FOLDER/$NAME.$FORMAT" &
+
 done
+wait
