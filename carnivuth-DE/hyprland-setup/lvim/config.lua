@@ -3,7 +3,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 vim.o.autochdir = true
-
+vim.opt.relativenumber = true -- relative line numbers
 -- PLUGINS
 lvim.plugins = {
 --  { "lunarvim/colorschemes" },
