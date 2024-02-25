@@ -34,15 +34,34 @@ pop-icon-theme
 pavucontrol 
 firefox 
 brightnessctl 
+mpv-mpris
 ttf-font-awesome 
 code 
+github-cli
+htop
 conky 
 blueman 
+neovim
+nm-connection-editor
 dunst'
 
 # install additional packages based on selected setup
 if [["$answer" == "h" ]];then
-  packets="$packets Hyprland swaylock swayidle waybar wofi slurp grim wl-clipboard"
+  packets="$packets 
+  hyprland 
+  swaylock 
+  kitty
+  swayidle 
+  greetd
+  greetd-regreet
+  wev 
+  xdg-desktop-portal-hyprland 
+  waybar 
+  wofi 
+  slurp 
+  grim 
+  cage
+  wl-clipboard"
 elif [["$answer" == "i" ]]; then
   packets="$packets 
   xorg-xinput
