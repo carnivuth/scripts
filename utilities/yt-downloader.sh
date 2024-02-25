@@ -3,6 +3,8 @@ if [[ "$1" == "--help" ]]; then
     echo 'script for downloading playlist from youtube'
     echo 'usage:'
     echo "$0" "dest-folder" "URL" "[-a]"
+    echo "parameters:"
+    echo "-a audio only, if set the script will download only the audio content of a file"
     exit 0
 fi
 
@@ -12,6 +14,7 @@ if [[ "$#" -lt 2 ]]; then
     exit 1
 fi
 
+# setting variables
 DEST_FOLDER="$1"
 URL="$2"
 
@@ -25,7 +28,7 @@ while getopts a: flag; do
     esac
 done
 
-# run yt-dlp
+# setting pyt-dlp command
 YT_DLP_CMD="yt-dlp \
     --ignore-errors \
     --continue \
@@ -35,8 +38,11 @@ YT_DLP_CMD="yt-dlp \
     -P $DEST_FOLDER \
     $URL"
 
+# printing command for debugging purposes
 echo "running $YT_DLP_CMD"
 
+# run command
 $YT_DLP_CMD
 
+# remove progress file
 rm progress.txt
