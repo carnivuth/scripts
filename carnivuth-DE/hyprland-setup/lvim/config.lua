@@ -6,7 +6,6 @@ vim.o.autochdir = true
 
 -- PLUGINS
 lvim.plugins = {
-  {'instant-markdown/vim-instant-markdown', lazy = false},
 --  { "lunarvim/colorschemes" },
   { "tpope/vim-fugitive" , lazy = false}
 --  {
