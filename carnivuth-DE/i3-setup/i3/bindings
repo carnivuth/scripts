@@ -99,7 +99,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+Shift+d exec --no-startup-id $folder/applets/launcher.sh 
+bindsym $mod+d exec --no-startup-id $folder/applets/launcher.sh 
 
 #change focus
 # alternatively, you can use the cursor keys:
