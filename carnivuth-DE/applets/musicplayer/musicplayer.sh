@@ -1,16 +1,11 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
 source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 
 menu_theme_setup musicplayer
 
-#import values from array
-array_importer "$SCRIPTS_APPLETS_FOLDER/musicplayer/folders.sh" "$HOME"
-
-
 print_playlists() {
-    echo -e "$(for dir in ${ARRAY[@]}; do ls -d "$dir"/*/; done)"  | menu_cmd "${prompt}"
+    echo -e "$(for dir in $musicplayer_folders; do ls -d "$dir"/*/; done)"  | menu_cmd "${prompt}"
 
 }
 

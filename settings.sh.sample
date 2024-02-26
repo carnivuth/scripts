@@ -22,14 +22,13 @@ FLAMESHOT_FOLDER="$HOME/Pictures/screenshots"
 #no space allowed only absolute paths
 GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\nfile://$HOME/Images\nfile://$HOME/Videos\n"
 
-rclone-mounts=""
-obsidian-vaults=""
-github-repoviewer-account=""
-musicplayer-folders=""
-launchprojects-folders=""
-themeswitcher-folders=""
-vaultlauncher-folders=""
-systemd/scripts-target
-utilities/backup-files/configfiles
-utilities/backup-files/systemfiles
-utilities/backup-files/homefiles
+github_repoviewer_account="insert your account here"
+musicplayer_folders="$HOME/Music"
+launchprojects_folders="$HOME"
+themeswitcher_folders="$HOME/Pictures/wallpapers"
+vaultlauncher_folders="$HOME"
+#rclone_mounts=""
+#systemd/scripts_target
+#utilities/backup_files/configfiles
+#utilities/backup_files/systemfiles
+#utilities/backup_files/homefiles

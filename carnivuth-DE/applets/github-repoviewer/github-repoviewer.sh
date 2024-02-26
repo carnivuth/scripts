@@ -2,11 +2,11 @@
 
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
-source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/github-repoviewer/account.sh"
+source "$SCRIPTS_APPLETS_FOLDER/github-repoviewer/account.sh"
 
 menu_theme_setup github-repoviewer
 get_file(){
-    curl https://api.github.com/users/$account/repos > "$SCRIPTS_LOCAL_FOLDER/repos.json"
+    curl https://api.github.com/users/$github_repoviewer_account/repos > "$SCRIPTS_LOCAL_FOLDER/repos.json"
 }
 
 print_menu() {

@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/rofi_standard.sh"
-rofi_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" "$1" 'file explorer'
+source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
+menu_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" 'fileexplorer'
 
 #max history size
 max_size=50
@@ -14,11 +14,11 @@ get_history_size(){
 }
 
 print_contents() {
-	 ls "$1" | rofi_cmd "${prompt}"
+	 ls "$1" | menu_cmd "${prompt}"
 
 }
 print_contents_and_history() {
-	{ get_history; ls "$1";  } | rofi_cmd "${prompt}"
+	{ get_history; ls "$1";  } | menu_cmd "${prompt}"
 
 }
 
