@@ -99,8 +99,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+Shift+d exec --no-startup-id $folder/rofi/launcher.sh default-line-bottom
-bindsym $mod+d exec --no-startup-id $folder/rofi/launcher.sh default-center
+bindsym $mod+Shift+d exec --no-startup-id $folder/applets/launcher.sh 
 
 #change focus
 # alternatively, you can use the cursor keys:
@@ -156,8 +155,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 #launch network menu
-bindsym $mod+n exec --no-startup-id $folder/rofi/networkmenu/networkmenu.sh default-line-bottom
-bindsym $mod+Shift+n exec --no-startup-id $folder/rofi/networkmenu/networkmenu.sh default-center
+bindsym $mod+n exec --no-startup-id $folder/applets/networkmenu/networkmenu.sh 
 
 #screenshot 
 bindsym $mod+Print exec --no-startup-id flameshot screen
@@ -169,36 +167,28 @@ bindsym $mod+Shift+Print exec --no-startup-id flameshot gui &
 bindsym $mod+t exec --no-startup-id telegram-desktop  
 
 #launch powermenu
-bindsym $mod+p exec --no-startup-id $folder/rofi/powermenu.sh default-center
-bindsym $mod+Shift+p exec --no-startup-id $folder/rofi/powermenu.sh default-line-bottom
+bindsym $mod+p exec --no-startup-id $folder/applets/powermenu.sh 
 
 # launch browser
-bindsym $mod+s exec --no-startup-id $folder/rofi/quicksearch.sh default-center
-bindsym $mod+Shift+s exec --no-startup-id $folder/rofi/quicksearch.sh default-line-bottom
+bindsym $mod+s exec --no-startup-id $folder/applets/quicksearch.sh 
 
 # launch filemanager
 bindsym $mod+e exec --no-startup-id thunar
-bindsym $mod+Shift+e exec --no-startup-id $folder/rofi/fileexplorer/fileexplorer.sh  default-center
 
 #launch project menu
 #code
-bindsym $mod+c exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh code default-line-bottom
-bindsym $mod+Shift+c exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh code default-center
+bindsym $mod+c exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh code 
 
 #intellij idea
-#bindsym $mod+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-line-bottom
-#bindsym $mod+Shift+j exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh idea default-center
+#bindsym $mod+j exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh idea 
 ##fleet
-#bindsym $mod+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-line-bottom
-#bindsym $mod+Shift+i exec --no-startup-id $folder/rofi/launchprojects/launchprojects.sh fleet default-center
+#bindsym $mod+i exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh fleet 
 
 #launch obsidian vaults launcher
-bindsym $mod+z exec --no-startup-id $folder/rofi/vaultlauncher/vaultlauncher.sh default-line-bottom
-bindsym $mod+Shift+z exec --no-startup-id $folder/rofi/vaultlauncher/vaultlauncher.sh default-center
+bindsym $mod+z exec --no-startup-id $folder/applets/vaultlauncher/vaultlauncher.sh 
 
 #launch github repo viewer
-bindsym $mod+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-line-bottom
-bindsym $mod+Shift+g exec --no-startup-id $folder/rofi/github-repoviewer/github-repoviewer.sh default-center
+bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer/github-repoviewer.sh 
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
@@ -206,16 +196,13 @@ bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
 bindsym $mod+b exec --no-startup-id blueman-manager
 
 #launch music player
-bindsym $mod+m exec --no-startup-id $folder/rofi/musicplayer/musicplayer.sh default-line-bottom
-bindsym $mod+Shift+m exec --no-startup-id $folder/rofi/musicplayer/musicplayer.sh default-center
+bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer/musicplayer.sh 
 
 #launch theme switcher
-bindsym $mod+o exec --no-startup-id $folder/rofi/themeswitcher/themeswitcher.sh
-bindsym $mod+Shift+o exec --no-startup-id $folder/rofi/themeswitcher/themeswitcher.sh default-center
+bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher/themeswitcher.sh
 
 #launch keyboard switcher
 bindsym $mod+space exec --no-startup-id $folder/keyboard/kbdswitcher.sh
-bindsym $mod+Shift+y exec --no-startup-id $folder/rofi/kbdswitcher/kbdswitcher.sh default-center
 
 #launch pavucontrol
 bindsym $mod+a exec --no-startup-id pavucontrol
