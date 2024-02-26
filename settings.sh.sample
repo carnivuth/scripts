@@ -14,9 +14,22 @@ ROFI_CONFIG_FOLDER="$HOME/.config/rofi"
 WOFI_CONFIG_FOLDER="$HOME/.config/wofi"
 
 SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
-
+# path to applets script
+SCRIPTS_APPLETS_FOLDER="$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets"
 DEFAULT_THEME="default-line-bottom"
 DEFAULT_THEME_PATH="$ROFI_CONFIG_FOLDER/default"
-FLAMESHOT_FOLDER="$HOME/Images/screenshots"
+FLAMESHOT_FOLDER="$HOME/Pictures/screenshots"
 #no space allowed only absolute paths
 GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\nfile://$HOME/Images\nfile://$HOME/Videos\n"
+
+rclone-mounts=""
+obsidian-vaults=""
+github-repoviewer-account=""
+musicplayer-folders=""
+launchprojects-folders=""
+themeswitcher-folders=""
+vaultlauncher-folders=""
+systemd/scripts-target
+utilities/backup-files/configfiles
+utilities/backup-files/systemfiles
+utilities/backup-files/homefiles
