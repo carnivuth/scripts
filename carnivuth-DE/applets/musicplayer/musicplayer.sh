@@ -6,7 +6,7 @@ source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 menu_theme_setup musicplayer
 
 #import values from array
-array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/musicplayer/folders.sh" "$HOME"
+array_importer "$SCRIPTS_APPLETS_FOLDER/musicplayer/folders.sh" "$HOME"
 
 
 print_playlists() {
@@ -19,37 +19,23 @@ chosen="$(print_playlists)"
 
 #kill vlc command
 if [[ "$chosen" == "stop" ]];then
-vlc="$(cat $SCRIPTS_RUN_FOLDER/pid.vlc)"
-    if [ "$vlc" != '' ]; then
-        kill $vlc
-        rm $SCRIPTS_RUN_FOLDER/pid.vlc
-    fi
-    glava="$(cat $SCRIPTS_RUN_FOLDER/pid.glava)"
-    if [ "$glava" != '' ]; then
-        kill $glava
-        rm $SCRIPTS_RUN_FOLDER/pid.glava
+player="$(cat $SCRIPTS_RUN_FOLDER/pid.player)"
+    if [ "$player" != '' ]; then
+        kill $player
+        rm $SCRIPTS_RUN_FOLDER/pid.player
     fi
 
 fi
 
 #run playlist
 if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
-    vlc="$(cat $SCRIPTS_RUN_FOLDER/pid.vlc)"
-    if [ "$vlc" != '' ]; then
-        kill $vlc
+    player="$(cat $SCRIPTS_RUN_FOLDER/pid.player)"
+    if [ "$player" != '' ]; then
+        kill $player
         sleep 1
     fi
-    glava="$(cat $SCRIPTS_RUN_FOLDER/pid.glava)"
-    if [ "$glava" != '' ]; then
-        kill $glava
-        sleep 1
-    fi
-    #vlc --qt-start-minimized "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log &
-    mpv --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.vlc.log &
-    echo $! > $SCRIPTS_RUN_FOLDER/pid.vlc
-    #glava --desktop 2 >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.glava.log &
-    #echo $! > $SCRIPTS_RUN_FOLDER/pid.glava
-    #playlist_name="$(echo $chosen | rev | cut -d'/' -f1 | rev )"
+    mpv --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log &
+    echo $! > $SCRIPTS_RUN_FOLDER/pid.player
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
 
 fi
