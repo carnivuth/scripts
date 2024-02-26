@@ -7,7 +7,7 @@ source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 menu_theme_setup themeswitcher 
 
 #import values from array
-array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/themeswitcher/folders.sh" "/usr/share/backgrounds"
+array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/themeswitcher/folders.sh" "/usr/share/backgrounds"
 
 
 
@@ -21,5 +21,5 @@ print_menu() {
 chosen="$(print_menu)"
 echo $chosen
 if [ -f "$chosen" ]; then
-	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/rofi/themeswitcher/postwal.sh"
+	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/themeswitcher/postwal.sh"
 fi
