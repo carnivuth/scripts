@@ -1,0 +1,225 @@
+
+######################################### WORKSPACES ##############################################
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $screen1 eDP-1
+set $screen2 HDMI-1-0
+# set workspace on all monitors
+workspace $ws1 output $screen1 
+workspace $ws2 output $screen2
+workspace $ws3 output $screen1 
+workspace $ws4 output $screen2
+workspace $ws5 output $screen1 
+workspace $ws6 output $screen2
+workspace $ws7 output $screen1 
+workspace $ws8 output $screen2
+workspace $ws9 output $screen1 
+workspace $ws10 output $screen2
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+# switch to combo workspace
+bindsym $mod+KP_1 workspace number $ws1; workspace number $ws2
+bindsym $mod+KP_2 workspace number $ws3; workspace number $ws4
+bindsym $mod+KP_3 workspace number $ws5; workspace number $ws6
+bindsym $mod+KP_4 workspace number $ws7; workspace number $ws8
+bindsym $mod+KP_5 workspace number $ws9; workspace number $ws10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
+# switch workspaces
+bindsym $mod+Mod1+Right workspace next
+bindsym $mod+mod1+Left workspace prev
+#move window to next/previous container
+bindsym $mod+control+Mod1+Right move window to workspace next; workspace next 
+bindsym $mod+control+Mod1+Left move window to workspace  prev; workspace prev
+######################################### WORKSPACES ##############################################
+
+######################################### RESIZE ##############################################
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+######################################### RESIZE ##############################################
+
+######################################### BYNDINGS ##############################################
+
+# SCRIPTS FOLDER 
+set $folder ~/scripts/carnivuth-DE
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty
+
+# kill focused window
+bindsym $mod+q kill
+
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id $folder/applets/launcher.sh 
+
+#change focus
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+
+
+#audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute exec --no-startup-id pamixer -t 
+bindsym $mod+Shift+a exec --no-startup-id pamixer -t 
+
+#brightness controls
+bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl -d intel_backlight s 10%- 
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight s +10% 
+
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+#launch network manager
+#bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+
+#launch network menu
+bindsym $mod+n exec --no-startup-id $folder/applets/networkmenu/networkmenu.sh 
+
+#screenshot 
+bindsym $mod+Print exec --no-startup-id flameshot screen
+
+#manual screenshot 
+bindsym $mod+Shift+Print exec --no-startup-id flameshot gui &
+
+#launch telegram 
+bindsym $mod+t exec --no-startup-id telegram-desktop  
+
+#launch powermenu
+bindsym $mod+p exec --no-startup-id $folder/applets/powermenu.sh 
+
+# launch browser
+bindsym $mod+s exec --no-startup-id $folder/applets/quicksearch.sh 
+
+# launch filemanager
+bindsym $mod+e exec --no-startup-id thunar
+
+#launch project menu
+#code
+bindsym $mod+c exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh code 
+
+#intellij idea
+#bindsym $mod+j exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh idea 
+##fleet
+#bindsym $mod+i exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh fleet 
+
+#launch obsidian vaults launcher
+bindsym $mod+z exec --no-startup-id $folder/applets/vaultlauncher/vaultlauncher.sh 
+
+#launch github repo viewer
+bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer/github-repoviewer.sh 
+
+#toggle bluetooth
+bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
+#launch blueman
+bindsym $mod+b exec --no-startup-id blueman-manager
+
+#launch music player
+bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer/musicplayer.sh 
+
+#launch theme switcher
+bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher/themeswitcher.sh
+
+#launch keyboard switcher
+bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh
+
+#launch pavucontrol
+bindsym $mod+a exec --no-startup-id pavucontrol
+
+#launch conky
+bindsym $mod+k exec --no-startup-id conky
+
+# reload the configuration file
+#bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+#lock screen
+bindsym $mod+l exec --no-startup-id "light-locker-command -l"
+
+#exit i3
+bindsym $mod+Shift+q exit
+
+######################################### BYNDINGS ##############################################

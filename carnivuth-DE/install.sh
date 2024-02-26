@@ -1,5 +1,18 @@
 #!/bin/bash
+
+## check on settings.sh file
+if [[ ! -f "$HOME/scripts/settings.sh" ]]; then 
+    echo 'no settings.sh file found, run: '
+    echo "cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh"
+    echo 'and edit the variables as you like'
+    exit 1
+fi 
 source "$HOME/scripts/settings.sh"
+
+# asking for i3 setup
+echo "select setup to install [h/i]"
+unset answer
+read answer
 
 # install packages
 echo 'installing packages'
@@ -7,16 +20,11 @@ packets='
 network-manager-applet 
 playerctl 
 pamixer 
-xorg-xinput 
 gnome-themes-extra 
 jq 
 bluez-utils 
 loupe 
 evince 
-lightdm-webkit2-greeter 
-lightdm-webkit-theme-litarvan 
-light-locker 
-lightdm 
 ttf-dejavu 
 mpv 
 thunderbird 
@@ -26,51 +34,66 @@ pop-icon-theme
 pavucontrol 
 firefox 
 brightnessctl 
+mpv-mpris
 ttf-font-awesome 
 code 
-python-pywal 
-alacritty 
-autorandr 
-python-pywal 
-feh 
+github-cli
+htop
 conky 
-flameshot 
-i3-wm 
-picom 
-polybar 
-rofi 
-vlc 
 blueman 
+neovim
+nm-connection-editor
 dunst'
+
+# install additional packages based on selected setup
+if [["$answer" == "h" ]];then
+  packets="$packets 
+  hyprland 
+  swaylock 
+  kitty
+  swayidle 
+  greetd
+  greetd-regreet
+  wev 
+  xdg-desktop-portal-hyprland 
+  waybar 
+  wofi 
+  slurp 
+  grim 
+  cage
+  wl-clipboard"
+elif [["$answer" == "i" ]]; then
+  packets="$packets 
+  xorg-xinput
+	lightdm-webkit2-greeter 
+  alacritty 
+  autorandr 
+  python-pywal 
+  flameshot 
+  i3-wm 
+  picom 
+  polybar 
+  rofi 
+  feh 
+  lightdm-webkit-theme-litarvan 
+  light-locker 
+  lightdm "
+
+fi
+
 sudo pacman -S $packets
+
+# setting path based on selected setup
+if [["$answer" == "h" ]];then
+  config_folder="hyprland-setup"
+elif [["$answer" == "h" ]]; then
+  config_folder="i3-setup"
+fi
 
 # copy config files
 echo 'coping config files'
 mkdir -p "$HOME/.config/"
-ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.config/"* "$HOME/.config/"
+ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder"* "$HOME/.config/"
 
-# setting up flameshot savePath folder
-echo 'setting flameshot savePath folder'
-if [[ ! -d "$FLAMESHOT_FOLDER" ]]; then
-    mkdir -p "$FLAMESHOT_FOLDER"
-fi
-echo "savePath=$FLAMESHOT_FOLDER" >>"$HOME/.config/flameshot/flameshot.ini"
-
-# setup gtk bookmarks
-echo 'setup gtk bookmarks'
-
-echo -e "$GTK_BOOKMARKS" >"$HOME/.config/gtk-4.0/bookmarks"
-echo -e "$GTK_BOOKMARKS" >"$HOME/.config/gtk-3.0/bookmarks"
-
-# creating bookmarks folders
-echo 'creating bookmarks folders'
-cat $HOME/.config/gtk-4.0/bookmarks | while read folder; do
-    f=$(echo $folder | cut -d '/' -f 4-)
-    if [[ ! -d "/$f" ]]; then
-        mkdir -p "/$f"
-    fi
-done
-
-# enabling lightdm
-echo 'enabling lightdm'
-sudo systemctl enable lightdm
+echo "remember to link the correct menu file based on the setup"
+echo "ln -s $HOME/scripts/lib/<menu>_standard.sh $HOME/scripts/lib/menu_standard.sh"
