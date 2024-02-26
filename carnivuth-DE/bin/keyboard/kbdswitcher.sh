@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER/array_importer.sh"
-array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/keyboard/layouts.sh" "it"
+array_importer "$SCRIPTS_HOME_FOLDER/carnivuth-DE/bin/keyboard/layouts.sh" "it"
 
 current_layout=$(setxkbmap -print -verbose 10 | grep layout | rev | cut -d" " -f1 | rev)
 echo $current_layout

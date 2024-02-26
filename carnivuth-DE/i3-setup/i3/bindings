@@ -202,7 +202,7 @@ bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer/musicplayer.sh
 bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher/themeswitcher.sh
 
 #launch keyboard switcher
-bindsym $mod+space exec --no-startup-id $folder/keyboard/kbdswitcher.sh
+bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh
 
 #launch pavucontrol
 bindsym $mod+a exec --no-startup-id pavucontrol
