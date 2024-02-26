@@ -1,34 +1,60 @@
 #!/bin/bash
+# LOGS FOLDER PATH
 SCRIPTS_LOGS_FOLDER="$HOME/.local/scripts/log"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi
 
 SCRIPTS_HOME_FOLDER="$HOME/scripts"
 
+# PATH FOR PERSISTANT INFORMATIONS
 SCRIPTS_LOCAL_FOLDER="$HOME/.local/scripts"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOCAL_FOLDER"; fi
 
+# FOLDER FOR RUN INFORMATIONS
 SCRIPTS_RUN_FOLDER="/tmp/scripts"
 if [[ ! -d "$SCRIPTS_RUN_FOLDER" ]] ;then mkdir -p "$SCRIPTS_RUN_FOLDER"; fi
 
+# PATH TO SCRIPT LIB FOLDER
+SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
+
+# PATH TO ROFI CONFIG FOLDER
 ROFI_CONFIG_FOLDER="$HOME/.config/rofi"
+
+# PATH TO WOFI CONFIG FOLDER
 WOFI_CONFIG_FOLDER="$HOME/.config/wofi"
 
-SCRIPTS_LIBS_FOLDER="$SCRIPTS_HOME_FOLDER/lib"
-# path to applets script
+# PATH TO APPLETS FOLDER
 SCRIPTS_APPLETS_FOLDER="$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets"
-DEFAULT_THEME="default-line-bottom"
-DEFAULT_THEME_PATH="$ROFI_CONFIG_FOLDER/default"
-FLAMESHOT_FOLDER="$HOME/Pictures/screenshots"
-#no space allowed only absolute paths
-GTK_BOOKMARKS="file://$HOME/Music\nfile://$HOME/Downloads\nfile://$HOME/Images\nfile://$HOME/Videos\n"
 
+# GITHUB ACCOUNT FOR GITHUB APPLET
 github_repoviewer_account="insert your account here"
+
+# PATHS TO MUSIC FOLDERS FOR MUSICPLAYER APPLET
 musicplayer_folders="$HOME/Music"
+
+# PATHS TO PROJECTS FOLDERS FOR LAUNCHPROJECTS APPLET
 launchprojects_folders="$HOME"
+
+# PATHS TO FOLDERS WITH IMAGES FOR THEMESWITCHER APPLET
 themeswitcher_folders="$HOME/Pictures/wallpapers"
+
+# OBSIDIAN VAULT FOLDERS
 vaultlauncher_folders="$HOME"
-#rclone_mounts=""
+
+# DO NOT USE SYSTEM VARIABLES
+# files to backup that are in /etc directory
+system_files="
+/etc/pacman.conf"
+
+# DO NOT USE SYSTEM VARIABLES
+# files to backup that are in home directory
+home_files=""
+
+# DO NOT USE SYSTEM VARIABLES
+# files to backup that are in .config folder
+config_files=""
+
+
+
+#rclone_mounts="
 #systemd/scripts_target
-#utilities/backup_files/configfiles
-#utilities/backup_files/systemfiles
-#utilities/backup_files/homefiles
+

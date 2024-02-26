@@ -27,7 +27,7 @@ if [[ ! -d "$vault" ]]; then
     echo "creating folder $vault"
     mkdir -p "$vault"
 fi
-
+!
 if [[ ! -d "$vault/journals" ]]; then
     echo "create subfolders journals"
     mkdir "$vault/journals"
@@ -57,7 +57,14 @@ if [[ "$git" == '1' ]]; then
     fi
     if [[ ! -f "$vault/.gitignore" ]]; then
         echo "creating gitignore"
-        echo '.obsidian/workspace.json' >"$vault/.gitignore"
+        echo '.obsidian' >"$vault/.gitignore"
+        echo '!.obsidian/app.json' >>"$vault/.gitignore"
+        echo '!.obsidian/appereance.json' >>"$vault/.gitignore"
+        echo '!.obsidian/config' >>"$vault/.gitignore"
+        echo '!.obsidian/community-plugins.json' >>"$vault/.gitignore"
+        echo '!.obsidian/core-plugins.json' >>"$vault/.gitignore"
+        echo '!.obsidian/hotkeys.json' >>"$vault/.gitignore"
+        echo '!.obsidian/graphs.json' >>"$vault/.gitignore"
 
     fi
 fi
