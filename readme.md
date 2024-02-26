@@ -1,23 +1,30 @@
 # SCRIPTS 
-personal desktop customizations + some usefull scripts and tools for everyday use
+personal desktop customizations (xorg and wayland) + some usefull scripts and tools for everyday use
 
+## I3 SETUP
 ![](./notes/assets/demo.gif)
 
 ## CONTENTS
 
-### [CARNIVUTH DE](./notes/pages/carnivuth-DE/carnivuth-DE.md)
+The repo contains dotfiles for both xorg(i3) desktop and wayland(hyprland)  
 
-personal i3 customizations and scripts for xorg graphical session
+### carnivuth-DE
 
-### [DESKTOP FILES](./notes/pages/DESKTOP-FILES.md)
+this folder contains:
+
+- dotfiles both for i3 and hyprland setup
+- applets for keyboard shortcut and quick access to some usefull tools
+- some common binaries used by dotfiles and applets
+
+### DESKTOP FILES
 
 desktop files for some websites and applications
 
-### [SYSTEMD UNITS](./notes/pages/systemd-units.md)
+### SYSTEMD UNITS
 
 some systemd timers for everyday use
 
-### [UTILITIES](./notes/pages/utilities/UTILITIES.md)  
+### UTILITIES
  
 some utilities scripts to speedup some operations and make everyday sysadmin tasks less painful
 
@@ -45,10 +52,6 @@ the global `install.sh` requires a `settings.sh` file that is imported in every 
 
 - default rofi theme configuration for the menus
 
-- flameshot folder for screenshots
-
-- some gtk bookmarks for thunar to display
-
-it also create default [configuration files for single scripts](./notes/pages/ARRAY_DATA_FILE.md) that need them
+- some configuration variables for applets and utilities
 
 feel free to customize these values as you like 😉
