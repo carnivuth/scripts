@@ -33,6 +33,7 @@ adwaita-icon-theme
 pop-icon-theme 
 pavucontrol 
 firefox 
+telegram-desktop
 epapirus-icon-theme
 brightnessctl 
 mpv-mpris
