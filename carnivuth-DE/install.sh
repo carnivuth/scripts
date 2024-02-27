@@ -56,6 +56,7 @@ if [[ "$answer" == "h" ]];then
   swayidle 
   greetd
   greetd-regreet
+  chromium
   wev 
   xdg-desktop-portal-hyprland 
   ttf-jetbrains-mono-nerd
@@ -96,7 +97,7 @@ fi
 # copy config files
 echo 'coping config files'
 mkdir -p "$HOME/.config/"
-ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder"* "$HOME/.config/"
+ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/"* "$HOME/.config/"
 
 echo "remember to link the correct menu file based on the setup"
 echo "ln -s $HOME/scripts/lib/<menu>_standard.sh $HOME/scripts/lib/menu_standard.sh"
