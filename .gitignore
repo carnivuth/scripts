@@ -8,3 +8,4 @@ vaults
 workspace.json
 target.sh
 rclone-mounts.json
+.vagrant
