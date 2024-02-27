@@ -56,15 +56,9 @@ if [[ "$git" == '1' ]]; then
         git init
     fi
     if [[ ! -f "$vault/.gitignore" ]]; then
+
         echo "creating gitignore"
-        echo '.obsidian' >"$vault/.gitignore"
-        echo '!.obsidian/app.json' >>"$vault/.gitignore"
-        echo '!.obsidian/appereance.json' >>"$vault/.gitignore"
-        echo '!.obsidian/config' >>"$vault/.gitignore"
-        echo '!.obsidian/community-plugins.json' >>"$vault/.gitignore"
-        echo '!.obsidian/core-plugins.json' >>"$vault/.gitignore"
-        echo '!.obsidian/hotkeys.json' >>"$vault/.gitignore"
-        echo '!.obsidian/graphs.json' >>"$vault/.gitignore"
+        echo 'workspace.json' >"$vault/.gitignore"
 
     fi
 fi
