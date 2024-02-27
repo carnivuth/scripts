@@ -88,6 +88,20 @@ fi
 
 sudo pacman -S $packets
 
+echo "installing lunar vim ide"
+dependencies="
+neovim
+git
+make
+npm
+nodejs
+cargo
+ripgrep
+lazygit
+"
+LV_BRANCH='release-1.3/neovim-0.9' bash <\
+  (curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+ 
 # setting path based on selected setup
 if [[ "$answer" == "h" ]];then
   config_folder="hyprland-setup"
@@ -100,5 +114,14 @@ echo 'coping config files'
 mkdir -p "$HOME/.config/"
 ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/"* "$HOME/.config/"
 
-echo "remember to link the correct menu file based on the setup"
-echo "ln -s $HOME/scripts/lib/<menu>_standard.sh $HOME/scripts/lib/menu_standard.sh"
+if [[ "$answer" == "h" ]];then
+  echo "ln -s $HOME/scripts/lib/wofi_standard.sh $HOME/scripts/lib/menu_standard.sh"
+elif [[ "$answer" == "h" ]]; then
+  echo "ln -s $HOME/scripts/lib/rofi_standard.sh $HOME/scripts/lib/menu_standard.sh"
+fi
+
+# adding elements to path
+if [[ "$(cat $HOME/.bashrc | grep $SCRIPTS_APPLETS_FOLDER)" == "" ]]; then
+    echo "export PATH=$SCRIPTS_APPLETS_FOLDER:"'$PATH' >>"$HOME/.bashrc"
+    export PATH="$SCRIPTS_APPLETS_FOLDER:$PATH"
+fi
