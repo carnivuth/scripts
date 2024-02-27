@@ -33,6 +33,7 @@ adwaita-icon-theme
 pop-icon-theme 
 pavucontrol 
 firefox 
+epapirus-icon-theme
 brightnessctl 
 mpv-mpris
 ttf-font-awesome 
