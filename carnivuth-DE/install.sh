@@ -41,28 +41,31 @@ github-cli
 htop
 conky 
 blueman 
+obsidian
 neovim
 nm-connection-editor
 dunst'
 
 # install additional packages based on selected setup
-if [["$answer" == "h" ]];then
+if [[ "$answer" == "h" ]];then
   packets="$packets 
   hyprland 
   swaylock 
   kitty
+  noto-fonts-emoji
   swayidle 
   greetd
   greetd-regreet
   wev 
   xdg-desktop-portal-hyprland 
+  ttf-jetbrains-mono-nerd
   waybar 
   wofi 
   slurp 
   grim 
   cage
   wl-clipboard"
-elif [["$answer" == "i" ]]; then
+elif [[ "$answer" == "i" ]]; then
   packets="$packets 
   xorg-xinput
 	lightdm-webkit2-greeter 
@@ -84,9 +87,9 @@ fi
 sudo pacman -S $packets
 
 # setting path based on selected setup
-if [["$answer" == "h" ]];then
+if [[ "$answer" == "h" ]];then
   config_folder="hyprland-setup"
-elif [["$answer" == "h" ]]; then
+elif [[ "$answer" == "h" ]]; then
   config_folder="i3-setup"
 fi
 
