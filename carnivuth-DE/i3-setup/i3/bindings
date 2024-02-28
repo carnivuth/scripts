@@ -199,7 +199,7 @@ bindsym $mod+b exec --no-startup-id blueman-manager
 bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer.sh 
 
 #launch theme switcher
-bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher.sh
+bindsym $mod+o exec --no-startup-id t$folder/applets/themeswitcher.sh
 
 #launch keyboard switcher
 bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh

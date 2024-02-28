@@ -14,5 +14,5 @@ print_menu() {
 chosen="$(print_menu)"
 echo $chosen
 if [ -f "$chosen" ]; then
-	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/themeswitcher/postwal.sh"
+	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/postwal.sh"
 fi
