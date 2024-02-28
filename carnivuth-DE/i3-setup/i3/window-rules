@@ -45,3 +45,6 @@ for_window [class="steam_app_*"] move to workspace 8; workspace number 8
 
 #nextcloud rules
 for_window [class="Nextcloud"] floating enabled; move position center
+
+# password gorilla rules
+for_window [class="Gorilla"] floating enabled; move position center
