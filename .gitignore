@@ -1,3 +1,4 @@
+*.swp
 menu_standard.sh
 logs
 log*
