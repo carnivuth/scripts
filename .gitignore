@@ -10,3 +10,8 @@ workspace.json
 target.sh
 rclone-mounts.json
 .vagrant
+carnivuth-DE/i3-setup/Code/*
+
+!carnivuth-DE/i3-setup/Code/User
+carnivuth-DE/i3-setup/Code/User/*
+!carnivuth-DE/i3-setup/Code/User/settings.json
