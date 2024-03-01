@@ -4,6 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 vim.o.autochdir = true
 vim.opt.relativenumber = true -- relative line numbers
+
 -- PLUGINS
 lvim.plugins = {
 --  { "lunarvim/colorschemes" },
@@ -22,3 +23,9 @@ lvim.plugins = {
 --    config = true, -- run require("neorg").setup()
 --  },
 }
+-- add `yamlls` to `skipped_servers` list
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "yamlls" })
+-- remove `ansiblels` from `skipped_servers` list
+lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+  return server ~= "ansiblels"
+end, lvim.lsp.automatic_configuration.skipped_servers)
