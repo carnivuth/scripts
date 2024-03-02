@@ -53,8 +53,13 @@ home_files=""
 # files to backup that are in .config folder
 config_files=""
 
+# DO NOT USE SYSTEM VARIABLES
+# LIST OF STORAGE TO MOUNT WITH RCLONE 
+# this is a json array where entries have the following format
+# {
+# "mount":"storage type as accepted from rclone"
+# "path":"path to the mount point"
+# }
+rclone_mounts='[{ "mount": "google drive", "path": "/path/to/google-drive" }]'
 
-
-#rclone_mounts="
 #systemd/scripts_target
-
