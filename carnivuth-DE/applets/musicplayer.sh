@@ -19,6 +19,13 @@ print_playlists() {
 
 }
 
+# print help
+help(){
+  echo "musicplayer applet"
+  echo "usage $0 [cmd]"
+  echo "cmd: [fw|bw|stop]"
+}
+
 # wrapper for sending command to mpv through socket
 run_command(){
   echo "$1" | socat - "$MPV_SOCKET"
@@ -70,5 +77,8 @@ case "$1" in
     ;;
   '')
     run_player
+    ;;
+  *)
+   help 
     ;;
 esac
