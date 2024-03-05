@@ -28,9 +28,9 @@ if [[  "$answer" == 'Y' || "$answer" == '' ]]; then
 fi
 
 # install DE
-echo 'install systemd files?[Y/n]'
+echo 'install systemd files?[y/N]'
 read answer
-if [[  "$answer" == 'Y' || "$answer" == '' ]]; then
+if [[  "$answer" == 'y' ]]; then
   source $SCRIPTS_HOME_FOLDER/systemd/install.sh
 fi
 

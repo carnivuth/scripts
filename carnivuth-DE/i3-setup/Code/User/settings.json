@@ -1,0 +1,29 @@
+{
+    "git.confirmSync": false,
+    "window.titleBarStyle": "custom",
+    "ansible.validation.lint.path": "/usr/bin/ansible-lint ",
+    "files.associations": {
+        "*.yaml": "ansible",
+        "*.j2": "ansible-jinja",
+        "*.sh": "shellscript",
+        "*.yml": "ansible"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "keep",
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    },
+    "explorer.confirmDelete": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "vim.smartRelativeLine": true
+}

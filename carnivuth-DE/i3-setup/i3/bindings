@@ -14,17 +14,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 set $screen1 eDP-1
-set $screen2 HDMI-1-0
+set $screen2 HDMI-1
 # set workspace on all monitors
 workspace $ws1 output $screen1 
 workspace $ws2 output $screen2
-workspace $ws3 output $screen1 
+workspace $ws3 output $screen2 
 workspace $ws4 output $screen2
-workspace $ws5 output $screen1 
+workspace $ws5 output $screen2 
 workspace $ws6 output $screen2
-workspace $ws7 output $screen1 
+workspace $ws7 output $screen2 
 workspace $ws8 output $screen2
-workspace $ws9 output $screen1 
+workspace $ws9 output $screen2 
 workspace $ws10 output $screen2
 
 # switch to workspace
@@ -155,7 +155,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 #launch network menu
-bindsym $mod+n exec --no-startup-id $folder/applets/networkmenu/networkmenu.sh 
+bindsym $mod+n exec --no-startup-id $folder/applets/networkmenu.sh 
 
 #screenshot 
 bindsym $mod+Print exec --no-startup-id flameshot screen
@@ -177,18 +177,18 @@ bindsym $mod+e exec --no-startup-id thunar
 
 #launch project menu
 #code
-bindsym $mod+c exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh code 
+bindsym $mod+c exec --no-startup-id $folder/applets/launchprojects.sh code 
 
 #intellij idea
-#bindsym $mod+j exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh idea 
+#bindsym $mod+j exec --no-startup-id $folder/applets/launchprojects.sh idea 
 ##fleet
-#bindsym $mod+i exec --no-startup-id $folder/applets/launchprojects/launchprojects.sh fleet 
+#bindsym $mod+i exec --no-startup-id $folder/applets/launchprojects.sh fleet 
 
 #launch obsidian vaults launcher
-bindsym $mod+z exec --no-startup-id $folder/applets/vaultlauncher/vaultlauncher.sh 
+bindsym $mod+z exec --no-startup-id $folder/applets/vaultlauncher.sh 
 
 #launch github repo viewer
-bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer/github-repoviewer.sh 
+bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer.sh 
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
@@ -196,10 +196,10 @@ bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
 bindsym $mod+b exec --no-startup-id blueman-manager
 
 #launch music player
-bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer/musicplayer.sh 
+bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer.sh 
 
 #launch theme switcher
-bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher/themeswitcher.sh
+bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher.sh
 
 #launch keyboard switcher
 bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh

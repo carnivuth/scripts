@@ -1,3 +1,4 @@
+# DEPENDENCIES
 
 packages used by the application divided by content,  if something is missing from this list look for the install.sh scripts under the content folder
 

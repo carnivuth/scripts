@@ -10,5 +10,5 @@ sudo pacman -S $packets
 echo 'installing utils'
 if [[ "$(cat $HOME/.bashrc | grep $SCRIPTS_HOME_FOLDER/utilities/)" == "" ]]; then
     echo "export PATH=$SCRIPTS_HOME_FOLDER/utilities/:"'$PATH' >>"$HOME/.bashrc"
-    export PATH="$SCRIPTS_HOME_FOLDER/utilities/:"'$PATH'
+    export PATH="$SCRIPTS_HOME_FOLDER/utilities/:$PATH"
 fi
