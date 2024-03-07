@@ -197,6 +197,9 @@ bindsym $mod+b exec --no-startup-id blueman-manager
 
 #launch music player
 bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer.sh 
+bindsym  $mod+Shift+m exec --no-startup-id  $folder/applets/musicplayer.sh stop
+bindsym  $mod+Shift+F86AudioNext exec --no-startup-id  $folder/applets/musicplayer.sh fw
+bind = $mainMod+Shift+F86AudioPrev exec --no-startup-id $folder/applets/musicplayer.sh bw
 
 #launch theme switcher
 bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher.sh
