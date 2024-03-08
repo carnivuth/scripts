@@ -7,7 +7,7 @@ menu_theme_setup themeswitcher
 # menu cmd
 print_menu() {
 
-	echo -e "$(for dir in $themeswitcher_folders; do ls -d "$dir"/*.png;ls -d "$dir"/*.jpg;ls -d "$dir"/*.jpeg; done)" | menu_cmd "${prompt}"
+	echo -e "$(for dir in $themeswitcher_folders; do ls -d "$dir"/*.png;ls -d "$dir"/*.jpg;ls -d "$dir"/*.jpeg; done)" | menu_cmd "themes"
 
 }
 # main
