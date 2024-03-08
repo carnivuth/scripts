@@ -18,7 +18,7 @@ print_menu() {
         get_file
     fi
     
-    echo -e "$(cat $SCRIPTS_LOCAL_FOLDER/repos.json | jq -r '.[] | .html_url')" | menu_cmd "${prompt}"
+    echo -e "$(cat $SCRIPTS_LOCAL_FOLDER/repos.json | jq -r '.[] | .html_url')" | menu_cmd "github repos"
 
 }
 

@@ -15,7 +15,7 @@ MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.socket"
 
 # print folders with music content
 print_playlists() {
-  echo -e "$(for dir in $musicplayer_folders; do ls -d "$dir"/*/; done)"  | menu_cmd "${prompt}"
+  echo -e "$(for dir in $musicplayer_folders; do ls -d "$dir"/*/; done)"  | menu_cmd "playlists"
 
 }
 

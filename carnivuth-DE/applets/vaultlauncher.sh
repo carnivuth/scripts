@@ -5,7 +5,7 @@ source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 menu_theme_setup vaultlauncher 
 
 print_vaults() {
-    echo -e "$(for vault in $vaultlauncher_folders; do echo "$vault"; done)" | menu_cmd "${prompt}"
+    echo -e "$(for vault in $vaultlauncher_folders; do echo "$vault"; done)" | menu_cmd "obsidian vault"
 
 }
 
