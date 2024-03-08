@@ -68,6 +68,7 @@ if [[ "$answer" == "h" ]];then
   grim 
   cage
   wl-clipboard"
+
 elif [[ "$answer" == "i" ]]; then
   packets="$packets 
   xorg-xinput
@@ -100,8 +101,7 @@ cargo
 ripgrep
 lazygit
 "
-LV_BRANCH='release-1.3/neovim-0.9' bash <\
-  (curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
  
 # setting path based on selected setup
 if [[ "$answer" == "h" ]];then
