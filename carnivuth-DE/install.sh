@@ -42,6 +42,7 @@ code
 github-cli
 htop
 conky 
+socat
 blueman 
 obsidian
 neovim
