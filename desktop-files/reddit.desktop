@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Reddit
 Comment=Reddit website
 Icon=chromium
-Exec=chromium --new-window 'https://www.reddit.com/' 
+Exec=chromium --new-tab 'https://www.reddit.com/' 
 Terminal=false
 Categories=Media;Social

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Proxmox
 Comment= Proxmox interface
 Icon=chromium
-Exec=chromium --new-window 'https://castleterra:8006' 
+Exec=chromium --new-tab 'https://castleterra:8006' 
 Terminal=false
 Categories=Network,homelab

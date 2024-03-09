@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Duelling nexus
 Comment=Duelling nexus website
 Icon=chromium
-Exec=chromium --new-window 'https://duelingnexus.com'
+Exec=chromium --new-tab 'https://duelingnexus.com'
 Terminal=false
 Categories=Game

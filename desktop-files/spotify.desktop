@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Spotify
 Comment=Spotify website
 Icon=chromium
-Exec=chromium --new-window 'https://open.spotify.com' 
+Exec=chromium --new-tab 'https://open.spotify.com' 
 Terminal=false
 Categories=Music

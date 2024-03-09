@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Google Photo
 Comment=Google Photo website
 Icon=chromium
-Exec=chromium --new-window 'https://photo.google.com' 
+Exec=chromium --new-tab 'https://photo.google.com' 
 Terminal=false
 Categories=files;drive

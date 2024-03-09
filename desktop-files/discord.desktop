@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Discord
 Comment=Discord website
 Icon=chromium
-Exec=chromium --new-window 'https://discord.com/app'
+Exec=chromium --new-tab 'https://discord.com/app'
 Terminal=false
 Categories=Video;Game

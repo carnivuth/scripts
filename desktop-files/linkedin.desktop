@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Linkedin
 Comment=Linkedin website
 Icon=chromium
-Exec=chromium --new-window 'https://www.linkedin.com' 
+Exec=chromium --new-tab 'https://www.linkedin.com' 
 Terminal=false
 Categories=Social

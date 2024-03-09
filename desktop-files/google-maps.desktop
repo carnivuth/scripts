@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Google maps
 Comment=Google-maps website
 Icon=chromium
-Exec=chromium --new-window 'https://www.google.it/maps' 
+Exec=chromium --new-tab 'https://www.google.it/maps' 
 Terminal=false
 Categories=maps

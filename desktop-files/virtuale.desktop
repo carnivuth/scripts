@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Virtuale
 Comment=university portal
 Icon=chromium
-Exec=chromium --new-window 'https://virtuale.unibo.it/' 
+Exec=chromium --new-tab 'https://virtuale.unibo.it/' 
 Terminal=false
 Categories=university

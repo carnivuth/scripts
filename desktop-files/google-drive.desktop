@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Google Drive
 Comment=Google Drive website
 Icon=chromium
-Exec=chromium --new-window 'https://drive.google.com' 
+Exec=chromium --new-tab 'https://drive.google.com' 
 Terminal=false
 Categories=files;drive

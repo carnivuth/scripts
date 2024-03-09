@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Jenkins
 Comment=Jenkins interface
 Icon=chromium
-Exec=chromium --new-window 'https://arcible.ddns.net' 
+Exec=chromium --new-tab 'https://arcible.ddns.net' 
 Terminal=false
 Categories=Network,homelab

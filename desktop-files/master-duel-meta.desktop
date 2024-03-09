@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Master Duel Meta
 Comment=Master Duel Meta website
 Icon=chromium
-Exec=chromium --new-window 'https://www.masterduelmeta.com/' 
+Exec=chromium --new-tab 'https://www.masterduelmeta.com/' 
 Terminal=false
 Categories=Gaming

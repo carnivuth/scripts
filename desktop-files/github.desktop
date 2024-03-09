@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Github
 Comment=Github website
 Icon=chromium
-Exec=chromium --new-window 'https://www.github.com/' 
+Exec=chromium --new-tab 'https://www.github.com/' 
 Terminal=false
 Categories=code
