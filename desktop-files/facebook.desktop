@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Facebook
+Comment=Facebook website
+Icon=chromium
+Exec=chromium --new-tab 'https://www.facebook.com' 
+Terminal=false
+Categories=Social
