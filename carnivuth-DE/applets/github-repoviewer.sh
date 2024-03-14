@@ -27,5 +27,9 @@ chosen="$(print_menu)"
 echo $chosen
 # open selected folder on $1 parameter default code
 if [  "$chosen" != "" ]; then
-    firefox --new-window "$chosen"
+		firefox --new-tab "$chosen"
+    # draw attention to the firefox window if running on hyprland
+    if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+      hyprctl dispatch 'focuswindow firefox'
+    fi
 fi
