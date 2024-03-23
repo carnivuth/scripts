@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Cardmarket
 Comment=Cardmarket website
 Icon=chromium
-Exec=chromium --new-window 'https://www.cardmarket.com' 
+Exec=chromium --new-tab 'https://www.cardmarket.com' 
 Terminal=false
 Categories=Cards,Shopping,Game

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Nextcloud
 Comment=Nextcloud interface
 Icon=chromium
-Exec=chromium --new-window 'https://pokelab.ddns.net'
+Exec=chromium --new-tab 'https://pokelab.ddns.net'
 Terminal=false
 Categories=Network,homelab

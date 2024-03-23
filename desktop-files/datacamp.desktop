@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Datacamp
 Comment=Datacamp website
 Icon=chromium
-Exec=chromium --new-window 'https://app.datacamp.com' 
+Exec=chromium --new-tab 'https://app.datacamp.com' 
 Terminal=false
 Categories=Learning

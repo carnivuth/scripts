@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Whatsapp
 Comment=whatsapp web 
 Icon=chromium
-Exec=chromium --new-window 'https://web.whatsapp.com/' 
+Exec=chromium --new-tab 'https://web.whatsapp.com/' 
 Terminal=false
 Categories=Message

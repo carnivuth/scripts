@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Twitch
 Comment=Twitch website
 Icon=chromium
-Exec=chromium --new-window 'https://www.twitch.tv/' 
+Exec=chromium --new-tab 'https://www.twitch.tv/' 
 Terminal=false
 Categories=Video

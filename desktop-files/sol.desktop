@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Studenti Online
 Comment=Studenti Online website
 Icon=chromium
-Exec=chromium --new-window 'https://studenti.unibo.it' 
+Exec=chromium --new-tab 'https://studenti.unibo.it' 
 Terminal=false
 Categories=Social

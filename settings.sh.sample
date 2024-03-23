@@ -62,4 +62,9 @@ config_files=""
 # }
 rclone_mounts='[{ "mount": "google drive", "path": "/path/to/google-drive" }]'
 
-#systemd/scripts_target
+# DO NOT USE SYSTEM VARIABLES
+# LIST OF FOLDERS TO BACKUP WITH BORG
+folder_to_backup="/some/absolute/path /other/path"
+
+# base url for quicksearch applet
+BASE_QUICKSEARCH_URL='https://google.com/search?q='

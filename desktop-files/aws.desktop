@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=AWS
 Comment=AWS website
 Icon=chromium
-Exec=chromium --new-window 'https://aws.amazon.com/' 
+Exec=chromium --new-tab 'https://aws.amazon.com/' 
 Terminal=false
 Categories=Cloud

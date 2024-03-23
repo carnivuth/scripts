@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Youtube
 Comment=Youtube website
 Icon=chromium
-Exec=chromium --new-window 'https://www.youtube.com/' 
+Exec=chromium --new-tab 'https://www.youtube.com/' 
 Terminal=false
 Categories=Video;multimedia

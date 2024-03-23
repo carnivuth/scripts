@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Docker Hub
 Comment=Docker hub website
 Icon=chromium
-Exec=chromium --new-window 'https://hub.docker.com/' 
+Exec=chromium --new-tab 'https://hub.docker.com/' 
 Terminal=false
 Categories=coding

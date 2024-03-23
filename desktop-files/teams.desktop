@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Teams
 Comment=Teams website
 Icon=chromium
-Exec=chromium --new-window 'https://teams.microsoft.com/' 
+Exec=chromium --new-tab 'https://teams.microsoft.com/' 
 Terminal=false
 Categories=Videocall

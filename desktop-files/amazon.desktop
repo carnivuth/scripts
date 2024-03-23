@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Amazon
 Comment=Amazon website
 Icon=chromium
-Exec=chromium --new-window 'https://www.amazon.it' 
+Exec=chromium --new-tab 'https://www.amazon.it' 
 Terminal=false
 Categories=Shopping

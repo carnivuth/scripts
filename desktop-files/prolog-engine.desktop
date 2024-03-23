@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Prolog Engine
 Comment=Prolog Engine website
 Icon=chromium
-Exec=chromium --new-window 'https://swish.swi-prolog.org/' 
+Exec=chromium --new-tab 'https://swish.swi-prolog.org/' 
 Terminal=false
 Categories=Code;AI;university

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
-Name=Instagram
-Comment=Instagram website
+Name=Facebook
+Comment=Facebook website
 Icon=chromium
-Exec=chromium --new-tab 'https://www.instagram.com' 
+Exec=chromium --new-tab 'https://www.facebook.com' 
 Terminal=false
 Categories=Social

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Pokemon Showdown
 Comment=Pokemon Showdown website
 Icon=chromium
-Exec=chromium --new-window 'https://play.pokemonshowdown.com/' 
+Exec=chromium --new-tab 'https://play.pokemonshowdown.com/' 
 Terminal=false
 Categories=Games;Pokemon

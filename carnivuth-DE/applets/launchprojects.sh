@@ -8,7 +8,7 @@ menu_theme_setup launchprojects
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in $launchprojects_folders; do ls -d "$dir"/*/; done)" | menu_cmd "project launcher"
+	echo -e "$(for dir in $launchprojects_folders; do ls -d "$dir"/*/; done)" | menu_cmd "projects"
 
 }
 # main
