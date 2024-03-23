@@ -27,7 +27,7 @@ for_window [class="firefox"] move to workspace 8; workspace number 8
 for_window [class="Chromium"] move to workspace 9; workspace number 9
 
 #lock thunderbird to workspace 10
-for_window [class="thunderbird"] move to workspace 10; workspace number 10
+for_window [class="thunderbird"] move to workspace 10 
 
 #steam games rules
 for_window [class="steam"] move to workspace 7; workspace 7
