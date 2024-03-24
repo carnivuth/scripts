@@ -14,5 +14,5 @@ chosen="$(print_vaults)"
 
 #open vault
 if [[ "$chosen" != "" ]]; then
-    xdg-open "obsidian://open?path=$chosen" &
+    obsidian "obsidian://open?path=$chosen" &
 fi
