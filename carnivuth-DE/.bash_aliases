@@ -2,6 +2,7 @@
 alias ls='ls --color=auto '
 alias ll='ls --color=auto -pl'
 alias la='ls --color=auto -pa'
+alias lla='ls --color=auto -pla'
 
 # cbonsai
 alias cbonsai='cbonsai -l'
