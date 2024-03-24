@@ -1,0 +1,11 @@
+@import ".cache/wal/colors-waybar.css";
+#window{
+  border-radius: 4%;
+  border-width: 1%;
+  background-color: @background;
+  color: @foreground;
+
+}
+#box{
+  border-radius: 4%;
+}
