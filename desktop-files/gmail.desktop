@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Gmail
+Comment=Gmail website
+Icon=chromium
+Exec=chromium --new-tab 'https://mail.google.com/'
+Terminal=false
+Categories=email
