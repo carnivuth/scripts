@@ -30,6 +30,7 @@ lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(serve
   return server ~= "ansiblels"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
+vim.opt.wrap = true
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Terminal",
   f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },

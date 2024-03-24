@@ -11,6 +11,7 @@ help_message(){
     echo "-f file format to download"
     exit 0
 }
+
 if [[ "$1" == "--help" ]]; then
   help_message 
 fi
@@ -38,7 +39,7 @@ while getopts asf: flag; do
     esac
 done
 
-# setting pyt-dlp command
+# setting yt-dlp command
 YT_DLP_CMD="yt-dlp \
     --ignore-errors \
     --continue \

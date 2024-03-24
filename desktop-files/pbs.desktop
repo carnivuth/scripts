@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Proxmox Backup Server
+Comment= Proxmox interface
+Icon=chromium
+Exec=chromium --new-tab 'https://dittup:8007' 
+Terminal=false
+Categories=Network,homelab
