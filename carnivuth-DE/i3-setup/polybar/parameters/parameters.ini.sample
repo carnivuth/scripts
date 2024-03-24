@@ -1,0 +1,8 @@
+[parameters]
+awesome-font-size = 21
+tray-size = 21
+waffle-font-size= 19
+wireless-int = wlp0s20f3 
+wired-int = 
+battery-val = BAT0 
+adapter-val = AC
