@@ -58,6 +58,7 @@ if [[ "$answer" == "h" ]];then
   noto-fonts-emoji
   swayidle 
   greetd
+  hyprpaper
   greetd-regreet
   chromium
   wev 
@@ -102,6 +103,8 @@ cargo
 ripgrep
 lazygit
 "
+sudo pacman -S $dependencies
+
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
  
 # setting path based on selected setup
@@ -116,10 +119,11 @@ echo 'coping config files'
 mkdir -p "$HOME/.config/"
 ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/"* "$HOME/.config/"
 
+# setting applet backend based on selected setup
 if [[ "$answer" == "h" ]];then
-  echo "ln -s $HOME/scripts/lib/wofi_standard.sh $HOME/scripts/lib/menu_standard.sh"
-elif [[ "$answer" == "h" ]]; then
-  echo "ln -s $HOME/scripts/lib/rofi_standard.sh $HOME/scripts/lib/menu_standard.sh"
+  ln -s $HOME/scripts/lib/wofi_standard.sh $HOME/scripts/lib/menu_standard.sh
+elif [[ "$answer" == "i" ]]; then
+  ln -s $HOME/scripts/lib/rofi_standard.sh $HOME/scripts/lib/menu_standard.sh
 fi
 
 # adding elements to path
