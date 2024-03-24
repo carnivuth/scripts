@@ -23,5 +23,10 @@ if [ "$chosen" != "" ]; then
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow firefox'
   fi
+  
+  # draw attention to the firefox window if running on i3
+  if [[ "$XDG_CURRENT_DESKTOP" == 'i3' ]]; then
+    i3-msg '[class="firefox"] focus'
+  fi
 
 fi
