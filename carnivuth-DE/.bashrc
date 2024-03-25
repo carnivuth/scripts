@@ -20,6 +20,7 @@ PS1="{${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}}"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
 # set editor and visual variables
 export EDITOR='vim'
 export VIUSUAL='vim'

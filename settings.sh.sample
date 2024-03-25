@@ -37,9 +37,6 @@ launchprojects_folders="$HOME"
 # PATHS TO FOLDERS WITH IMAGES FOR THEMESWITCHER APPLET
 themeswitcher_folders="$HOME/Pictures/wallpapers"
 
-# OBSIDIAN VAULT FOLDERS
-vaultlauncher_folders="$HOME"
-
 # DO NOT USE SYSTEM VARIABLES
 # files to backup that are in /etc directory
 system_files="
