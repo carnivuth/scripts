@@ -21,6 +21,7 @@ if [ -f "$chosen" ]; then
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then 
     hyprctl hyprpaper preload "$chosen"
     hyprctl hyprpaper wallpaper eDP-1,"$chosen"
+    hyprctl hyprpaper wallpaper HDMI-A-1,"$chosen"
   fi
 
 fi
