@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Trenitalia
+Comment=Trenitalia website
+Icon=chromium
+Exec=chromium --new-tab 'https://www.trenitalia.com' 
+Terminal=false
+Categories=Travel;Shopping
