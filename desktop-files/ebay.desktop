@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Ebay
+Comment=Ebay website
+Icon=chromium
+Exec=chromium --new-tab 'https://www.ebay.it' 
+Terminal=false
+Categories=Shopping
