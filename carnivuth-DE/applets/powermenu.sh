@@ -1,79 +1,96 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
-host="$(cat /etc/hostname)"
+source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
+
 menu_theme_setup "powermenu"
 
-# Options
-shutdown='  shutdown'
-reboot='  reboot' 
-lock='  lock'
-suspend='  suspend'
-logout='  logout'
-#shutdown=''
-#reboot='' 
-#lock=''
-#suspend=''
-#logout=''
+# set menu entries based on format setting
+if [[ $POWERMENU_FORMAT == 'long' ]]; then 
+  shutdown='  shutdown'
+  reboot='  reboot' 
+  lock='  lock'
+  suspend='  suspend'
+  logout='  logout'
+fi 
 
+if [[ $POWERMENU_FORMAT == 'short' ]]; then 
+  shutdown=''
+  reboot='' 
+  lock=''
+  suspend=''
+  logout=''
+fi
 
-print_powermenu() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | menu_cmd $prompt
+# COMMAND FUNCTIONS
+SHUTDOWN='systemctl poweroff'
+REBOOT='systemctl reboot'
+SUSPEND='systemctl suspend'
+
+# logout function based on DESKTOP_SESSION env var
+logout(){
+
+  case "$DESKTOP_SESSION" in
+    openbox)
+	  	openbox --exit
+    	;;
+    bspwm)
+	  	bspc quit
+    	;;
+    i3)
+	  	i3-msg exit
+    	;;
+    hyprland)
+      HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+      hyprctl --batch "$HYPRCMDS" >> /tmp/hypr/hyprexitwithgrace.log 2>&1
+	  	hyprctl dispatch exit
+    	;;
+    awesome)
+	  	killall awesome
+    	;;
+    plasma)
+	  	qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+    	;;
+    esac
+
 }
 
-# Execute Command
-run_cmd() {
+# lock function based on which lockscreen is installed 
+lock(){
 
-	if [[ $1 == '--shutdown' ]]; then
-		systemctl poweroff
-	elif [[ $1 == '--reboot' ]]; then
-		systemctl reboot
-	elif [[ $1 == '--suspend' ]]; then
-		systemctl suspend
-	elif [[ $1 == '--logout' ]]; then
-		if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
-			openbox --exit
-		elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
-			bspc quit
-		elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
-			i3-msg exit
-		elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-		    hyprctl dispatch exit
-		elif [[ "$DESKTOP_SESSION" == 'awesome' ]]; then
-			killall awesome
-		elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
-			qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-		fi
+	if [[ -x '/usr/bin/betterlockscreen' ]]; then
+		betterlockscreen -l
+	elif [[ -x '/usr/bin/swaylock' ]]; then
+		swaylock 
+	elif [[ -x '/usr/bin/dm-tool' ]]; then
+		dm-tool lock
+	elif [[ -x '/usr/bin/i3lock' ]]; then
+		i3lock
 	fi
 
+}
+
+
+# print menu function
+print_powermenu() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | menu_cmd $prompt
 }
 
 # Actions
 chosen="$(print_powermenu)"
 case ${chosen} in
 $shutdown)
-	run_cmd --shutdown
+	$SHUTDOWN
 	;;
 $reboot)
-	run_cmd --reboot
-	;;
-$lock)
-
-	if [[ -x '/usr/bin/betterlockscreen' ]]; then
-		betterlockscreen -l
-	elif [[ -x '/usr/bin/swaylock' ]]; then
-		swaylock -i /usr/share/hyprland/wall_anime_4K.png
-	elif [[ -x '/usr/bin/dm-tool' ]]; then
-		dm-tool lock
-	elif [[ -x '/usr/bin/i3lock' ]]; then
-		i3lock
-
-	fi
+	$REBOOT
 	;;
 $suspend)
-	run_cmd --suspend
+	$SUSPEND
+	;;
+$lock)
+	lock
 	;;
 $logout)
-	run_cmd --logout
+	logout
 	;;
 esac

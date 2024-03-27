@@ -65,3 +65,9 @@ folder_to_backup="/some/absolute/path /other/path"
 
 # base url for quicksearch applet
 BASE_QUICKSEARCH_URL='https://google.com/search?q='
+
+# format for power menu script options [long|short]
+POWERMENU_FORMAT='short'
+
+# applet menu backend [rofi/wofi]
+MENU_BACKEND=wofi
