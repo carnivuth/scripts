@@ -33,3 +33,4 @@ lvim.builtin.which_key.mappings["t"] = {
   v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
   h = { "<cmd>2ToggleTerm size=10 direction=horizontal<cr>", "Split horizontal" },
 }
+
