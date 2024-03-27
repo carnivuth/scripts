@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 source "$HOME/scripts/settings.sh"
+source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
 source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
-source "$SCRIPTS_APPLETS_FOLDER/github-repoviewer/account.sh"
 
 menu_theme_setup github-repoviewer
 get_file(){

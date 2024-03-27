@@ -8,7 +8,7 @@ source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/connect.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/deleteconnection.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/togglewifi.sh"
 source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/togglenetwork.sh"
-source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
 
 
 menu_theme_setup networkmenu
