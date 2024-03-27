@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
-menu_theme_setup "$ROFI_CONFIG_FOLDER/fileexplorer" 'fileexplorer'
+source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
+menu_theme_setup 'fileexplorer'
 
 #max history size
 max_size=50

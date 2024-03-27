@@ -2,7 +2,7 @@
 
 # IMPORTS
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
+source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
 
 menu_theme_setup musicplayer
 

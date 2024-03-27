@@ -4,6 +4,8 @@ alias ll='ls --color=auto -pl'
 alias la='ls --color=auto -pa'
 alias lla='ls --color=auto -pla'
 
+# sudo 
+alias s='sudo'
 # cbonsai
 alias cbonsai='cbonsai -l'
 

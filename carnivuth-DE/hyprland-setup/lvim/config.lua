@@ -2,26 +2,21 @@
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+
 vim.o.autochdir = true
-vim.opt.relativenumber = true -- relative line numbers
+
+-- set relative line numbers
+vim.opt.relativenumber = true
+
+-- set line wrapping
+vim.opt.wrap = true
 
 -- PLUGINS
 lvim.plugins = {
---  { "lunarvim/colorschemes" },
-  { "tpope/vim-fugitive" , lazy = false}
---  {
---    "stevearc/dressing.nvim",
---    config = function()
---      require("dressing").setup({
---        input = { enabled = false },
---      })
---    end,
---  },
---  {
---    "nvim-neorg/neorg",
---    ft = "norg", -- lazy-load on filetype
---    config = true, -- run require("neorg").setup()
---  },
+
+  { "tpope/vim-fugitive" , lazy = false},
+  { "dylanaraps/wal.vim" , lazy = false}
+
 }
 -- add `yamlls` to `skipped_servers` list
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "yamlls" })
@@ -30,10 +25,12 @@ lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(serve
   return server ~= "ansiblels"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
-vim.opt.wrap = true
+-- KEYMAPS
+-- add keymap for spawning terminal
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Terminal",
   f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },
   v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
   h = { "<cmd>2ToggleTerm size=10 direction=horizontal<cr>", "Split horizontal" },
 }
+

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Calendar
+Comment=Calendar website
+Icon=chromium
+Exec=chromium --new-tab 'https://calendar.google.com'
+Terminal=false
+Categories=Calendar
