@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## check on settings.sh file
+## check on settings.sh file, exit if not present
 if [[ ! -f "$HOME/scripts/settings.sh" ]]; then 
     echo 'no settings.sh file found, run: '
     echo "cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh"
@@ -114,20 +114,12 @@ elif [[ "$answer" == "h" ]]; then
   config_folder="i3-setup"
 fi
 
-# copy config files
-echo 'coping config files'
+# installing config files
+echo 'installing config files'
 mkdir -p "$HOME/.config/"
-ln -s "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/"* "$HOME/.config/"
+ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/*" "$HOME/.config/"
 
-# setting applet backend based on selected setup
-if [[ "$answer" == "h" ]];then
-  ln -s $HOME/scripts/lib/wofi_standard.sh $HOME/scripts/lib/menu_standard.sh
-elif [[ "$answer" == "i" ]]; then
-  ln -s $HOME/scripts/lib/rofi_standard.sh $HOME/scripts/lib/menu_standard.sh
-fi
 
-# adding elements to path
-if [[ "$(cat $HOME/.bashrc | grep $SCRIPTS_APPLETS_FOLDER)" == "" ]]; then
-    echo "export PATH=$SCRIPTS_APPLETS_FOLDER:"'$PATH' >>"$HOME/.bashrc"
-    export PATH="$SCRIPTS_APPLETS_FOLDER:$PATH"
-fi
+echo 'installing home files'
+ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.bashrc" "$HOME/"
+ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.bash_aliases" "$HOME/"
