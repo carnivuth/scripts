@@ -92,21 +92,27 @@ fi
 
 sudo pacman -S $packets
 
-echo "installing lunar vim ide"
-dependencies="
-neovim
-git
-make
-npm
-nodejs
-cargo
-ripgrep
-lazygit
-"
-sudo pacman -S $dependencies
+# installing lunarvim
+echo "install lvim [y/N]"
+unset answer_lvim
+read answer_lvim
+if [[ "$answer_lvim" == "y" ]];then
 
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
- 
+  echo "installing lunar vim ide"
+  dependencies="
+  neovim
+  git
+  make
+  npm
+  nodejs
+  cargo
+  ripgrep
+  lazygit
+  "
+  sudo pacman -S $dependencies
+  
+  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+fi 
 # setting path based on selected setup
 if [[ "$answer" == "h" ]];then
   config_folder="hyprland-setup"
@@ -117,8 +123,7 @@ fi
 # installing config files
 echo 'installing config files'
 mkdir -p "$HOME/.config/"
-ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/*" "$HOME/.config/"
-
+ln -sf $SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/* "$HOME/.config/"
 
 echo 'installing home files'
 ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.bashrc" "$HOME/"
