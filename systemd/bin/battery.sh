@@ -1,24 +1,25 @@
 #!/bin/bash
 
+source "$HOME/scripts/settings.sh"
+
 # setting parameters
 NOTIFY=TRUE
-LIMIT=20
-PREC_STATE=$(upower -i $(upower -e |grep BAT1) |grep state |cut -d':' -f2 |xargs)
+PREC_STATE=$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep state |cut -d':' -f2 |xargs)
 while :
 do
     # get battery values
-    PERCENTAGE=$(upower -i $(upower -e |grep BAT1) |grep percentage |cut -d':' -f2 |cut -d '%' -f1 |xargs)
-    STATE=$(upower -i $(upower -e |grep BAT1) |grep state |cut -d':' -f2 |xargs)
+    PERCENTAGE=$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep percentage |cut -d':' -f2 |cut -d '%' -f1 |xargs)
+    STATE=$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep state |cut -d':' -f2 |xargs)
     # check for battery status
     if [ "$STATE" == "charging" ]; then 
         NOTIFY=TRUE
 
     else
         # check for battery PERCENTAGE
-        if [[ "$PERCENTAGE" -lt $LIMIT ]]; then 
+        if [[ "$PERCENTAGE" -lt $BATTERY_LIMIT ]]; then 
             if [ "$NOTIFY" == "TRUE" ]; then
             # send notification
-            notify-send -a "Low Battery" -u critical "low battery" "the system battery has reach the $LIMIT%"
+            notify-send -a "Low Battery" -u critical "low battery" "the system battery has reach the $BATTERY_LIMIT%"
             NOTIFY=FALSE
             fi
         fi
