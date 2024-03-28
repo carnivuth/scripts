@@ -18,6 +18,10 @@ systemctl --user daemon-reload
 # enable all services
 for servicefile in "$SCRIPTS_HOME_FOLDER/systemd/services/"*.service; do
   service=$(echo $servicefile | rev | cut -d'/' -f 1 | rev)
-  echo $service
-  systemctl --user enable --now $service
+
+  # enable service if is present in config variable
+  if [[ "$ENABLED_SERVICES" =~ "$service" ]]; then
+    echo "enabling $service"
+    systemctl --user enable --now $service
+  fi
 done
