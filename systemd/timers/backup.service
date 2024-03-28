@@ -1,5 +1,5 @@
 [Unit]
-Description=create home backup 
+Description=Run home_backup service
 
 
 [Service]
