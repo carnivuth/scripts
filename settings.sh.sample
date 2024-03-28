@@ -71,3 +71,6 @@ POWERMENU_FORMAT='short'
 
 # applet menu backend [rofi/wofi]
 MENU_BACKEND=wofi
+
+# enabled systemd services
+ENABLED_SERVICES="updates.service battery.service emergency-shutdown.service"
