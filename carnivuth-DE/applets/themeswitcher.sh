@@ -23,6 +23,8 @@ if [ -f "$chosen" ]; then
     hyprctl hyprpaper preload "$chosen"
     hyprctl hyprpaper wallpaper eDP-1,"$chosen"
     hyprctl hyprpaper wallpaper HDMI-A-1,"$chosen"
+    killall waybar
+    waybar &
   fi
 
 fi
