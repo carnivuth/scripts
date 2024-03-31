@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Yu-Gi-oh pro decks
+Comment=Yu-Gi-oh pro decks website
+Icon=chromium
+Exec=chromium --new-tab 'https://ygoprodeck.com/' 
+Terminal=false
+Categories=Game
