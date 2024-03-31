@@ -3,7 +3,7 @@ Description=updates notification deamon
 
 
 [Service]
-ExecStart=/home/matteo/scripts/systemd/scripts/updates.sh
+ExecStart=/home/matteo/scripts/systemd/bin/updates.sh
 Restart=always
 Environment="DISPLAY=:0" "XAUTHORITY=/home/matteo/.Xauthority"
 
