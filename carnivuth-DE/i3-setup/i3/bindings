@@ -58,6 +58,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number 
 # switch workspaces
 bindsym $mod+Mod1+Right workspace next
 bindsym $mod+mod1+Left workspace prev
+bindsym $mod+j workspace prev
+bindsym $mod+k workspace next
 #move window to next/previous container
 bindsym $mod+control+Mod1+Right move window to workspace next; workspace next 
 bindsym $mod+control+Mod1+Left move window to workspace  prev; workspace prev
@@ -211,7 +213,7 @@ bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh
 bindsym $mod+a exec --no-startup-id pavucontrol
 
 #launch conky
-bindsym $mod+k exec --no-startup-id conky
+#bindsym $mod+k exec --no-startup-id conky
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
