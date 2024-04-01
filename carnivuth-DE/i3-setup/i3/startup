@@ -1,4 +1,7 @@
 
+# set environment variables
+exec --no-startup-id setup_env.sh &
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -27,7 +30,7 @@ exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput
 
 #start dunst
 exec_always --no-startup-id "killall dunst"
-exec_always --no-startup-id dunst
+exec_always --no-startup-id dunst &
 
 #turn of bluetooth at startup
 exec --no-startup-id bluetoothctl power off
@@ -43,3 +46,4 @@ exec --no-startup-id telegram-desktop  -startintray &
 
 #launch tunderbird
 exec --no-startup-id thunderbird &
+
