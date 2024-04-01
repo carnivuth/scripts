@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=ProtonDB
+Comment=ProtonDB website
+Icon=chromium
+Exec=chromium --new-tab 'https://www.protondb.com/' 
+Terminal=false
+Categories=Shopping
