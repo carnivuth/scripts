@@ -21,7 +21,7 @@ for_window [title="Current Media Information"] floating enabled; move position c
 
 
 #lock firefox to workspace 8
-for_window [class="firefox"] move to workspace 8; workspace number 8
+for_window [class="[Ff]irefox"] move to workspace 8; workspace number 8
 
 #lock chromium to workspace 9
 for_window [class="Chromium"] move to workspace 9; workspace number 9

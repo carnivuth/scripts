@@ -23,8 +23,8 @@ workspace $ws4 output $screen2
 workspace $ws5 output $screen2 
 workspace $ws6 output $screen2
 workspace $ws7 output $screen2 
-workspace $ws8 output $screen2
-workspace $ws9 output $screen2 
+workspace $ws8 output $screen1
+workspace $ws9 output $screen1 
 workspace $ws10 output $screen2
 
 # switch to workspace
