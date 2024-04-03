@@ -3,6 +3,7 @@
 default_border pixel 1
 default_floating_border pixel 0
 # set floating as default configuration for some programs
+for_window [class="alacrittyfloating"] floating enabled ; move position center
 for_window [class="Thunar"] floating enabled ; move position center
 for_window [class="Blueman-manager"] floating enabled ; move position center
 for_window [class="Pavucontrol"] floating enabled; move position center
