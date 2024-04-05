@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Zimbra labs
+Comment=Zimbra labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://zimbra.labs.it' 
+Terminal=false
+Categories=Mail
