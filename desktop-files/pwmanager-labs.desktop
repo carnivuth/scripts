@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Pwmanager labs
+Comment=Pwmanager labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://pwmanager.labs.it' 
+Terminal=false
+Categories=Chat

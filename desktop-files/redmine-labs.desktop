@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Redmine labs
+Comment=Redmine labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://develtrac.labs.it/redmine' 
+Terminal=false
+Categories=Chat
