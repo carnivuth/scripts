@@ -75,6 +75,7 @@ elif [[ "$answer" == "i" ]]; then
   packets="$packets 
   xorg-xinput
 	lightdm-webkit2-greeter 
+	i3lock
   alacritty 
   autorandr 
   python-pywal 

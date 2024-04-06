@@ -223,7 +223,7 @@ bindsym $mod+a exec --no-startup-id pavucontrol
 bindsym $mod+Shift+r restart
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "light-locker-command -l"
+bindsym $mod+l exec --no-startup-id "i3lock"
 
 #exit i3
 bindsym $mod+Shift+q exit
