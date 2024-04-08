@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=RT labs
+Comment=RT labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://rt.labs.it/' 
+Terminal=false
+Categories=Chat
