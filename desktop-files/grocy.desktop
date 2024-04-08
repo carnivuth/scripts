@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Grocy
+Comment= Grocy interface
+Icon=chromium
+Exec=chromium --new-tab 'http://grotun' 
+Terminal=false
+Categories=Food,homelab
