@@ -195,6 +195,10 @@ bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer.sh
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
+
+#launch keepassxc
+bindsym $mod+y exec --no-startup-id keepassxc
+
 #launch blueman
 bindsym $mod+b exec --no-startup-id blueman-manager
 
