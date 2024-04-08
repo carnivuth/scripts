@@ -44,3 +44,6 @@ for_window [class="Nextcloud"] floating enabled; move position center
 
 # password gorilla rules
 for_window [class="Gorilla"] floating enabled; move position center
+
+# keepassxc rules
+for_window [class="[Kk]ee[Pp]ass[Xx][cC]"] floating enabled; move position center
