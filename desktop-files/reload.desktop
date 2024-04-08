@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Reolad website
+Comment=Reload labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://reload.labs.it' 
+Terminal=false
+Categories=Messages
