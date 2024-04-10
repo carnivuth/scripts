@@ -6,6 +6,14 @@
   color: @foreground;
 
 }
+
 #box{
   border-radius: 4%;
+}
+
+#input{
+  background-color: @background;
+  color: @foreground;
+  padding: 30px;
+  font-size: xx-large;
 }
