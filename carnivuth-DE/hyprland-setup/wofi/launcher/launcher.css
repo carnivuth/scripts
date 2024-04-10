@@ -1,11 +1,20 @@
 @import ".cache/wal/colors-waybar.css";
 #window{
-  border-radius: 4%;
-  border-width: 1%;
   background-color: @background;
   color: @foreground;
 
 }
-#box{
-  border-radius: 4%;
+#input{
+  background-color: @background;
+  color: @foreground;
+  font-size: x-large;
+  margin: 20px 500px;
+  
+}
+#entry{
+  font-size: large;
+  font-weight: bold;
+}
+#img{
+  vertical-align: top
 }

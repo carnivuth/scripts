@@ -1,24 +1,14 @@
 allow_images=true
 hide_scroll=true
 insensitive=true
-columns=3
+Position=top
+columns=6
+hide_search=false
+height=105%
+image_size=65 
 halign=fill
-hide_search=true
-height=50%
-width=50%
+line_wrap=char
+#valign=center
+content_halign=center
+width=100%
 layer=overlay
-
-#mode=drun
-#filter_rate=50
-#insensitive=true
-#allow-markup=true
-#term=alacritty
-#layer=overlay# Theme# Also check ./style.css
-#colors=colors
-#image_size=85
-#allow_images=true# Position
-#width=1600
-#height=810
-#halign=fill
-#orientation=vertical
-#content_halign=fill# This hide executable actionsno_actions=true
