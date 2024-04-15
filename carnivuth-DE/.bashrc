@@ -27,9 +27,14 @@ export VIUSUAL='vim'
 
 # set terminal color if using alacritty
 if [[ "$TERM" == alacritty ]];then
-cat $HOME/.cache/wal/sequences
+    cat $HOME/.cache/wal/sequences
 fi
 
 if [[ -f "$HOME/todo.md" ]]; then
     glow "$HOME/todo.md"
+fi
+
+# enable undistract-me if installed
+if [[ -f "/etc/profile.d/undistract-me.sh" ]]; then
+    source /etc/profile.d/undistract-me.sh
 fi
