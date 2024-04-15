@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Wiki labs
+Comment=Wiki labs website
+Icon=chromium
+Exec=chromium --new-tab 'https://wiki.labs.it' 
+Terminal=false
+Categories=Chat
