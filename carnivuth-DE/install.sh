@@ -44,6 +44,7 @@ htop
 conky 
 socat
 blueman 
+kitty
 obsidian
 neovim
 nm-connection-editor
@@ -54,7 +55,6 @@ if [[ "$answer" == "h" ]];then
   packets="$packets 
   hyprland 
   swaylock 
-  kitty
   noto-fonts-emoji
   swayidle 
   greetd
@@ -74,9 +74,7 @@ if [[ "$answer" == "h" ]];then
 elif [[ "$answer" == "i" ]]; then
   packets="$packets 
   xorg-xinput
-	lightdm-webkit2-greeter 
-	i3lock
-  alacritty 
+  i3lock
   autorandr 
   python-pywal 
   flameshot 
@@ -85,9 +83,7 @@ elif [[ "$answer" == "i" ]]; then
   polybar 
   rofi 
   feh 
-  lightdm-webkit-theme-litarvan 
-  light-locker 
-  lightdm "
+  "
 
 fi
 

@@ -95,8 +95,8 @@ set $folder ~/scripts/carnivuth-DE
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+Shift+Return exec --no-startup-id alacritty --class alacrittyfloating
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class kittyfloating
 
 # kill focused window
 bindsym $mod+q kill
@@ -227,7 +227,7 @@ bindsym $mod+a exec --no-startup-id pavucontrol
 bindsym $mod+Shift+r restart
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "i3lock"
+bindsym $mod+l exec --no-startup-id "playerctl pause; i3lock"
 
 #exit i3
 bindsym $mod+Shift+q exit
