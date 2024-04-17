@@ -1,0 +1,40 @@
+@import ".cache/wal/colors-waybar.css";
+
+#window{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @foreground;
+  background-color: @background;
+  color: @foreground;
+
+}
+
+#input{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @foreground;
+  background-color: @background;
+  color: @foreground;
+  font-size: large;
+  font-weight: bold;
+  
+  margin: 20px 200px;
+}
+
+#entry{
+  font-size: large;
+  font-weight: bold;
+  color: @foreground;
+}
+
+#entry:selected{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 0px 10px;
+  color: @background;
+  background-color: @foreground;
+  
+}
