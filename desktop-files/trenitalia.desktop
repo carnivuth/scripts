@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Trenitalia
 Comment=Trenitalia website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.trenitalia.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.trenitalia.com' "
 Terminal=false
 Categories=Travel;Shopping

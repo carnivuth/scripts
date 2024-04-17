@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Datacamp
 Comment=Datacamp website
 Icon=firefox
-Exec=firefox --new-tab 'https://app.datacamp.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://app.datacamp.com' "
 Terminal=false
 Categories=Learning

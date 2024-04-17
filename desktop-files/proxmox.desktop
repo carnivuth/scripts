@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Proxmox
 Comment= Proxmox interface
 Icon=firefox
-Exec=firefox --new-tab 'https://castleterra:8006' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://castleterra:8006'"
 Terminal=false
 Categories=Network,homelab

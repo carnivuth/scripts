@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Pwmanager labs
 Comment=Pwmanager labs website
 Icon=firefox
-Exec=firefox --new-tab 'https://pwmanager.labs.it' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://pwmanager.labs.it' "
 Terminal=false
 Categories=Chat

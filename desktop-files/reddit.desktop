@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Reddit
 Comment=Reddit website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.reddit.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.reddit.com/' "
 Terminal=false
 Categories=Media;Social

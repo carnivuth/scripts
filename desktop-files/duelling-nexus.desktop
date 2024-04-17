@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Duelling nexus
 Comment=Duelling nexus website
 Icon=firefox
-Exec=firefox --new-tab 'https://duelingnexus.com'
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://duelingnexus.com'"
 Terminal=false
 Categories=Game

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Youtube
 Comment=Youtube website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.youtube.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.youtube.com/' "
 Terminal=false
 Categories=Video;multimedia

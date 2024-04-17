@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Google maps
 Comment=Google-maps website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.google.it/maps' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.google.it/maps' "
 Terminal=false
 Categories=maps

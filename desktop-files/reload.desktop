@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Reolad website
 Comment=Reload labs website
 Icon=firefox
-Exec=firefox --new-tab 'https://reload.labs.it' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://reload.labs.it' "
 Terminal=false
 Categories=Messages

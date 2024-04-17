@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Nordpass
 Comment=Nordpass website
 Icon=firefox
-Exec=firefox --new-tab 'https://app.nordpass.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://app.nordpass.com/' "
 Terminal=false
 Categories=Security

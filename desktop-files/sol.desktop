@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Studenti Online
 Comment=Studenti Online website
 Icon=firefox
-Exec=firefox --new-tab 'https://studenti.unibo.it' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://studenti.unibo.it' "
 Terminal=false
 Categories=Social

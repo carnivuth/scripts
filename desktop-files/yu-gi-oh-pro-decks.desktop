@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Yu-Gi-oh pro decks
 Comment=Yu-Gi-oh pro decks website
 Icon=firefox
-Exec=firefox --new-tab 'https://ygoprodeck.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://ygoprodeck.com/' "
 Terminal=false
 Categories=Game

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Pokemon Showdown
 Comment=Pokemon Showdown website
 Icon=firefox
-Exec=firefox --new-tab 'https://play.pokemonshowdown.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://play.pokemonshowdown.com/' "
 Terminal=false
 Categories=Games;Pokemon

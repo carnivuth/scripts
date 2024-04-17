@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Zimbra labs
 Comment=Zimbra labs website
 Icon=firefox
-Exec=firefox --new-tab 'https://zimbra.labs.it' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://zimbra.labs.it' "
 Terminal=false
 Categories=Mail

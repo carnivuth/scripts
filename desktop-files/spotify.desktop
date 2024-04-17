@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Spotify
 Comment=Spotify website
 Icon=firefox
-Exec=firefox --new-tab 'https://open.spotify.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://open.spotify.com' "
 Terminal=false
 Categories=Music

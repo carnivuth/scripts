@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Meet
 Comment=Meet website
 Icon=firefox
-Exec=firefox --new-tab 'https://meet.google.com'
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://meet.google.com'"
 Terminal=false
 Categories=Call

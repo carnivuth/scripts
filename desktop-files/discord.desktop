@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Discord
 Comment=Discord website
 Icon=firefox
-Exec=firefox --new-tab 'https://discord.com/app'
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://discord.com/app'"
 Terminal=false
 Categories=Video;Game

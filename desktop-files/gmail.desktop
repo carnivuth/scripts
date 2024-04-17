@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Gmail
 Comment=Gmail website
 Icon=firefox
-Exec=firefox --new-tab 'https://mail.google.com/'
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://mail.google.com/'"
 Terminal=false
 Categories=email

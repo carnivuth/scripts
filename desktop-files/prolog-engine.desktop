@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Prolog Engine
 Comment=Prolog Engine website
 Icon=firefox
-Exec=firefox --new-tab 'https://swish.swi-prolog.org/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://swish.swi-prolog.org/' "
 Terminal=false
 Categories=Code;AI;university

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Instagram
 Comment=Instagram website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.instagram.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.instagram.com' "
 Terminal=false
 Categories=Social

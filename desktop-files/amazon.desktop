@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Amazon
 Comment=Amazon website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.amazon.it' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.amazon.it' "
 Terminal=false
 Categories=Shopping

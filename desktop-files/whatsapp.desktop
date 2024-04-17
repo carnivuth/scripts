@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Whatsapp
 Comment=whatsapp web 
 Icon=firefox
-Exec=firefox --new-tab 'https://web.whatsapp.com/' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://web.whatsapp.com/' "
 Terminal=false
 Categories=Message

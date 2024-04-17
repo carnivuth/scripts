@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Cardmarket
 Comment=Cardmarket website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.cardmarket.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.cardmarket.com' "
 Terminal=false
 Categories=Cards,Shopping,Game

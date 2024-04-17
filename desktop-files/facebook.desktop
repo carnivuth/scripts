@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Facebook
 Comment=Facebook website
 Icon=firefox
-Exec=firefox --new-tab 'https://www.facebook.com' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.facebook.com' "
 Terminal=false
 Categories=Social

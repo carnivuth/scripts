@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Jenkins
 Comment=Jenkins interface
 Icon=firefox
-Exec=firefox --new-tab 'https://arcible.ddns.net' 
+Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://arcible.ddns.net' "
 Terminal=false
 Categories=Network,homelab
