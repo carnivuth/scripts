@@ -23,8 +23,8 @@ workspace $ws4 output $screen2
 workspace $ws5 output $screen2 
 workspace $ws6 output $screen2
 workspace $ws7 output $screen2 
-workspace $ws8 output $screen2
-workspace $ws9 output $screen2 
+workspace $ws8 output $screen1
+workspace $ws9 output $screen1 
 workspace $ws10 output $screen2
 
 # switch to workspace
@@ -58,6 +58,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number 
 # switch workspaces
 bindsym $mod+Mod1+Right workspace next
 bindsym $mod+mod1+Left workspace prev
+bindsym $mod+k workspace prev
+bindsym $mod+j workspace next
 #move window to next/previous container
 bindsym $mod+control+Mod1+Right move window to workspace next; workspace next 
 bindsym $mod+control+Mod1+Left move window to workspace  prev; workspace prev
@@ -93,7 +95,8 @@ set $folder ~/scripts/carnivuth-DE
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class kittyfloating
 
 # kill focused window
 bindsym $mod+q kill
@@ -192,6 +195,10 @@ bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer.sh
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
+
+#launch keepassxc
+bindsym $mod+y exec --no-startup-id keepassxc
+
 #launch blueman
 bindsym $mod+b exec --no-startup-id blueman-manager
 
@@ -211,7 +218,7 @@ bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh
 bindsym $mod+a exec --no-startup-id pavucontrol
 
 #launch conky
-bindsym $mod+k exec --no-startup-id conky
+#bindsym $mod+k exec --no-startup-id conky
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
@@ -220,7 +227,7 @@ bindsym $mod+k exec --no-startup-id conky
 bindsym $mod+Shift+r restart
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "light-locker-command -l"
+bindsym $mod+l exec --no-startup-id "playerctl pause; i3lock"
 
 #exit i3
 bindsym $mod+Shift+q exit

@@ -3,6 +3,7 @@
 default_border pixel 1
 default_floating_border pixel 0
 # set floating as default configuration for some programs
+for_window [class="kittyfloating"] floating enabled ; move position center
 for_window [class="Thunar"] floating enabled ; move position center
 for_window [class="Blueman-manager"] floating enabled ; move position center
 for_window [class="Pavucontrol"] floating enabled; move position center
@@ -21,7 +22,7 @@ for_window [title="Current Media Information"] floating enabled; move position c
 
 
 #lock firefox to workspace 8
-for_window [class="firefox"] move to workspace 8; workspace number 8
+for_window [class="[Ff]irefox"] move to workspace 8; workspace number 8
 
 #lock chromium to workspace 9
 for_window [class="Chromium"] move to workspace 9; workspace number 9
@@ -30,15 +31,19 @@ for_window [class="Chromium"] move to workspace 9; workspace number 9
 for_window [class="thunderbird"] move to workspace 10 
 
 #steam games rules
-for_window [class="steam"] move to workspace 7; workspace 7
+for_window [class="steam"] move to workspace 7
 for_window [title="Friends List"] floating enabled; move position center
 for_window [title="Steam Settings"] floating enabled; move position center
 for_window [class="steam_app_*"] border pixel 0;
 for_window [class="steam_app_*"] floating disabled;
-for_window [class="steam_app_*"] move to workspace 8; workspace number 8
+for_window [class="steam_app_*"] move to workspace 6; workspace number 6
+for_window [class="steamwebhelper"] floating enabled; move position center
 
 #nextcloud rules
 for_window [class="Nextcloud"] floating enabled; move position center
 
 # password gorilla rules
 for_window [class="Gorilla"] floating enabled; move position center
+
+# keepassxc rules
+for_window [class="[Kk]ee[Pp]ass[Xx][cC]"] floating enabled; move position center

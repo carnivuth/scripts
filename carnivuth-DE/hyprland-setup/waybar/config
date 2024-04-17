@@ -1,8 +1,9 @@
 {
-    "layer": "top",
+    "layer": "",
     "position": "top",
     "margin-top": 0,
     "margin-left": 10,
+    "mode": "dock",
     "margin-right": 10,
     "height": 10,
     "spacing": 0,
@@ -204,7 +205,7 @@
     "custom/vpn": {
         "format": "VPN ",
         "exec": "echo '{\"class\": \"connected\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/wg0",
+        "exec-if": "test -d /proc/sys/net/ipv4/conf/wg1",
         "return-type": "json",
         "interval": 5
     },

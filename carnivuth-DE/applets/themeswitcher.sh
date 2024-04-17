@@ -15,14 +15,12 @@ chosen="$(print_menu)"
 echo $chosen
 if [ -f "$chosen" ]; then
 
-	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/postwal.sh" && source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/bin/swaylock/swaylock-color-switcher.sh" "$chosen"
-
-
-  # use hyprctl to set wallpaper on wayland
+	wal -i "$chosen" -o "$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets/postwal.sh"
+     
+  # run specific scripts if under hyprland setup
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then 
-    hyprctl hyprpaper preload "$chosen"
-    hyprctl hyprpaper wallpaper eDP-1,"$chosen"
-    hyprctl hyprpaper wallpaper HDMI-A-1,"$chosen"
+    source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/bin/swaylock/swaylock-color-switcher.sh" "$chosen"
+    source "$SCRIPTS_HOME_FOLDER/carnivuth-DE/bin/hyprpaper/hyprpaper-color-switcher.sh" "$chosen"
     killall waybar
     waybar &
   fi
