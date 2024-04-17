@@ -9,4 +9,6 @@ hide_search=true
 disable_search=true
 width=30%
 height=10%
-image_size=65 
+image_size=45
+halign=fill
+layer=overlay

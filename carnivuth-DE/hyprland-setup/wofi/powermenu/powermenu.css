@@ -1,9 +1,4 @@
 @import ".cache/wal/colors-waybar.css";
-#window{
-  border-width: 1%;
-  background-color: @background;
-  color: @foreground;
-}
 
 #input{
   width: 0px;
@@ -17,4 +12,30 @@
   font-size: 250px;
   font-weight: bold;
   text-align: center;
+}
+/* new file*/
+#window{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @foreground;
+  background-color: @background;
+  color: @foreground;
+
+}
+
+#entry{
+  font-size: large;
+  font-weight: bold;
+  color: @foreground;
+  margin: 0px 10px;
+}
+
+#entry:selected{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  color: @background;
+  background-color: @foreground;
+  
 }
