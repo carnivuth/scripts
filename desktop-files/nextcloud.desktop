@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Nextcloud
 Comment=Nextcloud interface
 Icon=firefox
-Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://pokelab.ddns.net'"
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://pokelab.ddns.net'"
 Terminal=false
 Categories=Network,homelab

@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Master Duel Meta
 Comment=Master Duel Meta website
 Icon=firefox
-Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://www.masterduelmeta.com/' "
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://www.masterduelmeta.com/' "
 Terminal=false
 Categories=Gaming

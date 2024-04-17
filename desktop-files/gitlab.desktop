@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Gitlab
 Comment=Gitlab interface
 Icon=firefox
-Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://delgit.ddns.net'"
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://delgit.ddns.net'"
 Terminal=false
 Categories=Network,homelab

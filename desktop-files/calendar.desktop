@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Calendar
 Comment=Calendar website
 Icon=firefox
-Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://calendar.google.com'"
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://calendar.google.com'"
 Terminal=false
 Categories=Calendar

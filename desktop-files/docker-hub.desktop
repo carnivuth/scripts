@@ -4,6 +4,6 @@ Encoding=UTF-8
 Name=Docker Hub
 Comment=Docker hub website
 Icon=firefox
-Exec=bash -c "$HOME/scripts/lib/launch_webapp.sh 'https://hub.docker.com/' "
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://hub.docker.com/' "
 Terminal=false
 Categories=coding
