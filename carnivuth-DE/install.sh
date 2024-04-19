@@ -17,6 +17,7 @@ read answer
 # install packages
 echo 'installing packages'
 packets='
+btop
 network-manager-applet 
 playerctl 
 pamixer 
@@ -44,9 +45,10 @@ htop
 conky 
 socat
 blueman 
+python-pywal 
+vim
 kitty
 obsidian
-neovim
 nm-connection-editor
 dunst'
 
@@ -60,7 +62,6 @@ if [[ "$answer" == "h" ]];then
   greetd
   hyprpaper
   greetd-regreet
-  chromium
   wev 
   xdg-desktop-portal-hyprland 
   ttf-jetbrains-mono-nerd
@@ -76,7 +77,6 @@ elif [[ "$answer" == "i" ]]; then
   xorg-xinput
   i3lock
   autorandr 
-  python-pywal 
   flameshot 
   i3-wm 
   picom 
