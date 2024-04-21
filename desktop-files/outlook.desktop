@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Outlook
+Comment=Outlook website
+Icon=firefox
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://outlook.office365.com/mail' "
+Terminal=false
+Categories=Mail
