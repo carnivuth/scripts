@@ -18,6 +18,7 @@ read answer
 echo 'installing packages'
 packets='
 btop
+newsboat
 network-manager-applet 
 playerctl 
 pamixer 
