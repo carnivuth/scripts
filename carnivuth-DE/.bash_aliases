@@ -7,6 +7,9 @@ alias lla='ls --color=auto -pla'
 # sudo 
 alias s='sudo'
 
+# git
+alias G='git'
+
 # clear
 alias c='clear'
 
