@@ -42,7 +42,6 @@ ttf-font-awesome
 code 
 github-cli
 htop
-conky 
 socat
 blueman 
 python-pywal 
