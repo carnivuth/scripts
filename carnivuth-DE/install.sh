@@ -17,6 +17,8 @@ read answer
 # install packages
 echo 'installing packages'
 packets='
+btop
+newsboat
 network-manager-applet 
 playerctl 
 pamixer 
@@ -41,12 +43,12 @@ ttf-font-awesome
 code 
 github-cli
 htop
-conky 
 socat
 blueman 
+python-pywal 
+vim
 kitty
 obsidian
-neovim
 nm-connection-editor
 dunst'
 
@@ -60,7 +62,6 @@ if [[ "$answer" == "h" ]];then
   greetd
   hyprpaper
   greetd-regreet
-  chromium
   wev 
   xdg-desktop-portal-hyprland 
   ttf-jetbrains-mono-nerd
@@ -69,6 +70,7 @@ if [[ "$answer" == "h" ]];then
   slurp 
   grim 
   cage
+  qt6-wayland
   wl-clipboard"
 
 elif [[ "$answer" == "i" ]]; then
@@ -76,7 +78,6 @@ elif [[ "$answer" == "i" ]]; then
   xorg-xinput
   i3lock
   autorandr 
-  python-pywal 
   flameshot 
   i3-wm 
   picom 

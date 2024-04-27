@@ -1,20 +1,35 @@
+# misc
 *.swp
-menu_standard.sh
 logs
 log*
-settings.sh
 *.awk
 .jukit
-vaults
-workspace.json
-target.sh
-rclone-mounts.json
-.vagrant
-carnivuth-DE/i3-setup/Code/*
 
+# vagrant folders
+.vagrant
+
+# gtk bookmarks
+bookmarks
+
+# polybar hardware specific configurations
+parameters.ini
+
+# main configuration file
+settings.sh
+
+# theme files
+border.conf
+carnivuth-DE/hyprland-setup/swaylock/config
+
+# removing obsidian files that are not interesting
+workspace.json
+carnivuth-DE/hyprland-setup/obsidian
+!carnivuth-DE/hyprland-setup/obsidian/user-flags.conf 
+
+# removing code files that are not interesting
+carnivuth-DE/i3-setup/Code/*
 !carnivuth-DE/i3-setup/Code/User
 carnivuth-DE/i3-setup/Code/User/*
 !carnivuth-DE/i3-setup/Code/User/settings.json
-bookmarks
-parameters.ini
-border.conf
+
+

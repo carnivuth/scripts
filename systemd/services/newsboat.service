@@ -1,9 +1,9 @@
 [Unit]
-Description=updates notification deamon
+Description=updates newsboat feed
 
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/updates.sh
+ExecStart=[[HOME]]/scripts/systemd/bin/newsboat.sh
 Restart=always
 Environment="DISPLAY=:0"
 
