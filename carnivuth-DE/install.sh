@@ -69,6 +69,7 @@ if [[ "$answer" == "h" ]];then
   slurp 
   grim 
   cage
+  qt6-wayland
   wl-clipboard"
 
 elif [[ "$answer" == "i" ]]; then
