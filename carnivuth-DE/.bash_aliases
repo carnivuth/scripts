@@ -6,6 +6,11 @@ alias lla='ls --color=auto -pla'
 
 # sudo 
 alias s='sudo'
+
+# clear
+alias c='clear'
+
+
 # cbonsai
 alias cbonsai='cbonsai -l'
 

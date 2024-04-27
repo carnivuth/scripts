@@ -155,7 +155,7 @@
             "warning": 25,
             "critical": 10
         },
-        "tooltip": false
+        "tooltip": true
     },
     "custom/powermenu": {
         "format": "⏻ ",
