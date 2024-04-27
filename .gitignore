@@ -18,3 +18,5 @@ carnivuth-DE/i3-setup/Code/User/*
 bookmarks
 parameters.ini
 border.conf
+carnivuth-DE/hyprland-setup/obsidian
+!carnivuth-DE/hyprland-setup/obsidian/user-flags.conf 
