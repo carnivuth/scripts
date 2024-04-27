@@ -1,0 +1,11 @@
+[Unit]
+Description=updates newsboat feed
+
+
+[Service]
+ExecStart=[[HOME]]/scripts/systemd/bin/newsboat.sh
+Restart=always
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target
