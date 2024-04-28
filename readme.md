@@ -36,3 +36,9 @@ configuration is done in the `$HOME/scripts/settings.sh` file, see the `.sample`
 ## SUPPORTED SYSTEMS
 
 the repo is tested on arch linux, it should work on other distros if you install the dependencies listed in the `./install.sh` script
+
+## CONTENTS
+
+### BACKUP
+
+- Systemd unit and service that runs a script that uses borg in order to backup files defined in the `settings.sh` file, needs initialization with `$HOME/scripts/systemd/bin/backup.sh init`, it creates encripted backups with a passphrase saved on the keyring

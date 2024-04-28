@@ -1,6 +1,5 @@
 [Unit]
 Description=Run home_backup service
 
-
 [Service]
-ExecStart=/home/matteo/scripts/systemd/scripts/home_backup.sh 
+ExecStart=[[HOME]]/scripts/systemd/bin/backup.sh backup
