@@ -93,5 +93,4 @@ BORG_REPOSITORY_FOLDER="$HOME/.borg"
 
 # folders to backup with borg
 BORG_BACKUP_TARGETS="/etc/pacman.d 
-/etc/udev/rules.d 
-"
+/etc/udev/rules.d"
