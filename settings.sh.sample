@@ -75,10 +75,23 @@ MENU_BACKEND=wofi
 # enabled systemd services
 ENABLED_SERVICES="updates.service battery.service newsboat.service"
 
-# battery service settings
+# enabled systemd timers
+ENABLED_TIMERS="backup.timer"
+
+# BATTERY SERVICE SETTINGS 
 
 # battery device name (output of upower -e)
 BATTERY_NAME="BAT0"
 
 # battery warning limit (percentage)
 BATTERY_LIMIT=20
+
+# BACKUP TIMER SETTINGS
+
+# path to borg repository folder with backups
+BORG_REPOSITORY_FOLDER="$HOME/.borg"
+
+# folders to backup with borg
+BORG_BACKUP_TARGETS="/etc/pacman.d 
+/etc/udev/rules.d 
+"
