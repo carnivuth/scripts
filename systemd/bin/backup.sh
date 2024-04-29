@@ -37,7 +37,7 @@ backup(){
   
   echo "$BORG_BACKUP_TARGETS" | while read TARGET ;do 
     NAME="$(echo $TARGET | rev | cut -d '/' -f 1 | rev)"
-    borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%c)" "$TARGET"  && \
+    borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%c)" "${TARGET}"  && \
     notify-send -a "Backup job" -u "normal" "done backup of $TARGET in the $BORG_REPOSITORY_FOLDER borg repo"
   done
   
