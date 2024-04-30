@@ -96,3 +96,15 @@ BORG_BACKUP_TARGETS="/etc/pacman.d
 $HOME/scripts/settings.sh
 $HOME/.ssh
 /etc/udev/rules.d"
+
+# rsync connection parameters for backup remote sync, there are other requirements for this to work
+# user needs to be able to connect in ssh with key authentication
+# rsync needs to be installed on the remote
+# remote path need to exists on remote
+
+# enable remote sync [1/0]
+BORG_REMOTE_ENABLED=0
+
+BORG_BACKUP_REMOTE_SERVER=''
+BORG_BACKUP_REMOTE_USER=''
+BORG_BACKUP_REMOTE_PATH="/mnt/storage/$HOSTNAME"
