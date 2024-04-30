@@ -40,6 +40,13 @@ backup(){
     borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%c)" "${TARGET}"  && \
     notify-send -a "Backup job" -u "normal" "done backup of $TARGET in the $BORG_REPOSITORY_FOLDER borg repo"
   done
+
+  if [ "$BORG_REMOTE_ENABLED" == 1 ] && ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
+
+    rsync -r $BORG_REPOSITORY_FOLDER "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"
+    notify-send -a "Backup job" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
+
+  fi
   
   # unset borg command
   unset BORG_PASSCOMMAND
