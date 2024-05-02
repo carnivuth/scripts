@@ -17,6 +17,7 @@ read answer
 # install packages
 echo 'installing packages'
 packets='
+seahorse
 btop
 newsboat
 network-manager-applet 
