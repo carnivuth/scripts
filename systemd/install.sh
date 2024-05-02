@@ -50,4 +50,5 @@ for timerfile in "$SCRIPTS_HOME_FOLDER/systemd/timers/"*.timer; do
     systemctl --user enable --now $timer
   fi
 done
+echo ""
  echo "if you enable the backup service remember to run $HOME/scripts/systemd/bin/backup.sh init to initialize the borg repo"
