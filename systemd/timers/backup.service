@@ -1,5 +1,5 @@
 [Unit]
-Description=Run home_backup service
+Description=Backup your files with borg
 
 [Service]
 ExecStart=[[HOME]]/scripts/systemd/bin/backup.sh backup
