@@ -3,9 +3,13 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='borg newsboat upower jq rclone'
+packets='borg newsboat upower jq rclone libsecret'
 sudo pacman -S $packets
 
+# creating systemd folder
+if [[ ! -d "$HOME/.config/systemd/user/" ]]; then
+    mkdir -p "$HOME/.config/systemd/user/"
+fi
 # installing systemd services
 cp -rf "$SCRIPTS_HOME_FOLDER/systemd/services/"*.service "$HOME/.config/systemd/user/"
 
@@ -46,4 +50,5 @@ for timerfile in "$SCRIPTS_HOME_FOLDER/systemd/timers/"*.timer; do
     systemctl --user enable --now $timer
   fi
 done
+echo ""
  echo "if you enable the backup service remember to run $HOME/scripts/systemd/bin/backup.sh init to initialize the borg repo"

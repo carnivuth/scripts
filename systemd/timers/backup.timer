@@ -1,10 +1,10 @@
 [Unit]
-Description=Run backup service
+Description=Timer for the backup service
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=1h
+
 Persistent=true
+OnCalendar=*-*-* *:00:00
 
 [Install]
 WantedBy=timers.target

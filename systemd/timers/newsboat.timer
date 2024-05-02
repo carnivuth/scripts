@@ -1,0 +1,11 @@
+
+[Unit]
+Description=Timer for the newsboat service
+
+[Timer]
+
+Persistent=true
+OnCalendar=*-*-* *:10:00
+
+[Install]
+WantedBy=timers.target

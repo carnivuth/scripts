@@ -1,7 +1,12 @@
 allow_images=true
 hide_scroll=true
 insensitive=true
-hide_search=true
-columns=3
+Position=top
+columns=4
+hide_search=false
+image_size=45
+halign=fill
+line_wrap=char
+content_halign=center
+layer=overlay
 width=60%
-height=40%
