@@ -193,7 +193,6 @@
             "paused": "⏸"
         },
         "ignored-players": [
-            "firefox"
         ]
     },
     "custom/weather": {
