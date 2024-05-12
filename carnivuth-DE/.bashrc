@@ -44,5 +44,5 @@ else
     BLUE6="\[$(tput setaf 6)\]"
     BLUE21="\[$(tput setaf 21)\]"
     RESET="\[$(tput sgr0)\]"
-    PS1="{${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}}"
+    PS1="[${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}]"
 fi
