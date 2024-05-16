@@ -1,8 +1,16 @@
+" USEFULL DOC FOR SCRIPTING
+" useful link for vimscripting https://devhints.io/vimscript
+" fzf vim function docs https://github.com/junegunn/fzf/blob/master/README-VIM.md
+
+" import tabline configuration
+source ~/.config/vim/tabline.vim
+
 " set relative line numbers
 set relativenumber
 
 " enable syntax highlighting
 syntax on
+
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
@@ -38,6 +46,12 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+" Show partial command you type in the last line of the screen.
+set showcmd
+
+" Show the mode you are on the last line.
+set showmode
+
 " KEYMAPS
 " vim maps miniguide
 " for knowledge :help :map
@@ -61,8 +75,19 @@ noremap <Leader>bb gT
 " close buffer
 nnoremap <Leader>c :bw<CR>
 
+" quit vim
+nnoremap <Leader>q :qa<CR>
+
 " open vim configuration
-nnoremap <Leader>Vc :edit $MYVIMRC<CR>
+nnoremap <Leader>Vc :tabe $MYVIMRC<CR>
 
 " reload vim configuration
 nnoremap <Leader>Vr :source $MYVIMRC<CR>
+
+" set shortcut for fuzzyfinder
+if  filereadable("./.git")
+  " show only git managed files
+  nmap <Leader>f :call fzf#run({'source': 'git ls-files', 'sink': 'e'})<CR>
+else
+  nmap <Leader>f :call fzf#run({'sink': 'tabedit'})<CR>
+endif

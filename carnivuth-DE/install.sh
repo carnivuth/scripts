@@ -18,6 +18,8 @@ read answer
 echo 'installing packages'
 packets='
 seahorse
+fzf
+lazygit
 btop
 newsboat
 network-manager-applet 
