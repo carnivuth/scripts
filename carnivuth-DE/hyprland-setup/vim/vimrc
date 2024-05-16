@@ -1,0 +1,29 @@
+" set relative line numbers
+set relativenumber
+
+" enable syntax highlighting
+syntax on
+" Disable compatibility with vi which can cause unexpected issues.
+set nocompatible
+
+" Enable type file detection. Vim will be able to try to detect the type of file in use.
+filetype on
+
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
+
+" Load an indent file for the detected file type.
+filetype indent on
+
+" set space as tab characters and tab dimension to 2
+set tabstop=2
+set expandtab
+
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+
+" Use highlighting when doing a search.
+set hlsearch
+
+" Set the commands to save in history default number is 20.
+set history=1000
