@@ -87,7 +87,7 @@ nnoremap <Leader>Vc :tabe $MYVIMRC<CR>
 nnoremap <Leader>Vr :source $MYVIMRC<CR>
 
 " fzf options
-let $FZF_DEFAULT_OPTS = '--cicle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
+let $FZF_DEFAULT_OPTS = '--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
 
 " set shortcut for fuzzyfinder
 if  filereadable("./.git")
