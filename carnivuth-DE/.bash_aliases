@@ -48,3 +48,6 @@ alias du='du -h'
 
 # lunarvim
 alias l='lvim'
+
+# vim
+alias v='vim'
