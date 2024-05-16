@@ -1,0 +1,68 @@
+" set relative line numbers
+set relativenumber
+
+" enable syntax highlighting
+syntax on
+" Disable compatibility with vi which can cause unexpected issues.
+set nocompatible
+
+" Enable type file detection. Vim will be able to try to detect the type of file in use.
+filetype on
+
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
+
+" Load an indent file for the detected file type.
+filetype indent on
+
+" set space as tab characters and tab dimension to 2
+set tabstop=2
+set expandtab
+
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+
+" Use highlighting when doing a search.
+set hlsearch
+
+" Set the commands to save in history default number is 20.
+set history=1000
+
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" KEYMAPS
+" vim maps miniguide
+" for knowledge :help :map
+" [niv][nore]map charsequence charsequence
+
+" set space as the leader key
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" set shortcut for lazygit
+nnoremap <Leader>gg :!lazygit<CR>
+
+" set shortcut for cycling tabs
+
+" forward
+noremap <Leader>bn gt
+
+" backward
+noremap <Leader>bb gT
+
+" close buffer
+nnoremap <Leader>c :bw<CR>
+
+" open vim configuration
+nnoremap <Leader>Vc :edit $MYVIMRC<CR>
+
+" reload vim configuration
+nnoremap <Leader>Vr :source $MYVIMRC<CR>

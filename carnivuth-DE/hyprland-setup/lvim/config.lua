@@ -34,3 +34,4 @@ lvim.builtin.which_key.mappings["t"] = {
   h = { "<cmd>2ToggleTerm size=10 direction=horizontal<cr>", "Split horizontal" },
 }
 
+require'lspconfig'.ansiblels.setup{}
