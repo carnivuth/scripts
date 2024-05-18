@@ -1,10 +1,11 @@
 #!/bin/bash
 install_packages(){
-  pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+  pacman -Slq | fzf  --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
 }
 remove_packages(){
-  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
+  pacman -Qq | fzf  --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
+$FZF_DEFAULT_OPTS = '--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
 case "$1" in
   install)
       install_packages
@@ -15,3 +16,4 @@ case "$1" in
   *)
       echo "usage: $0 [install/remove]"
 esac
+unset FZF_DEFAULT_OPTS
