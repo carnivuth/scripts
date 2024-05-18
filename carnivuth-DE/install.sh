@@ -59,7 +59,7 @@ dunst'
 if [[ "$answer" == "h" ]];then
   packets="$packets 
   hyprland 
-  swaylock 
+  hyprlock 
   noto-fonts-emoji
   swayidle 
   greetd
