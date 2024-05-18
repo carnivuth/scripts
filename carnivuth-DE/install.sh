@@ -61,7 +61,7 @@ if [[ "$answer" == "h" ]];then
   hyprland 
   hyprlock 
   noto-fonts-emoji
-  swayidle 
+  hypridle 
   greetd
   hyprpaper
   greetd-regreet
