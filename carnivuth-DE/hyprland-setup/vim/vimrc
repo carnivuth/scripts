@@ -86,9 +86,6 @@ nnoremap <Leader>Vc :tabe $MYVIMRC<CR>
 " reload vim configuration
 nnoremap <Leader>Vr :source $MYVIMRC<CR>
 
-" comment blocks in visual mode
-vnoremap <Leader>c I#<ESC>
-
 " ALE options
 
 " enable default ALE completition
