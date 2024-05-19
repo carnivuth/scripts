@@ -50,6 +50,7 @@ socat
 blueman 
 python-pywal 
 vim
+vim-ale
 kitty
 obsidian
 nm-connection-editor

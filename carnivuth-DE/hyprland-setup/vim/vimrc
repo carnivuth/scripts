@@ -86,11 +86,40 @@ nnoremap <Leader>Vc :tabe $MYVIMRC<CR>
 " reload vim configuration
 nnoremap <Leader>Vr :source $MYVIMRC<CR>
 
+" comment blocks in visual mode
+vnoremap <Leader>c I#<ESC>
+
+" ALE options
+
+" enable default ALE completition
+let g:ale_completion_enabled = 1
+
+" remove error highlight
+let g:ale_set_highlights = 0
+
+" set error messages format
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" enable ALE lint only on filesave
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+
+" ALE bindings
+nnoremap <Leader>l :ALE
+nnoremap <Leader>ld :ALEGoToDefinition<CR>
+nnoremap <Leader>li :ALEGoToImplementation<CR>
+nnoremap <Leader>ln :ALENext<CR>
+nnoremap <Leader>lS :ALEStopAllLSPs<CR>
+
 " fzf options
 let $FZF_DEFAULT_OPTS = '--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
 
 " set shortcut for fuzzyfinder
 if  filereadable("./.git")
+ 
   " show only git managed files
   nmap <Leader>f :call fzf#run({'source': 'git ls-files', 'sink':'e'})<CR>
 else
