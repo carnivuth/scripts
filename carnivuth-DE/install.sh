@@ -65,7 +65,6 @@ if [[ "$answer" == "h" ]];then
   hypridle 
   greetd
   hyprpaper
-  greetd-regreet
   wev 
   xdg-desktop-portal-hyprland 
   ttf-jetbrains-mono-nerd
@@ -73,7 +72,6 @@ if [[ "$answer" == "h" ]];then
   wofi 
   slurp 
   grim 
-  cage
   qt6-wayland
   wl-clipboard"
 
