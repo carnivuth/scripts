@@ -7,6 +7,9 @@ if  filereadable("~/.config/vim/tabline.vim")
   source ~/.config/vim/tabline.vim
 endif
 
+" set colorscheme
+colorscheme slate
+
 " set relative line numbers
 set relativenumber
 
@@ -76,6 +79,9 @@ noremap <Leader>bb gT
 
 " close buffer
 nnoremap <Leader>c :bw<CR>
+
+" save buffer
+nnoremap <Leader>w :w<CR>
 
 " quit vim
 nnoremap <Leader>q :qa<CR>
