@@ -51,3 +51,4 @@ alias l='lvim'
 
 # vim
 alias v='vim'
+alias vml='vim'
