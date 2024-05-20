@@ -2,7 +2,7 @@
 
 personal dotfiles (xorg and wayland configuration) + some usefull scripts and tools for everyday use
 
-** I3 CONFIGURATIONS ARE NO LONGER SUPPORTED**
+**I3 CONFIGURATIONS ARE NO LONGER SUPPORTED**
 
 ## INSTALLATION
 
@@ -11,7 +11,7 @@ to install :
 - clone the repository on the `$HOME` directory (it must be under `$HOME` directory)
 
 ```bash
-git clone --recurse-submodules https://github.com/carnivuth/scripts
+git clone --recurse-submodules https://github.com/carnivuth/scripts "$HOME/scripts"
 ```
 
 - copy default configurations 
@@ -20,7 +20,7 @@ git clone --recurse-submodules https://github.com/carnivuth/scripts
 cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh
 ```
 
-- `./install.sh` this will run the global installation script wich install all the dependencies
+- `cd $HOME/scripts && ./install.sh` this will run the global installation script wich install all the dependencies
 
 after installation dotfiles of the selected environment will be linked inside `$HOME/.config` directory, in order to install also the bash configuration manual links need to be made:
 
