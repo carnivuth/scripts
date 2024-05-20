@@ -121,7 +121,7 @@ nnoremap <Leader>lS :ALEStopAllLSPs<CR>
 let $FZF_DEFAULT_OPTS = '--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
 
 " set shortcut for fuzzyfinder
-if  filereadable("./.git")
+if  ! empty(glob('./.git'))
  
   " show only git managed files
   nmap <Leader>f :call fzf#run({'source': 'git ls-files', 'sink':'e'})<CR>
