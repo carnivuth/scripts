@@ -1,8 +1,8 @@
 # SCRIPTS 
+
 personal dotfiles (xorg and wayland configuration) + some usefull scripts and tools for everyday use
 
-## SHOWCASE
-![](./notes/assets/demo.gif)
+** I3 CONFIGURATIONS ARE NO LONGER SUPPORTED**
 
 ## INSTALLATION
 
@@ -10,9 +10,15 @@ to install :
 
 - clone the repository on the `$HOME` directory (it must be under `$HOME` directory)
 
-- cd `$HOME/scripts`
+```bash
+git clone --recurse-submodules https://github.com/carnivuth/scripts
+```
 
-- copy default configurations `cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh`
+- copy default configurations 
+
+```
+cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh
+```
 
 - `./install.sh` this will run the global installation script wich install all the dependencies
 
