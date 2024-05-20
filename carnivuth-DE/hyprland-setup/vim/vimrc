@@ -67,7 +67,7 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " set shortcut for lazygit
-nnoremap <Leader>gg :silent !lazygit<CR>
+nnoremap <Leader>gg :!lazygit<CR>
 
 " set shortcut for cycling tabs
 
