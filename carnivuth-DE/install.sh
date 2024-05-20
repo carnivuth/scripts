@@ -18,6 +18,8 @@ read answer
 echo 'installing packages'
 packets='
 seahorse
+fzf
+lazygit
 btop
 newsboat
 network-manager-applet 
@@ -48,6 +50,7 @@ socat
 blueman 
 python-pywal 
 vim
+vim-ale
 kitty
 obsidian
 nm-connection-editor
@@ -57,12 +60,11 @@ dunst'
 if [[ "$answer" == "h" ]];then
   packets="$packets 
   hyprland 
-  swaylock 
+  hyprlock 
   noto-fonts-emoji
-  swayidle 
+  hypridle 
   greetd
   hyprpaper
-  greetd-regreet
   wev 
   xdg-desktop-portal-hyprland 
   ttf-jetbrains-mono-nerd
@@ -70,7 +72,6 @@ if [[ "$answer" == "h" ]];then
   wofi 
   slurp 
   grim 
-  cage
   qt6-wayland
   wl-clipboard"
 

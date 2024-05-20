@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='sshpass yt-dlp ffmpeg gawk'
+packets='fzf sshpass yt-dlp ffmpeg gawk'
 sudo pacman -S $packets
 
 # copy config files
