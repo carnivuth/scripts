@@ -5,6 +5,9 @@ alias la='ls --color=auto -pa'
 alias lla='ls --color=auto -pla'
 
 # sudo 
+alias kssh='kitten ssh'
+
+# sudo 
 alias s='sudo'
 
 # git
