@@ -28,7 +28,6 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "default": "",
             "1": "1",
             "2": "2",
             "3": "3",
@@ -39,15 +38,15 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            "active": "󱓻",
-            "urgent": "󱓻"
+            "active": "A",
+            "urgent": "U"
         }
        
     },
 
     "tray": {
         "spacing": 10,
-        "icon-size": 14
+        "icon-size": 12
     },
 
     "clock": {

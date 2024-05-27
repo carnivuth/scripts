@@ -45,27 +45,32 @@ window#waybar.hidden {
   }
 }
 
+#workspaces {
+
+
+}
 #workspaces button {
+        min-width: 0;
+        min-height: 0;
   border: none;
   color: @color2;
-  background: transparent;
-  box-shadow: none;
 }
 
 #workspaces button.active {
   color: @color3;
-  animation: button_activate .2s ease-in-out;
 }
 
 #workspaces button.urgent {
   color: @color7;
-  background: radial-gradient(circle, rgba(25, 79, 255, 0.3) 20%, rgba(132, 129, 156, 0) 30%);
 }
 
 #workspaces button.persistent {
   color: @color8;
 }
-
+#tray{
+        min-width: 0;
+        min-height: 0;
+}
 #tray>.passive {
   -gtk-icon-effect: dim;
 }
