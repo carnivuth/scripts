@@ -49,9 +49,6 @@ alias sleep-castleterra='ssh 192.168.1.62 -l root 'poweroff'  '
 # du
 alias du='du -h'
 
-# lunarvim
-alias l='lvim'
-
 # vim
 alias v='vim'
 alias vml='vim'
