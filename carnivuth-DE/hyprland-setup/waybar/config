@@ -9,8 +9,8 @@
     "spacing": 0,
 
     "modules-left": [
+        "hyprland/workspaces",
         "mpris",
-        "hyprland/workspaces"
     ],
 
     "modules-center": [
