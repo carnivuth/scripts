@@ -1,5 +1,5 @@
 {
-    "layer": "",
+    "layer": "bottom",
     "position": "top",
     "margin-top": 0,
     "margin-left": 0,
@@ -129,12 +129,13 @@
     },
 
     "mpris": {
-        "format": "{player_icon} {dynamic}",
+        "format": "{player_icon}  {dynamic}",
         "format-len": 1,
         "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
-            "spotify": "",
-            "default": "🎵"
+            "firefox": "󰈹",
+            "mpv": "",
+            "default": "󰫔"
         },
         "dynamic-order": [
             "title"
