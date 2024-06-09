@@ -14,7 +14,8 @@
     ],
 
     "modules-center": [
-        "clock"
+        "clock",
+        "custom/weather"
     ],
 
     "modules-right": [
@@ -55,6 +56,12 @@
         "format": "   {:%H:%M %p} "
     },
 
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    },
     "network": {
         "format-wifi": "{icon} {essid}",
         "format-disconnected": "Disconnected ⚠ ",
@@ -146,6 +153,13 @@
         },
         "ignored-players": [
         ]
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/scripts/carnivuth-DE/bin/waybar/weather.sh",
+        "return-type": "json"
     },
 
 }
