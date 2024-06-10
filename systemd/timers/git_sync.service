@@ -1,0 +1,5 @@
+[Unit]
+Description=Sync git repositories
+
+[Service]
+ExecStart=[[HOME]]/scripts/systemd/bin/git_sync.sh sync

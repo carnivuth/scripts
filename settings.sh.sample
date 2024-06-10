@@ -76,7 +76,7 @@ MENU_BACKEND=wofi
 ENABLED_SERVICES="updates.service battery.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="backup.timer newsboat.timer"
+ENABLED_TIMERS="backup.timer newsboat.timer git_sync.timer"
 
 # BATTERY SERVICE SETTINGS 
 
@@ -111,3 +111,6 @@ BORG_BACKUP_REMOTE_PATH="/mnt/storage/$HOSTNAME"
 
 # WEATHER WAYBAR INTEGRATION SCRIPT
 WEATHER_LOCATION=''
+
+# GIT AUTOSYNC FUNCTIONALITY
+GIT_REPOS="$HOME/scripts $HOME/vim_cfg"
