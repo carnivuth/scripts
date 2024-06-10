@@ -9,6 +9,7 @@ function sync(){
           git pull
           echo "--------------------"
   done
+  notify-send -a "git sync" -u "normal" "done sync of git repos"
 }
 
 case "$1" in
