@@ -3,7 +3,7 @@ Description=Timer for the sync_git service
 Requires=git_sync.service
 
 [Timer]
-OnBootSec=15min
+OnBootSec=15sec
 
 [Install]
 WantedBy=timers.target
