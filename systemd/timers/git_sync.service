@@ -1,5 +1,7 @@
 [Unit]
 Description=Sync git repositories
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 ExecStart=[[HOME]]/scripts/systemd/bin/git_sync.sh sync
