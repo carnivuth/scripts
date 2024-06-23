@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Steam
+Comment=Steam website
+Icon=steam
+Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://store.steampowered.com' "
+Terminal=false
+Categories=Game
