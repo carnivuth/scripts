@@ -49,3 +49,4 @@ fi
 
 # import fzf integration
 eval  "$(fzf --bash)"
+_fzf_setup_completion path mpv
