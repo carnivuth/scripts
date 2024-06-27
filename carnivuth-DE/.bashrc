@@ -46,3 +46,7 @@ else
     RESET="\[$(tput sgr0)\]"
     PS1="[${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}]"
 fi
+
+# import fzf integration
+eval  "$(fzf --bash)"
+_fzf_setup_completion path mpv

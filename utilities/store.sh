@@ -5,7 +5,7 @@ install_packages(){
 remove_packages(){
   pacman -Qq | fzf  --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
-$FZF_DEFAULT_OPTS = '--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
+FZF_DEFAULT_OPTS='--cycle --bind "ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up,tab:toggle-up,btab:toggle-down"'
 case "$1" in
   install)
       install_packages

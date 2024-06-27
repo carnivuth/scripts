@@ -1,55 +1,34 @@
 {
-    "layer": "",
+    "layer": "bottom",
     "position": "top",
     "margin-top": 0,
-    "margin-left": 10,
+    "margin-left": 0,
     "mode": "dock",
-    "margin-right": 10,
+    "margin-right": 0,
     "height": 10,
     "spacing": 0,
+
     "modules-left": [
-        "custom/weather",
+        "hyprland/workspaces",
         "mpris",
-        "hyprland/workspaces"
     ],
+
     "modules-center": [
-        "clock"
+        "clock",
+        "custom/weather"
     ],
+
     "modules-right": [
         "pulseaudio",
         "network",
-        "custom/vpn",
         "battery",
         "tray"
     ],
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-click-right": "fullscreen",
-        "icon-theme": "WhiteSur",
-        "icon-size": 25,
-        "tooltip-format": "{title}"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
+
     "hyprland/workspaces": {
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "default": "",
             "1": "1",
             "2": "2",
             "3": "3",
@@ -60,28 +39,28 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            "active": "󱓻",
-            "urgent": "󱓻"
+            "active": "A",
+            "urgent": "U"
         }
        
     },
-    "memory": {
-        "interval": 5,
-        "format": "   {}% ",
-        "max-length": 10
-    },
-    "cpu": {
-        "interval": 5,
-        "format": "   {}% ",
-        "max-length": 10
-    },
+
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+        "icon-size": 12
     },
+
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "   {:%a, %d %b %Y} ",
         "format": "   {:%H:%M %p} "
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
     },
     "network": {
         "format-wifi": "{icon} {essid}",
@@ -101,6 +80,7 @@
         "nospacing": 1,
         "interval": 5
     },
+
     "pulseaudio": {
         "format": "{icon}{volume}%",
         "format-bluetooth": "󰂰 {volume}%",
@@ -118,11 +98,7 @@
         "on-click": "pavucontrol",
         "scroll-step": 1
     },
-    "custom/launcher": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
-    },
+
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": {
@@ -158,32 +134,15 @@
         },
         "tooltip": true
     },
-    "custom/powermenu": {
-        "format": "⏻ ",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/powermenu/type-6/powermenu.sh &"
-    },
-    "mpd": {
-        "format": "{stateIcon} {title}",
-        "format-disconnected": " Disconnected",
-        "format-stopped": " Stopped",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "on-click": "mpc toggle",
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
+
     "mpris": {
-        "format": "{player_icon} {dynamic}",
+        "format": "{player_icon}  {dynamic}",
         "format-len": 1,
         "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
-            "spotify": "",
-            "default": "🎵"
+            "firefox": "󰈹",
+            "mpv": "",
+            "default": "󰫔"
         },
         "dynamic-order": [
             "title"
@@ -196,24 +155,11 @@
         ]
     },
     "custom/weather": {
-        "return-type": "json",
         "format": "{}",
         "tooltip": true,
         "interval": 3600,
-        "exec": "/home/matteo/scripts/carnivuth-DE/waybar/weather.sh",
+        "exec": "~/scripts/carnivuth-DE/bin/waybar/weather.sh",
+        "return-type": "json"
     },
-    "custom/vpn": {
-        "format": "VPN ",
-        "exec": "echo '{\"class\": \"connected\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/wg1",
-        "return-type": "json",
-        "interval": 5
-    },
-    "custom/pacman": {
-        "format": "{}",
-        "interval": 3600,                     // every hour
-        "exec": "checkupdates | wc -l",       // # of updates
-        "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "signal": 8
-    }
+
 }

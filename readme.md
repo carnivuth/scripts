@@ -43,6 +43,10 @@ configuration is done in the `$HOME/scripts/settings.sh` file, see the `.sample`
 
 the repo is tested on arch linux, it should work on other distros if you install the dependencies listed in the `./install.sh` script
 
+## VIM CONFIGURATIONS
+
+for vim configuration see [this](https://github.com/carnivuth/vim_cfg)
+
 ## CONTENTS
 
 ### BACKUP

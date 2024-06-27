@@ -1,10 +1,24 @@
+# function for auto disown processes
+startAndDisown() {
+    program="$1"
+    shift
+    "$program" "$@" & disown $!
+}
+
+#autodisown aliases
+alias d='startAndDisown'
+alias mpv='startAndDisown mpv'
+
 #ls aliases
 alias ls='ls --color=auto '
 alias ll='ls --color=auto -pl'
 alias la='ls --color=auto -pa'
 alias lla='ls --color=auto -pla'
 
-# sudo 
+# sudo
+alias kssh='kitten ssh'
+
+# sudo
 alias s='sudo'
 
 # git
@@ -45,9 +59,6 @@ alias sleep-castleterra='ssh 192.168.1.62 -l root 'poweroff'  '
 
 # du
 alias du='du -h'
-
-# lunarvim
-alias l='lvim'
 
 # vim
 alias v='vim'
