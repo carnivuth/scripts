@@ -12,8 +12,19 @@ if [[ "$1" == "--help" ]]; then
     echo "-l:   awk program file to get album from filename -l ''awk program''"
     echo "-f:   format of audio files"
     echo "some awk program examples:"
-    echo "get song title from a 'artist-title' filename and trim withespaces: " 
-    echo '  BEGIN{FS="-"}{gsub(/^[ \t]+|[ \t]+$/, "");print $2}' 
+    echo "get song title from a 'artist-title' filename and trim withespaces: "
+    echo '  BEGIN{FS="-"}{gsub(/^[ \t]+|[ \t]+$/, "");print $2}'
+
+    echo 'get title using match function'
+    echo 'BEGIN{'
+    echo '  FS=" "'
+    echo '  filter=".* ft\. .*"'
+    echo '}'
+    echo '$0 ~ filter {'
+    echo '   match($0, /.* — (.*) ft\. .*/, arr)'
+    echo '           print arr[1]'
+    echo ''
+    echo '}'
     exit 0
 fi
 
@@ -41,10 +52,10 @@ while getopts t:a:l:f: flag; do
 done
 
 # log metadata programs
-echo "TITLE_PROGRAM: $TITLE_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
-echo "ARTIST_PROGRAM: $ARTIST_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
-echo "ALBUM_PROGRAM: $ALBUM_PROGRAM" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
-echo "FILE_FORMAT: $FILE_FORMAT" >>"$SCRIPTS_LOGS_FOLDER/metadata.logs"
+echo "TITLE_PROGRAM: $TITLE_PROGRAM"
+echo "ARTIST_PROGRAM: $ARTIST_PROGRAM"
+echo "ALBUM_PROGRAM: $ALBUM_PROGRAM"
+echo "FILE_FORMAT: $FILE_FORMAT"
 
 # check the src folder existance
 if [[ ! -d "$SRC_FOLDER" ]]; then
@@ -66,21 +77,21 @@ fi
 for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
 
     # get name file
-    NAME="$(echo $FILE | rev | cut -d"/" -f1 |cut -d"." -f2| rev | awk  '{$1=$1};1')"
+    NAME="$(echo $FILE | awk 'END{ var=$0; n=split (var,a,/\//); print a[n]}')"
 
     # get metadata values from names
     if [[ "$ARTIST_PROGRAM" != '' ]]; then
-        ARTIST="$(echo $NAME | awk -E "$ARTIST_PROGRAM"| awk  '{$1=$1};1')"
+        ARTIST="$(echo $NAME | awk -f "$ARTIST_PROGRAM")"
 
     fi
     if [[ "$ALBUM_PROGRAM" != '' ]]; then
-        ALBUM="$(echo $NAME | awk -E "$ALBUM_PROGRAM"| awk  '{$1=$1};1')"
+        ALBUM="$(echo $NAME | awk -f "$ALBUM_PROGRAM")"
     fi
     if [[ "$TITLE_PROGRAM" != '' ]]; then
-        TITLE="$(echo $NAME | awk -E "$TITLE_PROGRAM" | awk  '{$1=$1};1')"
+        TITLE="$(echo $NAME | awk -f "$TITLE_PROGRAM" )"
     fi
-    
-    echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST" 
+
+    echo -e " processing $NAME file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST"
 
     # ffmpeg decoding
     ffmpeg -y -v quiet -stats -i "$FILE" -acodec copy \
@@ -89,7 +100,6 @@ for FILE in "$SRC_FOLDER"/*.$FILE_FORMAT; do
         -map 0:0 -metadata:s:a:0 title="$TITLE" \
         -metadata Title="$TITLE" \
         -metadata artist="$ARTIST" \
-       "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT" 
+       "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT"
 
 done
-
