@@ -1,13 +1,24 @@
+# function for auto disown processes
+startAndDisown() {
+    program="$1"
+    shift
+    "$program" "$@" & disown $!
+}
+
+#autodisown aliases
+alias d='startAndDisown'
+alias mpv='startAndDisown mpv'
+
 #ls aliases
 alias ls='ls --color=auto '
 alias ll='ls --color=auto -pl'
 alias la='ls --color=auto -pa'
 alias lla='ls --color=auto -pla'
 
-# sudo 
+# sudo
 alias kssh='kitten ssh'
 
-# sudo 
+# sudo
 alias s='sudo'
 
 # git
