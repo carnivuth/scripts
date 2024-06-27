@@ -2,12 +2,13 @@
 startAndDisown() {
     program="$1"
     shift
-    "$program" "$@" & disown $!
+    "$program" "$@" >> /tmp/"$program".out 2>&1 & disown $!
 }
 
 #autodisown aliases
 alias d='startAndDisown'
 alias mpv='startAndDisown mpv'
+alias firefox='startAndDisown firefox'
 
 #ls aliases
 alias ls='ls --color=auto '
