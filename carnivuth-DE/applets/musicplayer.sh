@@ -31,54 +31,38 @@ run_command(){
   echo "$1" | socat - "$MPV_SOCKET"
 }
 
-# COMMAND FUNCTIONS
-forward(){
-  run_command "$FORWARD"
-}
-backward(){
-  run_command "$BACKWARD"
-}
-
 #kill vlc command
-player_stop(){
-  player="$(cat $SCRIPTS_RUN_FOLDER/pid.player)"
-    if [ "$player" != '' ]; then
-      kill $player
-      rm $SCRIPTS_RUN_FOLDER/pid.player
-    fi
+kill_mpv(){
+  kill -9 "$(pidof mpv)"
 }
 
 #main
 run_player(){
   chosen="$(print_playlists)"
-  
+
   #run playlist
   if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
-    player="$(cat $SCRIPTS_RUN_FOLDER/pid.player)"
-      if [ "$player" != '' ]; then
-        kill $player
-        sleep 1
-      fi
-    mpv --input-ipc-server="$MPV_SOCKET"  --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log &
-    echo $! > $SCRIPTS_RUN_FOLDER/pid.player
+    kill_mpv
+    mpv --input-ipc-server="$MPV_SOCKET"  \
+        --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log &
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
   fi
 }
 
 case "$1" in
   fw)
-    forward
+    run_command "$FORWARD"
     ;;
   bw)
-    backward
+    run_command "$BACKWARD"
     ;;
   stop)
-    player_stop
+    kill_mpv
     ;;
   '')
     run_player
     ;;
   *)
-   help 
+   help
     ;;
 esac
