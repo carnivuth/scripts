@@ -9,6 +9,7 @@ startAndDisown() {
 alias d='startAndDisown'
 alias mpv='startAndDisown mpv'
 alias firefox='startAndDisown firefox'
+alias libreoffice='startAndDisown libreoffice'
 
 #ls aliases
 alias ls='ls --color=auto '

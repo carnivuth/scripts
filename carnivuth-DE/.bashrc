@@ -50,3 +50,6 @@ fi
 # import fzf integration
 eval  "$(fzf --bash)"
 _fzf_setup_completion path mpv
+
+# setup default fzf options
+export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'

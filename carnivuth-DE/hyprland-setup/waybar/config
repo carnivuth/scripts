@@ -42,7 +42,7 @@
             "active": "A",
             "urgent": "U"
         }
-       
+
     },
 
     "tray": {
@@ -96,6 +96,7 @@
             ]
         },
         "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
         "scroll-step": 1
     },
 
