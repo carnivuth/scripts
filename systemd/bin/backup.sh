@@ -1,18 +1,18 @@
 #!/bin/bash
 
-#make backups with borg 
+#make backups with borg
 # this scripts creates backups using the borg program and sync the borg repository with rsync to a remote server,
 # the script is meant to run with a systemd timer
 source "$HOME/scripts/settings.sh"
 
 init(){
-  
+
   # create repository folder if does not exists
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
     mkdir -p "$BORG_REPOSITORY_FOLDER"
     echo -n "input borg repo passphrase:"
     read -s borg_passphrase
-    
+
     echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
     export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
     borg init --encryption repokey --make-parent-dirs "$BORG_REPOSITORY_FOLDER"
@@ -24,7 +24,7 @@ init(){
 
 }
 
-## remember to add record on gnome keyring !! 
+## remember to add record on gnome keyring !!
 ## echo "passphrase"| secret-tool store borg-repository repo-name --label="borg passphrase"
 
 backup(){
@@ -36,16 +36,16 @@ backup(){
 
   # exporting borg command to retrive encription passphrase
   export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
-  
+
   # making actual backups
-  while read TARGET ;do 
+  while read TARGET ;do
     NAME="$(echo $TARGET | rev | cut -d '/' -f 1 | rev)"
     borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%c)" "${TARGET}"  && BACKUPPED_TARGETS="${TARGET},$BACKUPPED_TARGETS"
   done <<<$(echo "$BORG_BACKUP_TARGETS")
 
   # check backup output for notifications
   if [[ "$BACKUPPED_TARGETS" != '' ]]; then
-    
+
     notify-send -a "Backup job" -u "normal" "done backup of $BACKUPPED_TARGETS in the $BORG_REPOSITORY_FOLDER borg repo"
   else
 
@@ -65,11 +65,14 @@ backup(){
   # try to sync with remote server
   if [ "$BORG_REMOTE_ENABLED" == 1 ] && ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
+    # create directory
+    ssh "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER" mkdir -p "$BORG_BACKUP_REMOTE_PATH"
+
     rsync -r $BORG_REPOSITORY_FOLDER "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"
     notify-send -a "Backup job" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
 
   fi
-  
+
   # unset borg command
   unset BORG_PASSCOMMAND
 }
