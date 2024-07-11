@@ -13,10 +13,20 @@ open_project(){
          cd "$1"
   fi
 
+  # get project name by the current directory
   PROJECT_NAME="$(basename $(pwd))"
-  tmux new  -s "$PROJECT_NAME" vim \; \
-  split-window  -h -l 60 \; \
-  selectp -t 0
+
+  # if session already exists attach to the session
+  SESSION_STATUS="$(tmux ls | grep "$PROJECT_NAME")"
+  if [[ "$SESSION_STATUS" != '' ]]; then
+    tmux attach-session -t "$PROJECT_NAME"
+
+  else
+    # start a new session with the standard setup
+    tmux new  -s "$PROJECT_NAME" vim \; \
+    split-window  -h -l 60 \; \
+    selectp -t 0
+  fi
 }
 
 case $1 in
