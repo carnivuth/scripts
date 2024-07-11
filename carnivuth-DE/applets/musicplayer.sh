@@ -9,9 +9,7 @@ menu_theme_setup musicplayer
 # MPV COMMANDS
 FORWARD='{"command":["seek","5"]}'
 BACKWARD='{"command":["seek","-5"]}'
-
-# MPV SOCKET FILE
-MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.socket"
+KILL='{"command":["stop"]}'
 
 # print folders with music content
 print_playlists() {
@@ -23,17 +21,12 @@ print_playlists() {
 help(){
   echo "musicplayer applet"
   echo "usage $0 [cmd]"
-  echo "cmd: [fw|bw|stop]"
+  echo "cmd: [fw|bw|kill]"
 }
 
 # wrapper for sending command to mpv through socket
 run_command(){
   echo "$1" | socat - "$MPV_SOCKET"
-}
-
-#kill vlc command
-kill_mpv(){
-  kill -9 "$(pidof mpv)"
 }
 
 #main
@@ -42,8 +35,8 @@ run_player(){
 
   #run playlist
   if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
-    kill_mpv
-    mpv --input-ipc-server="$MPV_SOCKET"  \
+    run_command "$KILL"
+    mpv \
         --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log &
     notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
   fi
@@ -56,8 +49,8 @@ case "$1" in
   bw)
     run_command "$BACKWARD"
     ;;
-  stop)
-    kill_mpv
+  kill)
+    run_command "$KILL"
     ;;
   '')
     run_player

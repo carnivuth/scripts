@@ -16,6 +16,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# source scripts settings
+source ~/scripts/settings.sh
 # set editor and visual variables
 export EDITOR='vim'
 export VIUSUAL='vim'

@@ -51,7 +51,7 @@ home_files=""
 config_files=""
 
 # DO NOT USE SYSTEM VARIABLES
-# LIST OF STORAGE TO MOUNT WITH RCLONE 
+# LIST OF STORAGE TO MOUNT WITH RCLONE
 # this is a json array where entries have the following format
 # {
 # "mount":"storage type as accepted from rclone"
@@ -78,7 +78,7 @@ ENABLED_SERVICES="updates.service battery.service"
 # enabled systemd timers
 ENABLED_TIMERS="backup.timer newsboat.timer git_sync.timer"
 
-# BATTERY SERVICE SETTINGS 
+# BATTERY SERVICE SETTINGS
 
 # battery device name (output of upower -e)
 BATTERY_NAME="BAT0"
@@ -92,7 +92,7 @@ BATTERY_LIMIT=20
 BORG_REPOSITORY_FOLDER="$HOME/.borg"
 
 # folders to backup with borg
-BORG_BACKUP_TARGETS="/etc/pacman.d 
+BORG_BACKUP_TARGETS="/etc/pacman.d
 $HOME/scripts/settings.sh
 $HOME/.ssh
 /etc/udev/rules.d"
@@ -114,3 +114,6 @@ WEATHER_LOCATION=''
 
 # GIT AUTOSYNC FUNCTIONALITY
 GIT_REPOS="$HOME/scripts $HOME/vim_cfg"
+
+# MPV SOCKET FOR IPC
+MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.sock"

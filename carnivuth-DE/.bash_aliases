@@ -17,7 +17,10 @@ alias ll='ls --color=auto -pl'
 alias la='ls --color=auto -pa'
 alias lla='ls --color=auto -pla'
 
-# sudo
+# project.sh
+alias j='project.sh'
+
+# kitten ssh
 alias kssh='kitten ssh'
 
 # sudo
