@@ -1,4 +1,5 @@
 #!/bin/bash
+DEPS="vim tmux"
 help(){
         echo "Usage $0 [project folder]"
 }
