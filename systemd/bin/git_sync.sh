@@ -1,15 +1,23 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
+RESULT_FILE="/tmp/git_sync.result"
+mkdir -p "$(dirname "$RESULT_FILE")"
+echo "0" > "$RESULT_FILE"
 
 function sync(){
   for repo in ${GIT_REPOS}; do
-          echo "entering repo $repo"
-          cd "$repo"
           echo "updating repo $repo"
-          git pull
+          cd "$repo" && git pull || echo "1" > "$RESULT_FILE"
+
           echo "--------------------"
   done
-  notify-send -a "git sync" -u "normal" "done sync of git repos"
+  if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
+    notify-send -a "git sync" -u "normal" "done sync of git repos"
+  else
+    notify-send -a "git sync" -u "critical" "some repos could not be synched"
+  fi
+  rm "$RESULT_FILE"
+
 }
 
 case "$1" in
@@ -18,5 +26,4 @@ case "$1" in
     ;;
   *)
     echo "usage $0 sync"
-    ;;
-esac
+    ;; esac
