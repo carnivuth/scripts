@@ -76,7 +76,7 @@ MENU_BACKEND=wofi
 ENABLED_SERVICES="updates.service battery.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="backup.timer newsboat.timer git_sync.timer"
+ENABLED_TIMERS="backup.timer prune.timer newsboat.timer git_sync.timer"
 
 # BATTERY SERVICE SETTINGS
 
@@ -87,6 +87,12 @@ BATTERY_NAME="BAT0"
 BATTERY_LIMIT=20
 
 # BACKUP TIMER SETTINGS
+
+# backup result file
+BORG_RESULT_FILE="/tmp/backup.result"
+
+# policy to pass to borg prune command (monthly)
+BORG_PRUNE_POLICY="10"
 
 # path to borg repository folder with backups
 BORG_REPOSITORY_FOLDER="$HOME/.borg"
