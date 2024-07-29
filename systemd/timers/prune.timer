@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for the backup prune service
+
+[Timer]
+
+Persistent=true
+OnCalendar=*-*-* *:00:30
+
+[Install]
+WantedBy=timers.target
