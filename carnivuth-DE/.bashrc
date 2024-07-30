@@ -55,5 +55,7 @@ _fzf_setup_completion path mpv
 
 # setup default fzf options
 export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'
-alias j=project.sh
+alias j='project.sh'
+alias si='store.sh install'
+alias sr='store.sh remove'
 export PATH=$PATH:/home/matteo/toolbox/bin
