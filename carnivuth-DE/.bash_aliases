@@ -1,8 +1,10 @@
 # function for auto disown processes
 startAndDisown() {
     program="$1"
+    out="$(mktemp)"
     shift
-    "$program" "$@" >> /tmp/"$program".out 2>&1 & disown $!
+    echo "$out"
+    "$program" "$@" >> "$out" 2>&1 & disown $!
 }
 
 #autodisown aliases
