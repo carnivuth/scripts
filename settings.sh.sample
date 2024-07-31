@@ -73,7 +73,7 @@ POWERMENU_FORMAT='short'
 MENU_BACKEND=wofi
 
 # enabled systemd services
-ENABLED_SERVICES="updates.service battery.service"
+ENABLED_SERVICES="updates.service battery.service ntfyd.service"
 
 # enabled systemd timers
 ENABLED_TIMERS="backup.timer prune.timer newsboat.timer git_sync.timer"
@@ -123,3 +123,8 @@ GIT_REPOS="$HOME/scripts $HOME/toolbox"
 
 # MPV SOCKET FOR IPC
 MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.sock"
+
+# NTFYD CONFIGURATIONS
+NTFYD_ENDPOINT=""
+NTFYD_TOPICS="homelab,work,random"
+NTFYD_APP_NAME_NOTIFICATION="ntfyd"
