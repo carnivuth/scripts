@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 source "$HOME/scripts/settings.sh"
 
 get_param(){
@@ -19,7 +20,8 @@ websocat  "$NTFYD_ENDPOINT/$NTFYD_TOPICS/ws" | while read MSG; do
 
   if  [[ "$event" == "message" ]]; then
     message="$(get_param "$MSG" "message")"
-    notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" "$message"
+    title="$(get_param "$MSG" "title")"
+    notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" "$title $message"
   fi
-
+echo "print"
 done

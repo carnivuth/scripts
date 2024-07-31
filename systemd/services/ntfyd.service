@@ -4,7 +4,6 @@ Description=Ntfy notification daemon
 [Service]
 ExecStart=[[HOME]]/scripts/systemd/bin/ntfyd.sh
 Type=exec
-Restart=always
 Environment="DISPLAY=:0"
 
 [Install]
