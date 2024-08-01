@@ -59,10 +59,10 @@ POWERMENU_FORMAT='short'
 MENU_BACKEND=wofi
 
 # enabled systemd services
-ENABLED_SERVICES="updates.service battery.service ntfyd.service"
+ENABLED_SERVICES="updates.service battery.service ntfyd.service rclone_mount.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="git_sync.timer backup.timer prune.timer rclone_mount.timer"
+ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
 
 # BATTERY SERVICE SETTINGS
 
