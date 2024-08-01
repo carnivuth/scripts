@@ -1,7 +1,6 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
 
-
 get_param(){
   echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
 }
@@ -9,6 +8,7 @@ get_param(){
 open_connection(){
   stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" >> "$NTFYD_MESSAGE_BUFFER"
 }
+
 help_command(){
         echo "usage $0 [start|stop]"
 }
@@ -16,7 +16,6 @@ help_command(){
 stop_command(){
   rm -f "$NTFYD_MESSAGE_BUFFER"
 }
-
 
 start_command(){
 
@@ -52,6 +51,7 @@ start_command(){
 
   done
 }
+
 case "$1" in
   "start")
     start_command
@@ -59,7 +59,6 @@ case "$1" in
   "stop")
     stop_command
     ;;
-
   *)
     help_command
     ;;

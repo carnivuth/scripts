@@ -38,14 +38,16 @@ LAUNCHPROJECTS_FOLDERS="$HOME"
 # PATHS TO FOLDERS WITH IMAGES FOR THEMESWITCHER APPLET
 THEMESWITCHER_FOLDERS="/usr/share/hyprland $HOME/Pictures/wallpapers"
 
-# DO NOT USE SYSTEM VARIABLES
+# MOUNTER SCRIPT VARIABLES
+RCLONE_MOUNT_APP_NAME_NOTIFICATION="rclone mount"
+
+declare -A MOUNTS
+
 # LIST OF STORAGE TO MOUNT WITH RCLONE
-# this is a json array where entries have the following format
-# {
-# "mount":"storage type as accepted from rclone"
-# "path":"path to the mount point"
-# }
-#rclone_mounts='[{ "mount": "google drive", "path": "/path/to/google-drive" }]'
+MOUNTS["google drive"]="$HOME/google_drive"
+
+# add mounts by adding elements to the array
+# MOUNTS["rclone storage name"]="mount path"
 
 # base url for quicksearch applet
 BASE_QUICKSEARCH_URL='https://google.com/search?q='
@@ -60,7 +62,7 @@ MENU_BACKEND=wofi
 ENABLED_SERVICES="updates.service battery.service ntfyd.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
+ENABLED_TIMERS="git_sync.timer backup.timer prune.timer rclone_mount.timer"
 
 # BATTERY SERVICE SETTINGS
 
