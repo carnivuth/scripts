@@ -9,7 +9,7 @@ get_param(){
 open_connection(){
   stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" >> "$NTFYD_MESSAGE_BUFFER"
 }
-help(){
+help_command(){
         echo "usage $0 [start|stop]"
 }
 
@@ -61,6 +61,6 @@ case "$1" in
     ;;
 
   *)
-    help
+    help_command
     ;;
 esac
