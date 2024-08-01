@@ -6,11 +6,11 @@ source "$SCRIPTS_LIBS_FOLDER/menu_standard.sh"
 source "$SCRIPTS_LIBS_FOLDER/print_menu_list.sh"
 source "$SCRIPTS_LIBS_FOLDER/launch_webapp.sh"
 
-BASE_URL="https://github.com/$github_repoviewer_account"
+BASE_URL="https://github.com/$GITHUB_REPOVIEWER_ACCOUNT"
 
 menu_theme_setup github-repoviewer
 get_file(){
-    curl "https://api.github.com/users/$github_repoviewer_account/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
+    curl "https://api.github.com/users/$GITHUB_REPOVIEWER_ACCOUNT/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
 }
 
 print_menu() {

@@ -3,12 +3,12 @@
 source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIBS_FOLDER"/"$MENU_BACKEND"_standard.sh
 
-menu_theme_setup launchprojects 
+menu_theme_setup launchprojects
 
 # rofi cmd
 print_menu() {
 
-	echo -e "$(for dir in $launchprojects_folders; do ls -d "$dir"/*/; done)" | menu_cmd "projects"
+	echo -e "$(for dir in $LAUNCHPROJECTS_FOLDERS; do ls -d "$dir"/*/; done)" | menu_cmd "projects"
 
 }
 # main

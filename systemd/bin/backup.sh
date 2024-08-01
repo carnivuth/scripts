@@ -7,7 +7,7 @@ source "$HOME/scripts/settings.sh"
 
 BORG_APP_NAME_NOTIFICATION="Backup job"
 
-mkdir -p "$(dirname "$BORG_RESULT_FILE")"
+BORG_RESULT_FILE="$(mktemp)"
 
 check(){
 
@@ -63,6 +63,7 @@ backup(){
 
   # check borg repo contents
   BORG_CHECK_RESULTS="$(borg check "$BORG_REPOSITORY_FOLDER")"
+
   if [[ "$BORG_CHECK_RESULTS" != '' ]]; then
     echo "$BORG_CHECK_RESULTS"
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "repo $BORG_REPOSITORY_FOLDER is corrupted! check the unit status"
@@ -96,6 +97,7 @@ prune(){
     NAME="$(basename $TARGET)"
     borg prune --list -m "$BORG_PRUNE_POLICY" -a "${NAME}*" "$BORG_REPOSITORY_FOLDER" || echo '1' > "$BORG_RESULT_FILE"
   done <<<$(echo "$BORG_BACKUP_TARGETS")
+  borg compact "$BORG_REPOSITORY_FOLDER"
 
   # unset borg command
   unset BORG_PASSCOMMAND
