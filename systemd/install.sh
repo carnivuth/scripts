@@ -3,7 +3,7 @@ source "$HOME/scripts/settings.sh"
 
 # install packages
 echo 'installing packages'
-packets='borg newsboat upower jq rclone libsecret websocat'
+packets='curl borg newsboat upower jq rclone libsecret'
 sudo pacman -S $packets
 
 # creating systemd folder
