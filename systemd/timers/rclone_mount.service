@@ -1,0 +1,7 @@
+[Unit]
+Description=Mount remote storage with rclone
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=[[HOME]]/scripts/systemd/bin/rclone_mount.sh mount
