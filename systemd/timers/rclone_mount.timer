@@ -1,9 +1,0 @@
-[Unit]
-Description=Timer for mounting remote folders with rclone
-Requires=rclone_mount.service
-
-[Timer]
-OnBootSec=15sec
-
-[Install]
-WantedBy=timers.target
