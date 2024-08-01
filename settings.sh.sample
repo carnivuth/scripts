@@ -1,9 +1,10 @@
 #!/bin/bash
+
+SCRIPTS_HOME_FOLDER="$HOME/scripts"
+
 # LOGS FOLDER PATH
 SCRIPTS_LOGS_FOLDER="$HOME/.local/scripts/log"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi
-
-SCRIPTS_HOME_FOLDER="$HOME/scripts"
 
 # PATH FOR PERSISTANT INFORMATIONS
 SCRIPTS_LOCAL_FOLDER="$HOME/.local/scripts"
@@ -26,29 +27,16 @@ WOFI_CONFIG_FOLDER="$HOME/.config/wofi"
 SCRIPTS_APPLETS_FOLDER="$SCRIPTS_HOME_FOLDER/carnivuth-DE/applets"
 
 # GITHUB ACCOUNT FOR GITHUB APPLET
-github_repoviewer_account="insert your account here"
+GITHUB_REPOVIEWER_ACCOUNT="insert your account here"
 
 # PATHS TO MUSIC FOLDERS FOR MUSICPLAYER APPLET
-musicplayer_folders="$HOME/Music"
+MUSICPLAYER_FOLDERS="$HOME/Music"
 
 # PATHS TO PROJECTS FOLDERS FOR LAUNCHPROJECTS APPLET
-launchprojects_folders="$HOME"
+LAUNCHPROJECTS_FOLDERS="$HOME"
 
 # PATHS TO FOLDERS WITH IMAGES FOR THEMESWITCHER APPLET
-themeswitcher_folders="$HOME/Pictures/wallpapers"
-
-# DO NOT USE SYSTEM VARIABLES
-# files to backup that are in /etc directory
-system_files="
-/etc/pacman.conf"
-
-# DO NOT USE SYSTEM VARIABLES
-# files to backup that are in home directory
-home_files=""
-
-# DO NOT USE SYSTEM VARIABLES
-# files to backup that are in .config folder
-config_files=""
+THEMESWITCHER_FOLDERS="/usr/share/hyprland $HOME/Pictures/wallpapers"
 
 # DO NOT USE SYSTEM VARIABLES
 # LIST OF STORAGE TO MOUNT WITH RCLONE
@@ -57,11 +45,7 @@ config_files=""
 # "mount":"storage type as accepted from rclone"
 # "path":"path to the mount point"
 # }
-rclone_mounts='[{ "mount": "google drive", "path": "/path/to/google-drive" }]'
-
-# DO NOT USE SYSTEM VARIABLES
-# LIST OF FOLDERS TO BACKUP WITH BORG
-folder_to_backup="/some/absolute/path /other/path"
+#rclone_mounts='[{ "mount": "google drive", "path": "/path/to/google-drive" }]'
 
 # base url for quicksearch applet
 BASE_QUICKSEARCH_URL='https://google.com/search?q='
@@ -73,10 +57,10 @@ POWERMENU_FORMAT='short'
 MENU_BACKEND=wofi
 
 # enabled systemd services
-ENABLED_SERVICES="updates.service battery.service"
+ENABLED_SERVICES="updates.service battery.service ntfyd.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="backup.timer prune.timer newsboat.timer git_sync.timer"
+ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
 
 # BATTERY SERVICE SETTINGS
 
@@ -87,9 +71,6 @@ BATTERY_NAME="BAT0"
 BATTERY_LIMIT=20
 
 # BACKUP TIMER SETTINGS
-
-# backup result file
-BORG_RESULT_FILE="/tmp/backup.result"
 
 # policy to pass to borg prune command (monthly)
 BORG_PRUNE_POLICY="10"
@@ -113,13 +94,19 @@ BORG_REMOTE_ENABLED=0
 
 BORG_BACKUP_REMOTE_SERVER=''
 BORG_BACKUP_REMOTE_USER=''
-BORG_BACKUP_REMOTE_PATH="/mnt/storage/$HOSTNAME"
+BORG_BACKUP_REMOTE_PATH="/var/lib/backup/$HOSTNAME"
 
 # WEATHER WAYBAR INTEGRATION SCRIPT
 WEATHER_LOCATION=''
 
 # GIT AUTOSYNC FUNCTIONALITY
-GIT_REPOS="$HOME/scripts $HOME/vim_cfg"
+GIT_REPOS="$HOME/scripts $HOME/toolbox"
 
 # MPV SOCKET FOR IPC
 MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.sock"
+
+# NTFYD CONFIGURATIONS
+NTFYD_ENDPOINT=""
+NTFYD_TOPICS="homelab,work,random"
+NTFYD_APP_NAME_NOTIFICATION="ntfyd"
+NTFYD_MESSAGE_BUFFER="$SCRIPTS_RUN_FOLDER/ntfy.run"

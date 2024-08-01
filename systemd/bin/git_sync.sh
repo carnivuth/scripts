@@ -1,7 +1,6 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-RESULT_FILE="/tmp/git_sync.result"
-mkdir -p "$(dirname "$RESULT_FILE")"
+RESULT_FILE="$(mktemp)"
 echo "0" > "$RESULT_FILE"
 
 function sync(){

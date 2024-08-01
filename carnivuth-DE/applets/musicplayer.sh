@@ -13,7 +13,7 @@ KILL='{"command":["stop"]}'
 
 # print folders with music content
 print_playlists() {
-  echo -e "$(for dir in $musicplayer_folders; do ls -d "$dir"/*/; done)"  | menu_cmd "playlists"
+  echo -e "$(for dir in $MUSICPLAYER_FOLDERS; do ls -d "$dir"/*/; done)"  | menu_cmd "playlists"
 
 }
 
