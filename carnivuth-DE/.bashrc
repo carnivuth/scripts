@@ -8,7 +8,9 @@
 # PATH editing
 export PATH="~/scripts/utilities/:$PATH"
 export PATH="~/scripts/carnivuth-DE/applets:$PATH"
+export PATH="~/scripts/systemd/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
+export PATH="~/toolbox/bin:$PATH"
 
 
 #include bas_aliases
@@ -55,5 +57,5 @@ _fzf_setup_completion path mpv
 
 # setup default fzf options
 export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'
+
 source /home/matteo/toolbox/bash_integration.sh
-export PATH=$PATH:/home/matteo/toolbox/bin
