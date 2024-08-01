@@ -2,8 +2,11 @@
 Description=Ntfy notification daemon
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/ntfyd.sh
+ExecStart=[[HOME]]/scripts/systemd/bin/ntfyd.sh start
+ExecStop=[[HOME]]/scripts/systemd/bin/ntfyd.sh stop
+ExecStartPre=[[HOME]]/scripts/systemd/bin/ntfyd.sh stop
 Type=exec
+KillMode=control-group
 Environment="DISPLAY=:0"
 
 [Install]

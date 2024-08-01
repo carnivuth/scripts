@@ -1,27 +1,66 @@
 #!/bin/bash
-set -x
 source "$HOME/scripts/settings.sh"
 
+
 get_param(){
-        echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
+  echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
 }
 
-websocat  "$NTFYD_ENDPOINT/$NTFYD_TOPICS/ws" | while read MSG; do
+open_connection(){
+  stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" >> "$NTFYD_MESSAGE_BUFFER"
+}
+help(){
+        echo "usage $0 [start|stop]"
+}
 
-  event="$(get_param "$MSG" "event")"
-  id="$(get_param "$MSG" "id")"
-  time="$(get_param "$MSG" "time")"
-  topic="$(get_param "$MSG" "topic")"
+stop_command(){
+  rm -f "$NTFYD_MESSAGE_BUFFER"
+}
 
-  echo "$topic"
-  echo "$event"
-  echo "$id"
-  echo "$time"
 
-  if  [[ "$event" == "message" ]]; then
-    message="$(get_param "$MSG" "message")"
-    title="$(get_param "$MSG" "title")"
-    notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" "$title $message"
-  fi
-echo "print"
-done
+start_command(){
+
+  open_connection &
+
+  tail -f "$SCRIPTS_RUN_FOLDER/ntfy.run" | while read MSG; do
+
+    event="$(get_param "$MSG" "event")"
+    id="$(get_param "$MSG" "id")"
+    time="$(get_param "$MSG" "time")"
+    topic="$(get_param "$MSG" "topic")"
+
+    echo "$topic"
+    echo "$event"
+    echo "$id"
+    echo "$time"
+
+    case "$event" in
+
+      "message")
+
+        message="$(get_param "$MSG" "message")"
+        title="$(get_param "$MSG" "title")"
+
+        if [[ "$title" != "null" ]]; then
+          notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" "$title $message"
+        else
+          notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" "$message"
+        fi
+        ;;
+
+    esac
+
+  done
+}
+case "$1" in
+  "start")
+    start_command
+    ;;
+  "stop")
+    stop_command
+    ;;
+
+  *)
+    help
+    ;;
+esac
