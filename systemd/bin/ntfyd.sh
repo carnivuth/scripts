@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 source "$HOME/scripts/settings.sh"
 
 get_param(){
@@ -17,6 +16,7 @@ help_command(){
 stop_command(){
   rm -f "$NTFYD_MESSAGE_BUFFER"
 }
+
 handle_message(){
 
         MSG="$1"
