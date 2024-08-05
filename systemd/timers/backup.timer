@@ -3,7 +3,6 @@ Description=Timer for the backup service
 
 [Timer]
 
-Persistent=true
 OnCalendar=*-*-* *:00:00
 
 [Install]

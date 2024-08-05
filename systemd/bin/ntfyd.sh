@@ -1,22 +1,14 @@
 #!/bin/bash
-set -x
 source "$HOME/scripts/settings.sh"
 
 get_param(){
   echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
 }
 
-open_connection(){
-  stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" >> "$NTFYD_MESSAGE_BUFFER"
-}
-
 help_command(){
-        echo "usage $0 [start|stop]"
+        echo "usage $0 [start]"
 }
 
-stop_command(){
-  rm -f "$NTFYD_MESSAGE_BUFFER"
-}
 handle_message(){
 
         MSG="$1"
@@ -53,13 +45,9 @@ handle_message(){
         fi
 }
 
-
-
 start_command(){
 
-  open_connection &
-
-  tail -f "$SCRIPTS_RUN_FOLDER/ntfy.run" | while read MSG; do
+  stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" | while read MSG; do
 
     event="$(get_param "$MSG" "event")"
     id="$(get_param "$MSG" "id")"
@@ -84,9 +72,6 @@ start_command(){
 case "$1" in
   "start")
     start_command
-    ;;
-  "stop")
-    stop_command
     ;;
   *)
     help_command
