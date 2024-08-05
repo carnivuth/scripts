@@ -2,10 +2,10 @@
 
 ## check on settings.sh file, exit if not present
 if [[ ! -f "$HOME/scripts/settings.sh" ]]; then
-    echo 'no settings.sh file found, run: '
-    echo "cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh"
-    echo 'and edit the variables as you like'
-    exit 1
+  echo 'no settings.sh file found, run: '
+  echo "cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh"
+  echo 'and edit the variables as you like'
+  exit 1
 fi
 source "$HOME/scripts/settings.sh"
 
@@ -103,8 +103,11 @@ fi
 # installing config files
 echo 'installing config files'
 mkdir -p "$HOME/.config/"
-ln -sf $SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/* "$HOME/.config/"
 
-echo 'installing home files'
+for file in "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder"/* ; do
+  ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/$config_folder/$file" "$HOME/.config/"
+done
+
+echo 'installing shell integration files'
 ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.bashrc" "$HOME/"
 ln -sf "$SCRIPTS_HOME_FOLDER/carnivuth-DE/.bash_aliases" "$HOME/"

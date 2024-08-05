@@ -1,17 +1,10 @@
-# function for auto disown processes
-startAndDisown() {
-    program="$1"
-    out="$(mktemp)"
-    shift
-    echo "$out"
-    "$program" "$@" >> "$out" 2>&1 & disown $!
-}
+
 
 #autodisown aliases
-alias d='startAndDisown'
-alias mpv='startAndDisown mpv'
-alias firefox='startAndDisown firefox'
-alias libreoffice='startAndDisown libreoffice'
+alias d='start_and_disown.sh'
+alias mpv='start_and_disown.sh mpv'
+alias firefox='start_and_disown.sh firefox'
+alias libreoffice='start_and_disown.sh libreoffice'
 
 #ls aliases
 alias ls='ls --color=auto '
@@ -30,10 +23,6 @@ alias G='git'
 
 # clear
 alias c='clear'
-
-
-# cbonsai
-alias cbonsai='cbonsai -l'
 
 # yay
 alias yay='yay --color=auto'
@@ -59,11 +48,10 @@ alias ip='ip --color=auto'
 # homelab
 alias wake-playchomp='ssh castleterra wakeonlan d8:5e:d3:8e:60:d1'
 alias wake-castleterra='wol b4:2e:99:9c:09:80 '
-alias sleep-castleterra='ssh 192.168.1.62 -l root 'poweroff'  '
+alias sleep-castleterra="ssh 192.168.1.62 -l root 'poweroff'"
 
 # du
 alias du='du -h'
 
 # vim
 alias v='vim'
-alias vml='vim'
