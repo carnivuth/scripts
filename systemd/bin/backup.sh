@@ -5,7 +5,6 @@
 # the script is meant to run with a systemd timer
 source "$HOME/scripts/settings.sh"
 
-BORG_APP_NAME_NOTIFICATION="Backup job"
 
 BORG_RESULT_FILE="$(mktemp)"
 
@@ -17,6 +16,7 @@ check(){
   fi
 
 }
+
 init(){
 
   # create repository folder if does not exists
@@ -48,7 +48,7 @@ backup(){
 
   # making actual backups
   while read TARGET ;do
-    NAME="$(echo $TARGET | rev | cut -d '/' -f 1 | rev)"
+    NAME="$(echo "$TARGET" | rev | cut -d '/' -f 1 | rev)"
     borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%c)" "${TARGET}"  && BACKUPPED_TARGETS="${TARGET},$BACKUPPED_TARGETS"
   done <<<$(echo "$BORG_BACKUP_TARGETS")
 
@@ -77,10 +77,35 @@ backup(){
     # create directory
     ssh "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER" mkdir -p "$BORG_BACKUP_REMOTE_PATH"
 
-    rsync -r $BORG_REPOSITORY_FOLDER "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
+    if rsync -r "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
+    else
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
+    fi
 
   fi
+
+  # try to sync with rclone to remote storage
+  if [ "$BORG_RCLONE_ENABLED" == 1 ]  ; then
+
+    if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
+    else
+
+      # create directory
+      rclone mkdir "$BORG_BACKUP_RCLONE_PATH"
+
+      if rclone sync "$BORG_REPOSITORY_FOLDER" "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" ; then
+
+        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "synced with rclone storage $BORG_RCLONE_REMOTE"
+      else
+        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error in sincronization with rclone storage $BORG_RCLONE_REMOTE"
+      fi
+    fi
+
+  fi
+
+
 
   # unset borg command
   unset BORG_PASSCOMMAND
@@ -94,7 +119,7 @@ prune(){
   export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
 
   while read TARGET ;do
-    NAME="$(basename $TARGET)"
+    NAME="$(basename "$TARGET")"
     borg prune --list -m "$BORG_PRUNE_POLICY" -a "${NAME}*" "$BORG_REPOSITORY_FOLDER" || echo '1' > "$BORG_RESULT_FILE"
   done <<<$(echo "$BORG_BACKUP_TARGETS")
   borg compact "$BORG_REPOSITORY_FOLDER"
