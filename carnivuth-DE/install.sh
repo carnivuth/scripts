@@ -17,6 +17,9 @@ read answer
 # install packages
 echo 'installing packages'
 packets='
+wf-recorder
+htop
+calc
 tmux
 seahorse
 fzf
