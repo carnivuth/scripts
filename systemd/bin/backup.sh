@@ -93,7 +93,7 @@ backup(){
     else
 
       # create directory
-      rclone mkdir "$BORG_BACKUP_RCLONE_PATH"
+      rclone mkdir "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH"
 
       if rclone sync "$BORG_REPOSITORY_FOLDER" "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" ; then
 
