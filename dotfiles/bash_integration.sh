@@ -2,7 +2,6 @@
 
 # PATH editing
 export PATH="$HOME/scripts/bin/:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # set editor and visual variables
 export EDITOR='vim'
