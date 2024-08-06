@@ -71,7 +71,9 @@ if [[ "$answer" == "h" ]];then
   xdg-desktop-portal-hyprland
   ttf-jetbrains-mono-nerd
   waybar
-  wofi
+  bemenu-wayland
+  bemenu-ncurses
+  bemenu
   slurp
   grim
   qt6-wayland
