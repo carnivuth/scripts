@@ -8,6 +8,7 @@ source "$HOME/scripts/settings.sh"
 
 BORG_RESULT_FILE="$(mktemp)"
 
+# check if borg repository is configured
 check(){
 
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
@@ -17,6 +18,7 @@ check(){
 
 }
 
+# configure borg repo for future backups and add passphrase to user keyring
 init(){
 
   # create repository folder if does not exists
@@ -36,9 +38,7 @@ init(){
 
 }
 
-## remember to add record on gnome keyring !!
-## echo "passphrase"| secret-tool store borg-repository repo-name --label="borg passphrase"
-
+# make backup, check repo and sync to remotes
 backup(){
 
   check
@@ -105,10 +105,41 @@ backup(){
 
   fi
 
-
-
   # unset borg command
   unset BORG_PASSCOMMAND
+}
+
+# restore from rsync capable remote
+restore_remote(){
+
+  # try to restore with remote server
+  if  ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
+
+    if rsync -r "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH" "$BORG_REPOSITORY_FOLDER"; then
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "restored repo from $BORG_BACKUP_REMOTE_SERVER"
+    else
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error restoring repo from $BORG_BACKUP_REMOTE_SERVER"
+    fi
+
+  fi
+}
+
+# restore from rclone remote storage
+restore_rclone(){
+  # try to restore with rclone from remote storage
+
+  if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
+  else
+
+    if rclone sync "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" "$BORG_REPOSITORY_FOLDER"  ; then
+
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "restored repo from rclone storage $BORG_RCLONE_REMOTE"
+    else
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error restoring repo with rclone storage $BORG_RCLONE_REMOTE"
+    fi
+  fi
+
 }
 
 prune(){
@@ -146,7 +177,13 @@ case "$1" in
   prune)
     prune
     ;;
+  restore_rclone)
+    restore_rclone
+    ;;
+  restore_remote)
+    restore_remote
+    ;;
   *)
-    echo "usage $0 [init|backup|prune]"
+    echo "usage $0 [init|backup|prune|restore_rclone|restore_remote]"
     ;;
 esac
