@@ -4,3 +4,4 @@
 - [ ] refactor bashrc management
 - [ ] refactor bins directories
 - [ ] improve look of dunst notifications
+- [ ] wofi config for single lines menus
