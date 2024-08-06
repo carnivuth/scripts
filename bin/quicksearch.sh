@@ -5,7 +5,7 @@ source "$SCRIPTS_LIB_FOLDER"/"$MENU_BACKEND"_standard.sh
 menu_theme_setup quicksearch
 
 # main
-chosen="$(menu_cmd "search with firefox" )"
+chosen="$( menu_cmd "search with firefox" < /dev/null )"
 if [ "$chosen" != "" ]; then
 	case "$chosen" in
 	https*)
