@@ -3,6 +3,7 @@ source "$HOME/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/get_wal_color.sh"
 get_wal_color
 BEMENU_HIGH=21
+BEMENU_PADDING=10
 
 menu_theme_setup(){
   echo "setup complete"
@@ -20,6 +21,7 @@ menu_cmd() {
     --tb "${COLORS[0]}"\
     --nf "${COLORS[13]}"\
     --nb "${COLORS[0]}"\
+    --hp "$BEMENU_PADDING"\
       -H "$BEMENU_HIGH"
   }
 
@@ -34,5 +36,6 @@ menu_cmd() {
     --tb "${COLORS[0]}"\
     --nf "${COLORS[13]}"\
     --nb "${COLORS[0]}"\
-      -H "$BEMENU_HIGH"
+    --hp "$BEMENU_PADDING"\
+    -H "$BEMENU_HIGH"
     }

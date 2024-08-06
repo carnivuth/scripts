@@ -17,7 +17,7 @@ done
 }
 
 print_menu() {
-  desktop_files_to_json | jq -r '.app'| menu_cmd "projects"
+  desktop_files_to_json | jq -r '.app'| menu_cmd "sites"
 }
 
 chosen="$(print_menu)"
