@@ -1,0 +1,166 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "margin-top": 0,
+    "margin-left": 0,
+    "mode": "dock",
+    "margin-right": 0,
+    "height": 10,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris",
+    ],
+
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "active": "A",
+            "urgent": "U"
+        }
+
+    },
+
+    "tray": {
+        "spacing": 10,
+        "icon-size": 12
+    },
+
+    "clock": {
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "format-alt": "   {:%a, %d %b %Y} ",
+        "format": "   {:%H:%M %p} "
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    },
+    "network": {
+        "format-wifi": "{icon} {essid}",
+        "format-disconnected": "Disconnected ⚠ ",
+        "format-icons": [
+            "󰤯 ",
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 ",
+            "󰤨 "
+        ],
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "on-click": "~/scripts/bin/networkmenu.sh &",
+        "format-ethernet": "{ifname}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "nospacing": 1,
+        "interval": 5
+    },
+
+    "pulseaudio": {
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟 ",
+        "format-icons": {
+            "headphone": " ",
+            "default": [
+                "󰕿 ",
+                "󰖀 ",
+                "󰕾 "
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "scroll-step": 1
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true
+    },
+
+    "mpris": {
+        "format": "{player_icon}  {dynamic}",
+        "format-len": 1,
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "firefox": "󰈹",
+            "mpv": "",
+            "default": "󰫔"
+        },
+        "dynamic-order": [
+            "title"
+        ],
+        "interval": 1,
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": [
+        ]
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/scripts/bin/weather.sh",
+        "return-type": "json"
+    },
+
+}

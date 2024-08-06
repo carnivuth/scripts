@@ -4,4 +4,4 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/git_sync.sh sync
+ExecStart=[[HOME]]/scripts/bin/git_sync.sh sync

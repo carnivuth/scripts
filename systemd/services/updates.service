@@ -3,7 +3,7 @@ Description=updates notification deamon
 
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/updates.sh
+ExecStart=[[HOME]]/scripts/bin/updates.sh
 Restart=always
 Environment="DISPLAY=:0"
 
