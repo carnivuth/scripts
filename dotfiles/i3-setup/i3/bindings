@@ -16,15 +16,15 @@ set $ws10 "10"
 set $screen1 eDP-1
 set $screen2 HDMI-1
 # set workspace on all monitors
-workspace $ws1 output $screen1 
+workspace $ws1 output $screen1
 workspace $ws2 output $screen2
-workspace $ws3 output $screen2 
+workspace $ws3 output $screen2
 workspace $ws4 output $screen2
-workspace $ws5 output $screen2 
+workspace $ws5 output $screen2
 workspace $ws6 output $screen2
-workspace $ws7 output $screen2 
+workspace $ws7 output $screen2
 workspace $ws8 output $screen1
-workspace $ws9 output $screen1 
+workspace $ws9 output $screen1
 workspace $ws10 output $screen2
 
 # switch to workspace
@@ -61,7 +61,7 @@ bindsym $mod+mod1+Left workspace prev
 bindsym $mod+k workspace prev
 bindsym $mod+j workspace next
 #move window to next/previous container
-bindsym $mod+control+Mod1+Right move window to workspace next; workspace next 
+bindsym $mod+control+Mod1+Right move window to workspace next; workspace next
 bindsym $mod+control+Mod1+Left move window to workspace  prev; workspace prev
 ######################################### WORKSPACES ##############################################
 
@@ -89,8 +89,8 @@ bindsym $mod+r mode "resize"
 
 ######################################### BYNDINGS ##############################################
 
-# SCRIPTS FOLDER 
-set $folder ~/scripts/carnivuth-DE
+# SCRIPTS FOLDER
+set $bin ~/scripts/bin
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -102,7 +102,7 @@ bindsym $mod+Shift+Return exec --no-startup-id kitty --class kittyfloating
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id $folder/applets/launcher.sh 
+bindsym $mod+d exec --no-startup-id $bin/launcher.sh
 
 #change focus
 # alternatively, you can use the cursor keys:
@@ -142,12 +142,12 @@ bindsym $mod+Shift+space floating toggle
 #audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-bindsym XF86AudioMute exec --no-startup-id pamixer -t 
-bindsym $mod+Shift+a exec --no-startup-id pamixer -t 
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym $mod+Shift+a exec --no-startup-id pamixer -t
 
 #brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl -d intel_backlight s 10%- 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight s +10% 
+bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl -d intel_backlight s 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight s +10%
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -158,40 +158,40 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 #launch network menu
-bindsym $mod+n exec --no-startup-id $folder/applets/networkmenu.sh 
+bindsym $mod+n exec --no-startup-id $bin/networkmenu.sh
 
-#screenshot 
+#screenshot
 bindsym $mod+Print exec --no-startup-id flameshot screen
 
-#manual screenshot 
+#manual screenshot
 bindsym $mod+Shift+Print exec --no-startup-id flameshot gui &
 
-#launch telegram 
-bindsym $mod+t exec --no-startup-id telegram-desktop  
+#launch telegram
+bindsym $mod+t exec --no-startup-id telegram-desktop
 
 #launch powermenu
-bindsym $mod+p exec --no-startup-id $folder/applets/powermenu.sh 
+bindsym $mod+p exec --no-startup-id $bin/powermenu.sh
 
 # launch browser
-bindsym $mod+s exec --no-startup-id $folder/applets/quicksearch.sh 
+bindsym $mod+s exec --no-startup-id $bin/quicksearch.sh
 
 # launch filemanager
 bindsym $mod+e exec --no-startup-id thunar
 
 #launch project menu
 #code
-bindsym $mod+c exec --no-startup-id $folder/applets/launchprojects.sh code 
+bindsym $mod+c exec --no-startup-id $bin/launchprojects.sh code
 
 #intellij idea
-#bindsym $mod+j exec --no-startup-id $folder/applets/launchprojects.sh idea 
+#bindsym $mod+j exec --no-startup-id $bin/launchprojects.sh idea
 ##fleet
-#bindsym $mod+i exec --no-startup-id $folder/applets/launchprojects.sh fleet 
+#bindsym $mod+i exec --no-startup-id $bin/launchprojects.sh fleet
 
 #launch obsidian vaults launcher
-bindsym $mod+z exec --no-startup-id $folder/applets/vaultlauncher.sh 
+bindsym $mod+z exec --no-startup-id $bin/vaultlauncher.sh
 
 #launch github repo viewer
-bindsym $mod+g exec --no-startup-id $folder/applets/github-repoviewer.sh 
+bindsym $mod+g exec --no-startup-id $bin/github_repoviewer.sh
 
 #toggle bluetooth
 bindsym $mod+Shift+b exec --no-startup-id $folder/polybar/bluetooth.sh --toggle
@@ -203,13 +203,13 @@ bindsym $mod+y exec --no-startup-id keepassxc
 bindsym $mod+b exec --no-startup-id blueman-manager
 
 #launch music player
-bindsym $mod+m exec --no-startup-id $folder/applets/musicplayer.sh 
-bindsym  $mod+Shift+m exec --no-startup-id  $folder/applets/musicplayer.sh stop
-bindsym  $mod+Shift+F86AudioNext exec --no-startup-id  $folder/applets/musicplayer.sh fw
-bind = $mainMod+Shift+F86AudioPrev exec --no-startup-id $folder/applets/musicplayer.sh bw
+bindsym $mod+m exec --no-startup-id $bin/musicplayer.sh
+bindsym  $mod+Shift+m exec --no-startup-id  $bin/musicplayer.sh stop
+bindsym  $mod+Shift+F86AudioNext exec --no-startup-id  $bin/musicplayer.sh fw
+bind = $mainMod+Shift+F86AudioPrev exec --no-startup-id $bin/musicplayer.sh bw
 
 #launch theme switcher
-bindsym $mod+o exec --no-startup-id $folder/applets/themeswitcher.sh
+bindsym $mod+o exec --no-startup-id $bin/themeswitcher.sh
 
 #launch keyboard switcher
 bindsym $mod+space exec --no-startup-id $folder/bin/keyboard/kbdswitcher.sh
