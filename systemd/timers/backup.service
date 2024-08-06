@@ -2,4 +2,4 @@
 Description=Backup your files with borg
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/backup.sh backup
+ExecStart=[[HOME]]/scripts/bin/backup.sh backup

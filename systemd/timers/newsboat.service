@@ -2,4 +2,4 @@
 Description=updates newsboat feed
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/newsboat.sh
+ExecStart=[[HOME]]/scripts/bin/newsboat.sh

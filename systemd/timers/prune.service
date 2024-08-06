@@ -2,4 +2,4 @@
 Description=prune borg repo periodically
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/backup.sh prune
+ExecStart=[[HOME]]/scripts/bin/backup.sh prune

@@ -3,9 +3,9 @@ Description=Mount rclone storages
 #Requires=network-online.target
 
 [Service]
-ExecStart=[[HOME]]/scripts/systemd/bin/rclone_mount.sh mount
-ExecStop=[[HOME]]/scripts/systemd/bin/rclone_mount.sh umount
-ExecStartPre=[[HOME]]/scripts/systemd/bin/rclone_mount.sh umount
+ExecStart=[[HOME]]/scripts/bin/rclone_mount.sh mount
+ExecStop=[[HOME]]/scripts/bin/rclone_mount.sh umount
+ExecStartPre=[[HOME]]/scripts/bin/rclone_mount.sh umount
 Type=exec
 KillMode=control-group
 Environment="DISPLAY=:0"
