@@ -4,6 +4,7 @@ source "$SCRIPTS_LIB_FOLDER/get_wal_color.sh"
 get_wal_color
 BEMENU_HIGH=21
 BEMENU_PADDING=10
+BEMENU_FONT='JetBrainsMono Nerd Font,JetBrainsMono NF:style=ExtraBold 9'
 
 menu_theme_setup(){
   echo "setup complete"
@@ -22,6 +23,8 @@ menu_cmd() {
     --nf "${COLORS[13]}"\
     --nb "${COLORS[0]}"\
     --hp "$BEMENU_PADDING"\
+    --fn "$BEMENU_FONT"\
+
       -H "$BEMENU_HIGH"
   }
 
@@ -37,5 +40,6 @@ menu_cmd() {
     --nf "${COLORS[13]}"\
     --nb "${COLORS[0]}"\
     --hp "$BEMENU_PADDING"\
+    --fn "$BEMENU_FONT"\
     -H "$BEMENU_HIGH"
     }
