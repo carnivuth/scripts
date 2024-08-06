@@ -17,11 +17,15 @@ done
 }
 
 print_menu() {
-  desktop_files_to_json | jq -r '.app'| menu_cmd "sites"
+  jq -r '.app' "$SCRIPTS_LOCAL_FOLDER/sites.json" | menu_cmd "sites"
 }
 
+if [[ ! -f "$SCRIPTS_LOCAL_FOLDER/sites.json" ]];then
+  desktop_files_to_json > "$SCRIPTS_LOCAL_FOLDER/sites.json"
+fi
+
 chosen="$(print_menu)"
-site="$(desktop_files_to_json | jq -r "select(.app == \"$chosen\")| .link " )"
+site="$( jq -r "select(.app == \"$chosen\")| .link " "$SCRIPTS_LOCAL_FOLDER/sites.json" )"
 if [[ "$site" != '' ]];then
   launch_webapp "$site"
 fi
