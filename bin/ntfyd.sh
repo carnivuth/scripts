@@ -5,9 +5,7 @@ get_param(){
   echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
 }
 
-help_command(){
-  echo "usage $0 [start]"
-}
+HELP_MESSAGE="usage $0 [start]"
 
 handle_message(){
 
@@ -74,6 +72,6 @@ case "$1" in
     start_command
     ;;
   *)
-    help_command
+    echo "$HELP_MESSAGE"
     ;;
 esac
