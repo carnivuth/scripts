@@ -6,11 +6,11 @@ menu_theme_setup "powermenu"
 
 # set menu entries based on format setting
 if [[ $POWERMENU_FORMAT == 'long' ]]; then
-  shutdown='  shutdown'
-  reboot='  reboot'
-  lock='  lock'
-  suspend='  suspend'
-  logout='  logout'
+  shutdown=' shutdown'
+  reboot=' reboot'
+  lock=' lock'
+  suspend=' suspend'
+  logout=' logout'
 fi
 
 if [[ $POWERMENU_FORMAT == 'short' ]]; then
