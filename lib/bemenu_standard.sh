@@ -24,7 +24,6 @@ menu_cmd() {
     --nb "${COLORS[0]}"\
     --hp "$BEMENU_PADDING"\
     --fn "$BEMENU_FONT"\
-
       -H "$BEMENU_HIGH"
   }
 
