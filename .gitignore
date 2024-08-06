@@ -19,19 +19,18 @@ settings.sh
 
 # theme files
 border.conf
-carnivuth-DE/hyprland-setup/swaylock/config
+dotfiles/hyprland-setup/swaylock/config
 
 # removing obsidian files that are not interesting
 workspace.json
-carnivuth-DE/hyprland-setup/obsidian
-!carnivuth-DE/hyprland-setup/obsidian/user-flags.conf 
+dotfiles/hyprland-setup/obsidian
+!dotfiles/hyprland-setup/obsidian/user-flags.conf
 
 # removing code files that are not interesting
-carnivuth-DE/i3-setup/Code/*
-!carnivuth-DE/i3-setup/Code/User
-carnivuth-DE/i3-setup/Code/User/*
-!carnivuth-DE/i3-setup/Code/User/settings.json
+dotfiles/i3-setup/Code/*
+!dotfiles/i3-setup/Code/User
+dotfiles/i3-setup/Code/User/*
+!dotfiles/i3-setup/Code/User/settings.json
 
 # monitor configurations
 monitors.conf
-
