@@ -1,18 +1,18 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER"/"$MENU_BACKEND"_standard.sh
 
-menu_theme_setup vaultlauncher
+MENU_NAME="vaultlauncher"
+PROMPT="obsidian vaults"
 
-print_vaults() {
-    echo -e "$(cat $HOME/.config/obsidian/obsidian.json | jq -r '.vaults[].path' )" | menu_cmd "obsidian vault"
-
+help_message(){
+  echo "script for quick access to obsidian vaults"
+}
+list_elements_to_user(){
+  jq -r '.vaults[].path' "$HOME/.config/obsidian/obsidian.json"
 }
 
-#main
-chosen="$(print_vaults)"
+exec_command_with_chosen_element(){
+  obsidian "obsidian://open?path=$1" &
+}
 
-#open vault
-if [[ "$chosen" != "" ]]; then
-    obsidian "obsidian://open?path=$chosen" &
-fi
+source "$SCRIPTS_LIB_FOLDER/menu.sh"

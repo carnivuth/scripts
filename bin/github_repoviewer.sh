@@ -1,40 +1,45 @@
 #!/usr/bin/bash
 
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER"/"$MENU_BACKEND"_standard.sh
-source "$SCRIPTS_LIB_FOLDER/print_menu_list.sh"
 source "$SCRIPTS_LIB_FOLDER/launch_webapp.sh"
 
+# SCRIPT SPECIFIC VARS AND FUNCTIONS
 BASE_URL="https://github.com/$GITHUB_REPOVIEWER_ACCOUNT"
 
-menu_theme_setup github_repoviewer
 get_file(){
-    curl "https://api.github.com/users/$GITHUB_REPOVIEWER_ACCOUNT/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
+  curl "https://api.github.com/users/$GITHUB_REPOVIEWER_ACCOUNT/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
 }
 
-print_menu() {
-    # check if cache is valid
-    birth_date="$(stat .local/scripts/repos.json  | grep Birth | cut -d' ' -f 3)"
-    today="$(date +%F)"
-    if [[ "$birth_date" != "$today"  ]]; then
-        rm "$SCRIPTS_LOCAL_FOLDER/repos.json"
-        get_file
-    fi
+# GENERAL MENU VARS AND FUNCTIONS
+MENU_NAME="window_switcher"
+PROMPT="window switcher"
 
-    echo -e "$(cat $SCRIPTS_LOCAL_FOLDER/repos.json | jq -r '.[] | .html_url')" | print_menu_list |menu_cmd "github repos"
-
+help_message(){
+  echo "script for quick access to web interface of personal github repos"
+  echo "usage $0"
 }
 
-# main
-chosen="$(print_menu)"
-echo $chosen
+list_elements_to_user(){
+  # check if cache is valid
+  if [[ ! -f "$SCRIPTS_LOCAL_FOLDER/repos.json" ]]; then get_file; fi
+  birth_date="$(stat -c '%W' "$SCRIPTS_LOCAL_FOLDER/repos.json" )"
+  today="$(date +%s)"
+  if [[ "(($today - $birth_date))" -gt 86400  ]]; then
+    rm "$SCRIPTS_LOCAL_FOLDER/repos.json"
+    get_file
+  fi
 
-# open selected folder on $1 parameter default code
-if [  "$chosen" != "" ]; then
-		launch_webapp "$BASE_URL/$chosen"
+  # printing list
+  jq -r '.[].name' "$SCRIPTS_LOCAL_FOLDER/repos.json"
+}
+
+exec_command_with_chosen_element(){
+  launch_webapp "$BASE_URL/$chosen"
 
     # draw attention to the firefox window if running on hyprland
     if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
       hyprctl dispatch 'focuswindow firefox'
     fi
-fi
+  }
+
+source "$SCRIPTS_LIB_FOLDER/menu.sh"
