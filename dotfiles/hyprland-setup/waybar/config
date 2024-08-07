@@ -74,7 +74,6 @@
         ],
         "tooltip-format-disconnected": "Disconnected",
         "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "on-click": "~/scripts/bin/networkmenu.sh &",
         "format-ethernet": "{ifname}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "nospacing": 1,

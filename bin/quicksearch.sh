@@ -1,24 +1,28 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER"/"$MENU_BACKEND"_standard.sh
 
-menu_theme_setup quicksearch
+MENU_NAME="quicksearch"
+PROMPT="search with firefox"
 
-# main
-chosen="$( menu_cmd "search with firefox" < /dev/null )"
-if [ "$chosen" != "" ]; then
-	case "$chosen" in
+help_message(){
+  echo "script for make searches using firefox"
+}
+list_elements_to_user(){
+  cat "/dev/null"
+}
+
+exec_command_with_chosen_element(){
+	case "$1" in
 	https*)
-		firefox --new-tab "$chosen"
+		firefox --new-tab "$1"
 		;;
 	http*)
-		firefox --new-tab "$chosen"
+		firefox --new-tab "$1"
 		;;
 	*)
-			firefox --new-tab "$BASE_QUICKSEARCH_URL$chosen"
+			firefox --new-tab "$BASE_QUICKSEARCH_URL$1"
 		 ;;
 	esac
-
   # draw attention to the firefox window if running on hyprland
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow firefox'
@@ -28,5 +32,5 @@ if [ "$chosen" != "" ]; then
   if [[ "$XDG_CURRENT_DESKTOP" == 'i3' ]]; then
     i3-msg '[class="firefox"] focus'
   fi
-
-fi
+}
+source "$SCRIPTS_LIB_FOLDER/menu.sh"

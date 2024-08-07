@@ -1,48 +1,49 @@
 #!/bin/bash
-
-# IMPORTS
 source "$HOME/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER"/"$MENU_BACKEND"_standard.sh
 
-menu_theme_setup musicplayer
-
-# MPV COMMANDS
+# MPV VARS AND FUNCTIONS
 FORWARD='{"command":["seek","5"]}'
 BACKWARD='{"command":["seek","-5"]}'
 KILL='{"command":["stop"]}'
 
-# print folders with music content
-print_playlists() {
-  echo -e "$(for dir in $MUSICPLAYER_FOLDERS; do ls -d "$dir"/*/; done)"  | menu_cmd "playlists"
-
-}
-
-# print help
-help(){
-  echo "musicplayer applet"
-  echo "usage $0 [cmd]"
-  echo "cmd: [fw|bw|kill]"
-}
-
 # wrapper for sending command to mpv through socket
 run_command(){
-  echo "$1" | socat - "$MPV_SOCKET"
-}
-
-#main
-run_player(){
-  chosen="$(print_playlists)"
-
-  #run playlist
-  if [[ -d "$folder/$chosen" &&  "$chosen" != '' ]]; then
-    run_command "$KILL"
-    mpv \
-        --no-video "$folder/$chosen" 2>> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log &
-    notify-send -a "Music player" -u "normal" "$chosen" "playing $chosen"
+  if [[ -f "$MPV_SOCKET" ]];then
+    echo "$1" | socat - "$MPV_SOCKET"
   fi
 }
 
-case "$1" in
+# GENERAL MENU VARS AND FUNCTIONS
+MENU_NAME="musicplayer"
+PROMPT="playlists"
+
+list_elements_to_user() {
+  echo -e "$(for dir in $MUSICPLAYER_FOLDERS; do ls -d "$dir"/*/; done)"
+}
+
+exec_command_with_chosen_element(){
+  #run playlist
+  if [[ -d "$1" &&  "$1" != '' ]]; then
+    run_command "$KILL"
+    mpv --no-video "$1" >> $SCRIPTS_LOGS_FOLDER/musicplayer.player.log 2>&1 &
+    notify-send -a "Music player" -u "normal" "playing $chosen"
+  fi
+}
+
+help_message(){
+  echo " script for managing an mpv instance and open local folders of music"
+  echo "usage $0 [-c cmd]"
+  echo "-c cmd: command to send in the mpv socket options are: [fw|bw|kill]"
+}
+
+while getopts c:b:h flag; do
+  case "${flag}" in
+    c) MPV_COMMAND=${OPTARG} ; shift; shift ;;
+    *);;
+  esac
+done
+
+case "$MPV_COMMAND" in
   fw)
     run_command "$FORWARD"
     ;;
@@ -52,10 +53,7 @@ case "$1" in
   kill)
     run_command "$KILL"
     ;;
-  '')
-    run_player
-    ;;
   *)
-   help
+    source "$SCRIPTS_LIB_FOLDER/menu.sh"
     ;;
 esac

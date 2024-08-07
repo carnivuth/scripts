@@ -15,6 +15,7 @@ read answer
 # install packages
 echo 'installing packages'
 packets='
+figlet
 yt-dlp
 ffmpeg
 gawk
