@@ -1,11 +1,5 @@
 #!/bin/bash
 
-install_desktop_files(){
-  echo 'coping desktop files'
-  mkdir -p "$HOME/.local/share/applications/"
-  ln -fs  "$SCRIPTS_DESKTOPFILES_FOLDER/"*.desktop "$HOME/.local/share/applications/"
-}
-
 install_dotfiles(){
 # asking for setup
 echo "select setup to install [h/i]"
@@ -193,12 +187,8 @@ case "$1" in
   "systemd")
     install_systemd_units
     ;;
-  "desktop_files")
-    install_desktop_files
-    ;;
   *)
     install_dotfiles
-    install_desktop_files
     install_systemd_units
     ;;
 esac

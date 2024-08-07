@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Raiplay
-Comment=Raiplay website
-Icon=firefox
-Exec=bash -c "source $HOME/scripts/lib/launch_webapp.sh; launch_webapp 'https://www.raiplay.it' "
-Terminal=false
-Categories=Video

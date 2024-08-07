@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Proxmox Backup Server
-Comment= Proxmox interface
-Icon=firefox
-Exec=launch_webapp.sh 'https://dittup:8007' 
-Terminal=false
-Categories=Network,homelab
