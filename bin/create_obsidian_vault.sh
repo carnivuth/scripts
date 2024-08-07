@@ -1,63 +1,51 @@
 #!/bin/bash
 source "$HOME/scripts/settings.sh"
+set -x
 
-if [[ "$1" == '--help' ]]; then
-    echo 'usage create_obsidian_folder.sh <vault path> [--git] [--reset]'
-    exit 0
-fi
-
-vault="$1"
-shift
-#get parameters
-while test $# -gt 0; do
-    case "$1" in
-    --git)
-        git=1
-        ;;
-    --reset)
-        reset=1
-        ;;
-    esac
-
-    shift
+while getopts v:rghu flag; do
+  case "${flag}" in
+    v) VAULT=${OPTARG} ;;
+    h) PRINT_HELP="TRUE" ;;
+    g) GIT_INIT='TRUE' ;;
+    r) RESET='TRUE' ;;
+    u) UPDATE='TRUE' ;;
+    *) echo "flag $flag not supported"; exit 1 ;;
+  esac
 done
 
-if [[ ! -d "$vault" ]]; then
-    echo "creating folder $vault"
-    mkdir -p "$vault"
-fi
-!
-if [[ ! -d "$vault/journals" ]]; then
-    echo "create subfolders journals"
-    mkdir "$vault/journals"
-fi
-if [[ ! -d "$vault/assets" ]]; then
-    echo "create subfolders assets"
-    mkdir "$vault/assets"
-fi
-if [[ ! -d "$vault/pages" ]]; then
-    echo "create subfolders pages"
-    mkdir "$vault/pages"
+# print help message
+if [[ "$PRINT_HELP" == 'TRUE' ]]; then
+  echo "usage $0 -v vault_path -[grh]"
+  exit 0
 fi
 
-if [[ ! -d "$vault/.obsidian" || "$reset" == '1' ]]; then
-    echo "copying obsidian files"
-    mkdir -p "$vault/.obsidian"
-    cp -r $SCRIPTS_HOME_FOLDER/utilities/obsidian-files/* "$vault/.obsidian"
+# updating vaults with the latest configs and exit
+if [[ "$UPDATE" == 'TRUE' ]] && [[ -f "$HOME/.config/obsidian/obsidian.json" ]]; then
+  jq -r '.vaults[].path' "$HOME/.config/obsidian/obsidian.json" | while read -r vault; do
+  if [[ -d "$vault" ]]; then
+    echo "updating $vault"
+    $0 -v "$vault" -r
+  fi
+done
+exit 0
 fi
 
-# create git repo if --git is set
-if [[ "$git" == '1' ]]; then
+# check for vault variable
+if [[ "$VAULT" == '' ]];then echo "path to vault is required"; exit 1; fi
 
-    if [[ ! -d "$vault/.git" ]]; then
-        echo "entering $vault"
-        cd "$vault"
-        git init
-    fi
-    if [[ ! -f "$vault/.gitignore" ]]; then
+mkdir -p "$VAULT"
+mkdir -p "$VAULT/journals"
+mkdir -p "$VAULT/assets"
+mkdir -p "$VAULT/pages"
 
-        echo "creating gitignore"
-        echo 'workspace.json' >"$vault/.gitignore"
+if [[ ! -d "$VAULT/.obsidian"  ]] || [[ "$RESET" == 'TRUE' ]]; then
+  rm -rf "$VAULT/.obsidian"
+  cp -r "$SCRIPTS_VAR_FOLDER/.obsidian" "$VAULT"
+fi
 
-    fi
+# create git repo
+if [[ "$GIT_INIT" == 'TRUE' ]] || [[ ! -d "$VAULT/.git" ]]; then
+  cd "$VAULT" || exit 1;
+  git init
+  echo 'workspace.json' >"$VAULT/.gitignore"
 fi
