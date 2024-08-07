@@ -63,7 +63,7 @@ menu_cmd() {
       --fn "$BEMENU_FONT"\
       -H "$BEMENU_HIGH")"
 
-    if [[ ! -x "$( which "$chosen" > /dev/null 2>&1  )" ]];then
+    if [[ ! -x "$( which "$chosen"   )" ]];then
       site="$( jq -r "select(.app == \"$chosen\")| .link " "$SCRIPTS_LOCAL_FOLDER/sites.json" )"
       if [[ "$site" != '' ]];then
         launch_webapp "$site"

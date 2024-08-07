@@ -7,7 +7,7 @@ install_desktop_files(){
 }
 
 install_dotfiles(){
-# asking for i3 setup
+# asking for setup
 echo "select setup to install [h/i]"
 unset answer
 read answer
