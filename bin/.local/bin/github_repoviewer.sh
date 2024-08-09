@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/launch_webapp.sh"
 
 # SCRIPT SPECIFIC VARS AND FUNCTIONS

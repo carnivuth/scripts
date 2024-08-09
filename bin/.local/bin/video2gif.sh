@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #import files
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # print help
 if [[ "$1" == "--help" ]]; then

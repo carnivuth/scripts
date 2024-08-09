@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/get_wal_color.sh"
 
 #hyprpaper change background script

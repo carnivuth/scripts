@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 launch_webapp(){
-  source "$HOME/.config/settings.sh"
+  source "$HOME/.config/scripts/settings.sh"
   
   firefox --new-tab "$1"
   

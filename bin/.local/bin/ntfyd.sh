@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 get_param(){
   echo "$1" | jq -r "{$2} | to_entries | .[] | .value "

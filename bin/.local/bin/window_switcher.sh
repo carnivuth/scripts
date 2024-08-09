@@ -16,5 +16,5 @@ exec_command_with_chosen_element(){
   hyprctl dispatch focuswindow "title:$1"
 }
 
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/menu.sh"

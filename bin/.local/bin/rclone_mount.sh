@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #mount remote storage with rclone
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 help_command(){
         echo "usage $0 [mount|umount]"

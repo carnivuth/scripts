@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # refresh newsboat
 newsboat -x reload

@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 set -x
 
 while getopts v:rghu flag; do

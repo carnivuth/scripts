@@ -3,7 +3,7 @@
 #make backups with borg
 # this scripts creates backups using the borg program and sync the borg repository with rsync to a remote server,
 # the script is meant to run with a systemd timer
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 
 BORG_RESULT_FILE="$(mktemp)"

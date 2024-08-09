@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # STANDARD MENU VARS AND FUNCTIONS
 MENU_NAME="powermenu"

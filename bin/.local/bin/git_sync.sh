@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 RESULT_FILE="$(mktemp)"
 echo "0" > "$RESULT_FILE"
 
