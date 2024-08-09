@@ -7,8 +7,11 @@ hyprpaper_switcher(){
   hyprctl hyprpaper preload "$1"
   hyprctl hyprpaper wallpaper eDP-1,"$1"
   hyprctl hyprpaper wallpaper HDMI-A-1,"$1"
-  sed -i "s|^preload = .*|preload = $1|" $HOME/.config/hypr/hyprpaper.conf
-  sed -i "s|^wallpaper = \,.*|wallpaper = ,$1|" $HOME/.config/hypr/hyprpaper.conf
+  cat <<EOT > "$HOME/.config/hypr/hyprpaper.conf"
+preload = $1
+wallpaper = ,$1
+splash = false
+EOT
 }
 
 
@@ -25,11 +28,11 @@ list_elements_to_user(){
 }
 
 exec_command_with_chosen_element(){
-  if [ -f "$chosen" ]; then
-    wal -i "$chosen" -o "$SCRIPTS_BIN_FOLDER/postwal.sh"
+  if [ -f "$1" ]; then
+    wal -i "$1" -o "$SCRIPTS_BIN_FOLDER/postwal.sh"
     # run specific scripts if under hyprland setup
     if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-      hyprpaper_switcher "$chosen"
+      hyprpaper_switcher "$1"
       killall waybar
       waybar &
     fi
