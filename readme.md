@@ -6,7 +6,7 @@ personal dotfiles (wayland configuration) + some usefull scripts and tools for e
 
 to install :
 
-- clone the repository on the `$HOME` directory (it must be under `$HOME` directory)
+- clone the repository
 
 ```bash
 git clone https://github.com/carnivuth/scripts "$HOME/scripts"
