@@ -112,6 +112,7 @@ case "$1" in
   *)
     echo 'installing packages'
     sudo pacman -S $DEPS
+    mkdir -p "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
     stow --target="$HOME" etc
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
