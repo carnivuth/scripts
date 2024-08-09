@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 NOTIFY_ICON=/usr/share/icons/Papirus/32x32/apps/system-software-update.svg
 

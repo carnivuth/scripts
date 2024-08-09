@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # MPV VARS AND FUNCTIONS
 FORWARD='{"command":["seek","5"]}'

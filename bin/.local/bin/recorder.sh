@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #import settings
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 mkdir -p "$RECORDER_OUTPUT_PATH"
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # SCRIPT SPECIFIC VARS AND FUNCTIONS
 NETWORKMENU_APP_NAME_NOTIFICATION="networkmenu"

@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 menu_theme_setup() {
   theme="$ROFI_CONFIG_FOLDER/$1/$1.rasi"

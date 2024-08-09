@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 MENU_NAME="vaultlauncher"
 PROMPT="obsidian vaults"

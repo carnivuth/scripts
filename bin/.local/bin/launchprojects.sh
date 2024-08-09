@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 MENU_NAME="launchprojects"
 PROMPT="projects"
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 help_message(){
   echo " script for opening project folders in specified editor"

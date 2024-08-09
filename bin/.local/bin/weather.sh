@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # get_weather.sh
-source "$HOME/.config/settings.sh"
+source "$HOME/.config/scripts/settings.sh"
 
 # get data from wttr
 text=$(curl -s "https://wttr.in/$WEATHER_LOCATION?d&format=3")
