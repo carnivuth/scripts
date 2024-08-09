@@ -1,6 +1,6 @@
 # SCRIPTS
 
-personal dotfiles (xorg and wayland configuration) + some usefull scripts and tools for everyday use
+personal dotfiles (wayland configuration) + some usefull scripts and tools for everyday use
 
 ## INSTALLATION
 
@@ -15,21 +15,16 @@ git clone https://github.com/carnivuth/scripts "$HOME/scripts"
 - copy default configurations
 
 ```
-cp $HOME/scripts/settings.sh.sample $HOME/scripts/settings.sh
+cp $HOME/scripts/etc/.config/settings.sh.sample $HOME/scripts/etc/.config/settings.sh
 ```
 
-- `cd $HOME/scripts && ./install.sh` this will run the global installation script wich install all the dependencies
+- `cd $HOME/scripts && ./scripts` this will run the global installation script wich install all the dependencies
 
-after installation dotfiles of the selected environment will be linked inside `$HOME/.config` directory **replacing existing configs** , and bash integration will be sourced in the `$HOME/.bashrc` file
-
-systemd files will be copied to `$HOME/.config/systemd/user/` replacing paths with the user home folder
-
-desktop files will be linked to `$HOME/.local/share/applications/`
-
+stow will place all dotfiles under `$HOME/.config` and bins and libs will be placed under `$HOME/.local/bin` and `$HOME/.local/lib`, systemd units will be placed under `$HOME/.config/systemd/user`
 
 ## CONFIGURATION
 
-configuration is done in the `$HOME/scripts/settings.sh` file, see the `.sample` version for reference
+configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample` version for reference
 
 ## SUPPORTED SYSTEMS
 
