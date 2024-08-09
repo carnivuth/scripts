@@ -70,7 +70,7 @@ libsecret'
 install_systemd_units(){
 
 # installing systemd services
-stow systemd
+stow --target="$HOME" systemd
 source "$HOME/.config/settings.sh"
 
 systemctl --user daemon-reload
@@ -102,23 +102,23 @@ case "$1" in
   uninstall)
     echo "removing packages"
     sudo pacman -Rns $DEPS
-    stow -D etc
-    stow -D lib
-    stow -D bin
-    stow -D systemd
+    stow --target="$HOME" -D etc
+    stow --target="$HOME" -D lib
+    stow --target="$HOME" -D bin
+    stow --target="$HOME" -D systemd
     systemctl --user daemon-reload
     sed '/source \$HOME\/\.config\/bash_integration.sh/d' -i "$HOME/.bashrc"
     ;;
   *)
     echo 'installing packages'
     sudo pacman -S $DEPS
-    stow etc
+    stow --target="$HOME" etc
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
       echo 'source $HOME/.config/bash_integration.sh' >> "$HOME/.bashrc";
     fi
-    stow lib
-    stow bin
+    stow --target="$HOME" lib
+    stow --target="$HOME" bin
     install_systemd_units
     ;;
 esac
