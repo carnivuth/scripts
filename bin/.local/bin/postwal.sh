@@ -14,9 +14,12 @@ dunst_switcher(){
 
 hyprland_switcher(){
   get_wal_color
-  sed -i "s/col.active_border = .*/col.active_border = rgb(${COLORS[1]}) rgb(${COLORS[13]}) 45deg/g" "$HOME/.config/hypr/border.conf"
-  sed -i "s/col.inactive_border = .*/col.inactive_border = rgb(${COLORS[13]})/g" "$HOME/.config/hypr/border.conf"
-  sed -i "s/#//g" "$HOME/.config/hypr/border.conf"
+  cat <<EOT > "$HOME/.config/hypr/border.conf"
+general {
+  col.active_border = rgb(${COLORS[1]}) rgb(${COLORS[13]}) 45deg
+  col.inactive_border = rgb(${COLORS[13]})
+}
+EOT
 }
 
 hyprland_switcher
