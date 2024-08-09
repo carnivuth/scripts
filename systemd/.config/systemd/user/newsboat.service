@@ -1,0 +1,5 @@
+[Unit]
+Description=updates newsboat feed
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/newsboat.sh

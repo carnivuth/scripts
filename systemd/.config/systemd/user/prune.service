@@ -1,0 +1,5 @@
+[Unit]
+Description=prune borg repo periodically
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/backup.sh prune

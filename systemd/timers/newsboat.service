@@ -1,5 +1,0 @@
-[Unit]
-Description=updates newsboat feed
-
-[Service]
-ExecStart=[[HOME]]/scripts/bin/newsboat.sh

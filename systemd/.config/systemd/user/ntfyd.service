@@ -1,0 +1,11 @@
+[Unit]
+Description=Ntfy notification daemon
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/ntfyd.sh start
+Type=exec
+KillMode=control-group
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target

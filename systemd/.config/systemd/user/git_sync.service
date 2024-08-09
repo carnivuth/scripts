@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync git repositories
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/git_sync.sh sync

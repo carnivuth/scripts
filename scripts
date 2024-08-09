@@ -1,0 +1,124 @@
+#!/bin/bash
+DEPS='
+figlet
+yt-dlp
+ffmpeg
+gawk
+wf-recorder
+htop
+calc
+tmux
+seahorse
+fzf
+lazygit
+newsboat
+network-manager-applet
+playerctl
+pamixer
+gnome-themes-extra
+jq
+bluez-utils
+loupe
+evince
+ttf-dejavu
+mpv
+thunderbird
+thunar
+adwaita-icon-theme
+pop-icon-theme
+pavucontrol
+firefox
+telegram-desktop
+epapirus-icon-theme
+brightnessctl
+mpv-mpris
+ttf-font-awesome
+github-cli
+socat
+blueman
+python-pywal
+vim
+vim-ale
+kitty
+obsidian
+nm-connection-editor
+hyprland
+hyprlock
+noto-fonts-emoji
+hypridle
+greetd
+hyprpaper
+wev
+xdg-desktop-portal-hyprland
+ttf-jetbrains-mono-nerd
+waybar
+bemenu-wayland
+bemenu-ncurses
+bemenu
+slurp
+grim
+qt6-wayland
+wl-clipboard
+dunst
+curl
+borg
+rclone
+newsboat
+upower
+libsecret'
+
+install_systemd_units(){
+
+# installing systemd services
+stow systemd
+source "$HOME/.config/settings.sh"
+
+systemctl --user daemon-reload
+
+# enable all services
+for service in ${ENABLED_SERVICES}; do
+  echo "enabling $service"
+  systemctl --user enable --now "$service"
+done
+
+# enable all services
+for timer in ${ENABLED_TIMERS}; do
+  echo "enabling $timer"
+  systemctl --user enable --now "$timer"
+done
+echo ""
+echo "if you enable the backup service remember to run backup.sh init to initialize the borg repo"
+}
+
+## check on settings.sh file
+if [[ ! -f "etc/.config/settings.sh" ]]; then
+  echo 'no settings.sh file found, run: '
+  echo "cp etc/.config/settings.sh.sample etc/.config/settings.sh"
+  echo 'and edit the variables as you like'
+  exit 1
+fi
+
+case "$1" in
+  uninstall)
+    echo "removing packages"
+    sudo pacman -Rns $DEPS
+    stow -D etc
+    stow -D lib
+    stow -D bin
+    stow -D systemd
+    systemctl --user daemon-reload
+    sed '/source \$HOME\/\.config\/bash_integration.sh/d' -i "$HOME/.bashrc"
+    ;;
+  *)
+    echo 'installing packages'
+    sudo pacman -S $DEPS
+    stow etc
+    # source shell integration script
+    if [[ "$(grep 'source $HOME/.config/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
+      echo 'source $HOME/.config/bash_integration.sh' >> "$HOME/.bashrc";
+    fi
+    stow lib
+    stow bin
+    install_systemd_units
+    ;;
+esac
