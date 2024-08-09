@@ -6,23 +6,16 @@ export EDITOR='vim'
 export VIUSUAL='vim'
 
 # include scripts settings
-if [ -f "$HOME/.config/settings.sh" ]; then source "$HOME/.config/settings.sh"; fi
+if [ -f "$HOME/.config/scripts/settings.sh" ]; then source "$HOME/.config/scripts/settings.sh"; fi
 
 # set terminal color if using alacritty
 if [[ "$TERM" == alacritty ]] && [[ -f "$HOME/.cache/wal/sequences" ]];then cat "$HOME/.cache/wal/sequences"; fi
 
 # set PS1 variable
-if [[ -f "/usr/share/powerline/bindings/bash/powerline.sh" ]]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source  "/usr/share/powerline/bindings/bash/powerline.sh"
-else
-  BLUE6="\[$(tput setaf 6)\]"
-  BLUE21="\[$(tput setaf 21)\]"
-  RESET="\[$(tput sgr0)\]"
-  PS1="[${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}]"
-fi
+BLUE6="\[$(tput setaf 6)\]"
+BLUE21="\[$(tput setaf 21)\]"
+RESET="\[$(tput sgr0)\]"
+PS1="[${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}]"
 
 # setup default fzf options
 export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'
