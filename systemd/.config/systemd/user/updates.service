@@ -1,0 +1,11 @@
+[Unit]
+Description=updates notification deamon
+
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/updates.sh
+Restart=always
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount rclone storages
+#Requires=network-online.target
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/rclone_mount.sh mount
+ExecStop=/bin/bash ${HOME}/.local/bin/rclone_mount.sh umount
+ExecStartPre=/bin/bash ${HOME}/.local/bin/rclone_mount.sh umount
+Type=exec
+KillMode=control-group
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target

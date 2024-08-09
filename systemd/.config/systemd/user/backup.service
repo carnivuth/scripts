@@ -1,0 +1,5 @@
+[Unit]
+Description=Backup your files with borg
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/backup.sh backup
