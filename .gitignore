@@ -21,9 +21,9 @@ settings.sh
 border.conf
 
 # removing obsidian files that are not interesting
-workspace.json
-obsidian
+etc/.config/obsidian
 !etc/.config/obsidian/user-flags.conf
+workspace.json
 
 # monitor configurations
 monitors.conf
