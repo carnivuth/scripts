@@ -17,10 +17,17 @@ check(){
   fi
 
 }
+check_borg_is_running(){
+  if [[ "$(pidof borg)" != "" ]]; then
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "task $1 could not run cause borg is running"
+    exit 1
+  fi
+}
 
 # configure borg repo for future backups and add passphrase to user keyring
 init(){
 
+  check_borg_is_running "$0"
   # create repository folder if does not exists
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
     mkdir -p "$BORG_REPOSITORY_FOLDER"
@@ -42,6 +49,7 @@ init(){
 backup(){
 
   check
+  check_borg_is_running "$0"
 
   # exporting borg command to retrive encription passphrase
   export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
@@ -112,6 +120,8 @@ backup(){
 # restore from rsync capable remote
 restore_remote(){
 
+  check_borg_is_running "$0"
+
   # try to restore with remote server
   if  ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
@@ -126,6 +136,7 @@ restore_remote(){
 
 # restore from rclone remote storage
 restore_rclone(){
+  check_borg_is_running "$0"
   # try to restore with rclone from remote storage
 
   if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
@@ -144,12 +155,13 @@ restore_rclone(){
 
 prune(){
   check
+  check_borg_is_running "$0"
 
   echo '0' > "$BORG_RESULT_FILE"
 
   export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
 
-  while read TARGET ;do
+  while read -r TARGET ;do
     NAME="$(basename "$TARGET")"
     borg prune --list -m "$BORG_PRUNE_POLICY" -a "${NAME}*" "$BORG_REPOSITORY_FOLDER" || echo '1' > "$BORG_RESULT_FILE"
   done <<<$(echo "$BORG_BACKUP_TARGETS")
