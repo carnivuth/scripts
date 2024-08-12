@@ -1,5 +1,6 @@
 #!/bin/bash
 DEPS='
+rsync
 stow
 figlet
 yt-dlp
