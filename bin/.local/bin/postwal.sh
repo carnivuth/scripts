@@ -14,10 +14,12 @@ dunst_switcher(){
 
 hyprland_switcher(){
   get_wal_color
+  color_1="${COLORS[1]//\#/}"
+  color_13="${COLORS[13]//\#/}"
   cat <<EOT > "$HOME/.config/hypr/border.conf"
 general {
-  col.active_border = rgb(${COLORS[1]}) rgb(${COLORS[13]}) 45deg
-  col.inactive_border = rgb(${COLORS[13]})
+  col.active_border = rgb($color_1) rgb($color_13) 45deg
+  col.inactive_border = rgb($color_13)
 }
 EOT
 }
