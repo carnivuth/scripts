@@ -124,3 +124,6 @@ NTFYD_MESSAGE_BUFFER="$SCRIPTS_RUN_FOLDER/ntfy.run"
 RECORDER="wf-recorder"
 RECORDER_OUTPUT_PATH="/tmp/captures"
 RECORDER_APP_NAME_NOTIFICATION="recorder"
+
+# vpn connection name
+VPN_CONNECTION_NAME="pokelab"
