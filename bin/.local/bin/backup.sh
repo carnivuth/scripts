@@ -31,10 +31,11 @@ init(){
   # create repository folder if does not exists
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
     mkdir -p "$BORG_REPOSITORY_FOLDER"
+
     echo -n "input borg repo passphrase:"
     read -s borg_passphrase
-
     echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
+
     export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
     borg init --encryption repokey --make-parent-dirs "$BORG_REPOSITORY_FOLDER"
     unset BORG_PASSCOMMAND
@@ -122,6 +123,10 @@ restore_remote(){
 
   check_borg_is_running "$0"
 
+  echo -n "input borg repo passphrase:"
+  read -s borg_passphrase
+  echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
+
   # try to restore with remote server
   if  ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
@@ -139,6 +144,9 @@ restore_rclone(){
   check_borg_is_running "$0"
   # try to restore with rclone from remote storage
 
+  echo -n "input borg repo passphrase:"
+  read -s borg_passphrase
+  echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
   if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
   else
