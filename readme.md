@@ -18,13 +18,25 @@ git clone https://github.com/carnivuth/scripts "$HOME/scripts"
 cp $HOME/scripts/etc/.config/settings.sh.sample $HOME/scripts/etc/.config/settings.sh
 ```
 
-- `cd $HOME/scripts && ./scripts` this will run the global installation script wich install all the dependencies
+- run the installation script (**arch linux only**)
 
-stow will place all dotfiles under `$HOME/.config` and bins and libs will be placed under `$HOME/.local/bin` and `$HOME/.local/lib`, systemd units will be placed under `$HOME/.config/systemd/user`
+```
+cd $HOME/scripts && ./scripts
+```
+
+this will install dependencies and link the dotfiles under the right folder using stow, for reference
+
+```mermaid
+flowchart LR
+A[etc] --> E[~/.config]
+B[bin] --> F[~/.local/bin]
+C[lib] --> G[~/.local/bin]
+D[systemd] --> H[~/.config/systemd/user]
+```
 
 ## CONFIGURATION
 
-configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample` version for reference
+configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample` (version for reference) all binaries load the configuration file and use the setted variables
 
 ## SUPPORTED SYSTEMS
 
