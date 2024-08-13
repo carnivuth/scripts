@@ -124,7 +124,7 @@ restore_remote(){
   check_borg_is_running "$0"
 
   echo -n "input borg repo passphrase:"
-  read -s borg_passphrase
+  read -r -s borg_passphrase
   echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
 
   # try to restore with remote server
@@ -145,7 +145,7 @@ restore_rclone(){
   # try to restore with rclone from remote storage
 
   echo -n "input borg repo passphrase:"
-  read -s borg_passphrase
+  read -r -s borg_passphrase
   echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
   if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
