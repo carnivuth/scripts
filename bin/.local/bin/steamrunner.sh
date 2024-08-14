@@ -17,7 +17,7 @@ done
 
 exec_command_with_chosen_element(){
   gameid="$(grep -l "$1" "$STEAM_APPS_FOLDER"/appmanifest_* | awk -F'_' '{print $2}' |awk -F '.' '{print $1}')"
-  steam -silent "steam://rungameid/$gameid"
+  steam -silent "steam://rungameid/$gameid" >> "$SCRIPTS_LOGS_FOLDER/steamrunner.log" 2>&1
 }
 
 source "$SCRIPTS_LIB_FOLDER/menu.sh"
