@@ -1,0 +1,8 @@
+live_config_reload = true
+
+#[shell]
+#args = ["new-session", "-A", "-s main"]
+#program = "/usr/bin/tmux"
+
+[window]
+decorations = "buttonless"
