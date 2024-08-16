@@ -107,7 +107,6 @@ if [[ ! -f "etc/.config/scripts/settings.sh" ]]; then
   exit 1
 fi
 
-# get parameter menubackend and import the menu if it does exist
 OPTIND=1
 WINDOW_MANAGER='hyprland'
 while getopts w: flag; do
