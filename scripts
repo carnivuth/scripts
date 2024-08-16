@@ -1,4 +1,17 @@
 #!/bin/bash
+SWAY_DEPS='
+sway
+swaybg
+swayidle
+swaylock'
+
+HYPRLAND_DEPS='
+hyprland
+hyprlock
+hypridle
+hyprpaper
+xdg-desktop-portal-hyprland'
+
 DEPS='
 rsync
 stow
@@ -40,18 +53,12 @@ socat
 blueman
 python-pywal
 vim
-vim-ale
 alacritty
 obsidian
 nm-connection-editor
-hyprland
-hyprlock
 noto-fonts-emoji
-hypridle
 greetd
-hyprpaper
 wev
-xdg-desktop-portal-hyprland
 ttf-jetbrains-mono-nerd
 waybar
 bemenu-wayland
@@ -100,10 +107,26 @@ if [[ ! -f "etc/.config/scripts/settings.sh" ]]; then
   exit 1
 fi
 
+# get parameter menubackend and import the menu if it does exist
+OPTIND=1
+WINDOW_MANAGER=hyprland
+while getopts w: flag; do
+  case "${flag}" in
+    w) WINDOW_MANAGER=${OPTARG} ; shift; shift ;;
+    *) echo "${flag} is unsupported" ; exit 1 ;;
+  esac
+done
+
 case "$1" in
   uninstall)
     echo "removing packages"
-    sudo pacman -Rns $DEPS
+    if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
+    sudo pacman -Rns $DEPS $HYPRLAND_DEPS
+    stow --target="$HOME" -D hyprland-etc
+    elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
+    sudo pacman -Rns $DEPS $SWAY_DEPS
+    stow --target="$HOME" -D sway-etc
+    fi
     stow --target="$HOME" -D etc
     stow --target="$HOME" -D lib
     stow --target="$HOME" -D bin
@@ -112,14 +135,20 @@ case "$1" in
     sed '/source \$HOME\/\.config\/scripts\/bash_integration.sh/d' -i "$HOME/.bashrc"
     ;;
   *)
-    echo 'installing packages'
-    sudo pacman -S $DEPS
     mkdir -p "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
-    stow --target="$HOME" etc
+    echo 'installing packages'
+    if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
+    sudo pacman -S $DEPS $HYPRLAND_DEPS
+    stow --target="$HOME" -D hyprland-etc
+    elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
+    sudo pacman -S $DEPS $SWAY_DEPS
+    stow --target="$HOME" -D sway-etc
+    fi
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
       echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
     fi
+    stow --target="$HOME" etc
     stow --target="$HOME" lib
     stow --target="$HOME" bin
     install_systemd_units

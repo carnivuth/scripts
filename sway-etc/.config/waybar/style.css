@@ -1,0 +1,78 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+* {
+  font-family: Material Design Icons, JetBrainsMono Nerd Font;
+  font-size: 9px;
+  font-weight: bolder;
+  background-color: @background;
+  color: @foreground;
+}
+
+#workspaces,
+#custom-ibus,
+#custom-lock,
+#clock,
+#backlight,
+#idle_inhibitor,
+#mode,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#custom-launcher,
+#custom-powermenu,
+#tray,
+#custom-vpn,
+#network,
+#custom-pacman,
+#mpd,
+#mpris{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+window#waybar.hidden {
+  opacity: 0.1;
+}
+
+@keyframes button_activate {
+  from {
+    opacity: .3
+  }
+
+  to {
+    opacity: 1.;
+  }
+}
+
+#workspaces button {
+        min-width: 0;
+        min-height: 0;
+  border: none;
+  color: @color2;
+}
+
+#workspaces button.active {
+  color: @color3;
+}
+
+#workspaces button.urgent {
+  color: @color7;
+}
+
+#workspaces button.persistent {
+  color: @color8;
+}
+
+#tray{
+        min-width: 0;
+        min-height: 0;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}
