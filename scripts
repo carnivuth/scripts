@@ -109,7 +109,7 @@ fi
 
 # get parameter menubackend and import the menu if it does exist
 OPTIND=1
-WINDOW_MANAGER=hyprland
+WINDOW_MANAGER='hyprland'
 while getopts w: flag; do
   case "${flag}" in
     w) WINDOW_MANAGER=${OPTARG} ; shift; shift ;;
@@ -139,10 +139,10 @@ case "$1" in
     echo 'installing packages'
     if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
     sudo pacman -S $DEPS $HYPRLAND_DEPS
-    stow --target="$HOME" -D hyprland-etc
+    stow --target="$HOME" hyprland-etc
     elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
     sudo pacman -S $DEPS $SWAY_DEPS
-    stow --target="$HOME" -D sway-etc
+    stow --target="$HOME" sway-etc
     fi
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
