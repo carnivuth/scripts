@@ -1,0 +1,5 @@
+live_config_reload = true
+
+[window]
+decorations = "buttonless"
+opacity = 0.8

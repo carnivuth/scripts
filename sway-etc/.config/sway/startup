@@ -1,0 +1,11 @@
+exec --no-startup-id nm-applet
+#exec_always --no-startup-id  wal -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+exec_always --no-startup-id  killall swaybg
+exec_always --no-startup-id  swaybg -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png &
+
+exec_always --no-startup-id  killall swayidle
+exec_always --no-startup-id  swayidle &
+exec_always --no-startup-id killall dunst
+exec_always --no-startup-id dunst &
+exec_always --no-startup-id killall waybar
+exec_always --no-startup-id waybar &

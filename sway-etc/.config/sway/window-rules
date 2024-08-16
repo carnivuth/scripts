@@ -1,0 +1,43 @@
+#remove borders from i3 windows
+#for_window [class="^.*"] border pixel 0
+default_border pixel 1
+default_floating_border pixel 0
+# set floating as default configuration for some programs
+for_window [class="Alacritty"] opacity 0.8
+for_window [class="floating"] opacity 0.8;floating enabled ; move position center
+for_window [class=".*[tT]hunar.*"] floating enabled ; move position center
+for_window [class="Blueman-manager"] floating enabled ; move position center
+for_window [class="Pavucontrol"] floating enabled; move position center
+for_window [title="Steam - News"] floating enabled; move position center
+for_window [title="Save As"] floating enabled; move position center
+for_window [title="LXRAD Window"] floating enabled; move position center
+for_window [class="Lxappearance"] floating enabled ; move position center
+for_window [class="Lightdm-gtk-greeter-settings"] floating enabled; move position center
+for_window [class="Telegram"] floating enabled; move position center;
+for_window [class="Conky"] floating enabled; move position center
+for_window [class="mpv"] floating enabled; move position center
+
+# vlc rules
+#for_window [class="vlc"] floating enabled; move position center
+for_window [title="Current Media Information"] floating enabled; move position center
+
+#lock firefox to workspace 8
+for_window [class="[Ff]irefox"] move to workspace 9; workspace number 9
+
+#lock thunderbird to workspace 10
+for_window [class="thunderbird"] move to workspace 10
+
+#steam games rules
+for_window [class="steam"] move to workspace 7
+for_window [title="Friends List"] floating enabled; move position center
+for_window [title="Steam Settings"] floating enabled; move position center
+for_window [class="steam_app_*"] border pixel 0;
+for_window [class="steam_app_*"] floating disabled;
+for_window [class="steam_app_*"] move to workspace 6; workspace number 6
+for_window [class="steamwebhelper"] floating enabled; move position center
+
+#nextcloud rules
+for_window [class="Nextcloud"] floating enabled; move position center
+
+# keepassxc rules
+for_window [class="[Kk]ee[Pp]ass[Xx][cC]"] floating enabled; move position center
