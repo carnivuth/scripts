@@ -45,6 +45,7 @@ handle_message(){
 
 start_command(){
 
+notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
   stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" | while read -r MSG; do
 
   event="$(get_param "$MSG" "event")"
