@@ -151,5 +151,9 @@ case "$1" in
     stow --target="$HOME" lib
     stow --target="$HOME" bin
     install_systemd_units
+    "$HOME/.local/bin/themeswitcher.sh" -b fzf
+
+
+
     ;;
 esac
