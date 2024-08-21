@@ -74,6 +74,7 @@ BATTERY_SLEEP_TIME="5m"
 # BACKUP TIMER SETTINGS
 
 BORG_APP_NAME_NOTIFICATION="Backup job"
+BORG_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/kfloppy.svg
 
 # policy to pass to borg prune command (monthly)
 BORG_PRUNE_POLICY="10"
@@ -119,6 +120,7 @@ NTFYD_ENDPOINT=""
 NTFYD_TOPICS="homelab,work,random"
 NTFYD_APP_NAME_NOTIFICATION="ntfyd"
 NTFYD_MESSAGE_BUFFER="$SCRIPTS_RUN_FOLDER/ntfy.run"
+NTFYD_NOTIFY_ICON="/usr/share/icons/Papirus/32x32/apps/notifyconf.svg"
 
 # recorder settings
 RECORDER="wf-recorder"

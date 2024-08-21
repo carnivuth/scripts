@@ -37,7 +37,7 @@ handle_message(){
   fi
 
   echo "$notification_body"
-  result="$(notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" $notification_params "$notification_body")"
+  result="$(notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" $notification_params "$notification_body")"
   if [[ "$result" == 'download' ]]; then
     xdg-open "$attachment_url"
   fi
@@ -45,7 +45,7 @@ handle_message(){
 
 start_command(){
 
-notify-send -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
+notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
   stdbuf -oL  curl -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" | while read -r MSG; do
 
   event="$(get_param "$MSG" "event")"

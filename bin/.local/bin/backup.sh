@@ -7,7 +7,6 @@ source "$HOME/.config/scripts/settings.sh"
 
 
 BORG_RESULT_FILE="$(mktemp)"
-BORG_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/kfloppy.svg
 
 # check if borg repository is configured
 check(){
