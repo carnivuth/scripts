@@ -24,7 +24,7 @@ cp $HOME/scripts/etc/.config/settings.sh.sample $HOME/scripts/etc/.config/settin
 cd $HOME/scripts && ./scripts
 ```
 
-this will install dependencies and link the dotfiles under the right folder using stow, for reference
+this will install dependencies and link the dotfiles under the right folder using [stow](https://www.gnu.org/software/stow/), for reference
 
 ```mermaid
 flowchart LR
