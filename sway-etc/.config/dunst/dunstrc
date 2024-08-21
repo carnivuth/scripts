@@ -2,7 +2,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0
+    #monitor = 0
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -220,7 +220,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/wofi --dmenu
+    dmenu = /usr/bin/bemenu
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab

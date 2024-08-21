@@ -7,19 +7,20 @@ source "$HOME/.config/scripts/settings.sh"
 
 
 BORG_RESULT_FILE="$(mktemp)"
+BORG_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/kfloppy.svg
 
 # check if borg repository is configured
 check(){
 
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "borg repo at $BORG_REPOSITORY_FOLDER not initialized! run $0 init"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" -i "$BORG_NOTIFICATION_ICON" "borg repo at $BORG_REPOSITORY_FOLDER not initialized! run $0 init"
     exit 1
   fi
 
 }
 check_borg_is_running(){
   if [[ "$(pidof borg)" != "" ]]; then
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "task $1 could not run cause borg is running"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" -i "$BORG_NOTIFICATION_ICON" "task $1 could not run cause borg is running"
     exit 1
   fi
 }
@@ -64,10 +65,10 @@ backup(){
   # check backup output for notifications
   if [[ "$BACKUPPED_TARGETS" != '' ]]; then
 
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "done backup of $BACKUPPED_TARGETS in the $BORG_REPOSITORY_FOLDER borg repo"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "done backup of $BACKUPPED_TARGETS in the $BORG_REPOSITORY_FOLDER borg repo"
   else
 
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "no backup in $BORG_REPOSITORY_FOLDER borg repo has been made!"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "no backup in $BORG_REPOSITORY_FOLDER borg repo has been made!"
   fi
 
   # check borg repo contents
@@ -75,9 +76,9 @@ backup(){
 
   if [[ "$BORG_CHECK_RESULTS" != '' ]]; then
     echo "$BORG_CHECK_RESULTS"
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "repo $BORG_REPOSITORY_FOLDER is corrupted! check the unit status"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "repo $BORG_REPOSITORY_FOLDER is corrupted! check the unit status"
   else
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "repo $BORG_REPOSITORY_FOLDER is healty :)"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "repo $BORG_REPOSITORY_FOLDER is healty :)"
   fi
 
   # try to sync with remote server
@@ -87,9 +88,9 @@ backup(){
     ssh "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER" mkdir -p "$BORG_BACKUP_REMOTE_PATH"
 
     if rsync -r "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
     else
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
     fi
 
   fi
@@ -98,7 +99,7 @@ backup(){
   if [ "$BORG_RCLONE_ENABLED" == 1 ]  ; then
 
     if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
     else
 
       # create directory
@@ -106,9 +107,9 @@ backup(){
 
       if rclone sync "$BORG_REPOSITORY_FOLDER" "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" ; then
 
-        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "synced with rclone storage $BORG_RCLONE_REMOTE"
+        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "synced with rclone storage $BORG_RCLONE_REMOTE"
       else
-        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error in sincronization with rclone storage $BORG_RCLONE_REMOTE"
+        notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error in sincronization with rclone storage $BORG_RCLONE_REMOTE"
       fi
     fi
 
@@ -131,9 +132,9 @@ restore_remote(){
   if  ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
     if rsync -r "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH" "$BORG_REPOSITORY_FOLDER"; then
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "restored repo from $BORG_BACKUP_REMOTE_SERVER"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "restored repo from $BORG_BACKUP_REMOTE_SERVER"
     else
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error restoring repo from $BORG_BACKUP_REMOTE_SERVER"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error restoring repo from $BORG_BACKUP_REMOTE_SERVER"
     fi
 
   fi
@@ -148,14 +149,14 @@ restore_rclone(){
   read -r -s borg_passphrase
   echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
   if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
   else
 
     if rclone sync "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" "$BORG_REPOSITORY_FOLDER"  ; then
 
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "restored repo from rclone storage $BORG_RCLONE_REMOTE"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "restored repo from rclone storage $BORG_RCLONE_REMOTE"
     else
-      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "error restoring repo with rclone storage $BORG_RCLONE_REMOTE"
+      notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error restoring repo with rclone storage $BORG_RCLONE_REMOTE"
     fi
   fi
 
@@ -179,9 +180,9 @@ prune(){
   unset BORG_PASSCOMMAND
 
   if [[ "$(cat "$BORG_RESULT_FILE")" == "0" ]]; then
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" "prune operation complete succesfully"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "prune operation complete succesfully"
   else
-    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" "repos could not be pruned"
+    notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "repos could not be pruned"
   fi
 
 
