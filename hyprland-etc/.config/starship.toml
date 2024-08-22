@@ -1,5 +1,20 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+format = '''
+[┌](bold green) $username@$hostname:$directory$git_branch$golang
+[└─>](bold green) '''
+
+add_newline = false
+
 [cmd_duration]
-disabled=true
+disabled = true
+
 [hostname]
-ssh_only=false
+ssh_only = false
+format ='[$hostname]($style)'
+
+[vagrant]
+disabled = true
+
+[username]
+show_always = true
+format ='[$user]($style)'
