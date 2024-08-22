@@ -24,6 +24,9 @@ export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'
 eval  "$(fzf --bash)"
 _fzf_setup_completion path mpv
 
+# starship integration
+eval "$(starship init bash)"
+
 #autodisown aliases
 alias d='start_and_disown.sh'
 alias mpv='start_and_disown.sh mpv'

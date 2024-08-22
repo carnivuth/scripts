@@ -1,0 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+[cmd_duration]
+disabled=true
+[hostname]
+ssh_only=false

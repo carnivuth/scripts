@@ -13,6 +13,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+starship
 rsync
 stow
 figlet
