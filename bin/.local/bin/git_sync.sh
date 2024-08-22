@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+
 RESULT_FILE="$(mktemp)"
 echo "0" > "$RESULT_FILE"
 
@@ -11,9 +12,9 @@ function sync(){
           echo "--------------------"
   done
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
-    notify-send -a "git sync" -u "normal" "done sync of git repos"
+    notify-send -i "$GIT_NOTIFICATION_ICON" -a "$GIT_NOTIFICATION_NAME" -u "normal" "done sync of git repos"
   else
-    notify-send -a "git sync" -u "critical" "some repos could not be synched"
+    notify-send -i "$GIT_NOTIFICATION_ICON" -a "$GIT_NOTIFICATION_NAME" -u "critical" "some repos could not be synched"
   fi
   rm "$RESULT_FILE"
 
