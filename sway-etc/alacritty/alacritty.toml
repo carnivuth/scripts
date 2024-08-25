@@ -7,5 +7,3 @@ import =[
 [window]
 decorations = "buttonless"
 opacity = 1
-[env]
-TERM = "xterm-256color"
