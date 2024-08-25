@@ -80,7 +80,7 @@ libsecret'
 install_systemd_units(){
 
 # installing systemd services
-stow --target="$HOME" systemd
+stow --target="$HOME/.config/systemd/user" systemd
 source "$HOME/.config/scripts/settings.sh"
 
 systemctl --user daemon-reload
@@ -101,9 +101,9 @@ echo "if you enable the backup service remember to run backup.sh init to initial
 }
 
 ## check on settings.sh file
-if [[ ! -f "etc/.config/scripts/settings.sh" ]]; then
+if [[ ! -f "etc/scripts/settings.sh" ]]; then
   echo 'no settings.sh file found, run: '
-  echo "cp etc/.config/scripts/settings.sh.sample etc/.config/scripts/settings.sh"
+  echo "cp etc/scripts/settings.sh.sample etc/scripts/settings.sh"
   echo 'and edit the variables as you like'
   exit 1
 fi
@@ -122,15 +122,15 @@ case "$1" in
     echo "removing packages"
     if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
     sudo pacman -Rns $DEPS $HYPRLAND_DEPS
-    stow --target="$HOME" -D hyprland-etc
+    stow --target="$HOME/.config" -D hyprland-etc
     elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
     sudo pacman -Rns $DEPS $SWAY_DEPS
-    stow --target="$HOME" -D sway-etc
+    stow --target="$HOME/.config" -D sway-etc
     fi
-    stow --target="$HOME" -D etc
-    stow --target="$HOME" -D lib
-    stow --target="$HOME" -D bin
-    stow --target="$HOME" -D systemd
+    stow --target="$HOME/.config" -D etc
+    stow --target="$HOME/.local/lib" -D lib
+    stow --target="$HOME/.local/bin" -D bin
+    stow --target="$HOME/.config/systemd/user" -D systemd
     systemctl --user daemon-reload
     sed '/source \$HOME\/\.config\/scripts\/bash_integration.sh/d' -i "$HOME/.bashrc"
     ;;
@@ -139,18 +139,18 @@ case "$1" in
     echo 'installing packages'
     if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
     sudo pacman -S $DEPS $HYPRLAND_DEPS
-    stow --target="$HOME" hyprland-etc
+    stow --target="$HOME/.config" hyprland-etc
     elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
     sudo pacman -S $DEPS $SWAY_DEPS
-    stow --target="$HOME" sway-etc
+    stow --target="$HOME/.config" sway-etc
     fi
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
       echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
     fi
-    stow --target="$HOME" etc
-    stow --target="$HOME" lib
-    stow --target="$HOME" bin
+    stow --target="$HOME/.config" etc
+    stow --target="$HOME/.local/lib" lib
+    stow --target="$HOME/.local/bin" bin
     install_systemd_units
     "$HOME/.local/bin/themeswitcher.sh" -b fzf
 
