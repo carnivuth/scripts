@@ -30,7 +30,7 @@ this will install dependencies and link the dotfiles under the right folder usin
 flowchart LR
 A[etc] --> E[~/.config]
 B[bin] --> F[~/.local/bin]
-C[lib] --> G[~/.local/bin]
+C[lib] --> G[~/.local/lib]
 D[systemd] --> H[~/.config/systemd/user]
 ```
 
