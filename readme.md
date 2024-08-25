@@ -21,7 +21,7 @@ cp $HOME/scripts/etc/.config/settings.sh.sample $HOME/scripts/etc/.config/settin
 - run the installation script (**arch linux only**)
 
 ```
-cd $HOME/scripts && ./scripts
+cd $HOME/scripts.sh && ./scripts.sh
 ```
 
 this will install dependencies and link the dotfiles under the right folder using [stow](https://www.gnu.org/software/stow/), for reference
