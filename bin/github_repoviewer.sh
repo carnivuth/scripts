@@ -11,8 +11,8 @@ get_file(){
 }
 
 # GENERAL MENU VARS AND FUNCTIONS
-MENU_NAME="window_switcher"
-PROMPT="window switcher"
+MENU_NAME="github_repoviewer"
+PROMPT="github repos"
 
 help_message(){
   echo "script for quick access to web interface of personal github repos"
