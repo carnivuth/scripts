@@ -1,0 +1,7 @@
+{
+  "deleteOption": "permanent",
+  "logsModal": true,
+  "excludedFolders": "labs",
+  "ribbonIcon": true,
+  "excludeSubfolders": true
+}

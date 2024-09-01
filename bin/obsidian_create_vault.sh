@@ -1,6 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
-set -x
+
+OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 
 while getopts v:rghu flag; do
   case "${flag}" in
@@ -15,13 +16,13 @@ done
 
 # print help message
 if [[ "$PRINT_HELP" == 'TRUE' ]]; then
-  echo "usage $0 -v vault_path -[grh]"
+  echo "usage $0 -v vault_path -[grhu]"
   exit 0
 fi
 
 # updating vaults with the latest configs and exit
-if [[ "$UPDATE" == 'TRUE' ]] && [[ -f "$HOME/.config/obsidian/obsidian.json" ]]; then
-  jq -r '.vaults[].path' "$HOME/.config/obsidian/obsidian.json" | while read -r vault; do
+if [[ "$UPDATE" == 'TRUE' ]] && [[ -f "$OBSIDIAN_CONFIGS" ]]; then
+  jq -r '.vaults[].path' "$OBSIDIAN_CONFIGS" | while read -r vault; do
   if [[ -d "$vault" ]]; then
     echo "updating $vault"
     $0 -v "$vault" -r
@@ -40,7 +41,7 @@ mkdir -p "$VAULT/pages"
 
 if [[ ! -d "$VAULT/.obsidian"  ]] || [[ "$RESET" == 'TRUE' ]]; then
   rm -rf "$VAULT/.obsidian"
-  cp -r "$SCRIPTS_VAR_FOLDER/.obsidian" "$VAULT"
+  cp -Lr "$OBSIDIAN_CONFIGS" "$VAULT/.obsidian"
 fi
 
 # create git repo
