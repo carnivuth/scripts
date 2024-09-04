@@ -1,6 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
+set -x
 OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 
 while getopts v:rghu flag; do
@@ -21,8 +22,8 @@ if [[ "$PRINT_HELP" == 'TRUE' ]]; then
 fi
 
 # updating vaults with the latest configs and exit
-if [[ "$UPDATE" == 'TRUE' ]] && [[ -f "$OBSIDIAN_CONFIGS" ]]; then
-  jq -r '.vaults[].path' "$OBSIDIAN_CONFIGS" | while read -r vault; do
+if [[ "$UPDATE" == 'TRUE' ]] && [[ -L "$OBSIDIAN_CONFIGS" ]]; then
+  jq -r '.vaults[].path' "$HOME/.config/obsidian/obsidian.json" | while read -r vault; do
   if [[ -d "$vault" ]]; then
     echo "updating $vault"
     $0 -v "$vault" -r
