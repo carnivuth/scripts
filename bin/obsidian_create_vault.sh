@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
-set -x
+#set -x
 OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 
 while getopts v:rghu flag; do
