@@ -2,8 +2,10 @@
 
 # loop files in dir
 for file in *.md; do
+  sed -i '/\[PREVIOUS\]/d' "$file"
+  sed -i '/\[NEXT\]/d' "$file"
   index=''
-  prec=''
+  rec=''
   next=''
   prec_file=""
   next_file=""
