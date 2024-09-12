@@ -131,3 +131,7 @@ RECORDER_APP_NAME_NOTIFICATION="recorder"
 
 # vpn connection name
 VPN_CONNECTION_NAME="pokelab"
+
+# newsboat script settings
+NEWSBOAT_NOTIFICATION_NAME="News"
+NEWSBOAT_NOTIFICATION_ICON="/usr/share/icons/Papirus/32x32/apps/internet-news-reader.svg"
