@@ -21,8 +21,8 @@ for file in *.md; do
     echo "next: $next"
 
     # grep for prec value and next value
-    prec_file="$( grep -l "index: $prec" *.md)"
-    next_file="$( grep -l "index: $next" *.md)"
+    prec_file="$( grep -xl "index: $prec" *.md)"
+    next_file="$( grep -xl "index: $next" *.md)"
 
     if [[ -f "$prec_file" ]]; then
       message="[PREVIOUS]($prec_file)"
@@ -32,7 +32,7 @@ for file in *.md; do
     fi
     echo "$message"
     if [[ "$(grep 'NEXT' "$file")" == '' ]] && [[ "$(grep 'PREVIOUS' "$file")" == '' ]]; then
-      echo  "$message" >> $file
+      echo  -e "\n$message" >> $file
     fi
   fi
 
