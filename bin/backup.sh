@@ -151,6 +151,8 @@ restore_rclone(){
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
   else
 
+    echo "sync with rclone remote"
+
     if rclone sync "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" "$BORG_REPOSITORY_FOLDER"  ; then
 
       notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "restored repo from rclone storage $BORG_RCLONE_REMOTE"
