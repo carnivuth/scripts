@@ -130,7 +130,7 @@ restore_remote(){
   # try to restore with remote server
   if  ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
-    if rsync -r "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH" "$BORG_REPOSITORY_FOLDER"; then
+    if rsync -Pavr "$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH" "$BORG_REPOSITORY_FOLDER"; then
       notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "restored repo from $BORG_BACKUP_REMOTE_SERVER"
     else
       notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error restoring repo from $BORG_BACKUP_REMOTE_SERVER"
