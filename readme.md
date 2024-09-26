@@ -34,6 +34,29 @@ C[lib] --> G[~/.local/lib]
 D[systemd] --> H[~/.config/systemd/user]
 ```
 
+### FIREFOX
+
+In order to configure firefox additional steps are required
+
+- enable this firefox options inside `about:config` section
+
+```
+toolkit.legacyUserProfileCustomizations.stylesheets
+layers.acceleration.force-enabled
+gfx.webrender.all
+gfx.webrender.enabled
+layout.css.backdrop-filter.enabled
+svg.context-properties.content.enabled
+```
+- link firefox configuration file to the profile directory
+
+```bash
+mkdir -p ~/.mozzilla/firefox/<profiledir>/chrome
+ln -sf firefox/userChrome.css ~/.mozzilla/firefox/<profiledir>/chrome
+```
+
+- install sidebery extension end import `firefox/sidebary.json`
+
 ## CONFIGURATION
 
 configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample` (version for reference) all binaries load the configuration file and use the setted variables
