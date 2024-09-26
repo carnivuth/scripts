@@ -48,6 +48,7 @@ gfx.webrender.enabled
 layout.css.backdrop-filter.enabled
 svg.context-properties.content.enabled
 ```
+
 - link firefox configuration file to the profile directory
 
 ```bash
