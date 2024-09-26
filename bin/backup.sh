@@ -80,13 +80,13 @@ backup(){
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "repo $BORG_REPOSITORY_FOLDER is healty :)"
   fi
 
-  # try to sync with remote server
+  # try to sync with remote server, this type of sync requires ssh for remote host to be configured under ~/.ssh/config
   if [ "$BORG_REMOTE_ENABLED" == 1 ] && ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
 
     # create directory
-    ssh "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER" mkdir -p "$BORG_BACKUP_REMOTE_PATH"
+    if [[ "$BORG_BACKUP_REMOTE_PATH" != '' ]] ; then ssh "$BORG_BACKUP_REMOTE_SERVER"  mkdir -p "$BORG_BACKUP_REMOTE_PATH"; fi
 
-    if rsync -r "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_USER"@"$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
+    if rsync -Pavr "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
       notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
     else
       notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
