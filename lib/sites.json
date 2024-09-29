@@ -1,5 +1,6 @@
 [
   { "site": "amazon","link": "https://www.amazon.it"},
+  { "site": "prime-video","link": "https://www.primevideo.com"},
   { "site": "aws","link": "https://aws.amazon.com"},
   { "site": "calendar","link": "https://calendar.google.com"},
   { "site": "cardmarket","link": "https://www.cardmarket.com"},
