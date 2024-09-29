@@ -6,6 +6,7 @@
   { "site": "datacamp","link": "https://app.datacamp.com"},
   { "site": "discord","link": "https://discord.com/app"},
   { "site": "docker-hub","link": "https://hub.docker.com"},
+  { "site": "robot-hetzner","link": "https://robot.hetzner.com"},
   { "site": "duelling-nexus","link": "https://duelingnexus.com"},
   { "site": "ebay","link": "https://www.ebay.it"},
   { "site": "facebook","link": "https://www.facebook.com"},
