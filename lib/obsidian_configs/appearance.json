@@ -3,7 +3,8 @@
   "nativeMenus": true,
   "showViewHeader": true,
   "enabledCssSnippets": [
-    "prev_next"
+    "prev_next",
+    "mermaid_charts"
   ],
   "cssTheme": "Minimal",
   "theme": "obsidian"
