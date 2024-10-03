@@ -64,4 +64,4 @@ configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample`
 
 ## SUPPORTED SYSTEMS
 
-the repo is tested on arch linux, it should work on other distros if you install the dependencies listed in the `./install.sh` script
+the repo is tested on arch linux, it should work on other distros if you install the dependencies listed in the `./scripts.sh` script
