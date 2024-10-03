@@ -144,7 +144,7 @@ function index(){
 # MAIN, PARSE PARAMETERS
 COMMAND="$1"
 shift
-if [[ $COMMAND  == -* ]]; then echo "first parameter must be a command"; help; exit 1; fi
+if [[ $COMMAND  == '' ]] || [[ $COMMAND  == -* ]]; then echo "first parameter must be a command"; help; exit 1; fi
 
 while getopts $FLAGS flag; do
   case "${flag}" in
