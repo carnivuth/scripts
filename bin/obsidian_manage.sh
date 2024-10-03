@@ -17,6 +17,7 @@ COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
+COMMANDS[push]="push content to remotes"
 COMMANDS[help]="show this help command"
 
 function help(){
@@ -141,6 +142,27 @@ function index(){
   fi
 }
 
+function push(){
+
+  # loop obsidian known vaults and run git push
+  jq -r '.vaults[].path' "$HOME/.config/obsidian/obsidian.json" | while read -r vault; do
+  if [[ -d "$vault" ]]; then
+    # pull remote
+    (cd "$vault" && git pull)
+
+    # commit obsidian files if changes is present
+    if  cd "$vault" && git status | grep '.obsidian' ; then
+    echo "$vault committing obsidian files "
+    (cd "$vault" && git add ".obsidian" && git commit -m "updated obsidian files")
+    fi
+
+    # push files
+    echo "$vault pushing to remote"
+    (cd "$vault" && git push)
+
+  fi
+done
+}
 # MAIN, PARSE PARAMETERS
 COMMAND="$1"
 shift
