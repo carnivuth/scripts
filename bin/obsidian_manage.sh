@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# OBSIDIAN COMMAND UTILS FOR MANAGING VAULTS CONFIGS AND SOME BORING TASKS
+#
+# credits: carnivuth (matteo longhi)
+
 source "$HOME/.config/scripts/settings.sh"
 
 #set -x
