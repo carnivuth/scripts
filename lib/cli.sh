@@ -1,0 +1,39 @@
+#!/bin/bash
+
+source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/check_if_function_exist.sh"
+
+if [[ -z $FLAGS_STRING ]]; then echo "FLAGS_STRING variable not declared"; exit 1; fi
+if  ! declare -p COMMANDS >/dev/null 2>&1; then echo "COMMANDS array not declared"; exit 1; fi
+if  ! declare -p FLAGS >/dev/null 2>&1; then echo "FLAGS array not declared"; exit 1; fi
+
+COMMANDS[help]="show this help command"
+
+function help(){
+  echo "usage: $(basename "$0") COMMAND [$FLAGS_STRING]"
+  echo "list of commands:"
+  for command in "${!COMMANDS[@]}"; do
+    echo "       $command -> ${COMMANDS[$command]}"
+  done
+}
+
+for command in ${!COMMANDS[@]}; do
+  check_if_function_exist "$command"
+done
+
+# MAIN, PARSE PARAMETERS
+COMMAND="$1"
+shift
+if [[ $COMMAND  == '' ]] || [[ $COMMAND  == -* ]]; then echo "first parameter must be a command"; help; exit 1; fi
+
+while getopts $FLAGS_STRING flag; do
+  [ "${FLAGS[$flag]}" ] && eval ${FLAGS[$flag]}
+done
+
+if [ "${COMMANDS[$COMMAND]}" ]; then
+  "$COMMAND"
+else
+  echo "$COMMAND not exists"
+  help
+  exit 1
+fi

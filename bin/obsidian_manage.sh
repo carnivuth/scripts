@@ -9,7 +9,14 @@ source "$HOME/.config/scripts/settings.sh"
 # GLOBAL VARS
 OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
-FLAGS="v:p:rgu"
+
+# FLAGS
+FLAGS_STRING="v:p:rgu"
+declare -A FLAGS
+FLAGS[v]='VAULT=${OPTARG}'
+FLAGS[p]='PROJECT_NAME=${OPTARG}'
+FLAGS[r]='GIT_INIT="TRUE"'
+FLAGS[g]='RESET="TRUE"'
 
 # COMMANDS
 declare -A COMMANDS
@@ -19,16 +26,6 @@ COMMANDS[index]="create an index.md file with the list of the first page of each
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[push]="push content to remotes"
 COMMANDS[help]="show this help command"
-
-function help(){
-  echo "usage: $(basename "$0") COMMAND [$FLAGS]"
-  #echo "       for help on a specific command run $(basename "$0") COMMAND -h"
-  echo "list of commands:"
-  for command in "${!COMMANDS[@]}"; do
-    echo "       $command -> ${COMMANDS[$command]}"
-  done
-  exit 0
-}
 
 function create(){
   # check for vault variable
@@ -111,7 +108,7 @@ function add_footer(){
 function index(){
 
   # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "run in an obsidian vault"; exit 1; fi
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
   # check input parameter
   if [[ "$PROJECT_NAME" == '' ]];then echo "project name is required use -p flag"; exit 1; fi
 
@@ -163,19 +160,5 @@ function push(){
   fi
 done
 }
-# MAIN, PARSE PARAMETERS
-COMMAND="$1"
-shift
-if [[ $COMMAND  == '' ]] || [[ $COMMAND  == -* ]]; then echo "first parameter must be a command"; help; exit 1; fi
 
-while getopts $FLAGS flag; do
-  case "${flag}" in
-    v) VAULT=${OPTARG} ;;
-    p) PROJECT_NAME=${OPTARG} ;;
-    g) GIT_INIT='TRUE' ;;
-    r) RESET='TRUE' ;;
-    *) echo "flag $flag not supported"; help; exit 1 ;;
-  esac
-done
-
-[ "${COMMANDS[$COMMAND]}" ] && "$COMMAND"
+source "$SCRIPTS_LIB_FOLDER/cli.sh"
