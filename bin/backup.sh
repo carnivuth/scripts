@@ -5,6 +5,16 @@
 # the script is meant to run with a systemd timer
 source "$HOME/.config/scripts/settings.sh"
 
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[init]="create borg repo and make initial setup for periodic backups"
+COMMANDS[backup]="make actual backup and sync with remotes"
+COMMANDS[prune]="prune borg repo"
+COMMANDS[restore_rclone]="restore repo from rclone remote"
+COMMANDS[restore_remote]="restore repo from rsync remote"
+
 
 BORG_RESULT_FILE="$(mktemp)"
 
@@ -186,26 +196,6 @@ prune(){
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -i "$BORG_NOTIFICATION_ICON" -u "critical" "repos could not be pruned"
   fi
 
-
 }
 
-case "$1" in
-  init)
-    init
-    ;;
-  backup)
-    backup
-    ;;
-  prune)
-    prune
-    ;;
-  restore_rclone)
-    restore_rclone
-    ;;
-  restore_remote)
-    restore_remote
-    ;;
-  *)
-    echo "usage $0 [init|backup|prune|restore_rclone|restore_remote]"
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"

@@ -3,7 +3,6 @@
 source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/check_if_function_exist.sh"
 
-if [[ -z $FLAGS_STRING ]]; then echo "FLAGS_STRING variable not declared"; exit 1; fi
 if  ! declare -p COMMANDS >/dev/null 2>&1; then echo "COMMANDS array not declared"; exit 1; fi
 if  ! declare -p FLAGS >/dev/null 2>&1; then echo "FLAGS array not declared"; exit 1; fi
 
@@ -26,9 +25,11 @@ COMMAND="$1"
 shift
 if [[ $COMMAND  == '' ]] || [[ $COMMAND  == -* ]]; then echo "first parameter must be a command"; help; exit 1; fi
 
-while getopts $FLAGS_STRING flag; do
-  [ "${FLAGS[$flag]}" ] && eval ${FLAGS[$flag]}
-done
+if [[ ! -z $FLAGS_STRING ]];then
+  while getopts $FLAGS_STRING flag; do
+    [ "${FLAGS[$flag]}" ] && eval ${FLAGS[$flag]}
+  done
+fi
 
 if [ "${COMMANDS[$COMMAND]}" ]; then
   "$COMMAND"
