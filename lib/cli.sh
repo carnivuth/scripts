@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# LIB FOR CLI APPLICATION COMMON UTILS, TO SOURCE AT THE END OF A CLI APPLICATION
+# define the following flags
+#
+#declare -A FLAGS
+#FLAGS[ciw]="ciw"
+#FLAGS_STRING=''
+#
+#declare -A COMMANDS
+#COMMANDS[ciw]="ciw"
+
 source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/check_if_function_exist.sh"
 
