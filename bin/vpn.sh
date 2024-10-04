@@ -2,6 +2,12 @@
 # get_weather.sh
 source "$HOME/.config/scripts/settings.sh"
 
+FLAGS_STRING=''
+declare -A FLAGS
+
+declare -A COMMANDS
+COMMANDS[toggle_vpn]="toggle connection to vpn configured in settings file"
+COMMANDS[check_connection]="check if connected to vpn"
 function check_connection(){
   while true ; do
     connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
@@ -16,6 +22,7 @@ function check_connection(){
     sleep 5s
   done
 }
+
 toggle_vpn(){
   connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
   if [[ "$connection_status" != "" ]]; then
@@ -24,14 +31,5 @@ toggle_vpn(){
     nmcli connection up "$VPN_CONNECTION_NAME"
   fi
 }
-case "$1" in
-  "check_connection")
-    check_connection
-    ;;
-  "toggle_vpn")
-    toggle_vpn
-    ;;
-  *)
-    echo "usage $0 [check_connection|toggle_vpn]"
-    ;;
-esac
+
+source "$SCRIPTS_LIB_FOLDER/cli.sh"
