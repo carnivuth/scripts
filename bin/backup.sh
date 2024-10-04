@@ -19,7 +19,7 @@ COMMANDS[restore_remote]="restore repo from rsync remote"
 BORG_RESULT_FILE="$(mktemp)"
 
 # check if borg repository is configured
-check(){
+function check(){
 
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "critical" -i "$BORG_NOTIFICATION_ICON" "borg repo at $BORG_REPOSITORY_FOLDER not initialized! run $0 init"
@@ -27,7 +27,7 @@ check(){
   fi
 
 }
-check_borg_is_running(){
+function check_borg_is_running(){
   if [[ "$(pidof borg)" != "" ]]; then
     notify-send -a "$BORG_APP_NAME_NOTIFICATION" -u "normal" -i "$BORG_NOTIFICATION_ICON" "task $1 could not run cause borg is running"
     exit 1
@@ -35,7 +35,7 @@ check_borg_is_running(){
 }
 
 # configure borg repo for future backups and add passphrase to user keyring
-init(){
+function init(){
 
   check_borg_is_running "$0"
   # create repository folder if does not exists
@@ -57,7 +57,7 @@ init(){
 }
 
 # make backup, check repo and sync to remotes
-backup(){
+function backup(){
 
   check
   check_borg_is_running "$0"
@@ -129,7 +129,7 @@ backup(){
 }
 
 # restore from rsync capable remote
-restore_remote(){
+function restore_remote(){
 
   check_borg_is_running "$0"
 
@@ -150,7 +150,7 @@ restore_remote(){
 }
 
 # restore from rclone remote storage
-restore_rclone(){
+function restore_rclone(){
   check_borg_is_running "$0"
   # try to restore with rclone from remote storage
 
@@ -173,7 +173,7 @@ restore_rclone(){
 
 }
 
-prune(){
+function prune(){
   check
   check_borg_is_running "$0"
 
