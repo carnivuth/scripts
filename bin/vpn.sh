@@ -6,7 +6,7 @@ FLAGS_STRING=''
 declare -A FLAGS
 
 declare -A COMMANDS
-COMMANDS[toggle_vpn]="toggle connection to vpn configured in settings file"
+COMMANDS[toggle]="toggle connection to vpn configured in settings file"
 COMMANDS[check_connection]="check if connected to vpn"
 function check_connection(){
   while true ; do
@@ -23,7 +23,7 @@ function check_connection(){
   done
 }
 
-toggle_vpn(){
+toggle(){
   connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
   if [[ "$connection_status" != "" ]]; then
     nmcli connection down "$VPN_CONNECTION_NAME"
