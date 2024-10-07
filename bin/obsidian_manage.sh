@@ -15,8 +15,8 @@ FLAGS_STRING="v:p:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROJECT_NAME=${OPTARG}'
-FLAGS[r]='GIT_INIT="TRUE"'
-FLAGS[g]='RESET="TRUE"'
+FLAGS[g]='GIT_INIT="TRUE"'
+FLAGS[r]='RESET="TRUE"'
 
 # COMMANDS
 declare -A COMMANDS
@@ -41,12 +41,12 @@ function create(){
   fi
 
   # create git repo
-  #if [[ "$GIT_INIT" == 'TRUE' ]]; then
-  #  cd "$VAULT" || exit 1;
-  #  echo "initializing git repository in $VAULT"
-  #  git init
-  #  echo 'workspace.json' > "$VAULT/.gitignore"
-  #fi
+  if [[ "$GIT_INIT" == 'TRUE' ]]; then
+    cd "$VAULT" || exit 1;
+    echo "initializing git repository in $VAULT"
+    git init
+    echo 'workspace.json' > "$VAULT/.gitignore"
+  fi
 }
 
 function update(){
