@@ -159,7 +159,7 @@
       "format": "{}",
       "tooltip": true,
       "exec": "~/.local/bin/vpn.sh check_connection",
-      "on-click":"~/.local/bin/vpn.sh toggle_vpn",
+      "on-click":"~/.local/bin/vpn.sh toggle",
       "return-type": "json"
     },
     "custom/weather": {
