@@ -25,7 +25,6 @@ COMMANDS[update]="update all known vaults to obsidian with default configs in $O
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[push]="push content to remotes"
-COMMANDS[help]="show this help command"
 
 function create(){
   # check for vault variable
@@ -42,12 +41,12 @@ function create(){
   fi
 
   # create git repo
-  if [[ "$GIT_INIT" == 'TRUE' ]] || [[ ! -d "$VAULT/.git" ]]; then
-    cd "$VAULT" || exit 1;
-    echo "initializing git repository in $VAULT"
-    git init
-    echo 'workspace.json' > "$VAULT/.gitignore"
-  fi
+  #if [[ "$GIT_INIT" == 'TRUE' ]]; then
+  #  cd "$VAULT" || exit 1;
+  #  echo "initializing git repository in $VAULT"
+  #  git init
+  #  echo 'workspace.json' > "$VAULT/.gitignore"
+  #fi
 }
 
 function update(){
