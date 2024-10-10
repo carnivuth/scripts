@@ -1,15 +1,13 @@
 #!/bin/bash
 
 export PATH="$HOME/.local/bin:$PATH"
+
 # set editor and visual variables
 export EDITOR='vim'
 export VIUSUAL='vim'
 
 # include scripts settings
 if [ -f "$HOME/.config/scripts/settings.sh" ]; then source "$HOME/.config/scripts/settings.sh"; fi
-
-# set terminal color if using alacritty
-#if [[ "$TERM" == alacritty ]] && [[ -f "$HOME/.cache/wal/sequences" ]];then cat "$HOME/.cache/wal/sequences"; fi
 
 # set PS1 variable
 BLUE6="\[$(tput setaf 6)\]"
