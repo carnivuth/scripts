@@ -30,6 +30,10 @@ alias d='start_and_disown.sh'
 alias mpv='start_and_disown.sh mpv'
 alias firefox='start_and_disown.sh firefox'
 alias libreoffice='start_and_disown.sh libreoffice'
+alias picard='start_and_disown.sh picard'
+alias loupe='start_and_disown.sh loupe'
+alias evince='start_and_disown.sh evince'
+alias obsidian='start_and_disown.sh obsidian'
 
 #ls aliases
 alias ls='ls --color=auto '
