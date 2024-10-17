@@ -138,4 +138,4 @@ NEWSBOAT_NOTIFICATION_NAME="News"
 NEWSBOAT_NOTIFICATION_ICON="/usr/share/icons/Papirus/32x32/apps/internet-news-reader.svg"
 
 # pdfviewer settings
-PDFVIEWER_FOLDERS="universita/**/slides/
+PDFVIEWER_FOLDERS="universita/**/slides/"
