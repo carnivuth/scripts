@@ -85,6 +85,7 @@ BORG_REPOSITORY_FOLDER="$HOME/.borg"
 # folders to backup with borg
 BORG_BACKUP_TARGETS="/etc/pacman.conf
 $HOME/.config/settings.sh
+$HOME/.gitconfig
 $HOME/labcraft
 $HOME/.ssh
 /etc/udev/rules.d"
