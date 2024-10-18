@@ -11,15 +11,19 @@ OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
 
 # FLAGS
-FLAGS_STRING="v:p:rgu"
+FLAGS_STRING="v:p:f:t:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROJECT_NAME=${OPTARG}'
 FLAGS[g]='GIT_INIT="TRUE"'
+FLAGS[f]='FROM=${OPTARG}'
+FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
 
 # COMMANDS
 declare -A COMMANDS
+
+COMMANDS[convert_to]="convert pages to other formats"
 COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
@@ -138,6 +142,29 @@ function index(){
   fi
 }
 
+function convert_to(){
+
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+
+  # check for FROM variable
+  if [[ "$FROM" == '' ]];then echo "FROM required run with -f 'format'"; exit 1; fi
+
+  # check for TO variable
+  if [[ "$TO" == '' ]];then echo "TO required run with -t 'format'"; exit 1; fi
+
+  DEST_FOLDER="$TO"_converted; if [[ ! -d "$DEST_FOLDER" ]]; then mkdir -p "$DEST_FOLDER"; fi
+
+  if [[ "$FROM" == *.lua ]];then FROM="$SCRIPTS_LIB_FOLDER/$FROM"; fi
+  if [[ "$TO" == *.lua ]];then TO="$SCRIPTS_LIB_FOLDER/$TO"; fi
+
+  for file in pages/**/*.md pages/*.md ; do
+    filename="$(basename "$file" | cut -d '.' -f '1' )"
+    echo "converting $filename"
+    pandoc -f "$FROM" -t "$TO" "$file" > "$DEST_FOLDER/$filename"
+  done
+
+}
+
 function push(){
 
   # loop obsidian known vaults and run git push
@@ -148,8 +175,8 @@ function push(){
 
     # commit obsidian files if changes is present
     if  cd "$vault" && git status | grep '.obsidian' ; then
-    echo "$vault committing obsidian files "
-    (cd "$vault" && git add ".obsidian" && git commit -m "updated obsidian files")
+      echo "$vault committing obsidian files "
+      (cd "$vault" && git add ".obsidian" && git commit -m "updated obsidian files")
     fi
 
     # push files
