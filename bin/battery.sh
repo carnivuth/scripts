@@ -2,14 +2,19 @@
 
 source "$HOME/.config/scripts/settings.sh"
 
+ set -x
 # setting parameters
 NOTIFY="TRUE"
-PREC_STATE="$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep state |cut -d':' -f2 |xargs)"
-while :
-do
+BATTERY_PATH="$(upower -e |grep "$BATTERY_NAME")"
+
+# compute battery state
+PREC_STATE="$(echo "$BATTERY_PATH" | grep state |cut -d':' -f2 |xargs)"
+
+#upower -m | grep daemon | while read row; do
+upower -m | while read row; do
     # get battery values
-    PERCENTAGE="$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep percentage |cut -d':' -f2 |cut -d '%' -f1 |xargs)"
-    STATE="$(upower -i $(upower -e |grep "$BATTERY_NAME") |grep state |cut -d':' -f2 |xargs)"
+    PERCENTAGE="$(upower -i $BATTERY_PATH |grep percentage |cut -d':' -f2 |cut -d '%' -f1 |xargs)"
+    STATE="$(upower -i $BATTERY_PATH |grep state |cut -d':' -f2 |xargs)"
     # check for battery status
     if [ "$STATE" == "charging" ]; then
         NOTIFY=TRUE
@@ -27,9 +32,8 @@ do
     # check for battery status changes
     if [ "$STATE" != "discharging" ] && [ "$PREC_STATE" != "$STATE" ] && [ "$STATE" != "fully-charged" ]; then
 
-        notify-send -a "System charging" -u normal "system charging" "system is under charge"
+        notify-send -a "System charging" -u normal "system charging" "system is charging"
     fi
     PREC_STATE=$STATE
-    sleep "$BATTERY_SLEEP_TIME"
 
 done
