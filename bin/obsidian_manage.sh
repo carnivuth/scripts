@@ -158,9 +158,11 @@ function convert_to(){
   if [[ "$TO" == *.lua ]];then TO="$SCRIPTS_LIB_FOLDER/$TO"; fi
 
   for file in pages/**/*.md pages/*.md ; do
-    filename="$(basename "$file" | cut -d '.' -f '1' )"
-    echo "converting $filename"
-    pandoc -f "$FROM" -t "$TO" "$file" > "$DEST_FOLDER/$filename"
+    if [[ -f "$file" ]]; then
+      filename="$(basename "$file" | cut -d '.' -f '1' )"
+      echo "converting $filename"
+      pandoc -f "$FROM" -t "$TO" "$file" > "$DEST_FOLDER/$filename"
+    fi
   done
 
 }
