@@ -75,12 +75,15 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 # homelab
-alias wake-playchomp='ssh castleterra wakeonlan d8:5e:d3:8e:60:d1'
-alias wake-castleterra='wol b4:2e:99:9c:09:80 '
-alias sleep-castleterra="ssh 192.168.1.62 -l root 'poweroff'"
+alias wake-playchomp='ssh torterra wakeonlan d8:5e:d3:8e:60:d1'
+alias wake-torterra='wol b4:2e:99:9c:09:80 '
+alias sleep-torterra="ssh 192.168.1.62 -l root 'poweroff'"
 
 # du
 alias du='du -h'
 
 # vim
 alias v='vim'
+
+# bashly
+alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
