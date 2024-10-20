@@ -25,68 +25,22 @@ toggle_networking() {
 }
 
 # STANDARD MENU VARS AND FUNCTIONS
-MENU_NAME="window_switcher"
-PROMPT="window switcher"
+MENU_NAME="networkmenu"
+PROMPT="networks"
 
 help_message(){
-  echo " script for interacting with network manager end editing connection settings"
-  echo "usage $0 -c [connect|delete|rescan|toggle_wifi|toggle_networking]"
+  echo "connect to known networks"
 }
 
 list_elements_to_user(){
-  case "$NETWORKMENU_COMMAND" in
-    'connect')
-      nmcli -f ssid device wifi list -rescan no | grep -v SSID | grep -E -v '^--'
-      ;;
-    'delete')
       nmcli -f name connection | grep -v NAME
-      ;;
-  esac
 }
 
 exec_command_with_chosen_element(){
-  case "$NETWORKMENU_COMMAND" in
-    'connect')
-      if [ "$(nmcli connection | grep "$1")" != "" ]; then
-        nmcli device wifi connect "$1" && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "connected" "connected to $1"
+      network="$(echo $1 | xargs)"
+      if [ "$(nmcli connection | grep "$network")" != "" ]; then
+        nmcli device wifi connect "$network" && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "connected" "connected to $network"
       fi
-      ;;
-    'delete')
-      # check if item is a valid connection
-      if [ "$(nmcli -f name connection | grep "$1")" != "" ]; then
-        nmcli connection delete "$1" && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "deleted" "$1 csuccesfully deleted"
-      fi
-      ;;
-  esac
 }
 
-
-while getopts c:b:h flag; do
-  case "${flag}" in
-    c) NETWORKMENU_COMMAND=${OPTARG} ; shift; shift ;;
-    *);;
-  esac
-done
-
-case "$NETWORKMENU_COMMAND" in
-  "connect")
-    source "$SCRIPTS_LIB_FOLDER/menu.sh"
-    exit 0
-    ;;
-  "delete")
-    source "$SCRIPTS_LIB_FOLDER/menu.sh"
-    exit 0
-    ;;
-  "rescan")
-    rescan_wifi_networks
-    exit 0
-    ;;
-  "toggle_wifi")
-    toggle_wifi
-    exit 0
-    ;;
-  "toggle_networking")
-    toggle_networking
-    exit 0
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/menu.sh"
