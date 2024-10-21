@@ -1,4 +1,5 @@
-@import url("../../.cache/wal/colors-waybar.css");
+/*@import url("../../.cache/wal/colors-waybar.css");*/
+@import "mocha.css";
 
 * {
   font-family: Material Design Icons, JetBrainsMono Nerd Font;
