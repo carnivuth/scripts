@@ -26,6 +26,7 @@ menu_cmd() {
     --hf "#eed49f"\
     --af "#cad3f5"\
     --ab "#24273a"\
+    --bdr "#b4befe"\
     --hp "$BEMENU_PADDING"\
     -B "$BEMENU_BORDER"\
     --fn "$BEMENU_FONT"\
