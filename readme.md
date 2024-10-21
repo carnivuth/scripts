@@ -15,7 +15,9 @@ git clone https://github.com/carnivuth/scripts "$HOME/scripts"
 - copy default configurations
 
 ```
-cp $HOME/scripts/etc/.config/settings.sh.sample $HOME/scripts/etc/.config/settings.sh
+# SOURCE SAMPLE FILE TO import default configs
+echo 'source $HOME/.config/scripts/settings.sh.sample' > $HOME/scripts/etc/.config/settings.sh
+cat $HOME/scripts/etc/.config/settings.sh.sample >> $HOME/scripts/etc/.config/settings.sh
 ```
 
 - run the installation script (**arch linux only**)
