@@ -1,6 +1,6 @@
 [global]
     ### Display ###
-    frame_color = "#89b4fa"
+    frame_color = "#b4befe"
     separator_color= frame
 
     # Which monitor should the notifications be displayed on.
@@ -91,7 +91,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 1
 
 		gap_size = 0
 
