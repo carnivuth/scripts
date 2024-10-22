@@ -10,21 +10,43 @@
 
     "modules-left": [
       "sway/workspaces",
+    "hyprland/workspaces",
     "mpris",
     ],
 
     "modules-center": [
       "clock",
+    "custom/weather"
     ],
 
     "modules-right": [
       "pulseaudio",
+    "custom/vpn",
     "network",
     "battery",
     "tray"
     ],
 
     "sway/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "active": "A",
+        "urgent": "U"
+      }
+
+    },
+    "hyprland/workspaces": {
       "on-click": "activate",
       "format": "{icon}",
       "format-icons": {
@@ -152,6 +174,20 @@
       },
       "ignored-players": [
       ]
+    },
+    "custom/vpn": {
+      "format": "{}",
+      "tooltip": true,
+      "exec": "~/.local/bin/vpn.sh check_connection",
+      "on-click":"~/.local/bin/vpn.sh toggle",
+      "return-type": "json"
+    },
+    "custom/weather": {
+      "format": "{}",
+      "tooltip": true,
+      "interval": 3600,
+      "exec": "~/.local/bin/weather.sh",
+      "return-type": "json"
     },
 
 }

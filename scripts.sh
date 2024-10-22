@@ -9,8 +9,7 @@ HYPRLAND_DEPS='
 hyprland
 hyprlock
 hypridle
-hyprpaper
-xdg-desktop-portal-hyprland'
+hyprpaper xdg-desktop-portal-hyprland'
 
 DEPS='
 pandoc-cli
@@ -123,10 +122,8 @@ case "$1" in
     echo "removing packages"
     if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
     sudo pacman -Rns $DEPS $HYPRLAND_DEPS
-    stow --target="$HOME/.config" -D hyprland-etc
     elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
     sudo pacman -Rns $DEPS $SWAY_DEPS
-    stow --target="$HOME/.config" -D sway-etc
     fi
     stow --target="$HOME/.config" -D etc
     stow --target="$HOME/.local/lib" -D lib
@@ -140,10 +137,8 @@ case "$1" in
     echo 'installing packages'
     if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
     sudo pacman -S $DEPS $HYPRLAND_DEPS
-    stow --target="$HOME/.config" hyprland-etc
     elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
     sudo pacman -S $DEPS $SWAY_DEPS
-    stow --target="$HOME/.config" sway-etc
     fi
     # source shell integration script
     if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
@@ -154,8 +149,5 @@ case "$1" in
     stow --target="$HOME/.local/bin" bin
     install_systemd_units
     "$HOME/.local/bin/themeswitcher.sh" -b fzf
-
-
-
     ;;
 esac

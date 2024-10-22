@@ -1,9 +1,0 @@
-live_config_reload = true
-
-import =[
-  "~/.config/alacritty/catppuccin-mocha.toml"
-]
-
-[window]
-decorations = "buttonless"
-opacity = 1
