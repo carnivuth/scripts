@@ -39,7 +39,6 @@ evince
 ttf-dejavu
 mpv
 thunderbird
-thunar
 adwaita-icon-theme
 pop-icon-theme
 pavucontrol
