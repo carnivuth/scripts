@@ -40,6 +40,7 @@ ttf-dejavu
 mpv
 thunderbird
 adwaita-icon-theme
+libnotify
 pop-icon-theme
 pavucontrol
 firefox
