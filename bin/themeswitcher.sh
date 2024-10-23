@@ -28,15 +28,15 @@ list_elements_to_user(){
 }
 
 exec_command_with_chosen_element(){
-  if [ -f "$1" ]; then
-    wal -i "$1" -o "$SCRIPTS_BIN_FOLDER/postwal.sh"
-    # run specific scripts if under hyprland setup
-    if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+  # run specific scripts based on current desktop
+  case "$XDG_CURRENT_DESKTOP" in
+    "Hyprland")
       hyprpaper_switcher "$1"
-      killall waybar
-      waybar &
-    fi
-  fi
-}
+      killall -SIGUSR2 waybar
+      ;;
+    "sway")
+      # TODO
+    esac
+  }
 
-source "$SCRIPTS_LIB_FOLDER/menu.sh"
+  source "$SCRIPTS_LIB_FOLDER/menu.sh"
