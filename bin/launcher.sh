@@ -2,6 +2,7 @@
 source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/launch_webapp.sh"
 source "$SCRIPTS_LIB_FOLDER/print_bins.sh"
+source "$SCRIPTS_LIB_FOLDER/print_desktop_files.sh"
 
 MENU_NAME="launcher"
 PROMPT="programs"
@@ -11,7 +12,8 @@ help_message(){
 }
 
 list_elements_to_user(){
-  apps="$( print_bins )"
+  #apps="$( print_bins )"
+  apps="$( print_desktop_files )"
   apps="$(jq -r '.[].site' "$SCRIPTS_VAR_FOLDER/sites.json") $apps "
   echo $apps | sed  's/ /\n/g'
 }
