@@ -1,6 +1,6 @@
-live_config_reload = true
+general.live_config_reload = true
 
-import =[
+general.import =[
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
