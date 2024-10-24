@@ -26,11 +26,9 @@ function check_connection(){
 toggle(){
   connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
   if [[ "$connection_status" != "" ]]; then
-    nmcli connection down "$VPN_CONNECTION_NAME"
-    notify-send -a "$VPN_APP_NAME_NOTIFICATION" -u "normal" -i "$VPN_NOTIFICATION_ICON" "VPN $VPN_CONNECTION_NAME turned off"
+    nmcli connection down "$VPN_CONNECTION_NAME" && notify-send -a "$VPN_APP_NAME_NOTIFICATION" -u "normal" -i "$VPN_NOTIFICATION_ICON" "VPN $VPN_CONNECTION_NAME turned off"
   else
-    nmcli connection up "$VPN_CONNECTION_NAME"
-    notify-send -a "$VPN_APP_NAME_NOTIFICATION" -u "normal" -i "$VPN_NOTIFICATION_ICON" "VPN $VPN_CONNECTION_NAME turned on"
+    nmcli connection up "$VPN_CONNECTION_NAME" && notify-send -a "$VPN_APP_NAME_NOTIFICATION" -u "normal" -i "$VPN_NOTIFICATION_ICON" "VPN $VPN_CONNECTION_NAME turned on"
   fi
 }
 
