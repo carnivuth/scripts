@@ -5,22 +5,21 @@ source "$SCRIPTS_LIB_FOLDER/get_github_repos.sh"
 source "$SCRIPTS_LIB_FOLDER/launch_webapp.sh"
 
 # SCRIPT SPECIFIC VARS AND FUNCTIONS
-BASE_URL="https://github.com/$GITHUB_REPOVIEWER_ACCOUNT"
+BASE_URL="https://$GITHUB_REPOVIEWER_ACCOUNT.github.io"
 
 # GENERAL MENU VARS AND FUNCTIONS
-MENU_NAME="github_repoviewer"
-PROMPT="github repos"
+MENU_NAME="github_pages_viewer"
+PROMPT="github pages websites"
 
 help_message(){
-  echo "script for quick access to web interface of personal github repos"
+  echo "script for quick  access to github pages"
   echo "usage $0"
 }
 
 list_elements_to_user(){
 
   get_github_repos
-  # printing list
-  jq -r '.[].name' "$SCRIPTS_LOCAL_FOLDER/repos.json"
+  jq -r '.[] | select(.has_pages == true).name' "$SCRIPTS_LOCAL_FOLDER/repos.json"
 }
 
 exec_command_with_chosen_element(){
