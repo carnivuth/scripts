@@ -116,6 +116,13 @@ while getopts w: flag; do
     *) echo "${flag} is unsupported" ; exit 1 ;;
   esac
 done
+function configure_monitors(){
+  # create default monitor configuration file if does not exists
+  if [[ ! -e "$HOME/.config/hypr/monitors.conf" ]]; then
+    echo  "monitor = , preferred, auto, auto" > "$HOME/.config/hypr/monitors.conf"
+  fi
+
+}
 
 case "$1" in
   uninstall)
@@ -148,6 +155,9 @@ case "$1" in
     stow --target="$HOME/.local/lib" lib
     stow --target="$HOME/.local/bin" bin
     install_systemd_units
+    configure_monitors
+    if [[ ! -e "$HOME/.config/hypr/hyprpaper.conf" ]]; then
     "$HOME/.local/bin/themeswitcher.sh" -b fzf
+    fi
     ;;
 esac
