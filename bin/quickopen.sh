@@ -12,7 +12,7 @@ help_message(){
 }
 
 list_elements_to_user(){
-  cd $HOME && find -H
+  cd $HOME && fd
 }
 
 exec_command_with_chosen_element(){

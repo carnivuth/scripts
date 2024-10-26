@@ -12,6 +12,7 @@ hypridle
 hyprpaper xdg-desktop-portal-hyprland'
 
 DEPS='
+fd
 pandoc-cli
 starship
 rsync
