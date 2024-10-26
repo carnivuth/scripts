@@ -80,6 +80,7 @@ libsecret'
 
 install_systemd_units(){
 
+echo 'installing systemd units'
 # installing systemd services
 stow --target="$HOME/.config/systemd/user" systemd
 source "$HOME/.config/scripts/settings.sh"
@@ -110,28 +111,42 @@ if [[ ! -f "etc/scripts/settings.sh" ]]; then
 fi
 
 OPTIND=1
-WINDOW_MANAGER='hyprland'
-while getopts w: flag; do
+# FLAG TO MANAGE PACKAGES, SCRIPT DOES INSTALL PACKAGES AS DEFAULT
+PACKAGES="TRUE"
+while getopts p flag; do
   case "${flag}" in
-    w) WINDOW_MANAGER=${OPTARG} ; shift; shift ;;
+    p) PACKAGES="FALSE"; shift ;;
     *) echo "${flag} is unsupported" ; exit 1 ;;
   esac
 done
+
+function configure_wallpaper(){
+  if [[ ! -e "$HOME/.config/hypr/hyprpaper.conf" ]]; then
+    echo 'create wallpaper config'
+  "$HOME/.local/bin/themeswitcher.sh" -b fzf
+  fi }
+
+function configure_hook(){
+  # create default monitor configuration file if does not exists
+  if [[ ! -e ".git/hooks/post-merge" ]]; then
+    echo 'create post-merge hook'
+    echo  -e "#!/bin/bash\n./scripts.sh -p" > ".git/hooks/post-merge"
+  fi
+}
+
 function configure_monitors(){
   # create default monitor configuration file if does not exists
   if [[ ! -e "$HOME/.config/hypr/monitors.conf" ]]; then
+    echo 'create monitor config'
     echo  "monitor = , preferred, auto, auto" > "$HOME/.config/hypr/monitors.conf"
   fi
-
 }
 
 case "$1" in
   uninstall)
     echo "removing packages"
-    if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
-    sudo pacman -Rns $DEPS $HYPRLAND_DEPS
-    elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
-    sudo pacman -Rns $DEPS $SWAY_DEPS
+    if [[ "$PACKAGES" == 'TRUE' ]];then
+    sudo pacman -Rns $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
     stow --target="$HOME/.config" -D etc
     stow --target="$HOME/.local/lib" -D lib
@@ -142,23 +157,25 @@ case "$1" in
     ;;
   *)
     mkdir -p "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
+
     echo 'installing packages'
-    if [[ "$WINDOW_MANAGER" == 'hyprland' ]];then
-    sudo pacman -S $DEPS $HYPRLAND_DEPS
-    elif [[ "$WINDOW_MANAGER" == 'sway' ]];then
-    sudo pacman -S $DEPS $SWAY_DEPS
+    if [[ "$PACKAGES" == 'TRUE' ]];then
+    sudo pacman -S $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
-    # source shell integration script
+
+    echo 'adding bash integration'
     if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
       echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
     fi
+
+    echo 'installing configs'
     stow --target="$HOME/.config" etc
     stow --target="$HOME/.local/lib" lib
     stow --target="$HOME/.local/bin" bin
+
     install_systemd_units
     configure_monitors
-    if [[ ! -e "$HOME/.config/hypr/hyprpaper.conf" ]]; then
-    "$HOME/.local/bin/themeswitcher.sh" -b fzf
-    fi
+    configure_wallpaper
+    configure_hook
     ;;
 esac

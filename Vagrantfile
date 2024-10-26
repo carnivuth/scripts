@@ -1,3 +1,4 @@
+# MACHINE FOR TESTING DOTFILES INSTALLATION
 Vagrant.configure('2') do |config|
   config.vm.box = 'archlinux/archlinux'
   config.ssh.insert_key = true
@@ -6,7 +7,7 @@ Vagrant.configure('2') do |config|
     #    v.linked_clone = true
     v.memory = 4096
     v.cpus = 4
-    v.gui = true
+    v.gui = false
   end
 
   # edgex runtime node
@@ -20,7 +21,7 @@ Vagrant.configure('2') do |config|
   sudo pacman -Syu git --noconfirm
   git  clone https://github.com/carnivuth/toolbox
   cd ~/toolbox
-  ./toolbox
+  ./toolbox.sh
   SCRIPT
   config.vm.provision "shell", inline: $script, privileged: false
 end
