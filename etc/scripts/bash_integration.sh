@@ -58,6 +58,7 @@ alias yay='yay --color=auto'
 
 # pacman
 alias pacman='pacman --color=auto'
+alias update='sudo pacman -Syu --noconfirm && notify-send -u normal -a updates "system is up to date" -i /usr/share/icons/Papirus/32x32/apps/system-software-update.svg'
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 
 # xdg-open
