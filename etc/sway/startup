@@ -1,7 +1,6 @@
 exec --no-startup-id nm-applet
-#exec_always --no-startup-id  wal -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
 exec_always --no-startup-id  killall swaybg
-exec_always --no-startup-id  swaybg -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png &
+exec_always --no-startup-id  swaybg -i ~/Pictures/wallpapers/arch-chan.jpg -m fill &
 
 exec_always --no-startup-id  killall swayidle
 exec_always --no-startup-id  swayidle &
