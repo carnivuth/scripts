@@ -105,7 +105,8 @@ echo "if you enable the backup service remember to run backup.sh init to initial
 ## check on settings.sh file
 if [[ ! -f "etc/scripts/settings.sh" ]]; then
   echo 'no settings.sh file found, run: '
-  echo "cp etc/scripts/settings.sh.sample etc/scripts/settings.sh"
+  echo 'echo 'source $HOME/.config/scripts/settings.sh.sample' > $HOME/scripts/etc/.config/settings.sh'
+  echo 'cat $HOME/scripts/etc/.config/settings.sh.sample >> $HOME/scripts/etc/.config/settings.sh'
   echo 'and edit the variables as you like'
   exit 1
 fi
