@@ -185,8 +185,8 @@
     "custom/weather": {
       "format": "{}",
       "tooltip": true,
-      "interval": 3600,
-      "exec": "~/.local/bin/weather.sh",
+      "interval": 600,
+      "exec": "~/.local/bin/weather.sh get_weather",
       "return-type": "json"
     },
 

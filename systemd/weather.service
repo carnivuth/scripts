@@ -1,0 +1,13 @@
+
+[Unit]
+Description=deamon for weather checks
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/weather.sh start
+ExecStop=/bin/bash ${HOME}/.local/bin/weather.sh pre_stop
+Type=exec
+KillMode=control-group
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=multi-user.target
