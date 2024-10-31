@@ -24,11 +24,24 @@ FLAGS[r]='RESET="TRUE"'
 declare -A COMMANDS
 
 COMMANDS[convert_to]="convert pages to other formats"
+COMMANDS[merged_md]="create a md file with all notes linked"
 COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[push]="push content to remotes"
+
+function merged_md(){
+
+  outfile=merged.md
+  # check for correct directory
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  rm -f "$outfile"
+  grep index: pages/*.md pages/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
+    if [[ -f "$file" ]];then echo "![$(basename $file)]($file)" >> "$outfile"; fi
+  done
+  echo "created $outfile"
+}
 
 function create(){
   # check for vault variable
