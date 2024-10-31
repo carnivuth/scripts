@@ -12,7 +12,9 @@ list_elements_to_user(){
 }
 
 exec_command_with_chosen_element(){
-  obsidian "obsidian://open?path=$1" &
+  if [[ -d "$1" ]];then
+    obsidian "obsidian://open?path=$1" &
+  fi
 }
 
 source "$SCRIPTS_LIB_FOLDER/menu.sh"
