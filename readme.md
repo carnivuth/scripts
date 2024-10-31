@@ -26,6 +26,8 @@ cat $HOME/scripts/etc/.config/settings.sh.sample >> $HOME/scripts/etc/.config/se
 cd $HOME/scripts.sh && ./scripts.sh
 ```
 
+### HOW IT WORKS
+
 this will install dependencies and link the dotfiles under the right folder using [stow](https://www.gnu.org/software/stow/), for reference
 
 ```mermaid
@@ -34,6 +36,12 @@ A[etc] --> E[~/.config]
 B[bin] --> F[~/.local/bin]
 C[lib] --> G[~/.local/lib]
 D[systemd] --> H[~/.config/systemd/user]
+```
+
+In order to add aliases and set path the following line is added to `~/.bashrc`
+
+```bash
+source $HOME/.config/scripts/bash_integration.sh
 ```
 
 ### FIREFOX
