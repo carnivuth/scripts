@@ -3,7 +3,8 @@
 source "$HOME/.config/scripts/settings.sh"
 
 WEATHER_SLEEP_TIME="10m"
-HELP_MESSAGE="usage $0 [start|get_weather]"
+WEATHER_APP_NOTIFICATION_NAME="weather"
+HELP_MESSAGE="usage $0 [start|pre_stop|get_weather|notify]"
 
 function get_weather(){
   if [[ ! -f "$SCRIPTS_RUN_FOLDER/weather.json" ]];then echo "no weather to display, is the daemon running?"; exit 1; fi
@@ -29,10 +30,17 @@ function start(){
   done
 }
 
+function notify(){
+  notify-send -u normal -a "$WEATHER_APP_NOTIFICATION_NAME" "$(weather.sh get_weather | jq '.text' -r)"
+}
+
 
 case "$1" in
   "start")
     start
+    ;;
+  "notify")
+    notify
     ;;
   "pre_stop")
     pre_stop
