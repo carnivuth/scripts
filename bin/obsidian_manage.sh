@@ -37,10 +37,10 @@ function merged_md(){
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
   rm -f "$outfile"
-  grep index: pages/*.md pages/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-    if [[ -f "$file" ]];then echo "![$(basename $file)]($file)" >> "$outfile"; fi
-  done
-  echo "created $outfile"
+  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
+  if [[ -f "$file" ]];then echo "![$(basename $file)]($file)" >> "$outfile"; fi
+done
+echo "created $outfile"
 }
 
 function create(){
@@ -48,7 +48,7 @@ function create(){
   if [[ "$VAULT" == '' ]];then echo "path to vault is required run with -v '/path/to/vault'"; exit 1; fi
 
   # creating dirs and subdirs
-  mkdir -p "$VAULT" "$VAULT/journals" "$VAULT/assets" "$VAULT/pages"
+  mkdir -p "$VAULT" "$VAULT/journals" "$VAULT/assets" "$VAULT/$ARGUMENTS_FOLDER"
 
   # reset obsidian configs
   if [[ ! -d "$VAULT/.obsidian"  ]] || [[ "$RESET" == 'TRUE' ]]; then
@@ -81,39 +81,46 @@ done
 
 function add_footer(){
 
-  for file in *.md; do
-    sed -i '/\[PREVIOUS\]/d' "$file"
-    sed -i '/\[NEXT\]/d' "$file"
+  # check for correct directory
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
 
-    # extract index props
-    prec=''
-    prec_file=''
-    next=''
-    next_file=''
-    message=''
+  for file in $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md; do
+    if [[ -f "$file" ]];then
 
-    index="$( grep 'index:' "$file" |awk -F ' ' '{print $2}')"
-    if [[ index != "" ]];then
-      # compute prec value and next value
-      prec=$(($index - 1))
-      next=$(($index + 1))
-      echo "prec: $prec"
-      echo "index: $index"
-      echo "next: $next"
+      sed -i '/\[PREVIOUS\]/d' "$file"
+      sed -i '/\[NEXT\]/d' "$file"
+      sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$file"
 
-      # grep for prec value and next value
-      prec_file="$( grep -xl "index: $prec" *.md)"
-      next_file="$( grep -xl "index: $next" *.md)"
+      # extract index props
+      prec=''
+      prec_file=''
+      next=''
+      next_file=''
+      message=''
 
-      if [[ -f "$prec_file" ]]; then
-        message="[PREVIOUS]($prec_file)"
-      fi
-      if [[ -f "$next_file" ]]; then
-        message="$message [NEXT]($next_file)"
-      fi
-      echo "$message"
-      if [[ "$(grep 'NEXT' "$file")" == '' ]] && [[ "$(grep 'PREVIOUS' "$file")" == '' ]]; then
-        echo  -e "\n$message" >> $file
+      index="$( grep 'index:' "$file" |awk -F ' ' '{print $2}')"
+      if [[ index != "" ]];then
+        # compute prec value and next value
+        prec=$(($index - 1))
+        next=$(($index + 1))
+        echo "prec: $prec"
+        echo "index: $index"
+        echo "next: $next"
+
+        # grep for prec value and next value
+        prec_file="$( grep -xl "index: $prec" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null)"
+        next_file="$( grep -xl "index: $next" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null)"
+
+        if [[ -f "$prec_file" ]]; then
+          message="[PREVIOUS]($prec_file)"
+        fi
+        if [[ -f "$next_file" ]]; then
+          message="$message [NEXT]($next_file)"
+        fi
+        echo "$message"
+        if [[ "$(grep 'NEXT' "$file")" == '' ]] && [[ "$(grep 'PREVIOUS' "$file")" == '' ]]; then
+          echo  -e "\n$message" >> $file
+        fi
       fi
     fi
   done
@@ -123,36 +130,20 @@ function add_footer(){
 # usefull for quartz site generation
 function index(){
 
+  outfile=index.md
+
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
-  # check input parameter
-  if [[ "$PROJECT_NAME" == '' ]];then echo "project name is required use -p flag"; exit 1; fi
+
+  # backup old index
+  if [[ -f "$outfile" ]];then echo "backup $outfile in $outfile.old"; mv "$outfile" "$outfile.old"; rm -f "$outfile"; fi
 
   echo -e "# $PROJECT_NAME\n\n## CONTENTS" > index.md
 
-  # add first page of each topic
-  subdircount=$(find  $ARGUMENTS_FOLDER -maxdepth 1 -type d | wc -l)
-  if [[ "$subdircount" -gt 1 ]]; then
-    for file in  $ARGUMENTS_FOLDER/**/*.md; do
-      # extract index props
-      index="$( grep 'index:' "$file" |awk -F ' ' '{print $2}')"
-      if [[ "$index" == "1" ]];then
-        # add line to index
-        echo "- [$(basename $file .md)]($file)" >> index.md
-      fi
-    done
-  fi
-
-  # add all pages in the ARGUMENTS_FOLDER dir
-  subfilescount=$(find  $ARGUMENTS_FOLDER -maxdepth 1 -type f | wc -l)
-  if [[ "$subfilescount" -gt 0 ]]; then
-    for file in  $ARGUMENTS_FOLDER/*.md; do
-      if grep 'index:' "$file";then
-        # add line to index
-        echo "- [$(basename $file .md)]($file)" >> index.md
-      fi
-    done
-  fi
+  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
+  if [[ -f "$file" ]];then echo "- [$(basename $file '.md' | tr '[:upper:]' '[:lower:]' )]($file)" >> "$outfile"; fi
+done
+if [[ -f "$outfile" ]];then echo "created $outfile"; fi
 }
 
 function convert_to(){
@@ -170,7 +161,7 @@ function convert_to(){
   if [[ "$FROM" == *.lua ]];then FROM="$SCRIPTS_LIB_FOLDER/$FROM"; fi
   if [[ "$TO" == *.lua ]];then TO="$SCRIPTS_LIB_FOLDER/$TO"; fi
 
-  for file in pages/**/*.md pages/*.md ; do
+  for file in $ARGUMENTS_FOLDER/**/*.md $ARGUMENTS_FOLDER/*.md ; do
     if [[ -f "$file" ]]; then
       filename="$(basename "$file" | cut -d '.' -f '1' )"
       echo "converting $filename"
