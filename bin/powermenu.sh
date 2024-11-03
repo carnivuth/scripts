@@ -85,7 +85,7 @@ lock_command(){
 
 # set menu entries based on format setting
 if [[ $POWERMENU_FORMAT == 'long' ]]; then
-  SHUTDOWN=' shutdown'
+  SHUTDOWN=' poweroff'
   REBOOT=' reboot'
   LOCK=' lock'
   SUSPEND=' suspend'
