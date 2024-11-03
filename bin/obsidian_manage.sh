@@ -29,7 +29,21 @@ COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
+COMMANDS[show_index]="show index of pages"
 COMMANDS[push]="push content to remotes"
+
+function show_index(){
+  # check for correct directory
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  echo "pages with indexes"
+  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
+    echo "$file $index"
+  done
+  echo "pages without indexes"
+  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md -L 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read file; do
+    echo "$file"
+  done
+}
 
 function merged_md(){
 
