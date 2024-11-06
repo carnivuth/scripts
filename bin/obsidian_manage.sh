@@ -29,9 +29,23 @@ COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
+COMMANDS[daily]="take a quick node from terminal"
 COMMANDS[show_index]="show index of pages"
 COMMANDS[push]="push content to remotes"
 
+# alias for new obsidian daily note
+function daily {
+    TODAY=$(date "+%Y-%m-%d")
+    NOTE_PATH="$OBSIDIAN_NOTE_VAULT/journals/${TODAY}.md"
+    [ -f "$NOTE_PATH" ] || touch "$NOTE_PATH"
+
+    if [ -t 0 ]; then
+      nvim "$NOTE_PATH"
+    else
+      notify-send -a obsidian_manage -u normal "opened quick note ${TODAY}.md"
+      obsidian "obsidian://open-note?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&filename=$NOTE_PATH" & > /dev/null 2>&1
+    fi
+}
 function show_index(){
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
