@@ -35,16 +35,19 @@ COMMANDS[push]="push content to remotes"
 
 # alias for new obsidian daily note
 function daily {
-    TODAY=$(date "+%Y-%m-%d")
-    NOTE_PATH="$OBSIDIAN_NOTE_VAULT/journals/${TODAY}.md"
-    [ -f "$NOTE_PATH" ] || touch "$NOTE_PATH"
+  TODAY=$(date "+%Y-%m-%d")
+  NOTE_PATH="$OBSIDIAN_NOTE_VAULT/journals/${TODAY}.md"
+  [ -f "$NOTE_PATH" ] || touch "$NOTE_PATH"
 
-    if [ -t 0 ]; then
-      nvim "$NOTE_PATH"
-    else
-      notify-send -a obsidian_manage -u normal "opened quick note ${TODAY}.md"
-      obsidian "obsidian://open-note?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&filename=$NOTE_PATH" & > /dev/null 2>&1
-    fi
+  if [ -t 0 ]; then
+    nvim "$NOTE_PATH"
+  else
+    notify-send -a obsidian_manage -u normal "opened quick note ${TODAY}.md"
+    obsidian "obsidian://open-note?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&filename=$NOTE_PATH" & > /dev/null 2>&1
+  fi
+  if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+    hyprctl dispatch 'focuswindow obsidian'
+  fi
 }
 function show_index(){
   # check for correct directory
