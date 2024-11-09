@@ -93,6 +93,12 @@ for service in ${ENABLED_SERVICES}; do
   systemctl --user enable --now "$service"
 done
 
+# enable all services templates
+for service in ${TEMPLATE_SERVICES}; do
+  echo "enabling $service"
+  systemctl --user enable "$service"
+done
+
 # enable all services
 for timer in ${ENABLED_TIMERS}; do
   echo "enabling $timer"

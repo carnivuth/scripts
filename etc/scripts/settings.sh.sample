@@ -59,6 +59,7 @@ MENU_BACKEND=fzf
 
 # enabled systemd services
 ENABLED_SERVICES="weather.service updates.service battery.service ntfyd.service rclone_mount.service"
+TEMPLATE_SERVICES="ntfyd_watch@wg0.service ntfyd_watch@wlp0s20f3.service"
 
 # enabled systemd timers
 ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
