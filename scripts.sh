@@ -12,6 +12,8 @@ hypridle
 hyprpaper xdg-desktop-portal-hyprland'
 
 DEPS='
+task
+which
 fd
 pandoc-cli
 starship
