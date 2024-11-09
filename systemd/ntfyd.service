@@ -8,4 +8,4 @@ KillMode=control-group
 Environment="DISPLAY=:0"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
