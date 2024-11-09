@@ -1,0 +1,15 @@
+[Unit]
+Description=Ntfy notification daemon restart
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+Wants=sys-subsystem-net-devices-%i.device
+Requires=sys-subsystem-net-devices-%i.device
+
+[Service]
+ExecStart=systemctl --user restart ntfyd.service
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=sys-subsystem-net-devices-%i.device
+
