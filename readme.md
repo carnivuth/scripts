@@ -68,6 +68,19 @@ ln -sf firefox/userChrome.css ~/.mozzilla/firefox/<profiledir>/chrome
 
 - install sidebery extension end import `firefox/sidebary.json`
 
+### THUNDERBIRD
+
+In order to add thunderbird catppuccin theme follow these steps
+
+- clone theme [repo](https://github.com/catppuccin/thunderbird)
+
+```bash
+cd /tmp
+git clone https://github.com/catppuccin/thunderbird
+```
+
+- install theme from the thunderbird UI
+
 ## CONFIGURATION
 
 configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample` (version for reference) all binaries load the configuration file and use the setted variables
