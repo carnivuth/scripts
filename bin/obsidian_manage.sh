@@ -43,7 +43,8 @@ function daily {
     nvim "$NOTE_PATH"
   else
     notify-send -a obsidian_manage -u normal "opened quick note ${TODAY}.md"
-    obsidian "obsidian://open-note?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&filename=$NOTE_PATH" & > /dev/null 2>&1
+    # runs in background because is an alias
+    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=journals/${TODAY}.md"
   fi
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow obsidian'
