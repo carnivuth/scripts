@@ -35,17 +35,17 @@ COMMANDS[push]="push content to remotes"
 
 # alias for new obsidian daily note
 function daily {
-  TODAY=$(date "+%Y-%m-%d")
-  NOTE_PATH="$OBSIDIAN_NOTE_VAULT/journals/${TODAY}.md"
-  [ -f "$NOTE_PATH" ] || touch "$NOTE_PATH"
-
-  if [ -t 0 ]; then
-    nvim "$NOTE_PATH"
-  else
-    notify-send -a obsidian_manage -u normal "opened quick note ${TODAY}.md"
-    # runs in background because is an alias
-    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=journals/${TODAY}.md"
-  fi
+  source "$SCRIPTS_LIB_FOLDER/bemenu_standard.sh";
+  note="$(ls $OBSIDIAN_NOTE_VAULT/**/**/*.md | menu_cmd "note name")"
+  if [[ ! -f $note ]];then touch "$OBSIDIAN_NOTE_VAULT/$note.md";fi
+  case $note in
+    /*)
+    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&path=$note"
+    ;;
+    *)
+    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=$note"
+    ;;
+  esac
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow obsidian'
   fi
