@@ -17,6 +17,7 @@ PS1="[${BLUE6}\u@\h${RESET}:${BLUE21}\w${RESET}]"
 
 # setup default fzf options
 export FZF_DEFAULT_OPTS='--cycle --bind "tab:toggle-up,btab:toggle-down"'
+export FZF_COMPLETION_TRIGGER=''
 
 # import fzf integration
 eval  "$(fzf --bash)"
