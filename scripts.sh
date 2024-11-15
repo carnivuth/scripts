@@ -142,6 +142,7 @@ function configure_hook(){
     echo 'create post-merge hook'
     echo  -e "#!/bin/bash\n./scripts.sh -p" > ".git/hooks/post-merge"
   fi
+  chmod +x ".git/hooks/post-merge"
 }
 
 function configure_monitors(){
