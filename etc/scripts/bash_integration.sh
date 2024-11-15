@@ -27,13 +27,6 @@ eval "$(starship init bash)"
 
 #autodisown aliases
 alias d='start_and_disown.sh'
-alias mpv='start_and_disown.sh mpv'
-alias firefox='start_and_disown.sh firefox'
-alias libreoffice='start_and_disown.sh libreoffice'
-alias picard='start_and_disown.sh picard'
-alias loupe='start_and_disown.sh loupe'
-alias evince='start_and_disown.sh evince'
-alias obsidian='start_and_disown.sh obsidian'
 
 #ls aliases
 alias ls='ls --color=auto '
@@ -88,6 +81,7 @@ alias v='vim'
 
 # systemctl
 alias sctlu='systemctl --user'
+alias jctlu='journalctl --user'
 
 # bashly
 alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
