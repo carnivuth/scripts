@@ -87,4 +87,8 @@ alias jctlu='journalctl --user'
 alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
 alias t='task'
 
+# toolbox
+alias tb='docker run  --pull=always --rm -u $UID:$UID -v "$(pwd)"/:/home/toolbox/"$(basename "$(pwd)")" --name toolbox -it carnivuth/toolbox /home/toolbox/.local/bin/project.sh /home/toolbox/"$(basename "$(pwd)")"'
+
+
 if [[ -x "$(which task)" ]]; then task; fi
