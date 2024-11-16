@@ -11,7 +11,7 @@ OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
 
 # FLAGS
-FLAGS_STRING="v:p:f:t:rgu"
+FLAGS_STRING="b:v:p:f:t:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROJECT_NAME=${OPTARG}'
@@ -19,6 +19,7 @@ FLAGS[g]='GIT_INIT="TRUE"'
 FLAGS[f]='FROM=${OPTARG}'
 FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
+FLAGS[b]='MENU_BACKEND=${OPTARG}'
 
 # COMMANDS
 declare -A COMMANDS
@@ -35,20 +36,34 @@ COMMANDS[push]="push content to remotes"
 
 # alias for new obsidian daily note
 function daily {
-  source "$SCRIPTS_LIB_FOLDER/bemenu_standard.sh";
-  note="$(ls $OBSIDIAN_NOTE_VAULT/**/**/*.md | menu_cmd "note name")"
-  if [[ ! -f $note ]];then touch "$OBSIDIAN_NOTE_VAULT/$note.md";fi
-  case $note in
-    /*)
-    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&path=$note"
-    ;;
-    *)
-    obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=$note"
-    ;;
-  esac
-  if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-    hyprctl dispatch 'focuswindow obsidian'
-  fi
+  MENU_NAME="obsidian notes"
+  PROMPT="notes"
+
+  function help_message(){
+    echo "open obsidian notes in $OBSIDIAN_NOTE_VAULT"
+  }
+
+  function list_elements_to_user(){
+    ls $OBSIDIAN_NOTE_VAULT/**/**/*.md
+  }
+
+  function exec_command_with_chosen_element(){
+    note="$1"
+    if [[ ! -f $note ]];then touch "$OBSIDIAN_NOTE_VAULT/$note.md";fi
+    case $note in
+      /*)
+      obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&path=$note"
+      ;;
+      *)
+      obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=$note"
+      ;;
+    esac
+    if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+      hyprctl dispatch 'focuswindow obsidian'
+    fi
+  }
+
+  source "$SCRIPTS_LIB_FOLDER/menu.sh"
 }
 function show_index(){
   # check for correct directory

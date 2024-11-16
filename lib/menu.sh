@@ -1,6 +1,5 @@
 #!/bin/bash
 # standard menu script structure, all menu script need to implement all function names defined and the variables, then import this script
-source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/check_if_function_exist.sh"
 
 # check if called function exists
