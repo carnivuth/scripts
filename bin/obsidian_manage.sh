@@ -177,20 +177,20 @@ function add_footer(){
 # usefull for quartz site generation
 function index(){
 
-  outfile=index.md
+  index=index.md
+  newindex=index.new.md
 
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
 
-  # backup old index
-  if [[ -f "$outfile" ]];then echo "backup $outfile in $outfile.old"; mv "$outfile" "$outfile.old"; rm -f "$outfile"; fi
-
-  echo -e "# $PROJECT_NAME\n\n## CONTENTS" > index.md
+  PROJECT_NAME="$(basename $(pwd) | tr '[:lower:]' '[:upper:]' | sed 's/_/ /g')"
+  echo -e "# $PROJECT_NAME\n\n## CONTENTS" > "$newindex"
 
   grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-  if [[ -f "$file" ]];then echo "- [$(basename $file '.md' | tr '[:upper:]' '[:lower:]' )]($file)" >> "$outfile"; fi
+  if [[ -f "$file" ]];then echo "- [$(basename $file '.md' | tr '[:upper:]' '[:lower:]' )]($file)" >> "$newindex"; fi
 done
-if [[ -f "$outfile" ]];then echo "created $outfile"; fi
+if [[ ! -f "$index" ]];then mv "$newindex" "$index" echo "created $index"; fi
+if [[ -f "$index" ]];then nvim -d "$index" "$newindex";rm "$newindex"; fi
 }
 
 function convert_to(){
