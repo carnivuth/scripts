@@ -11,7 +11,7 @@ OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
 
 # FLAGS
-FLAGS_STRING="b:v:p:f:t:rgu"
+FLAGS_STRING="i:s:b:v:p:f:t:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROJECT_NAME=${OPTARG}'
@@ -20,6 +20,8 @@ FLAGS[f]='FROM=${OPTARG}'
 FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
 FLAGS[b]='MENU_BACKEND=${OPTARG}'
+FLAGS[i]='START_INDEX=${OPTARG}'
+FLAGS[s]='BUMP_VALUE=${OPTARG}'
 
 # COMMANDS
 declare -A COMMANDS
@@ -33,6 +35,7 @@ COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[daily]="take a quick node from terminal"
 COMMANDS[show_index]="show index of pages"
 COMMANDS[push]="push content to remotes"
+COMMANDS[bulk_index]="rewrite indexes in all repo"
 
 # alias for new obsidian daily note
 function daily {
@@ -65,6 +68,22 @@ function daily {
 
   source "$SCRIPTS_LIB_FOLDER/menu.sh"
 }
+
+function bulk_index(){
+  # check for correct directory
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  if [[ "$START_INDEX" == '' ]];then echo "start index is required run with -i '[NUM]'"; exit 1; fi
+  if [[ "$BUMP_VALUE" == '' ]];then echo "bump value is required run with -s '[NUM]'"; exit 1; fi
+
+  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
+  if [[ "$index" -gt "$START_INDEX" ]];then
+    newindex=$(( "$index" + "$BUMP_VALUE" ))
+    echo "change index of $file from $index to $newindex"
+    sed -i "s/index:.*/index: $newindex/g" "$file"
+  fi
+  done
+}
+
 function show_index(){
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
