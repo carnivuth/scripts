@@ -20,7 +20,6 @@ pandoc-cli
 starship
 rsync
 stow
-figlet
 yt-dlp
 ffmpeg
 gawk
