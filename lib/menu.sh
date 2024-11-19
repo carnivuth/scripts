@@ -34,7 +34,7 @@ if [[ "$MENU_NAME" != '' ]]; then menu_theme_setup "$MENU_NAME"; else echo "MENU
 if [[ "$PROMPT" == '' ]]; then echo "PROMPT is not defined"; exit 1; fi
 
 if [[ "$PRINT_HELP" == 'TRUE' ]]; then
-  figlet "$MENU_NAME"
+  echo "$MENU_NAME"
   help_message
   standard_help_message
 else
