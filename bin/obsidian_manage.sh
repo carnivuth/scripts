@@ -208,7 +208,7 @@ function index(){
   grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
   if [[ -f "$file" ]];then echo "- [$(basename $file '.md' | tr '[:upper:]' '[:lower:]' )]($file)" >> "$newindex"; fi
 done
-if [[ ! -f "$index" ]];then mv "$newindex" "$index" echo "created $index"; fi
+if [[ ! -f "$index" ]];then mv "$newindex" "$index"; echo "created $index"; fi
 if [[ -f "$index" ]];then nvim -d "$index" "$newindex";rm "$newindex"; fi
 }
 
