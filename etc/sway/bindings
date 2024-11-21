@@ -46,108 +46,65 @@ bindsym $mod+shift+k move window to workspace  prev; workspace prev
 
 ######################################### RESIZE ##############################################
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+######################################### resize ##############################################
 
+######################################### byndings ##############################################
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-######################################### RESIZE ##############################################
-
-######################################### BYNDINGS ##############################################
-
-# SCRIPTS FOLDER
+# scripts folder
 set $bin ~/.local/bin
-# Use Mouse+$mod to drag floating windows to their wanted position
+# use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+Shift+Return exec --no-startup-id alacritty --class floating
+bindsym $mod+return exec --no-startup-id alacritty
+bindsym $mod+shift+return exec --no-startup-id alacritty --class floating
 
 # kill focused window
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id $bin/launcher.sh -b bemenu
+bindsym $mod+d exec --no-startup-id $bin/launcher.sh -b $menu_backend
 
-bindsym $mod+n exec --no-startup-id $bin/networkmenu.sh -b bemenu
 #change focus
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+left focus left
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+bindsym $mod+right focus right
 
 # move focused window
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+shift+left move left
+bindsym $mod+shift+down move down
+bindsym $mod+shift+up move up
+bindsym $mod+shift+right move right
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+shift+space floating toggle
 
 #audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-bindsym XF86AudioMute exec --no-startup-id pamixer -t
-bindsym $mod+Shift+a exec --no-startup-id pamixer -t
+bindsym xf86audioraisevolume exec --no-startup-id pamixer -i 5
+bindsym xf86audiolowervolume exec --no-startup-id pamixer -d 5
+bindsym xf86audiomute exec --no-startup-id pamixer -t
+bindsym $mod+shift+a exec --no-startup-id pamixer -t
 
 #brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl -d intel_backlight s 10%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight s +10%
+bindsym xf86monbrightnessdown exec --no-startup-id  brightnessctl -d intel_backlight s 10%-
+bindsym xf86monbrightnessup exec --no-startup-id brightnessctl -d intel_backlight s +10%
 
-# Media player controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# media player controls
+bindsym xf86audioplay exec --no-startup-id playerctl play-pause
+bindsym xf86audionext exec --no-startup-id playerctl next
+bindsym xf86audioprev exec --no-startup-id playerctl previous
 
 #screenshot
-#bindsym $mod+Print exec --no-startup-id
+#bindsym $mod+print exec --no-startup-id
 
 #launch telegram
 bindsym $mod+t exec --no-startup-id telegram-desktop
-
-#launch powermenu
-bindsym $mod+p exec --no-startup-id $bin/powermenu.sh -b bemenu
-
-# launch browser
-bindsym $mod+s exec --no-startup-id $bin/quicksearch.sh -b bemenu
-
-# launch filemanager
-bindsym $mod+e exec --no-startup-id thunar
-
-#launch obsidian vaults launcher
-bindsym $mod+z exec --no-startup-id $bin/vaultlauncher.sh -b bemenu
-
-#launch github repo viewer
-bindsym $mod+g exec --no-startup-id $bin/github_repoviewer.sh -b bemenu
-
-#launch keepassxc
-bindsym $mod+y exec --no-startup-id keepassxc
 
 #launch blueman
 bindsym $mod+b exec --no-startup-id blueman-manager
@@ -156,13 +113,31 @@ bindsym $mod+b exec --no-startup-id blueman-manager
 bindsym $mod+a exec --no-startup-id pavucontrol
 
 # reload the configuration file
-bindsym $mod+Shift+r reload
+bindsym $mod+shift+r reload
 
 #lock screen
 bindsym $mod+l exec --no-startup-id "playerctl pause; swaylock -i ~/.local/lib/arch-chan.jpg
 bindsym $mod+shift+l exec --no-startup-id "swaylock -i ~/.local/lib/arch-chan.jpg
 
 #exit i3
-bindsym $mod+Shift+q exit
+bindsym $mod+shift+q exit
 
-######################################### BYNDINGS ##############################################
+######################################### byndings ##############################################
+set $menu_backend bemenu
+bindsym $mod+   m  exec --no-startup-id  playerctl play-pause
+bindsym $mod+shift+print  exec --no-startup-id  grim -g "$(slurp -d)" - | wl-copy && notify-send -a 'grim' 'maded screenshot' 'maded screenshot'
+bindsym $mod+print  exec --no-startup-id  grim - | wl-copy && notify-send -a 'grim' 'maded screenshot' 'maded screenshot'
+bindsym $mod+h exec --no-startup-id  $bin/clipboard.sh -b $menu_backend
+bindsym $mod+r  exec --no-startup-id  $bin/recorder.sh start
+bindsym $mod+e  exec --no-startup-id  $bin/quickopen.sh -b $menu_backend
+bindsym $mod+s  exec --no-startup-id  $bin/quicksearch.sh -b $menu_backend
+bindsym $mod+c  exec --no-startup-id  $bin/bluetoothconnect.sh -b $menu_backend
+bindsym $mod+g  exec --no-startup-id  $bin/github_repoviewer.sh -b $menu_backend
+bindsym $mod+Shift+g  exec --no-startup-id  $bin/github_pages_viewer.sh -b $menu_backend
+bindsym $mod+v  exec --no-startup-id  $bin/steamrunner.sh -b $menu_backend
+bindsym $mod+o  exec --no-startup-id  $bin/obsidian_manage.sh daily -b $menu_backend
+bindsym $mod+n  exec --no-startup-id  $bin/networkmenu.sh -b $menu_backend
+bindsym $mod+w  exec --no-startup-id  $bin/themeswitcher.sh -b $menu_backend
+bindsym $mod+p  exec --no-startup-id  $bin/powermenu.sh -b $menu_backend
+bindsym $mod+z  exec --no-startup-id  $bin/vaultlauncher.sh -b $menu_backend
+bindsym $mod+i exec --no-startup-id $terminal 'htop'
