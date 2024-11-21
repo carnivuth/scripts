@@ -1,5 +1,11 @@
 
-######################################### WORKSPACES ##############################################
+# VARIABLES
+
+# menu backend program
+set $menu_backend bemenu
+
+# scripts folder
+set $bin ~/.local/bin
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -14,6 +20,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# WORKSPACES
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -25,6 +33,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
@@ -36,22 +45,15 @@ bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
+
 # switch workspaces
 bindsym $mod+k workspace prev
 bindsym $mod+j workspace next
+
 #move window to next/previous container
 bindsym $mod+shift+j move window to workspace next; workspace next
 bindsym $mod+shift+k move window to workspace  prev; workspace prev
-######################################### WORKSPACES ##############################################
 
-######################################### RESIZE ##############################################
-
-######################################### resize ##############################################
-
-######################################### byndings ##############################################
-
-# scripts folder
-set $bin ~/.local/bin
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -100,9 +102,6 @@ bindsym xf86audioplay exec --no-startup-id playerctl play-pause
 bindsym xf86audionext exec --no-startup-id playerctl next
 bindsym xf86audioprev exec --no-startup-id playerctl previous
 
-#screenshot
-#bindsym $mod+print exec --no-startup-id
-
 #launch telegram
 bindsym $mod+t exec --no-startup-id telegram-desktop
 
@@ -122,8 +121,6 @@ bindsym $mod+shift+l exec --no-startup-id "swaylock -i ~/.local/lib/arch-chan.jp
 #exit i3
 bindsym $mod+shift+q exit
 
-######################################### byndings ##############################################
-set $menu_backend bemenu
 bindsym $mod+   m  exec --no-startup-id  playerctl play-pause
 bindsym $mod+shift+print  exec --no-startup-id  grim -g "$(slurp -d)" - | wl-copy && notify-send -a 'grim' 'maded screenshot' 'maded screenshot'
 bindsym $mod+print  exec --no-startup-id  grim - | wl-copy && notify-send -a 'grim' 'maded screenshot' 'maded screenshot'
