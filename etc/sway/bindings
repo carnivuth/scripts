@@ -83,6 +83,7 @@ bindsym $mod+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id $bin/launcher.sh -b bemenu
 
+bindsym $mod+n exec --no-startup-id $bin/networkmenu.sh -b bemenu
 #change focus
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -158,8 +159,8 @@ bindsym $mod+a exec --no-startup-id pavucontrol
 bindsym $mod+Shift+r reload
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "playerctl pause; swaylock -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
-bindsym $mod+shift+l exec --no-startup-id "swaylock -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
+bindsym $mod+l exec --no-startup-id "playerctl pause; swaylock -i ~/.local/lib/arch-chan.jpg
+bindsym $mod+shift+l exec --no-startup-id "swaylock -i ~/.local/lib/arch-chan.jpg
 
 #exit i3
 bindsym $mod+Shift+q exit

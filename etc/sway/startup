@@ -1,6 +1,6 @@
 exec --no-startup-id nm-applet
 exec_always --no-startup-id  killall swaybg
-exec_always --no-startup-id  swaybg -i ~/Pictures/wallpapers/arch-chan.jpg -m fill &
+exec_always --no-startup-id  swaybg -i ~/.local/lib/arch-chan.jpg -m fill &
 
 exec_always --no-startup-id  killall swayidle
 exec_always --no-startup-id  swayidle &
