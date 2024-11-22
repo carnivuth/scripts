@@ -12,6 +12,7 @@ hypridle
 hyprpaper xdg-desktop-portal-hyprland'
 
 DEPS='
+btop
 cliphist
 task
 which
@@ -24,7 +25,6 @@ yt-dlp
 ffmpeg
 gawk
 wf-recorder
-htop
 calc
 tmux
 seahorse
