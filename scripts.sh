@@ -55,7 +55,6 @@ ttf-font-awesome
 github-cli
 socat
 blueman
-python-pywal
 vim
 alacritty
 obsidian
