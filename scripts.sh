@@ -12,6 +12,7 @@ hypridle
 hyprpaper xdg-desktop-portal-hyprland'
 
 DEPS='
+nwg-hello
 btop
 cliphist
 task
