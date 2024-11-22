@@ -9,10 +9,10 @@ HYPRLAND_DEPS='
 hyprland
 hyprlock
 hypridle
-hyprpaper xdg-desktop-portal-hyprland'
+hyprpaper
+xdg-desktop-portal-hyprland'
 
 DEPS='
-nwg-hello
 btop
 cliphist
 task
