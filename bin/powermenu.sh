@@ -69,18 +69,18 @@ logout_command(){
 # lock function based on which lockscreen is installed
 lock_command(){
 
-  if [[ -x '/usr/bin/betterlockscreen' ]]; then
-    betterlockscreen -l
-  elif [[ -x '/usr/bin/swaylock' ]]; then
-    swaylock
-  elif [[ -x '/usr/bin/dm-tool' ]]; then
-    dm-tool lock
-  elif [[ -x '/usr/bin/hyprlock' ]]; then
-    hyprlock
-  elif [[ -x '/usr/bin/i3lock' ]]; then
-    i3lock
-  fi
-
+  if [[ "$(playerctl status)" != 'Paused' ]];then playerctl pause ; fi
+  case "$DESKTOP_SESSION" in
+    i3)
+      i3lock
+      ;;
+    hyprland)
+      hyprlock
+      ;;
+    sway)
+      swaylock
+      ;;
+  esac
 }
 
 # set menu entries based on format setting
