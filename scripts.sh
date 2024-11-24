@@ -46,7 +46,7 @@ thunderbird
 adwaita-icon-theme
 libnotify
 pop-icon-theme
-pavucontrol
+pulsemixer
 firefox
 telegram-desktop
 epapirus-icon-theme
