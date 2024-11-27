@@ -14,7 +14,7 @@ ARGUMENTS_FOLDER="pages"
 FLAGS_STRING="i:s:b:v:p:f:t:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
-FLAGS[p]='PROJECT_NAME=${OPTARG}'
+FLAGS[p]='PROP=${OPTARG}'
 FLAGS[g]='GIT_INIT="TRUE"'
 FLAGS[f]='FROM=${OPTARG}'
 FLAGS[t]='TO=${OPTARG}'
@@ -33,7 +33,7 @@ COMMANDS[update]="update all known vaults to obsidian with default configs in $O
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[daily]="take a quick node from terminal"
-COMMANDS[show_index]="show index of pages"
+COMMANDS[prop]="show prop status"
 COMMANDS[push]="push content to remotes"
 COMMANDS[bulk_index]="rewrite indexes in all repo"
 
@@ -84,15 +84,16 @@ function bulk_index(){
   done
 }
 
-function show_index(){
+function prop(){
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  if [[ "$PROP" == '' ]];then echo "property is required run with -i '[NUM]'"; exit 1; fi
   echo "pages with indexes"
-  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-    echo "$file $index"
+  grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r prop file; do
+    echo "$file $prop"
   done
   echo "pages without indexes"
-  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md -L 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read file; do
+  grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md -L 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r file; do
     echo "$file"
   done
 }
