@@ -2,6 +2,7 @@
   { "site": "amazon","link": "https://www.amazon.it"},
   { "site": "prime-video","link": "https://www.primevideo.com"},
   { "site": "aws","link": "https://aws.amazon.com"},
+  { "site": "cloudflare","link": "https://dash.cloudflare.com"},
   { "site": "calendar","link": "https://calendar.google.com"},
   { "site": "cardmarket","link": "https://www.cardmarket.com"},
   { "site": "datacamp","link": "https://app.datacamp.com"},
