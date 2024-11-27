@@ -29,7 +29,7 @@ handle_message(){
 
   if [[ "$attachment" != "null" ]]; then
 
-    attachment_url="$(get_param "$attachment" "url" | sed 's|\(.*\)/file/\(.*\)|\1/ntfy/file/\2|g' )"
+    attachment_url="$(get_param "$attachment" "url")"
     echo "$attachment_url"
 
     notification_body="$notification_body click to download stdout"
