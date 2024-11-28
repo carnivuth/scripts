@@ -13,6 +13,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+kanshi
 btop
 cliphist
 task
