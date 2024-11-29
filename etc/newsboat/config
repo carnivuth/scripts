@@ -1,2 +1,16 @@
 auto-reload yes
 reload-time 30
+
+include ~/.config/newsboat/dark
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
