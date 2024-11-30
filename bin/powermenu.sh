@@ -42,11 +42,8 @@ SUSPEND_COMMAND='systemctl suspend'
 logout_command(){
 
   case "$DESKTOP_SESSION" in
-    openbox)
-      openbox --exit
-      ;;
-    bspwm)
-      bspc quit
+    sway)
+      swaymsg exit
       ;;
     i3)
       i3-msg exit
@@ -58,18 +55,13 @@ logout_command(){
       ;;
     awesome)
       killall awesome
-      ;;
-    plasma)
-      qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-      ;;
   esac
 
 }
 
-# lock function based on which lockscreen is installed
+# lock function based on DESKTOP_SESSION var
 lock_command(){
 
-  if [[ "$(playerctl status)" != 'Paused' ]];then playerctl pause ; fi
   case "$DESKTOP_SESSION" in
     i3)
       i3lock
