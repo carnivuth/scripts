@@ -86,12 +86,11 @@ BORG_REPOSITORY_FOLDER="$HOME/.borg"
 
 # folders to backup with borg
 BORG_BACKUP_TARGETS="/etc/pacman.conf
-$HOME/.config/settings.sh
+$HOME/.config/scripts/settings.sh
 $HOME/.gitconfig
-$HOME/.local/share/task
-$HOME/labcraft
+$HOME/projects
 $HOME/.ssh
-/etc/udev/rules.d"
+$HOME/.password-store"
 
 # rsync connection parameters for backup remote sync, there are other requirements for this to work
 # user needs to be able to connect in ssh with key authentication
