@@ -13,6 +13,8 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+nextcloud-client
+pass
 kanshi
 btop
 cliphist
