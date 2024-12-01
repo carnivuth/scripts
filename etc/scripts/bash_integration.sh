@@ -2,10 +2,6 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# set editor and visual variables
-export EDITOR='vim'
-export VIUSUAL='vim'
-
 # include scripts settings
 if [ -f "$HOME/.config/scripts/settings.sh" ]; then source "$HOME/.config/scripts/settings.sh"; fi
 
