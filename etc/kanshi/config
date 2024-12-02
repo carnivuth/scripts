@@ -9,6 +9,43 @@ profile home_single {
      }
 }
 
+profile rio_office {
+     output "eDP-1" {
+          disable
+      }
+     output "Philips Consumer Electronics Company PHL 272V8 0x00000B40" {
+          mode 1920x1080
+          position 1920,0
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 272V8 0x00000CAD" {
+          mode 1920x1080
+          position 0,0
+          transform normal
+     }
+}
+
+profile noc_left {
+     output "eDP-1" {
+          disable
+      }
+     output "Philips Consumer Electronics Company PHL 273V7 0x00003F3A" {
+          mode 1920x1080
+          position 0,1080
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 273V7 0x00003EBF" {
+          mode 1920x1080
+          position 1920,1080
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 273V7 0x000041A2" {
+          mode 1920x1080
+          position 0,0
+          transform normal
+     }
+}
+
 profile home_double_vertical {
      output "eDP-1" {
           enable
