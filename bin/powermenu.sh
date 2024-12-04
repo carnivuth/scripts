@@ -64,12 +64,15 @@ lock_command(){
 
   case "$DESKTOP_SESSION" in
     i3)
+      if [[ "$(playerctl status)" != 'Paused' ]];then playerctl pause; fi
       i3lock
       ;;
     hyprland)
+      if [[ "$(playerctl status)" != 'Paused' ]];then playerctl pause; fi
       hyprlock
       ;;
     sway)
+      if [[ "$(playerctl status)" != 'Paused' ]];then playerctl pause; fi
       swaylock
       ;;
   esac
