@@ -25,7 +25,7 @@ profile rio_office {
      }
 }
 
-profile noc_left {
+profile noc_left_3 {
      output "eDP-1" {
           disable
       }
@@ -42,6 +42,32 @@ profile noc_left {
      output "Philips Consumer Electronics Company PHL 273V7 0x000041A2" {
           mode 1920x1080
           position 0,0
+          transform normal
+     }
+}
+
+profile noc_left_4 {
+     output "eDP-1" {
+          disable
+      }
+     output "Philips Consumer Electronics Company PHL 273V7 0x00003F3A" {
+          mode 1920x1080
+          position 0,1080
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 273V7 0x00003EBF" {
+          mode 1920x1080
+          position 1920,1080
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 273V7 0x000041A2" {
+          mode 1920x1080
+          position 0,0
+          transform normal
+     }
+     output "Philips Consumer Electronics Company PHL 273V7 0x00004287" {
+          mode 1920x1080
+          position 1920,0
           transform normal
      }
 }
