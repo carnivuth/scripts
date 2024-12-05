@@ -115,7 +115,7 @@ function create(){
   if [[ "$VAULT" == '' ]];then echo "path to vault is required run with -v '/path/to/vault'"; exit 1; fi
 
   # creating dirs and subdirs
-  mkdir -p "$VAULT" "$VAULT/journals" "$VAULT/assets" "$VAULT/$ARGUMENTS_FOLDER"
+  mkdir -p "$VAULT" "$VAULT/templates" "$VAULT/journals" "$VAULT/assets" "$VAULT/$ARGUMENTS_FOLDER"
 
   # reset obsidian configs
   if [[ ! -d "$VAULT/.obsidian"  ]] || [[ "$RESET" == 'TRUE' ]]; then
