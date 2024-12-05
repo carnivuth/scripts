@@ -13,6 +13,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+fastfetch
 nextcloud-client
 pass
 kanshi
