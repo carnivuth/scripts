@@ -62,8 +62,8 @@ svg.context-properties.content.enabled
 - link firefox configuration file to the profile directory
 
 ```bash
-mkdir -p ~/.mozzilla/firefox/<profiledir>/chrome
-ln -sf firefox/userChrome.css ~/.mozzilla/firefox/<profiledir>/chrome
+mkdir -p ~/.mozilla/firefox/<profiledir>/chrome
+ln -sf firefox/userChrome.css ~/.mozilla/firefox/<profiledir>/chrome
 ```
 
 - install sidebery extension end import `firefox/sidebary.json`
