@@ -27,6 +27,7 @@
   { "site": "meet","link": "https://meet.google.com"},
   { "site": "navidrome","link": "https://navidrome.carnivuth.org"},
   { "site": "nextcloud-web","link": "https://nextcloud.carnivuth.org"},
+  { "site": "ntfy","link": "https://ntfy.carnivuth.org"},
   { "site": "gitea","link": "https://gitea.carnivuth.org"},
   { "site": "nordpass","link": "https://app.nordpass.com"},
   { "site": "outlook","link": "https://outlook.office365.com/mail"},
