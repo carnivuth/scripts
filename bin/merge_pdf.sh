@@ -8,6 +8,8 @@ gs \
   -dNOPAUSE\
   -q\
   -sDEVICE=pdfwrite\
+  -dNumRenderingThreads=$(nproc)\
+  -dCompatibilityLevel=1.3\
   -dPDFSETTINGS=/prepress\
   -sOutputFile="$OUTFILE" "$@"
 
