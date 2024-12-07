@@ -10,5 +10,7 @@
   "showInlineTitle": false,
   "vimMode": true,
   "showLineNumber": true,
-  "showRibbon": false
+  "showRibbon": false,
+  "propertiesInDocument": "source",
+  "readableLineLength": false
 }
