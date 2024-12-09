@@ -166,7 +166,7 @@ case "$1" in
   uninstall)
     echo "removing packages"
     if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -Rns $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+    sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
     stow --target="$HOME/.config" -D etc
     stow --target="$HOME/.local/lib" -D lib
@@ -180,7 +180,7 @@ case "$1" in
 
     echo 'installing packages'
     if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -S $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+    sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
 
     echo 'adding bash integration'
