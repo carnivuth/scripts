@@ -144,9 +144,14 @@ function configure_hook(){
   # create default monitor configuration file if does not exists
   if [[ ! -e ".git/hooks/post-merge" ]]; then
     echo 'create post-merge hook'
-    echo  -e "#!/bin/bash\n./scripts.sh -p" > ".git/hooks/post-merge"
+    echo  -e "#!/bin/bash\n./scripts.sh" > ".git/hooks/post-merge"
   fi
   chmod +x ".git/hooks/post-merge"
+  if [[ ! -e ".git/hooks/post-commit" ]]; then
+    echo 'create post-commit hook'
+    echo  -e "#!/bin/bash\n./scripts.sh" > ".git/hooks/post-commit"
+  fi
+  chmod +x ".git/hooks/post-commit"
 }
 
 function configure_monitors(){
