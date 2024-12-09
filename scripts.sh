@@ -144,7 +144,7 @@ function configure_hook(){
   # create default monitor configuration file if does not exists
   if [[ ! -e ".git/hooks/post-merge" ]]; then
     echo 'create post-merge hook'
-    echo  -e "#!/bin/bash\n./scripts.sh -p" > ".git/hooks/post-merge"
+    echo  -e "#!/bin/bash\n./scripts.sh" > ".git/hooks/post-merge"
   fi
   chmod +x ".git/hooks/post-merge"
 }
@@ -161,7 +161,7 @@ case "$1" in
   uninstall)
     echo "removing packages"
     if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -Rns $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+    sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
     stow --target="$HOME/.config" -D etc
     stow --target="$HOME/.local/lib" -D lib
@@ -175,7 +175,7 @@ case "$1" in
 
     echo 'installing packages'
     if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -S $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+    sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
 
     echo 'adding bash integration'
