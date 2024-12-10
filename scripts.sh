@@ -157,6 +157,16 @@ function configure_monitors(){
   fi
 }
 
+function configure_ssh(){
+
+  # add include ssh config
+  mkdir -p "$HOME/.ssh"
+  if  ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
+    echo 'include ssh config'
+    echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
+  fi
+}
+
 case "$1" in
   uninstall)
     echo "removing packages"
@@ -191,6 +201,7 @@ case "$1" in
     install_systemd_units
     configure_monitors
     configure_wallpaper
+    configure_ssh
     configure_hook
     ;;
 esac
