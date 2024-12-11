@@ -15,12 +15,12 @@ profile rio_office {
       }
      output "Philips Consumer Electronics Company PHL 272V8 0x00000B40" {
           mode 1920x1080
-          position 1920,0
+          position 0,0
           transform normal
      }
      output "Philips Consumer Electronics Company PHL 272V8 0x00000CAD" {
           mode 1920x1080
-          position 0,0
+          position 1920,0
           transform normal
      }
 }
