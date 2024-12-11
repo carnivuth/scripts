@@ -1,0 +1,9 @@
+# HOMELAB
+Host torterra wailord staraptor espeon umbreon ditto arcanine klefky
+  User root
+  IdentityFile ~/.ssh/id_rsa
+
+Host u425518.your-storagebox.de
+  User u425518-sub1
+  Port 23
+  IdentityFile ~/.ssh/backup_key
