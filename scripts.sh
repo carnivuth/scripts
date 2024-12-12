@@ -20,7 +20,6 @@ pass
 kanshi
 btop
 cliphist
-task
 which
 fd
 pandoc-cli
