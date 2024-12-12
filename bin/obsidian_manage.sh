@@ -47,7 +47,7 @@ function daily {
   }
 
   function list_elements_to_user(){
-    ls $OBSIDIAN_NOTE_VAULT/**/**/*.md
+    ls $OBSIDIAN_NOTE_VAULT/**/**/*.md $OBSIDIAN_NOTE_VAULT/**/*.md
   }
 
   function exec_command_with_chosen_element(){
