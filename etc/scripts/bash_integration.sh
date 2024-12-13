@@ -65,7 +65,7 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 # homelab
-alias wake-playchomp='ssh torterra wakeonlan d8:5e:d3:8e:60:d1'
+alias wake-garchomp='ssh torterra wakeonlan d8:5e:d3:8e:60:d1'
 alias wake-torterra='wol b4:2e:99:9c:09:80 '
 alias sleep-torterra="ssh 192.168.1.62 -l root 'poweroff'"
 
