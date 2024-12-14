@@ -90,8 +90,7 @@ $HOME/.config/scripts/settings.sh
 $HOME/.gitconfig
 $HOME/projects/
 $HOME/vaults/
-$HOME/.ssh
-$HOME/.password-store"
+$HOME/.ssh"
 
 # rsync connection parameters for backup remote sync, there are other requirements for this to work
 # user needs to be able to connect in ssh with key authentication
