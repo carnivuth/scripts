@@ -88,7 +88,8 @@ BORG_REPOSITORY_FOLDER="$HOME/.borg"
 BORG_BACKUP_TARGETS="/etc/pacman.conf
 $HOME/.config/scripts/settings.sh
 $HOME/.gitconfig
-$HOME/projects
+$HOME/projects/
+$HOME/vaults/
 $HOME/.ssh
 $HOME/.password-store"
 
@@ -101,7 +102,7 @@ $HOME/.password-store"
 BORG_REMOTE_ENABLED=0
 
 BORG_BACKUP_REMOTE_SERVER=''
-BORG_BACKUP_REMOTE_PATH=""
+BORG_BACKUP_REMOTE_PATH="/mnt/datastore/pc-backups/$HOSTNAME"
 
 # rclone config parameters
 BORG_RCLONE_ENABLED=0
