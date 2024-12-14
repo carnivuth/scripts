@@ -12,7 +12,7 @@ help_message(){
 }
 
 list_elements_to_user(){
-  cd $HOME && fd
+  find $HOME -type f -not -path '*/.*' -not -path '*/site-packages/*' -not -path '*/env/*' -not -path '*/go/pkg*'
 }
 
 exec_command_with_chosen_element(){

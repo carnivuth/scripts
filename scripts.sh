@@ -21,7 +21,6 @@ kanshi
 btop
 cliphist
 which
-fd
 pandoc-cli
 starship
 rsync
