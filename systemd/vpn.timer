@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for the vpn service
+Requires=vpn.service
+
+[Timer]
+OnBootSec=180sec
+
+[Install]
+WantedBy=timers.target
