@@ -15,6 +15,7 @@
     ],
 
     "modules-center": [
+    "custom/caffeine",
       "clock",
     "custom/weather"
     ],
@@ -174,6 +175,13 @@
       },
       "ignored-players": [
       ]
+    },
+    "custom/caffeine": {
+      "format": "{}",
+      "tooltip": true,
+      "exec": "~/.local/bin/caffeine.sh check_status",
+      "on-click":"~/.local/bin/caffeine.sh toggle",
+      "return-type": "json"
     },
     "custom/vpn": {
       "format": "{}",
