@@ -1,5 +1,5 @@
 # HOMELAB
-Host torterra wailord staraptor espeon umbreon ditto arcanine klefky
+Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test
   User root
   IdentityFile ~/.ssh/id_rsa
 
