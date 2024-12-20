@@ -95,17 +95,19 @@ profile noc_right_right_3 {
      output "eDP-1" {
           disable
       }
-     output "Philips Consumer Electronics Company PHL 273V7 0x00003E78" {
+
+     output "Philips Consumer Electronics Company PHL 273V7 0x00003EC1" {
           mode 1920x1080
           position 0,1080
           transform normal
      }
-     output "Philips Consumer Electronics Company PHL 273V7 0x000041A6" {
+     output "Philips Consumer Electronics Company PHL 273V7 0x000041A5" {
           mode 1920x1080
           position 1920,1080
           transform normal
      }
-     output "Philips Consumer Electronics Company PHL 273V7 0x00003EC1" {
+     output "Philips Consumer Electronics Company PHL 273V7 0x000041A6" {
+
           mode 1920x1080
           position 0,0
           transform normal
