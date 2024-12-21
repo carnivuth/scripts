@@ -25,7 +25,7 @@ exec_command_with_chosen_element(){
 	esac
   # draw attention to the firefox window if running on hyprland
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-    hyprctl dispatch 'focuswindow firefox'
+    hyprctl dispatch 'focuswindow class:firefox'
   fi
 
   # draw attention to the firefox window if running on i3
