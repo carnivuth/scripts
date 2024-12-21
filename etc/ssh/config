@@ -3,7 +3,8 @@ Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test
   User root
   IdentityFile ~/.ssh/id_rsa
 
-Host u425518.your-storagebox.de
-  User u425518-sub1
+Host u425518.your-storagebox.de storagebox
+  HostName u425518.your-storagebox.de
+  User u425518
   Port 23
   IdentityFile ~/.ssh/backup_key
