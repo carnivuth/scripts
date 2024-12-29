@@ -13,6 +13,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+wol
 wireshark-cli
 fastfetch
 nextcloud-client
