@@ -6,10 +6,14 @@ echo "0" > "$RESULT_FILE"
 
 function sync(){
   for repo in ${GIT_REPOS}; do
+    if [[ -d "$repo/.git" ]] && grep -q "remote" "$repo/.git/config" ; then
+    (
           echo "updating repo $repo"
           cd "$repo" && git pull || echo "1" > "$RESULT_FILE"
 
           echo "--------------------"
+        )
+    fi
   done
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
     notify-send -i "$GIT_NOTIFICATION_ICON" -a "$GIT_NOTIFICATION_NAME" -u "normal" "done sync of git repos"
