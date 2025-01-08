@@ -62,7 +62,7 @@ ENABLED_SERVICES="weather.service updates.service battery.service ntfyd.service"
 TEMPLATE_SERVICES="ntfyd_watch@wg0.service ntfyd_watch@wlp0s20f3.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="git_sync.timer vpn.timer backup.timer prune.timer"
+ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
 
 # BATTERY SERVICE SETTINGS
 
