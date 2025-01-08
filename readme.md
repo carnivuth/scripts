@@ -1,10 +1,10 @@
 # SCRIPTS
 
-personal dotfiles (wayland configuration) + some usefull scripts and tools for everyday use
+Personal dotfiles (wayland configuration) + some useful scripts and tools for everyday use
 
 ## INSTALLATION
 
-to install :
+To install :
 
 - clone the repository
 
