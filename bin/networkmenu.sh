@@ -33,7 +33,7 @@ help_message(){
 }
 
 list_elements_to_user(){
-      nmcli -f name connection | grep -v NAME
+      nmcli device wifi rescan; nmcli -f name connection | grep -v NAME
 }
 
 exec_command_with_chosen_element(){
