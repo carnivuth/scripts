@@ -5,7 +5,7 @@ get_file(){
 }
 function get_github_repos(){
   # check if cache is valid
-  if [[ ! -f "$SCRIPTS_LOCAL_FOLDER/repos.json" ]]; then get_file; fi
+  if [[ ! -f "$SCRIPTS_LOCAL_FOLDER/repos.json" ]] || [[ "$(wc -l "$SCRIPTS_LOCAL_FOLDER/repos.json")" == "0" ]]; then get_file; fi
   birth_date="$(stat -c '%W' "$SCRIPTS_LOCAL_FOLDER/repos.json" )"
   today="$(date +%s)"
   if [[ "$(($today - $birth_date))" -gt 86400  ]]; then
