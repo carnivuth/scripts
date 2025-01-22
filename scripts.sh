@@ -117,8 +117,7 @@ echo "if you enable the backup service remember to run backup.sh init to initial
 ## check on settings.sh file
 if [[ ! -f "etc/scripts/settings.sh" ]]; then
   echo 'no settings.sh file found, run: '
-  echo 'echo 'source $HOME/.config/scripts/settings.sh.sample' > $HOME/scripts/etc/.config/settings.sh'
-  echo 'cat $HOME/scripts/etc/.config/settings.sh.sample >> $HOME/scripts/etc/.config/settings.sh'
+  echo 'echo "source $HOME/.config/scripts/settings.sh.sample" > $HOME/scripts/etc/.config/settings.sh'
   echo 'and edit the variables as you like'
   exit 1
 fi
@@ -140,7 +139,7 @@ function configure_wallpaper(){
   fi }
 
 function configure_hook(){
-  # create default monitor configuration file if does not exists
+  # create post merge hook for update
   if [[ ! -e ".git/hooks/post-merge" ]]; then
     echo 'create post-merge hook'
     echo  -e "#!/bin/bash\n./scripts.sh" > ".git/hooks/post-merge"
@@ -160,7 +159,7 @@ function configure_ssh(){
 
   # add include ssh config
   mkdir -p "$HOME/.ssh"
-  if  ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
+  if  test -f "$HOME/.ssh/config" ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
     echo 'include ssh config'
     echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
   fi
@@ -178,6 +177,7 @@ case "$1" in
     stow --target="$HOME/.config/systemd/user" -D systemd
     systemctl --user daemon-reload
     sed '/source \$HOME\/\.config\/scripts\/bash_integration.sh/d' -i "$HOME/.bashrc"
+    sed 'Include ~/.config/ssh/config' -i "$HOME/.ssh/config"
     ;;
   *)
     mkdir -p "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
