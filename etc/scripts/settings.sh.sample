@@ -90,7 +90,7 @@ $HOME/.config/scripts/settings.sh
 $HOME/.gitconfig
 $HOME/projects/
 $HOME/vaults/
-$HOME/.ssh"
+$HOME/.ssh/config"
 
 # rsync connection parameters for backup remote sync, there are other requirements for this to work
 # user needs to be able to connect in ssh with key authentication
@@ -125,6 +125,8 @@ NTFYD_TOPICS="homelab,work,random"
 NTFYD_APP_NAME_NOTIFICATION="ntfyd"
 NTFYD_MESSAGE_BUFFER="$SCRIPTS_RUN_FOLDER/ntfy.run"
 NTFYD_NOTIFY_ICON="/usr/share/icons/Papirus/32x32/apps/notifyconf.svg"
+# set to -vvv to see curl debug when running ntfyd
+NTFYD_DEBUG=""
 
 # recorder settings
 RECORDER="wf-recorder"
@@ -132,7 +134,7 @@ RECORDER_OUTPUT_PATH="/tmp/captures"
 RECORDER_APP_NAME_NOTIFICATION="recorder"
 
 # vpn connection name
-VPN_CONNECTION_NAME="arcanine"
+VPN_CONNECTION_NAME="not configured"
 VPN_APP_NAME_NOTIFICATION="vpn"
 VPN_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/openvpn.svg
 
