@@ -9,15 +9,24 @@ COMMANDS[sync]="sync repos specified in the config file"
 RESULT_FILE="$(mktemp)"
 echo "0" > "$RESULT_FILE"
 
+function repo_is_ignored(){
+  repo="$1"
+  for remote in ${GIT_IGNORED_REMOTES};do
+    if [[ $(grep url "$repo/.git/config" | awk -F'=' '{ print $2}') =~ "$remote" ]]; then return 0; fi
+  done
+  return 1;
+}
+
 function sync(){
   for repo in ${GIT_REPOS}; do
-    if [[ -d "$repo/.git" ]] && grep -q "remote" "$repo/.git/config" ; then
-    (
-          echo "updating repo $repo"
-          cd "$repo" && git pull || echo "1" > "$RESULT_FILE"
+    # check if folder is a git repo with a remote configured and the remote is not in the ignore config
+    if [[ -f "$repo/.git/config" ]] && grep -q "remote" "$repo/.git/config" && ! repo_is_ignored "$repo"; then
+      (
+      echo "updating repo $repo"
+      cd "$repo" && git pull || echo "1" > "$RESULT_FILE"
 
-          echo "--------------------"
-        )
+      echo "--------------------"
+    )
     fi
   done
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
