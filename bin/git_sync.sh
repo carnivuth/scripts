@@ -1,6 +1,11 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[sync]="sync repos specified in the config file"
 RESULT_FILE="$(mktemp)"
 echo "0" > "$RESULT_FILE"
 
@@ -24,10 +29,6 @@ function sync(){
 
 }
 
-case "$1" in
-  sync)
-    sync
-    ;;
-  *)
-    echo "usage $0 sync"
-    ;; esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"
+
+
