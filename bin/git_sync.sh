@@ -30,5 +30,3 @@ function sync(){
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
-
-
