@@ -39,3 +39,4 @@ System Volume Information
 My Saved Places.
 *.sb-*
 *env*
+*node_modules*
