@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# get_weather.sh
 source "$HOME/.config/scripts/settings.sh"
 
 declare -A FLAGS
