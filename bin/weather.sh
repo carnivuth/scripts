@@ -23,6 +23,8 @@ function pre_stop(){
 }
 
 function start(){
+  notify-send -u normal -a "$WEATHER_APP_NOTIFICATION_NAME" "started weather notification daemon"
+  echo "started weather notification daemon"
   while true; do
     # get data from wttr
     text=$(curl -s "https://wttr.in?format=3")
@@ -37,7 +39,7 @@ function start(){
 }
 
 function notify(){
-  notify-send -u normal -a "$WEATHER_APP_NOTIFICATION_NAME" "$(weather.sh get_weather | jq '.text' -r)"
+  notify-send -u normal -a "$WEATHER_APP_NOTIFICATION_NAME" "$($0 get_weather | jq '.text' -r)"
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
