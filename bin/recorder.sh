@@ -1,11 +1,14 @@
 #!/bin/bash
-
-#import settings
 source "$HOME/.config/scripts/settings.sh"
 
-mkdir -p "$RECORDER_OUTPUT_PATH"
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[toggle]="toggle screen recording"
 
 toggle(){
+  mkdir -p "$RECORDER_OUTPUT_PATH"
   pid="$(pidof $RECORDER)"
   if [[ "$pid" != "" ]]; then
     kill "$pid" >> "$SCRIPTS_LOGS_FOLDER/recorder.log" 2>&1
@@ -18,11 +21,4 @@ toggle(){
   fi
 }
 
-case "$1" in
-  "toggle")
-    toggle
-    ;;
-  *)
-    echo "usage $0 [toggle]"
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"

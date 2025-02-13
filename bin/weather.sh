@@ -2,9 +2,17 @@
 # get_weather.sh
 source "$HOME/.config/scripts/settings.sh"
 
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[start]="start weather daemon"
+COMMANDS[notify]="launch notification with weather"
+COMMANDS[pre_stop]="daemon pre stop operations"
+COMMANDS[get_weather]="pull weather informations"
+
 WEATHER_SLEEP_TIME="10m"
 WEATHER_APP_NOTIFICATION_NAME="weather"
-HELP_MESSAGE="usage $0 [start|pre_stop|get_weather|notify]"
 
 function get_weather(){
   if [[ ! -f "$SCRIPTS_RUN_FOLDER/weather.json" ]];then echo "no weather to display, is the daemon running?"; exit 1; fi
@@ -14,7 +22,6 @@ function get_weather(){
 function pre_stop(){
   rm -f "$SCRIPTS_RUN_FOLDER/weather.json"
 }
-
 
 function start(){
   while true; do
@@ -34,21 +41,4 @@ function notify(){
   notify-send -u normal -a "$WEATHER_APP_NOTIFICATION_NAME" "$(weather.sh get_weather | jq '.text' -r)"
 }
 
-
-case "$1" in
-  "start")
-    start
-    ;;
-  "notify")
-    notify
-    ;;
-  "pre_stop")
-    pre_stop
-    ;;
-  "get_weather")
-    get_weather
-    ;;
-  *)
-    echo "$HELP_MESSAGE"
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"

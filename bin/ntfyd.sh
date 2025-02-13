@@ -1,11 +1,15 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[start]="start notification daemon"
+
 get_param(){
   echo "$1" | jq -r "{$2} | to_entries | .[] | .value "
 }
-
-HELP_MESSAGE="usage $0 [start]"
 
 handle_message(){
 
@@ -43,9 +47,9 @@ handle_message(){
   fi
 }
 
-start_command(){
+start(){
 
-notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
+  notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
   stdbuf -oL  curl $NTFYD_DEBUG --retry 999 --retry-max-time 0 -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" | while read -r MSG; do
 
   event="$(get_param "$MSG" "event")"
@@ -65,14 +69,7 @@ notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal
       ;;
   esac
 
-done
+  done
 }
 
-case "$1" in
-  "start")
-    start_command
-    ;;
-  *)
-    echo "$HELP_MESSAGE"
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"

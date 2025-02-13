@@ -1,11 +1,13 @@
 #!/bin/bash
-
 #mount remote storage with rclone
 source "$HOME/.config/scripts/settings.sh"
 
-help_command(){
-        echo "usage $0 [mount|umount]"
-}
+declare -A FLAGS
+FLAGS_STRING=''
+
+declare -A COMMANDS
+COMMANDS[mnt]="mount configure storage"
+COMMANDS[umnt]="unmount configure storage"
 
 check_remote(){
   if [[ "$( rclone listremotes | grep "$1")" == '' ]];then
@@ -15,7 +17,7 @@ check_remote(){
   return 0
 }
 
-umount_command(){
+umnt(){
   for mount in "${!MOUNTS[@]}"; do
 
     path="${MOUNTS[$mount]}"
@@ -31,7 +33,7 @@ umount_command(){
   done
 }
 
-mount_command(){
+mnt(){
   for mount in "${!MOUNTS[@]}"; do
 
     path="${MOUNTS[$mount]}"
@@ -49,14 +51,4 @@ mount_command(){
   done
 }
 
-case "$1" in
-  "umount")
-    umount_command
-    ;;
-  "mount")
-    mount_command
-    ;;
-  *)
-    help_command
-    ;;
-esac
+source "$SCRIPTS_LIB_FOLDER/cli.sh"
