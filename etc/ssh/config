@@ -1,4 +1,7 @@
 # HOMELAB
+Host torterra
+  DynamicForward 40034
+
 Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test
   User root
   IdentityFile ~/.ssh/id_rsa
