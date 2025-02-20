@@ -38,21 +38,19 @@ function check_borg_is_running(){
 function init(){
 
   check_borg_is_running "$0"
-  # create repository folder if does not exists
+  # ask for passphrase and save in the keyring
+  echo -n "input borg repo passphrase:"
+  read -s borg_passphrase
+  echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
+
+  # create repository folder if does not exists and encrypt it
   if [[ ! -d "$BORG_REPOSITORY_FOLDER" ]]; then
     mkdir -p "$BORG_REPOSITORY_FOLDER"
-
-    echo -n "input borg repo passphrase:"
-    read -s borg_passphrase
-    echo "$borg_passphrase"| secret-tool store borg-repository borg_passphrase --label="borg repository passphrase"
-
     export BORG_PASSCOMMAND="secret-tool lookup borg-repository borg_passphrase"
     borg init --encryption repokey --make-parent-dirs "$BORG_REPOSITORY_FOLDER"
     unset BORG_PASSCOMMAND
-
-  else
-    echo "borg repo already initialized"
   fi
+
 
 }
 
