@@ -88,11 +88,11 @@ function prop(){
   # check for correct directory
   if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
   if [[ "$PROP" == '' ]];then echo "property is required run with -p 'prop_name'"; exit 1; fi
-  echo "pages with indexes"
+  echo "pages with $PROP"
   grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r prop file; do
     echo "$file $prop"
   done
-  echo "pages without indexes"
+  echo "pages without $PROP"
   grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md -L 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r file; do
     echo "$file"
   done
