@@ -18,10 +18,8 @@ Vagrant.configure('2') do |config|
   config.vm.synced_folder ".", "/home/vagrant/scripts"
 # provisioning
   $script = <<-'SCRIPT'
-  sudo pacman -Syu git --noconfirm
-  git  clone https://github.com/carnivuth/toolbox
-  cd ~/toolbox
-  ./toolbox.sh
+  sudo pacman -Syu git vim --noconfirm
+  cd /home/vagrant/scripts && ./scripts.sh
   SCRIPT
   config.vm.provision "shell", inline: $script, privileged: false
 end

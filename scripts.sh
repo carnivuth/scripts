@@ -86,12 +86,12 @@ libsecret'
 
 install_systemd_units(){
 
-echo 'installing systemd units'
-# installing systemd services
-stow --target="$HOME/.config/systemd/user" systemd
-source "$HOME/.config/scripts/settings.sh"
+  source "$HOME/.config/scripts/settings.sh"
 
-systemctl --user daemon-reload
+  echo 'installing systemd units'
+  # installing systemd services
+
+  systemctl --user daemon-reload
 
 # enable all services
 for service in ${ENABLED_SERVICES}; do
@@ -112,31 +112,15 @@ for timer in ${ENABLED_TIMERS}; do
 done
 echo ""
 echo "if you enable the backup service remember to run backup.sh init to initialize the borg repo"
+
 }
-
-## check on settings.sh file
-if [[ ! -f "etc/scripts/settings.sh" ]]; then
-  echo 'no settings.sh file found, run: '
-  echo 'echo "source $HOME/.config/scripts/settings.sh.sample" > $HOME/scripts/etc/.config/settings.sh'
-  echo 'and edit the variables as you like'
-  exit 1
-fi
-
-OPTIND=1
-# FLAG TO MANAGE PACKAGES, SCRIPT DOES INSTALL PACKAGES AS DEFAULT
-PACKAGES="TRUE"
-while getopts p flag; do
-  case "${flag}" in
-    p) PACKAGES="FALSE"; shift ;;
-    *) echo "${flag} is unsupported" ; exit 1 ;;
-  esac
-done
 
 function configure_wallpaper(){
   if [[ ! -e "$HOME/.config/hypr/hyprpaper.conf" ]]; then
     echo 'create wallpaper config'
-  "$HOME/.local/bin/themeswitcher.sh" -b fzf
-  fi }
+    "$HOME/.local/bin/themeswitcher.sh" -b fzf
+  fi
+}
 
 function configure_hook(){
   # create post merge hook for update
@@ -159,18 +143,35 @@ function configure_ssh(){
 
   # add include ssh config
   mkdir -p "$HOME/.ssh"
-  if  test -f "$HOME/.ssh/config" ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
+  # check if configuration file exist and if ssh config is sourced
+  if  [[ -f "$HOME/.ssh/config" ]] && ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
     echo 'include ssh config'
     echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
   fi
 }
 
+SCRIPT_PATH="$(dirname "$(realpath "$0")")"
+
+# check on settings.sh file
+if [[ ! -f "$SCRIPT_PATH/etc/scripts/settings.sh" ]]; then
+  echo 'no settings.sh file found, creating default one'
+  echo 'source $HOME/.config/scripts/settings.sh.sample' > "$SCRIPT_PATH/etc/scripts/settings.sh"
+fi
+
+OPTIND=1
+
+# flag to manage packages, script install packages as default
+PACKAGES="TRUE"
+while getopts p flag; do
+  case "${flag}" in
+    p) PACKAGES="FALSE"; shift ;;
+    *) echo "${flag} is unsupported" ; exit 1 ;;
+  esac
+done
+
 case "$1" in
   uninstall)
-    echo "removing packages"
-    if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
-    fi
+
     stow --target="$HOME/.config" -D etc
     stow --target="$HOME/.local/lib" -D lib
     stow --target="$HOME/.local/bin" -D bin
@@ -178,24 +179,31 @@ case "$1" in
     systemctl --user daemon-reload
     sed '/source \$HOME\/\.config\/scripts\/bash_integration.sh/d' -i "$HOME/.bashrc"
     sed 'Include ~/.config/ssh/config' -i "$HOME/.ssh/config"
+
+    echo "removing packages"
+    if [[ "$PACKAGES" == 'TRUE' ]];then
+      sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+    fi
     ;;
+
   *)
-    mkdir -p "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
+    mkdir -p "$HOME/.config/" "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
 
     echo 'installing packages'
     if [[ "$PACKAGES" == 'TRUE' ]];then
-    sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
-    fi
-
-    echo 'adding bash integration'
-    if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
-      echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
+      sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
 
     echo 'installing configs'
     stow --target="$HOME/.config" etc
     stow --target="$HOME/.local/lib" lib
     stow --target="$HOME/.local/bin" bin
+    stow --target="$HOME/.config/systemd/user" systemd
+
+    echo 'adding bash integration'
+    if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
+      echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
+    fi
 
     install_systemd_units
     configure_monitors
