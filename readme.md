@@ -140,5 +140,3 @@ Configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample`
 ## Supported systems
 
 The repo is tested and used on arch linux, it should work on other distros if you install the dependencies listed in the `./scripts.sh` script and manually link dotfiles, testing is done trough the use of a archlinux vagrant box
-
-
