@@ -28,3 +28,7 @@ workspace.json
 # monitor configurations
 monitors.conf
 hyprpaper.conf
+
+# Nextcloud config folder
+Nextcloud
+!Nextcloud/sync-exclude.lst
