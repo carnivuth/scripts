@@ -6,8 +6,8 @@ FLAGS_STRING=''
 
 declare -A COMMANDS
 COMMANDS[sync]="sync repos specified in the config file"
-RESULT_FILE="$(mktemp)"
-echo "0" > "$RESULT_FILE"
+COMMANDS[prmain]="make a pull request to main branch and accept it"
+COMMANDS[mgmain]="merge branch to main and push"
 
 function repo_is_ignored(){
   repo="$1"
@@ -18,6 +18,8 @@ function repo_is_ignored(){
 }
 
 function sync(){
+  RESULT_FILE="$(mktemp)"
+  echo "0" > "$RESULT_FILE"
   for repo in ${GIT_REPOS}; do
     # check if folder is a git repo with a remote configured and the remote is not in the ignore config
     if [[ -f "$repo/.git/config" ]] && grep -q "remote" "$repo/.git/config" && ! repo_is_ignored "$repo"; then
@@ -36,6 +38,25 @@ function sync(){
   fi
   rm "$RESULT_FILE"
 
+}
+
+function prmain(){
+
+  if [[ ! -d .git ]]; then echo 'not in a git repository, exiting'; exit 1; fi
+  branch="$(git branch | grep   '*' | awk -F' ' '{print $2}')"
+  if [[ "$branch" == 'main' ]]; then echo 'you are in the main branch, exiting'; exit 0; fi
+
+  gh pr create --base 'main' --fill
+  gh pr merge -m --auto
+}
+
+function mgmain(){
+  if [[ ! -d .git ]]; then echo 'not in a git repository, exiting'; exit 1; fi
+  branch="$(git branch | grep   '*' | awk -F' ' '{print $2}' )"
+  if [[ "$branch" == 'main' ]]; then echo 'you are in the main branch, exiting'; exit 1; fi
+
+  # switch to main branch, merge current, push branch and switch back to previous branch
+  git switch main && git merge "$branch" && git push && git switch "$branch"
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"

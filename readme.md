@@ -40,6 +40,7 @@ The repo contains a bunch of scripts and utilities for day to day use, it's almo
 - utilities for cleanup of docker/vagrant/ollama data
 - utility for managing audio/video file conversion and common operations
 - caffeine mode
+- git common utils
 
 ## Installation
 
