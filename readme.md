@@ -55,7 +55,7 @@ git clone https://github.com/carnivuth/scripts "$HOME/scripts"
 - run the installation script (**arch linux only**)
 
 ```
-cd $HOME/scripts.sh && ./scripts.sh
+cd $HOME/scripts && ./scripts.sh
 ```
 
 ### Configure greeter
