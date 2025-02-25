@@ -78,6 +78,14 @@ command = "agreety --cmd /bin/Hyprland"
 user = "greeter"
 ```
 
+### Configure updates
+
+The installation scripts creates a git hook that runs on merge event and execute the `./scripts.sh` installation script, to avoid input password for pacman configure sudo as follows
+
+```bash
+echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" > "/etc/sudoers.d/$USER"
+```
+
 ### How it works
 
 This will install a list of default packages and link the configuration files under the right folder using [stow](https://www.gnu.org/software/stow/), for reference
