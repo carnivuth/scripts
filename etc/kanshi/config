@@ -145,18 +145,18 @@ profile noc_right_3 {
 
      output "Philips Consumer Electronics Company PHL 273V7 0x00003E7A" {
           mode 1920x1080
-          position 0,-1080
+          position 1920,-1080
           transform normal
      }
      output "Philips Consumer Electronics Company PHL 273V7 0x00003EC4" {
           mode 1920x1080
-          position 0,0
+          position 0,-1080
           transform normal
      }
      output "Philips Consumer Electronics Company PHL 273V7 0x00003EC5" {
 
           mode 1920x1080
-          position 1920,-1080
+          position 0,0
           transform normal
      }
 }
