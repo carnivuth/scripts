@@ -58,6 +58,11 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# grep
+alias docker_remove_all='clean_env.sh docker_clean'
+alias vagrant_remove_all='clean_env.sh vagrant_clean'
+alias ollama_remove_all='clean_env.sh ollama_clean'
+
 # diff
 alias diff='diff --color=auto'
 

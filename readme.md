@@ -4,47 +4,47 @@ Personal dotfiles (wayland configuration) + some useful scripts and tools for ev
 
 ## Features
 
-The repo contains a bunch of scripts and utilities for day to day use, it's almost as a fully desktop environment (at least for my usecase 😅)
+The repo contains a bunch of scripts and utilities for day to day use, it's almost as a fully desktop environment (at least for my use case 😅)
 
 ### Systemd units and timers
 
-- backup script using borg and rsync
+- backup script using `borg` and `rsync`
 - github synchronization utility
 - system updates notification daemon
 - battery manager script
-- newsboat notification daemon
-- ntfy notification client
-- mount volumes with rclone utility
+- `newsboat` notification daemon
+- `ntfy` notification client
+- mount volumes with `rclone` utility
 - daemon for weather forecasts
 
 ### Menus
 
-- bluetooth menus
+- Bluetooth menus
 - clipboard menu
 - github  menus for quick access to github repos and github pages
-- kanshi profiles menu
+- `kanshi` profiles menu
 - application and websites launcher
 - menu for quick connection to networks
 - menu for quick access to obsidian vaults
 - menu for pass password manager
 - power options menu
-- quick browse on firefox applet
+- quick browse on `firefox` applet
 - file opener menu
 - steam games launcher
 
 ### General command line utilities
 
 - utility for wireguard vpn connection
-- utiity for screen recording
+- utility for screen recording
 - obsidian vault manager script
 - utilities for cleanup of docker/vagrant/ollama data
 - utility for managing audio/video file conversion and common operations
 - caffeine mode
-- git common utils
+- git common utilities
 
 ## Installation
 
-To install :
+To install:
 
 - clone the repository
 
