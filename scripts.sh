@@ -14,6 +14,7 @@ xdg-desktop-portal-hyprland'
 
 DEPS='
 wol
+ncspot
 wireshark-cli
 fastfetch
 nextcloud-client
