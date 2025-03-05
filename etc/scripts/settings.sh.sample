@@ -76,7 +76,7 @@ BATTERY_SLEEP_TIME="5m"
 # BACKUP TIMER SETTINGS
 
 BORG_APP_NAME_NOTIFICATION="Backup job"
-BORG_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/kfloppy.svg
+BORG_NOTIFICATION_ICON="/usr/share/icons/Papirus/32x32/apps/kfloppy.svg"
 
 # policy to pass to borg prune command (monthly)
 BORG_PRUNE_POLICY="10"
@@ -143,3 +143,9 @@ VPN_NOTIFICATION_ICON=/usr/share/icons/Papirus/32x32/apps/openvpn.svg
 # newsboat script settings
 NEWSBOAT_NOTIFICATION_NAME="News"
 NEWSBOAT_NOTIFICATION_ICON="/usr/share/icons/Papirus/32x32/apps/internet-news-reader.svg"
+
+# nextcloud script settings
+NEXTCLOUD_DIR="$HOME/Nextcloud"
+NEXTCLOUD_URL=""
+NXTCDD_NOTIFY_ICON="/usr/share/icons/Papirus/32x32/apps/nextcloud.svg"
+NXTCDD_APP_NAME_NOTIFICATION="nextcloud sync daemon"
