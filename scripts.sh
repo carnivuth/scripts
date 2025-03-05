@@ -15,6 +15,7 @@ xdg-desktop-portal-hyprland'
 DEPS='
 wol
 ncspot
+inotifywait
 passff-host
 wireshark-cli
 fastfetch
