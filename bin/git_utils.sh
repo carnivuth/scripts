@@ -2,12 +2,15 @@
 source "$HOME/.config/scripts/settings.sh"
 
 declare -A FLAGS
-FLAGS_STRING=''
+FLAGS_STRING='t:m:'
+FLAGS[t]='TAG=${OPTARG}'
+FLAGS[m]='MESSAGE=${OPTARG}'
 
 declare -A COMMANDS
 COMMANDS[sync]="sync repos specified in the config file"
 COMMANDS[prmain]="make a pull request to main branch and accept it"
 COMMANDS[mgmain]="merge branch to main and push"
+COMMANDS[tag]="create a tag with a given name and push to remote"
 
 function repo_is_ignored(){
   repo="$1"
@@ -57,6 +60,16 @@ function mgmain(){
 
   # switch to main branch, merge current, push branch and switch back to previous branch
   git switch main && git merge "$branch" && git push && git switch "$branch"
+}
+
+function tag(){
+  if [[ ! -d .git ]]; then echo 'not in a git repository, exiting'; exit 1; fi
+  if test -z $TAG; then echo 'tag is required use option -t'; exit 1;fi
+  if test -z $MESSAGE; then echo 'message is required use option -m'; exit 1;fi
+  branch="$(git branch | grep   '*' | awk -F' ' '{print $2}' )"
+  if [[ "$branch" != 'main' ]]; then echo 'you are not in the main branch, exiting'; exit 1; fi
+  git tag -a "$TAG" -m "$MESSAGE"
+  git push origin tag "$TAG"
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
