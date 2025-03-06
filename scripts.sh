@@ -14,7 +14,8 @@ xdg-desktop-portal-hyprland'
 
 DEPS='
 wol
-ncspot
+gst-plugin-spotify
+strawberry
 inotifywait
 passff-host
 wireshark-cli
