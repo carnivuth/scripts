@@ -7,6 +7,7 @@ FLAGS_STRING=''
 declare -A COMMANDS
 COMMANDS[start]="start nextcloud sync daemon daemon"
 COMMANDS[init]="setup credentials in keyring"
+COMMANDS[nxt_sync]="run a single sync operation"
 
 check(){
   if ! secret-tool lookup nextcloud-repository nextcloud_username > /dev/null 2>&1 || ! secret-tool lookup nextcloud-repository nextcloud_password > /dev/null 2>&1; then
