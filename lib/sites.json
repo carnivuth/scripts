@@ -43,6 +43,7 @@
   { "site": "proxmox","link": "https://torterra:8006"},
   { "site": "pwmanager-labs","link": "https://pwmanager.labs.it"},
   { "site": "raiplay","link": "https://www.raiplay.it"},
+  { "site": "mermaid-shapes","link": "https://mermaid.js.org/syntax/flowchart.html#complete-list-of-new-shapes"},
   { "site": "reddit","link": "https://www.reddit.com"},
   { "site": "redmine-labs","link": "https://develtrac.labs.it/redmine"},
   { "site": "reload","link": "https://reload.labs.it"},
