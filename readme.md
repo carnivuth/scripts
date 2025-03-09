@@ -70,10 +70,13 @@ vt = 1
 [default_session]
 
 # run hyprland on login
-command = "agreety --cmd /bin/Hyprland"
+#command = "agreety --cmd /bin/Hyprland"
 
 # run sway on login
 #command = "agreety --cmd /bin/sway"
+
+# login with tuigreet
+command = "tuigreet --remember --remember-user-session"
 
 user = "greeter"
 ```

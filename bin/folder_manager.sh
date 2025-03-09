@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
 FLAGS[d]='DIRECTORY=${OPTARG}'
@@ -8,6 +9,9 @@ FLAGS_STRING='d:'
 declare -A COMMANDS
 COMMANDS[run]="run a cleanup operation"
 COMMANDS[watch]="watch a folder for changes and run cleanup operations"
+
+APP_NAME="Folder manager"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/document-viewer.svg"
 
 function run(){
 
@@ -48,7 +52,7 @@ function watch(){
   echo "started watching for changes in $DIRECTORY"
   inotifywait -e create -m "$DIRECTORY" | while read directory filename; do
     if run; then
-      notify-send -i "$FOLDER_MANAGER_NOTIFY_ICON" -a "$FOLDER_MANAGER_APP_NAME_NOTIFICATION" -u "normal"  "reorganized $DIRECTORY"
+      notify -u "normal"  "reorganized $DIRECTORY"
     fi
   done
 }

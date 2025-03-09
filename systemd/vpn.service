@@ -1,8 +1,9 @@
 [Unit]
 Description=Attach to vpn on startup
-Wants=network-online.target
-After=network-online.target
 
 [Service]
 ExecStart=/bin/bash ${HOME}/.local/bin/vpn.sh toggle
-Type=exec
+Type=oneshot
+
+[Install]
+RequiredBy=default.target

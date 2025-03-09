@@ -1,46 +1,57 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
-# SCRIPT SPECIFIC VARS AND FUNCTIONS
-NETWORKMENU_APP_NAME_NOTIFICATION="networkmenu"
+declare -A FLAGS
+FLAGS_STRING='b:'
+FLAGS[b]='MENU_BACKEND=${OPTARG}'
 
-rescan_wifi_networks(){
-  nmcli device wifi rescan && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "Rescan completed" "wifi networks rescan complete"
-}
+declare -A COMMANDS
+COMMANDS[rescan]="rescan wifi networks"
+COMMANDS[wifi]="toggle wifi"
+COMMANDS[network]="toggle networking"
+COMMANDS[connect]="connect to a network"
 
-toggle_wifi() {
-  if [ "$(nmcli radio wifi)" == 'enabled' ]; then
-    nmcli radio wifi off && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "Wifi turned off" "Wifi successfully turned off"
-  else
-    nmcli radio wifi on && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "Wifi turned on" "Wifi successfully turned on"
-  fi
-}
-
-toggle_networking() {
-  if [ "$(nmcli network)" == 'enabled' ]; then
-    nmcli network off && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "Network turned off" "Network successfully turned off"
-  else
-    nmcli network on && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "Network turned on" "Network successfully turned on"
-  fi
-}
-
-# STANDARD MENU VARS AND FUNCTIONS
+APP_NAME="networkmenu"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/gnome-networktool.svg"
 MENU_NAME="networkmenu"
 PROMPT="networks"
 
-help_message(){
-  echo "connect to known networks"
+function rescan(){
+  nmcli device wifi rescan && notify "normal" "Rescan completed"
 }
 
-list_elements_to_user(){
-      nmcli device wifi rescan; nmcli -f name connection | grep -v NAME
+function wifi() {
+  if [ "$(nmcli radio wifi)" == 'enabled' ]; then
+    nmcli radio wifi off && notify "normal" "Wifi turned off"
+  else
+    nmcli radio wifi on && notify "normal" "Wifi turned on"
+  fi
 }
 
-exec_command_with_chosen_element(){
-      network="$(echo $1 | xargs)"
-      if [ "$(nmcli connection | grep "$network")" != "" ]; then
-        nmcli device wifi connect "$network" && notify-send -a "$NETWORKMENU_APP_NAME_NOTIFICATION" -u "normal" "connected" "connected to $network"
-      fi
+function network() {
+  if [ "$(nmcli network)" == 'enabled' ]; then
+    nmcli network off && notify "normal" "Network turned off"
+  else
+    nmcli network on && notify "normal" "Network turned on"
+  fi
 }
 
-source "$SCRIPTS_LIB_FOLDER/menu.sh"
+function connect(){
+  function help_message(){
+    echo " connect to a network"
+  }
+  function list_elements_to_user(){
+        nmcli device wifi rescan; nmcli -f name connection | grep -v NAME
+  }
+
+  function exec_command_with_chosen_element(){
+        network="$(echo $1 | xargs)"
+        if [ "$(nmcli connection | grep "$network")" != "" ]; then
+          nmcli device wifi connect "$network" && notify "normal" "connected to $network"
+        fi
+  }
+
+  source "$SCRIPTS_LIB_FOLDER/menu.sh"
+}
+source "$SCRIPTS_LIB_FOLDER/cli.sh"

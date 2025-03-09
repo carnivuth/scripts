@@ -1,0 +1,10 @@
+[Unit]
+Description=Nextcloud sync daemon managing %i folder
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/nxtcdd.sh start -d ${HOME}/%i
+Type=exec
+KillMode=control-group
+
+[Install]
+RequiredBy=default.target

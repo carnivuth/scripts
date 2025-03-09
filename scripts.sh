@@ -70,6 +70,7 @@ obsidian
 nm-connection-editor
 noto-fonts-emoji
 greetd
+greetd-tuigreet
 wev
 ttf-jetbrains-mono-nerd
 waybar
@@ -106,7 +107,7 @@ done
 # enable all services templates
 for service in ${TEMPLATE_SERVICES}; do
   echo "enabling $service"
-  systemctl --user enable "$service"
+  systemctl --user enable --now "$service"
 done
 
 # enable all services

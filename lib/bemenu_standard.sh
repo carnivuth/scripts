@@ -1,8 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER/get_wal_color.sh"
 
-get_wal_color
 BEMENU_HIGH=21
 BEMENU_BORDER=1
 BEMENU_PADDING=10

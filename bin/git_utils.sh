@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
 FLAGS_STRING='t:m:'
@@ -11,6 +12,9 @@ COMMANDS[sync]="sync repos specified in the config file"
 COMMANDS[prmain]="make a pull request to main branch and accept it"
 COMMANDS[mgmain]="merge branch to main and push"
 COMMANDS[tag]="create a tag with a given name and push to remote"
+
+APP_NAME="github sync"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/github.svg"
 
 function repo_is_ignored(){
   repo="$1"
@@ -35,9 +39,9 @@ function sync(){
     fi
   done
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
-    notify-send -i "$GIT_NOTIFICATION_ICON" -a "$GIT_NOTIFICATION_NAME" -u "normal" "done sync of git repos"
+    notify "normal" "done sync of git repos"
   else
-    notify-send -i "$GIT_NOTIFICATION_ICON" -a "$GIT_NOTIFICATION_NAME" -u "critical" "some repos could not be synched"
+    notify "critical" "some repos could not be synched"
   fi
   rm "$RESULT_FILE"
 

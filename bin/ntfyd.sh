@@ -1,8 +1,12 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
 FLAGS_STRING=''
+
+APP_NAME="ntfyd"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/notifyconf.svg"
 
 declare -A COMMANDS
 COMMANDS[start]="start notification daemon"
@@ -23,7 +27,6 @@ handle_message(){
   echo "$attachment"
 
   notification_body=""
-  notification_params=""
 
   if [[ "$title" != "null" ]]; then
     notification_body="$notification_body $title $message"
@@ -37,11 +40,10 @@ handle_message(){
     echo "$attachment_url"
 
     notification_body="$notification_body click to download stdout"
-    notification_params=--action='download=download attachment'
   fi
 
   echo "$notification_body"
-  result="$(notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal" $notification_params "$notification_body")"
+  result="$(notify "normal" "$notification_body")"
   if [[ "$result" == 'download' ]]; then
     xdg-open "$attachment_url"
   fi
@@ -49,7 +51,7 @@ handle_message(){
 
 start(){
 
-  notify-send -i "$NTFYD_NOTIFY_ICON" -a "$NTFYD_APP_NAME_NOTIFICATION" -u "normal"  "started listening for notifications"
+  notify "normal"  "started listening for notifications"
   stdbuf -oL  curl $NTFYD_DEBUG --retry 999 --retry-max-time 0 -s "$NTFYD_ENDPOINT/$NTFYD_TOPICS/json" | while read -r MSG; do
 
   event="$(get_param "$MSG" "event")"

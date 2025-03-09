@@ -133,7 +133,7 @@ bindsym $mod+g  exec --no-startup-id  $bin/github_repoviewer.sh -b $menu_backend
 bindsym $mod+Shift+g  exec --no-startup-id  $bin/github_pages_viewer.sh -b $menu_backend
 bindsym $mod+v  exec --no-startup-id  $bin/steamrunner.sh -b $menu_backend
 bindsym $mod+o  exec --no-startup-id  $bin/obsidian_manage.sh daily -b $menu_backend
-bindsym $mod+n  exec --no-startup-id  $bin/networkmenu.sh -b $menu_backend
+bindsym $mod+n  exec --no-startup-id  $bin/networkmenu.sh connect -b $menu_backend
 bindsym $mod+w  exec --no-startup-id  $bin/themeswitcher.sh -b $menu_backend
 bindsym $mod+p  exec --no-startup-id  $bin/powermenu.sh -b $menu_backend
 bindsym $mod+z  exec --no-startup-id  $bin/vaultlauncher.sh -b $menu_backend

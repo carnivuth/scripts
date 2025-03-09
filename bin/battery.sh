@@ -1,7 +1,9 @@
 #!/bin/bash
-
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
+APP_NAME="Battery manager"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/slimbookbattery.svg"
  set -x
 # setting parameters
 NOTIFY="TRUE"
@@ -24,7 +26,7 @@ upower -m | while read row; do
         if [[ "$PERCENTAGE" -lt $BATTERY_LIMIT ]]; then
             if [ "$NOTIFY" == "TRUE" ]; then
             # send notification
-            notify-send -a "Low Battery" -u critical "low battery" "the system battery has reach the $BATTERY_LIMIT%"
+            notify "critical" "the system battery has reach the $BATTERY_LIMIT%"
             NOTIFY=FALSE
             fi
         fi
@@ -32,7 +34,7 @@ upower -m | while read row; do
     # check for battery status changes
     if [ "$STATE" != "discharging" ] && [ "$PREC_STATE" != "$STATE" ] && [ "$STATE" != "fully-charged" ]; then
 
-        notify-send -a "System charging" -u normal "system charging" "system is charging"
+        notify "normal" "system is charging"
     fi
     PREC_STATE=$STATE
 

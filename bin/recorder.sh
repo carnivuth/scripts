@@ -1,5 +1,9 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
+
+APP_NAME="Recorder"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/gtkam-camera.svg"
 
 declare -A FLAGS
 FLAGS_STRING=''
@@ -12,11 +16,11 @@ toggle(){
   pid="$(pidof $RECORDER)"
   if [[ "$pid" != "" ]]; then
     kill "$pid" >> "$SCRIPTS_LOGS_FOLDER/recorder.log" 2>&1
-    notify-send -a "$RECORDER_APP_NAME_NOTIFICATION" -u "normal" "stop recording"
+    notify "normal" "stop recording"
   else
     name="$(date +%s).mp4"
     echo "$name" >> "$SCRIPTS_LOGS_FOLDER/recorder.log" 2>&1
-    notify-send -a "$RECORDER_APP_NAME_NOTIFICATION" -u "normal" "start recording"
+    notify "normal" "start recording"
     "$RECORDER" -f "$RECORDER_OUTPUT_PATH/$name" >> "$SCRIPTS_LOGS_FOLDER/recorder.log" 2>&1 &
   fi
 }

@@ -1,6 +1,10 @@
 #!/bin/bash
 #mount remote storage with rclone
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
+
+APP_NAME="rclone mount"
+APP_ICON="/usr/share/icons/Papirus/32x32/apps/disk-manager.svg"
 
 declare -A FLAGS
 FLAGS_STRING=''
@@ -11,7 +15,7 @@ COMMANDS[umnt]="unmount configure storage"
 
 check_remote(){
   if [[ "$( rclone listremotes | grep "$1")" == '' ]];then
-    notify-send -a "$RCLONE_MOUNT_APP_NAME_NOTIFICATION" -u "critical" "mount: $1 is not configured! run 'rclone config'"
+    notify "critical" "mount: $1 is not configured! run 'rclone config'"
     return 1
   fi
   return 0
@@ -28,7 +32,7 @@ umnt(){
 
     if check_remote "$mount" ; then
       umount "$path"
-      notify-send -a "$RCLONE_MOUNT_APP_NAME_NOTIFICATION" -u "normal" "unmounted $mount"
+      notify "normal" "unmounted $mount"
     fi
   done
 }
@@ -45,7 +49,7 @@ mnt(){
     if check_remote "$mount" ; then
       mkdir -p "$path"
       rclone mount "$mount": "$path" --daemon
-      notify-send -a "$RCLONE_MOUNT_APP_NAME_NOTIFICATION" -u "normal" "mounted  $mount"
+      notify "normal" "mounted  $mount"
     fi
     sleep infinity
   done
