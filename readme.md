@@ -81,6 +81,20 @@ command = "tuigreet --remember --remember-user-session"
 user = "greeter"
 ```
 
+To unlock the gnome keyring at default set this on the `/etc/pam.d/greetd` file
+
+```
+#%PAM-1.0
+
+auth       required     pam_securetty.so
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+auth       optional     pam_gnome_keyring.so
+account    include      system-local-login
+session    include      system-local-login
+session    optional     pam_gnome_keyring.so auto_start
+```
+
 ### Configure updates
 
 The installation scripts creates a git hook that runs on merge event and execute the `./scripts.sh` installation script, to avoid input password for pacman configure sudo as follows
