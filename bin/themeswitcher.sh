@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 source "$HOME/.config/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER/get_wal_color.sh"
 
 #hyprpaper change background script
 hyprpaper_switcher(){
@@ -37,6 +36,5 @@ exec_command_with_chosen_element(){
     "sway")
       # TODO
     esac
-  }
-
-  source "$SCRIPTS_LIB_FOLDER/menu.sh"
+}
+source "$SCRIPTS_LIB_FOLDER/menu.sh"
