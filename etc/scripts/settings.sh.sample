@@ -57,7 +57,7 @@ MENU_BACKEND=fzf
 
 # enabled systemd services
 ENABLED_SERVICES="weather.service updates.service battery.service ntfyd.service"
-TEMPLATE_SERVICES="nxtcdd@Nextcloud2.service folder_manager@Downloads.service"
+TEMPLATE_SERVICES="nxtcdd@Nextcloud.service folder_manager@Downloads.service"
 
 # enabled systemd timers
 ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
