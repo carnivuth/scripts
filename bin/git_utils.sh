@@ -64,8 +64,8 @@ function mgmain(){
 
 function tag(){
   if [[ ! -d .git ]]; then echo 'not in a git repository, exiting'; exit 1; fi
-  if test -z $TAG; then echo 'tag is required use option -t'; exit 1;fi
-  if test -z $MESSAGE; then echo 'message is required use option -m'; exit 1;fi
+  if [[ -z $TAG ]]; then echo 'tag is required use option -t'; exit 1;fi
+  if [[ -z $MESSAGE ]]; then echo 'message is required use option -m'; exit 1;fi
   branch="$(git branch | grep   '*' | awk -F' ' '{print $2}' )"
   if [[ "$branch" != 'main' ]]; then echo 'you are not in the main branch, exiting'; exit 1; fi
   git tag -a "$TAG" -m "$MESSAGE"
