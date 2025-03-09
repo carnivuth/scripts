@@ -59,7 +59,7 @@ MENU_BACKEND=fzf
 
 # enabled systemd services
 ENABLED_SERVICES="nxtcdd.service weather.service updates.service battery.service ntfyd.service"
-TEMPLATE_SERVICES=""
+TEMPLATE_SERVICES="folder_manager@Downloads.service"
 
 # enabled systemd timers
 ENABLED_TIMERS="git_sync.timer backup.timer prune.timer"
@@ -149,3 +149,8 @@ NEXTCLOUD_DIR="$HOME/Nextcloud"
 NEXTCLOUD_URL=""
 NXTCDD_NOTIFY_ICON="/usr/share/icons/Papirus/32x32/apps/nextcloud.svg"
 NXTCDD_APP_NAME_NOTIFICATION="nextcloud sync daemon"
+
+
+# folder manager script settings
+FOLDER_MANAGER_NOTIFY_ICON="/usr/share/icons/Papirus/32x32/apps/document-viewer.svg"
+FOLDER_MANAGER_APP_NAME_NOTIFICATION="Folder manager"

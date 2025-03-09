@@ -1,0 +1,16 @@
+[Unit]
+Description=folder manager daemon managing %i folder
+Requires=sys-subsystem-net-devices-%i.device
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/folder_manager.sh watch -d ${HOME}/%i
+Type=exec
+KillMode=control-group
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target
+
+
+
+
