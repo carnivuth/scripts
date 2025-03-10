@@ -61,7 +61,10 @@ start(){
 
   if test -z $NEXTCLOUD_DIR; then echo "pass directory to sync with -d "; exit 1; fi
 
+    notify "normal"  "started sync from $NEXTCLOUD_URL to $NEXTCLOUD_DIR"
+
   if test ! -d "$NEXTCLOUD_DIR"; then mkdir -p "$NEXTCLOUD_DIR";fi
+
     nxt_sync
   inotifywait -m $NEXTCLOUD_DIR/* -e move -e move_self -e delete_self -e delete -e create -e close_write -e modify | while read file; do
     echo $file
