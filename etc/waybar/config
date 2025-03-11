@@ -11,6 +11,7 @@
     "modules-left": [
       "sway/workspaces",
     "hyprland/workspaces",
+    "custom/nxtcdd",
     "mpris",
     ],
 
@@ -181,6 +182,12 @@
       "tooltip": true,
       "exec": "~/.local/bin/caffeine.sh check_status",
       "on-click":"~/.local/bin/caffeine.sh toggle",
+      "return-type": "json"
+    },
+    "custom/nxtcdd": {
+      "tooltip-format":"run sync with nxtcdd script",
+      "format": " ",
+      "on-click":"~/.local/bin/nxtcdd.sh nxt_sync -d ~/Nextcloud",
       "return-type": "json"
     },
     "custom/vpn": {
