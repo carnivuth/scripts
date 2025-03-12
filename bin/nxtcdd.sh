@@ -47,6 +47,7 @@ nxt_sync(){
     notify "normal"  "done sync with $NEXTCLOUD_URL"
 
   fi
+  find "$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
   echo "sync finished"
 }
 
@@ -66,7 +67,7 @@ start(){
   if test ! -d "$NEXTCLOUD_DIR"; then mkdir -p "$NEXTCLOUD_DIR";fi
 
     nxt_sync
-  inotifywait -m "$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,deletemodify | while read file; do
+  inotifywait -m "$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify | while read file; do
     echo $file
     nxt_sync
   done
