@@ -15,6 +15,8 @@
   { "site": "github","link": "https://www.github.com"},
   { "site": "gmail","link": "https://mail.google.com"},
   { "site": "google-drive","link": "https://drive.google.com"},
+  { "site": "google-sheets","link": "https://sheets.google.com"},
+  { "site": "google-docs","link": "https://docs.google.com"},
   { "site": "sso-labs","link": "https://sso.labs.it"},
   { "site": "google-maps","link": "https://www.google.it/maps"},
   { "site": "google-photo","link": "https://photo.google.com"},
