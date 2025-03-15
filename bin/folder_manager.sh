@@ -23,6 +23,7 @@ function run(){
   DIRS[jpg]="images"
   DIRS[tar]="compressed"
   DIRS[gz]="compressed"
+  DIRS[zst]="compressed"
   DIRS[zip]="compressed"
   DIRS[pdf]="documents"
   DIRS[docx]="documents"
