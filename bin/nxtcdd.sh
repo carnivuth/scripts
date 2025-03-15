@@ -42,17 +42,17 @@ nxt_sync(){
   username="$(secret-tool lookup nextcloud-repository nextcloud_username)"
   password="$(secret-tool lookup nextcloud-repository nextcloud_password)"
 
-  find "$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
+  find "$HOME/$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
 
     notify "normal"  "started sync from $NEXTCLOUD_URL to $NEXTCLOUD_DIR"
-  if ! nextcloudcmd $NEXTCLOUD_PARAMS -u "$username" -p "$password"  "$NEXTCLOUD_DIR" "$NEXTCLOUD_URL"; then
+  if ! nextcloudcmd $NEXTCLOUD_PARAMS -u "$username" -p "$password"  --path "/$NEXTCLOUD_DIR" "$HOME/$NEXTCLOUD_DIR" "$NEXTCLOUD_URL"; then
     notify "critical"  "failed sync with $NEXTCLOUD_URL"
   else
     notify "normal"  "done sync with $NEXTCLOUD_URL"
 
   fi
 
-  find "$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
+  find "$HOME/$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
 
   echo "sync finished"
 }
@@ -69,10 +69,10 @@ start(){
   if test -z $NEXTCLOUD_DIR; then echo "pass directory to sync with -d "; exit 1; fi
 
 
-  if test ! -d "$NEXTCLOUD_DIR"; then mkdir -p "$NEXTCLOUD_DIR";fi
+  if test ! -d "$HOME/$NEXTCLOUD_DIR"; then mkdir -p "$HOME/$NEXTCLOUD_DIR";fi
 
     nxt_sync
-  inotifywait -m "$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify | while read file; do
+  inotifywait -m "$HOME/$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify | while read file; do
     echo $file
     nxt_sync
   done
