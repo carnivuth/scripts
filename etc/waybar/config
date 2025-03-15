@@ -187,7 +187,7 @@
     "custom/nxtcdd": {
       "tooltip-format":"run sync with nxtcdd script",
       "format": " ",
-      "on-click":"~/.local/bin/nxtcdd.sh nxt_sync -d ~/Nextcloud",
+      "on-click":"~/.local/bin/nxtcdd.sh restart_all",
       "return-type": "json"
     },
     "custom/vpn": {

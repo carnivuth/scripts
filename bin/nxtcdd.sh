@@ -10,6 +10,7 @@ declare -A COMMANDS
 COMMANDS[start]="start nextcloud sync daemon daemon"
 COMMANDS[init]="setup credentials in keyring"
 COMMANDS[nxt_sync]="run a single sync operation"
+COMMANDS[restart_all]="restart all units of this daemon using systemd"
 
 NEXTCLOUD_UNSYNCED_FOLDERS_FILE="$HOME/.config/Nextcloud/unsyncedfolders.conf"
 NEXTCLOUD_PARAMS="--non-interactive --exclude $HOME/.config/Nextcloud/sync-exclude.lst"
@@ -64,7 +65,13 @@ init(){
   echo "$nextcloud_password"| secret-tool store nextcloud-repository nextcloud_password --label="nextcloud password"
 }
 
-start(){
+function restart_all(){
+systemctl --user -q list-units nxtcdd* | awk -F' ' '{print $1}' | while read unit; do
+  systemctl --user restart $unit;
+done
+}
+
+function start(){
 
   if test -z $NEXTCLOUD_DIR; then echo "pass directory to sync with -d "; exit 1; fi
 
