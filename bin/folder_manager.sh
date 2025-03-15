@@ -50,6 +50,7 @@ function watch(){
   if [[ ! -d "$DIRECTORY" ]]; then echo "$DIRECTORY is not a DIRECTORY";exit 1; fi
 
   echo "started watching for changes in $DIRECTORY"
+  notify "normal" "started watching for changes in $DIRECTORY"
   inotifywait -e create -m "$DIRECTORY" | while read directory filename; do
     if run; then
       notify "normal"  "reorganized $DIRECTORY"
