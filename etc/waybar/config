@@ -12,6 +12,7 @@
       "sway/workspaces",
     "hyprland/workspaces",
     "custom/nxtcdd",
+    "custom/githubsync",
     "mpris",
     ],
 
@@ -184,11 +185,15 @@
       "on-click":"~/.local/bin/caffeine.sh toggle",
       "return-type": "json"
     },
+    "custom/githubsync": {
+      "tooltip-format":"pull github repositories",
+      "format": "  ",
+      "on-click":"~/.local/bin/git_utils.sh sync",
+    },
     "custom/nxtcdd": {
       "tooltip-format":"run sync with nxtcdd script",
-      "format": " ",
+      "format": "  ",
       "on-click":"~/.local/bin/nxtcdd.sh restart_all",
-      "return-type": "json"
     },
     "custom/vpn": {
       "format": "{}",
