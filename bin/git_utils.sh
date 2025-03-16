@@ -12,6 +12,7 @@ COMMANDS[sync]="sync repos specified in the config file"
 COMMANDS[prmain]="make a pull request to main branch and accept it"
 COMMANDS[mgmain]="merge branch to main and push"
 COMMANDS[tag]="create a tag with a given name and push to remote"
+COMMANDS[check]="check status of git repos"
 
 APP_NAME="github sync"
 APP_ICON="/usr/share/icons/Papirus/32x32/apps/github.svg"
@@ -22,6 +23,23 @@ function repo_is_ignored(){
     if [[ $(grep url "$repo/.git/config" | awk -F'=' '{ print $2}') =~ "$remote" ]]; then return 0; fi
   done
   return 1;
+}
+
+function check(){
+
+  for repo in ${GIT_REPOS}; do
+
+    # check if folder is a git repo and the remote is not in the ignore config
+    if [[ -f "$repo/.git/config" ]]  && ! repo_is_ignored "$repo"; then
+      (
+      echo "checking repo $repo"
+      cd "$repo" && git status
+
+      echo "--------------------"
+    )
+    fi
+  done
+
 }
 
 function sync(){
