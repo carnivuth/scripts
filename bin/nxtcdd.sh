@@ -67,6 +67,7 @@ init(){
 
 function restart_all(){
 systemctl --user -q list-units nxtcdd* | awk -F' ' '{print $1}' | while read unit; do
+  echo "restarting $unit"
   systemctl --user restart $unit;
 done
 }
