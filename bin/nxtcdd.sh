@@ -47,9 +47,9 @@ nxt_sync(){
 
     notify "normal"  "started sync from $NEXTCLOUD_URL to $NEXTCLOUD_DIR"
   if ! nextcloudcmd $NEXTCLOUD_PARAMS -u "$username" -p "$password"  --path "/$NEXTCLOUD_DIR" "$HOME/$NEXTCLOUD_DIR" "$NEXTCLOUD_URL"; then
-    notify "critical"  "failed sync with $NEXTCLOUD_URL"
+    notify "critical"  "failed sync with $NEXTCLOUD_URL for $NEXTCLOUD_DIR"
   else
-    notify "normal"  "done sync with $NEXTCLOUD_URL"
+    notify "normal"  "done sync with $NEXTCLOUD_URL for $NEXTCLOUD_DIR"
 
   fi
 
