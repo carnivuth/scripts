@@ -3,9 +3,10 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
-FLAGS_STRING='t:m:'
+FLAGS_STRING='t:m:r:'
 FLAGS[t]='TAG=${OPTARG}'
 FLAGS[m]='MESSAGE=${OPTARG}'
+FLAGS[r]='GIT_REPOS=${OPTARG}'
 
 declare -A COMMANDS
 COMMANDS[sync]="sync repos specified in the config file"
