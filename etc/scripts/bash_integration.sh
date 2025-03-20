@@ -90,6 +90,3 @@ alias t='task'
 
 # toolbox
 alias tb='docker run  --pull=always --rm -u $UID:$UID -v "$(pwd)"/:/home/toolbox/"$(basename "$(pwd)")" --name toolbox -it carnivuth/toolbox /home/toolbox/.local/bin/project.sh /home/toolbox/"$(basename "$(pwd)")"'
-
-
-if [[ -x "$(which task 2>/dev/null)" ]]; then task; fi
