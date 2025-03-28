@@ -52,7 +52,7 @@ function watch(){
 
   echo "started watching for changes in $DIRECTORY"
   notify "normal" "started watching for changes in $DIRECTORY"
-  inotifywait -e create -m "$DIRECTORY" | while read directory filename; do
+  inotifywait -e close_write -m "$DIRECTORY" | while read directory filename; do
     if run; then
       notify "normal"  "reorganized $DIRECTORY"
     fi
