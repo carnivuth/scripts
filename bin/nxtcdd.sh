@@ -40,8 +40,10 @@ nxt_sync(){
 
   if test -z $NEXTCLOUD_DIR; then echo "pass directory to sync with -d "; exit 1; fi
 
-  username="$(secret-tool lookup nextcloud-repository nextcloud_username)"
-  password="$(secret-tool lookup nextcloud-repository nextcloud_password)"
+  #username="$(secret-tool lookup nextcloud-repository nextcloud_username)"
+  #password="$(secret-tool lookup nextcloud-repository nextcloud_password)"
+  username="$NXTCDD_USERNAME"
+  password="$NXTCDD_PASSWORD"
 
   find "$HOME/$NEXTCLOUD_DIR" -regex ".*conflicted copy.*" -exec rm {} \;
 
@@ -80,7 +82,7 @@ function start(){
   if test ! -d "$HOME/$NEXTCLOUD_DIR"; then mkdir -p "$HOME/$NEXTCLOUD_DIR";fi
 
     nxt_sync
-  inotifywait -m "$HOME/$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify | while read file; do
+  inotifywait -m "$HOME/$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify,close_write | while read file; do
     echo $file
     nxt_sync
   done
