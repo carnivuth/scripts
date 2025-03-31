@@ -40,3 +40,4 @@ My Saved Places.
 *.sb-*
 *env*
 *node_modules*
+*.vagrant*
