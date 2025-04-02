@@ -16,7 +16,7 @@ DEPS='
 wol
 gst-plugin-spotify
 strawberry
-inotifywait
+inotify-tools
 passff-host
 wireshark-cli
 fastfetch

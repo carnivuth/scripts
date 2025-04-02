@@ -19,8 +19,9 @@ APP_NAME="nextcloud sync daemon"
 APP_ICON="/usr/share/icons/Papirus/32x32/apps/nextcloud.svg"
 
 check(){
-  if ! secret-tool lookup nextcloud-repository nextcloud_username > /dev/null 2>&1 || ! secret-tool lookup nextcloud-repository nextcloud_password > /dev/null 2>&1; then
-    notify "critical"  "username or password are not set in keyring"
+  #if ! secret-tool lookup nextcloud-repository nextcloud_username > /dev/null 2>&1 || ! secret-tool lookup nextcloud-repository nextcloud_password > /dev/null 2>&1; then
+  if [[ -z $NXTCDD_USERNAME ]] || [[ -z $NXTCDD_PASSWORD ]]; then
+    notify "critical"  "username or password are not set in config file"
     return 1
   fi
   # removed cause bug on nextcloudcmd command when running sql queries against excluded folder table?
