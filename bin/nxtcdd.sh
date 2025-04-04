@@ -7,8 +7,7 @@ FLAGS_STRING='d:'
 FLAGS[d]='NEXTCLOUD_DIR=${OPTARG}'
 
 declare -A COMMANDS
-COMMANDS[start]="start nextcloud sync daemon daemon"
-COMMANDS[init]="setup credentials in keyring"
+COMMANDS[start]="start nextcloud sync daemon"
 COMMANDS[nxt_sync]="run a single sync operation"
 COMMANDS[restart_all]="restart all units of this daemon using systemd"
 
@@ -19,16 +18,10 @@ APP_NAME="nextcloud sync daemon"
 APP_ICON="/usr/share/icons/Papirus/32x32/apps/nextcloud.svg"
 
 check(){
-  #if ! secret-tool lookup nextcloud-repository nextcloud_username > /dev/null 2>&1 || ! secret-tool lookup nextcloud-repository nextcloud_password > /dev/null 2>&1; then
   if [[ -z $NXTCDD_USERNAME ]] || [[ -z $NXTCDD_PASSWORD ]]; then
     notify "critical"  "username or password are not set in config file"
     return 1
   fi
-  # removed cause bug on nextcloudcmd command when running sql queries against excluded folder table?
-  #if test ! -f "$NEXTCLOUD_UNSYNCED_FOLDERS_FILE"; then
-  #  notify "critical"  "excluded folders configuration file does not exist"
-  #  return 1
-  #fi
   if test -z $NEXTCLOUD_URL; then
     notify  "critical"  "remote url not set in config file"
     return 1
@@ -41,8 +34,6 @@ nxt_sync(){
 
   if test -z $NEXTCLOUD_DIR; then echo "pass directory to sync with -d "; exit 1; fi
 
-  #username="$(secret-tool lookup nextcloud-repository nextcloud_username)"
-  #password="$(secret-tool lookup nextcloud-repository nextcloud_password)"
   username="$NXTCDD_USERNAME"
   password="$NXTCDD_PASSWORD"
 
@@ -61,12 +52,6 @@ nxt_sync(){
   echo "sync finished"
 }
 
-init(){
-  read -p "input nextcloud username: " nextcloud_username
-  echo "$nextcloud_username"| secret-tool store nextcloud-repository nextcloud_username --label="nextcloud username"
-  read -p "input nextcloud password: " -s nextcloud_password
-  echo "$nextcloud_password"| secret-tool store nextcloud-repository nextcloud_password --label="nextcloud password"
-}
 
 function restart_all(){
 systemctl --user -q list-units nxtcdd* | awk -F' ' '{print $1}' | while read unit; do
@@ -83,7 +68,7 @@ function start(){
   if test ! -d "$HOME/$NEXTCLOUD_DIR"; then mkdir -p "$HOME/$NEXTCLOUD_DIR";fi
 
     nxt_sync
-  inotifywait -m "$HOME/$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify,close_write | while read file; do
+  inotifywait -r -m "$HOME/$NEXTCLOUD_DIR" --exclude ".sync.*" -e move,create,delete,modify,close_write | while read file; do
     echo $file
     nxt_sync
   done
