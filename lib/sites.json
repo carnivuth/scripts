@@ -19,6 +19,7 @@
   { "site": "google-docs","link": "https://docs.google.com"},
   { "site": "google-slides","link": "https://slides.google.com"},
   { "site": "canva","link": "https://www.canva.com"},
+  { "site": "d-flight","link": "https://www.d-flight.it/web-app/"},
   { "site": "sso-labs","link": "https://sso.labs.it"},
   { "site": "google-maps","link": "https://www.google.it/maps"},
   { "site": "google-photo","link": "https://photo.google.com"},
