@@ -12,8 +12,7 @@ help_message(){
 }
 
 list_elements_to_user(){
-  apps="$( print_bins )"
-  apps="$(jq -r '.[].site' $SCRIPTS_VAR_FOLDER/sites.json.d/*.json "$SCRIPTS_VAR_FOLDER/sites.json") $apps "
+  apps="$(jq -r '.[].site' $SCRIPTS_VAR_FOLDER/sites.json.d/*.json "$SCRIPTS_VAR_FOLDER/sites.json") $( print_bins )"
   echo $apps | sed  's/ /\n/g'
 }
 
