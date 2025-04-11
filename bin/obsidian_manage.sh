@@ -19,7 +19,6 @@ FLAGS[g]='GIT_INIT="TRUE"'
 FLAGS[f]='FROM=${OPTARG}'
 FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
-FLAGS[b]='MENU_BACKEND=${OPTARG}'
 FLAGS[i]='START_INDEX=${OPTARG}'
 FLAGS[s]='BUMP_VALUE=${OPTARG}'
 FLAGS[n]='NOTE=${OPTARG}'
@@ -33,7 +32,6 @@ COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
 COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
-COMMANDS[daily]="take a quick node from terminal"
 COMMANDS[prop]="show prop status"
 COMMANDS[push]="push content to remotes"
 COMMANDS[link]="check if link of a file are broken"
@@ -53,40 +51,6 @@ function link(){
       test -z $file || test -f "pages/$file" || test -f "assets/$file" || echo $file
     fi
   done
-}
-
-
-
-# alias for new obsidian daily note
-function daily {
-  MENU_NAME="obsidian notes"
-  PROMPT="notes"
-
-  function help_message(){
-    echo "open obsidian notes in $OBSIDIAN_NOTE_VAULT"
-  }
-
-  function list_elements_to_user(){
-    ls $OBSIDIAN_NOTE_VAULT/**/**/*.md $OBSIDIAN_NOTE_VAULT/**/*.md
-  }
-
-  function exec_command_with_chosen_element(){
-    note="$1"
-    if [[ ! -f $note ]];then touch "$OBSIDIAN_NOTE_VAULT/$note.md";fi
-    case $note in
-      /*)
-      obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&path=$note"
-      ;;
-      *)
-      obsidian "obsidian://open?vault=$(basename "$OBSIDIAN_NOTE_VAULT")&file=$note"
-      ;;
-    esac
-    if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-      hyprctl dispatch 'focuswindow obsidian'
-    fi
-  }
-
-  source "$SCRIPTS_LIB_FOLDER/menu.sh"
 }
 
 function bulk_index(){
