@@ -75,7 +75,8 @@ function start(){
 
     nxt_sync
   inotifywait -r -m "$HOME/$NEXTCLOUD_DIR" --exclude '.sync.*' -e move,create,delete,modify | while read file; do
-    echo $file
+    echo  "$file detected change in $NEXTCLOUD_DIR"
+    notify "normal"  "$file detected change in $NEXTCLOUD_DIR"
     nxt_sync
   done
 }
