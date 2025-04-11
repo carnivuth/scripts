@@ -11,7 +11,7 @@ OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
 
 # FLAGS
-FLAGS_STRING="i:s:b:v:p:f:t:rgu"
+FLAGS_STRING="i:s:b:v:p:f:t:n:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROP=${OPTARG}'
@@ -22,6 +22,7 @@ FLAGS[r]='RESET="TRUE"'
 FLAGS[b]='MENU_BACKEND=${OPTARG}'
 FLAGS[i]='START_INDEX=${OPTARG}'
 FLAGS[s]='BUMP_VALUE=${OPTARG}'
+FLAGS[n]='NOTE=${OPTARG}'
 
 # COMMANDS
 declare -A COMMANDS
@@ -35,7 +36,26 @@ COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[daily]="take a quick node from terminal"
 COMMANDS[prop]="show prop status"
 COMMANDS[push]="push content to remotes"
+COMMANDS[link]="check if link of a file are broken"
 COMMANDS[bulk_index]="rewrite indexes in all repo"
+
+function link(){
+
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  if [[ "$NOTE" == '' ]];then echo "note file is required run with -n '[path to file]'"; exit 1; fi
+
+  ## Extract link and test if link is broken
+  grep -E "\[.*\]\(.+\)" "$NOTE" | grep -vP '\!\[' | grep -oP '\]\(\K[^\)]+(?=\))' | while read link; do
+    if [[ $link =~ "http" ]]; then
+      curl $link > /dev/null 2>&1 || echo $link
+    else
+      file="$(echo $link | awk -F'#' '{print $1}' )"
+      test -z $file || test -f "pages/$file" || test -f "assets/$file" || echo $file
+    fi
+  done
+}
+
+
 
 # alias for new obsidian daily note
 function daily {
