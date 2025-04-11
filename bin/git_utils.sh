@@ -51,7 +51,7 @@ function sync(){
     if [[ -f "$repo/.git/config" ]] && grep -q "remote" "$repo/.git/config" && ! repo_is_ignored "$repo"; then
       (
       echo "updating repo $repo"
-      cd "$repo" && git pull || echo "1" > "$RESULT_FILE"
+      cd "$repo" && git pull || echo "$repo" > "$RESULT_FILE"
 
       echo "--------------------"
     )
@@ -60,7 +60,7 @@ function sync(){
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
     notify "normal" "done sync of git repos"
   else
-    notify "critical" "some repos could not be synched"
+    notify "critical" " $(cat "$RESULT_FILE") could not be synched"
   fi
   rm "$RESULT_FILE"
 
