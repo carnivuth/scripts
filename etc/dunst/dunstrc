@@ -37,6 +37,8 @@
 
     height = 80
 
+    notification_limit = 1
+
 		origin = top-right
 
 		offset = 15x40
