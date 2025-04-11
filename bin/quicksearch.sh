@@ -13,10 +13,10 @@ list_elements_to_user(){
 
 exec_command_with_chosen_element(){
 	case "$1" in
-	https*)
+	https://*)
 		firefox --new-tab "$1"
 		;;
-	http*)
+	http://*)
 		firefox --new-tab "$1"
 		;;
 	*)
