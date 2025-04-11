@@ -10,6 +10,7 @@ declare -A COMMANDS
 COMMANDS[start]="start nextcloud sync daemon"
 COMMANDS[nxt_sync]="run a single sync operation"
 COMMANDS[restart_all]="restart all units of this daemon using systemd"
+COMMANDS[status_all]="check status of all units of this daemon using systemd"
 
 NEXTCLOUD_UNSYNCED_FOLDERS_FILE="$HOME/.config/Nextcloud/unsyncedfolders.conf"
 NEXTCLOUD_PARAMS="--non-interactive --exclude $HOME/.config/Nextcloud/sync-exclude.lst"
@@ -52,6 +53,11 @@ nxt_sync(){
   echo "sync finished"
 }
 
+function status_all(){
+systemctl --user --all -q list-units nxtcdd* | awk -F' ' '{print $1}' | while read unit; do
+  systemctl --user status $unit;
+done
+}
 
 function restart_all(){
 systemctl --user --all -q list-units nxtcdd* | awk -F' ' '{print $1}' | while read unit; do
