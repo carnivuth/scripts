@@ -23,6 +23,8 @@ DIRS[zip]="compressed"
 DIRS[pdf]="documents"
 DIRS[docx]="documents"
 DIRS[txt]="documents"
+DIRS[mp3]="audio"
+DIRS[opus]="audio"
 
 function run(){
 
