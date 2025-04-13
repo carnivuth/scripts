@@ -72,8 +72,6 @@ BATTERY_LIMIT=20
 BATTERY_SLEEP_TIME="5m"
 
 # BACKUP TIMER SETTINGS
-
-
 # policy to pass to borg prune command (monthly)
 BORG_PRUNE_POLICY="10"
 
