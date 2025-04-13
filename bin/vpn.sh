@@ -11,7 +11,7 @@ COMMANDS[check_connection]="check if connected to vpn"
 COMMANDS[init]="initialize vpn"
 
 APP_NAME="vpn"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/openvpn.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/openvpn.svg"
 
 function init(){
 

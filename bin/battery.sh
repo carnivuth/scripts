@@ -3,7 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 APP_NAME="Battery manager"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/slimbookbattery.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/slimbookbattery.svg"
  set -x
 # setting parameters
 NOTIFY="TRUE"

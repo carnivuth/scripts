@@ -3,7 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 APP_NAME="Recorder"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/gtkam-camera.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/gtkam-camera.svg"
 
 declare -A FLAGS
 FLAGS_STRING=''

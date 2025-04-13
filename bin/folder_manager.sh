@@ -11,7 +11,7 @@ COMMANDS[run]="run a cleanup operation"
 COMMANDS[watch]="watch a folder for changes and run cleanup operations"
 
 APP_NAME="Folder manager"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/document-viewer.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/document-viewer.svg"
 
 declare -A DIRS
 DIRS[png]="images"

@@ -13,7 +13,7 @@ COMMANDS[get_weather]="pull weather informations"
 
 WEATHER_SLEEP_TIME="10m"
 APP_NAME="weather"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/indicator-weather.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/indicator-weather.svg"
 
 function get_weather(){
   if [[ ! -f "$SCRIPTS_RUN_FOLDER/weather.json" ]];then echo "no weather to display, is the daemon running?"; exit 1; fi

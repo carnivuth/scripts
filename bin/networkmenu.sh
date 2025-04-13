@@ -13,7 +13,7 @@ COMMANDS[network]="toggle networking"
 COMMANDS[connect]="connect to a network"
 
 APP_NAME="networkmenu"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/gnome-networktool.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/gnome-networktool.svg"
 MENU_NAME="networkmenu"
 PROMPT="networks"
 

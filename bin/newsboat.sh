@@ -3,7 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 APP_NAME="News"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/internet-news-reader.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/internet-news-reader.svg"
 
 # refresh newsboat
 newsboat -x reload

@@ -4,7 +4,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 APP_NAME="rclone mount"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/disk-manager.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/disk-manager.svg"
 
 declare -A FLAGS
 FLAGS_STRING=''

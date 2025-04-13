@@ -16,7 +16,7 @@ COMMANDS[tag]="create a tag with a given name and push to remote"
 COMMANDS[check]="check status of git repos"
 
 APP_NAME="github sync"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/github.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/github.svg"
 
 function repo_is_ignored(){
   repo="$1"

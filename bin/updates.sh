@@ -3,7 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 APP_NAME="Updates manager"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/system-software-update.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/system-software-update.svg"
 
 get_total_updates() { UPDATES=$("$SCRIPTS_BIN_FOLDER"/checkupdates.sh 2>/dev/null | wc -l); }
 

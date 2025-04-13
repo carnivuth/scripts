@@ -16,7 +16,7 @@ NEXTCLOUD_UNSYNCED_FOLDERS_FILE="$HOME/.config/Nextcloud/unsyncedfolders.conf"
 NEXTCLOUD_PARAMS="--non-interactive --exclude $HOME/.config/Nextcloud/sync-exclude.lst"
 
 APP_NAME="nextcloud sync daemon"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/nextcloud.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/nextcloud.svg"
 
 check(){
   if [[ -z $NXTCDD_USERNAME ]] || [[ -z $NXTCDD_PASSWORD ]]; then

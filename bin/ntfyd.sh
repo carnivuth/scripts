@@ -6,7 +6,7 @@ declare -A FLAGS
 FLAGS_STRING=''
 
 APP_NAME="ntfyd"
-APP_ICON="/usr/share/icons/Papirus/32x32/apps/notifyconf.svg"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/notifyconf.svg"
 
 declare -A COMMANDS
 COMMANDS[start]="start notification daemon"
