@@ -18,8 +18,8 @@ COMMANDS[restore_remote]="restore repo from rsync remote"
 
 
 BORG_RESULT_FILE="$(mktemp)"
-APP_NAME="$BORG_APP_NAME_NOTIFICATION"
-APP_ICON="$BORG_NOTIFICATION_ICON"
+APP_NAME="Backup job"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/kfloppy.svg"
 
 # check if borg repository is configured
 function check(){

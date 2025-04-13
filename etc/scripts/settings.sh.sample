@@ -73,8 +73,6 @@ BATTERY_SLEEP_TIME="5m"
 
 # BACKUP TIMER SETTINGS
 
-BORG_APP_NAME_NOTIFICATION="Backup job"
-BORG_NOTIFICATION_ICON="/usr/share/icons/Papirus/32x32/apps/kfloppy.svg"
 
 # policy to pass to borg prune command (monthly)
 BORG_PRUNE_POLICY="10"
