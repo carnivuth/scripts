@@ -326,7 +326,7 @@
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
 [urgency_low]
-    background = "#1e1e2e"
+    background = "#1e1e2e00"
     foreground = "#cdd6f4"
     icon = "/home/probe/.config/dunst/icons/low.svg"
     timeout = 2
@@ -335,7 +335,7 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#1e1e2e"
+    background = "#1e1e2e00"
     foreground = "#cdd6f4"
     icon = "/home/probe/.config/dunst/icons/pokeball.svg"
     timeout = 4
@@ -344,7 +344,7 @@
     #frame_color = ""
 
 [urgency_critical]
-    background = "#1e1e2e"
+    background = "#1e1e2e00"
     foreground = "#cdd6f4"
     frame_color = "#fab387"
     icon = "/home/probe/.config/dunst/icons/critical.svg"
