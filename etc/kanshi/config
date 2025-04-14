@@ -48,6 +48,8 @@ profile rio_office {
           position 1920,0
           transform normal
      }
+     exec hyprctl dispatch moveworkspacetomonitor 1 r
+     exec hyprctl dispatch moveworkspacetomonitor 9 l
 }
 
 profile noc_left_left_3 {
