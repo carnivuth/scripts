@@ -75,6 +75,7 @@ function bluetooth_connect(){
   function exec_command_with_chosen_element(){
     bluetoothctl devices |  cut -f 2- -d' ' | sort | while read mac name;  do
     if [[ "$chosen" == "$name" ]]; then
+      bluetoothctl disconnect "$mac"
       bluetoothctl connect "$mac"
     fi
   done
