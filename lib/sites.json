@@ -5,6 +5,7 @@
   { "site": "cloudflare","link": "https://dash.cloudflare.com"},
   { "site": "calendar","link": "https://calendar.google.com"},
   { "site": "cardmarket","link": "https://www.cardmarket.com"},
+  { "site": "netflix","link": "https://www.netflix.com"},
   { "site": "datacamp","link": "https://app.datacamp.com"},
   { "site": "discord","link": "https://discord.com/app"},
   { "site": "docker-hub","link": "https://hub.docker.com"},
