@@ -48,7 +48,7 @@ function link(){
       curl $link > /dev/null 2>&1 || echo $link
     else
       file="$(echo $link | awk -F'#' '{print $1}' )"
-      test -z $file || test -f "pages/$file" || test -f "assets/$file" || echo $file
+      test -z $file || test -f "$file" || echo $file
     fi
   done
 }
