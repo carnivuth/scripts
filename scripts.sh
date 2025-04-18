@@ -156,6 +156,13 @@ function configure_ssh(){
   fi
 }
 
+function configure_gnupg(){
+
+  # add link to gpg folder
+  mkdir -p "$HOME/.gnupg/"
+  echo "pinentry-program /bin/pinentry-bemenu" > "$HOME/.gnupg/gpg-agent.conf"
+}
+
 SCRIPT_PATH="$(dirname "$(realpath "$0")")"
 
 # check on settings.sh file
@@ -215,6 +222,7 @@ case "$1" in
     configure_monitors
     configure_wallpaper
     configure_ssh
+    configure_gnupg
     configure_hook
     ;;
 esac
