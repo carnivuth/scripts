@@ -21,6 +21,7 @@ passff-host
 wireshark-cli
 fastfetch
 nextcloud-client
+pinentry-bemenu
 pass
 kanshi
 btop
