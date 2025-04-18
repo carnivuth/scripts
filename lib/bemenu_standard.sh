@@ -29,12 +29,4 @@ menu_cmd() {
     -B "$BEMENU_BORDER"\
     --fn "$BEMENU_FONT"\
     -H "$BEMENU_HIGH"
-    #--hb "${COLORS[13]}"\
-    #--hf "${COLORS[0]}"\
-    #--ff "${COLORS[13]}"\
-    #--fb "${COLORS[0]}"\
-    #--tf "${COLORS[13]}"\
-    #--tb "${COLORS[0]}"\
-    #--nf "${COLORS[13]}"\
-    #--nb "${COLORS[0]}"\
   }
