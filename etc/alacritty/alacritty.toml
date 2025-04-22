@@ -6,5 +6,12 @@ general.import =[
 
 [env]
 TERM= "xterm-256color"
+
 [window]
 decorations = "buttonless"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "bold_italic" }
