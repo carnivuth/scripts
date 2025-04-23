@@ -18,7 +18,6 @@ COMMANDS[restore_remote]="restore repo from rsync remote"
 COMMANDS[sync_remote]="sync with remotes that are rsync capable"
 COMMANDS[sync_rclone]="sync with rclone compatible storage"
 
-
 BORG_RESULT_FILE="$(mktemp)"
 APP_NAME="Backup job"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/kfloppy.svg"
