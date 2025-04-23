@@ -15,6 +15,8 @@ COMMANDS[backup]="make actual backup and sync with remotes"
 COMMANDS[prune]="prune borg repo"
 COMMANDS[restore_rclone]="restore repo from rclone remote"
 COMMANDS[restore_remote]="restore repo from rsync remote"
+COMMANDS[sync_remote]="sync with remotes that are rsync capable"
+COMMANDS[sync_rclone]="sync with rclone compatible storage"
 
 
 BORG_RESULT_FILE="$(mktemp)"
@@ -57,7 +59,41 @@ function init(){
 
 }
 
-# make backup, check repo and sync to remotes
+# sync backup folder using rsync
+function sync_remote(){
+
+  if ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
+    # create directory
+    if [[ "$BORG_BACKUP_REMOTE_PATH" != '' ]] ; then ssh "$BORG_BACKUP_REMOTE_SERVER"  mkdir -p "$BORG_BACKUP_REMOTE_PATH"; fi
+
+    if rsync -Pavr "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
+      notify "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
+    else
+      notify "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
+    fi
+  fi
+
+}
+
+# sync to a rclone capable storage solution
+function sync_rclone(){
+    if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
+      notify "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
+    else
+
+      # create directory
+      rclone mkdir "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH"
+
+      if rclone sync "$BORG_REPOSITORY_FOLDER" "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" ; then
+
+        notify "normal" "synced with rclone storage $BORG_RCLONE_REMOTE"
+      else
+        notify "critical" "error in sincronization with rclone storage $BORG_RCLONE_REMOTE"
+      fi
+    fi
+}
+
+# make backup, check repo and sync to remotes if enabled
 function backup(){
 
   check
@@ -92,37 +128,13 @@ function backup(){
   fi
 
   # try to sync with remote server, this type of sync requires ssh for remote host to be configured under ~/.ssh/config
-  if [ "$BORG_REMOTE_ENABLED" == 1 ] && ping -w 1 "$BORG_BACKUP_REMOTE_SERVER"; then
-
-    # create directory
-    if [[ "$BORG_BACKUP_REMOTE_PATH" != '' ]] ; then ssh "$BORG_BACKUP_REMOTE_SERVER"  mkdir -p "$BORG_BACKUP_REMOTE_PATH"; fi
-
-    if rsync -Pavr "$BORG_REPOSITORY_FOLDER" "$BORG_BACKUP_REMOTE_SERVER":"$BORG_BACKUP_REMOTE_PATH"; then
-      notify "normal" "synced with remote $BORG_BACKUP_REMOTE_SERVER"
-    else
-      notify "critical" "error in sincronization with remote $BORG_BACKUP_REMOTE_SERVER"
-    fi
-
+  if [ "$BORG_REMOTE_ENABLED" == 1 ]; then
+    sync_remote
   fi
 
   # try to sync with rclone to remote storage
   if [ "$BORG_RCLONE_ENABLED" == 1 ]  ; then
-
-    if [[ "$(rclone listremotes | grep "$BORG_RCLONE_REMOTE")" == '' ]]; then
-      notify "critical" "rclone storage $BORG_RCLONE_REMOTE not configured"
-    else
-
-      # create directory
-      rclone mkdir "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH"
-
-      if rclone sync "$BORG_REPOSITORY_FOLDER" "$BORG_RCLONE_REMOTE:$BORG_BACKUP_RCLONE_PATH" ; then
-
-        notify "normal" "synced with rclone storage $BORG_RCLONE_REMOTE"
-      else
-        notify "critical" "error in sincronization with rclone storage $BORG_RCLONE_REMOTE"
-      fi
-    fi
-
+    sync_rclone
   fi
 
   # unset borg command
