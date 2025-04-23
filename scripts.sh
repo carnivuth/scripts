@@ -14,6 +14,7 @@ xdg-desktop-portal-hyprland'
 
 DEPS='
 wol
+parallel
 gst-plugin-spotify
 strawberry
 inotify-tools

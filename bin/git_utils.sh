@@ -43,20 +43,18 @@ function check(){
 
 }
 
+function repo_sync(){
+    repo="$1"
+}
+
+
 function sync(){
   RESULT_FILE="$(mktemp)"
   echo "0" > "$RESULT_FILE"
-  for repo in ${GIT_REPOS}; do
-    # check if folder is a git repo with a remote configured and the remote is not in the ignore config
-    if [[ -f "$repo/.git/config" ]] && grep -q "remote" "$repo/.git/config" && ! repo_is_ignored "$repo"; then
-      (
-      echo "updating repo $repo"
-      cd "$repo" && git pull || echo "$repo" > "$RESULT_FILE"
 
-      echo "--------------------"
-    )
-    fi
-  done
+  export -f repo_is_ignored
+  echo ${GIT_REPOS}  | tr ' ' '\n' | parallel 'if [[ -f "{}/.git/config" ]] && grep -q "remote" "{}/.git/config" && ! repo_is_ignored "{}"; then echo "updating repo {}"; cd "{}" && git pull || echo "{.}" > "$RESULT_FILE"; echo "--------------------"; fi'
+
   if [[ "$(cat "$RESULT_FILE")" == "0" ]]; then
     notify "normal" "done sync of git repos"
   else
