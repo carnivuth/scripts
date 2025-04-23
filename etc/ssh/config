@@ -2,7 +2,7 @@
 Host torterra
   DynamicForward 40034
 
-Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test
+Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test cp worker1 worker2
   User root
   IdentityFile ~/.ssh/id_rsa
 
