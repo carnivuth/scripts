@@ -30,7 +30,6 @@ fi
 menus=''
 if [[ -n $@ ]];then menus="$@";fi
 
-
 # print elements
 chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | menu_cmd "$PROMPT" )"
 if [[ "$chosen" != '' ]];then
