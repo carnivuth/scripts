@@ -36,6 +36,6 @@ chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' | tr ' ' '\n' | parallel 
 if [[ "$chosen" != '' ]];then
   echo $chosen | awk -F':' '{print $1 " " $2}' | while read t element; do
   source "$SCRIPTS_LIB_FOLDER/menus/$t.sh"
-  run_$t $element
+  run_$t "$element"
 done
 fi
