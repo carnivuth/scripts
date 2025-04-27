@@ -1,9 +1,8 @@
 #!/usr/bin/bash
 source "$HOME/.config/scripts/settings.sh"
-source "$SCRIPTS_LIB_FOLDER/print_desktop_files.sh"
 
 list_app(){
-  print_desktop_files | sed 's/^/app:/g'
+  grep -o -e '^Exec=.*' $HOME/.local/share/applications/* /usr/share/applications/*.desktop | awk -F'[ =]' '{print $2}' | awk -F'/' '{print $NF}' | sed 's/^/app:/g'
 }
 
 run_app(){
