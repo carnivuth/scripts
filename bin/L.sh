@@ -28,10 +28,18 @@ fi
 
 # get filters
 menus=''
-if [[ -n $@ ]];then menus="$@";fi
+if [[ -n $@ ]];then
+  for m in "$@";do
+    if [[ -z $menus ]];then
+      menus="-name $m.sh"
+    else
+      menus="$menus -or -name $m.sh"
+    fi
+  done
+fi
 
 # print elements
-chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | menu_cmd "$PROMPT" )"
+chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' $menus | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | menu_cmd "$PROMPT" )"
 if [[ "$chosen" != '' ]];then
   echo $chosen | awk -F':' '{print $1 " " $2}' | while read t element; do
   source "$SCRIPTS_LIB_FOLDER/menus/$t.sh"
