@@ -7,7 +7,7 @@ BEMENU_PADDING=10
 BEMENU_FONT='JetBrainsMono Nerd Font,JetBrainsMono NF:style=ExtraBold 9'
 
 menu_theme_setup(){
-  echo "" > "/dev/null"
+  true
 }
 
 # $1 wofi prompt
