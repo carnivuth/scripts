@@ -46,7 +46,7 @@ fi
 # print elements
 chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' $menus | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | menu_cmd "$PROMPT" )"
 if [[ "$chosen" != '' ]];then
-  echo $chosen | awk -F':' '{type = $1; $1=""; print type, $0}' | while read t element; do
+  echo $chosen | while IFS=':' read t element; do
   source "$SCRIPTS_LIB_FOLDER/menus/$t.sh"
   run_$t "$element"
 done
