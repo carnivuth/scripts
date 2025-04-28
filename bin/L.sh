@@ -1,4 +1,9 @@
 #!/bin/bash
+# menu main script
+# the script relies on the existance of menu component X.sh with the following function defined:
+# list_X that need to list the content for the menu display in the form X:<CONTENT>
+# run_X function that will be run after the selected element is detected, the element is passed in the form <CONTENT>
+
 source "$HOME/.config/scripts/settings.sh"
 PROMPT="carni-launcher"
 
