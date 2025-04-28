@@ -7,7 +7,6 @@ FLAGS_STRING='b:'
 declare -A COMMANDS
 COMMANDS[bluetooth_print]="print bluetooth devices"
 COMMANDS[bluetooth_toggle]="toggle bluetooth"
-COMMANDS[bluetooth_connect]="connect to a bluetooth device"
 
 function bluetooth_all_connect(){
   devices_paired=$(bluetoothctl devices Paired | grep Device | cut -d ' ' -f 2)
@@ -57,34 +56,5 @@ function bluetooth_toggle() {
   bluetoothctl power off >> /dev/null
   fi
 }
-
-function bluetooth_connect(){
-
-  MENU_NAME="bluetoothconnect"
-  PROMPT="bluetooth devices"
-
-  function help_message(){
-    echo "script to connect to bluetooth devices"
-    echo " usage $0 "
-  }
-
-  function list_elements_to_user(){
-    bluetoothctl devices |  cut -f 2- -d' ' | sort | while read mac name;  do echo "$name";done
-  }
-
-  function exec_command_with_chosen_element(){
-    bluetoothctl devices |  cut -f 2- -d' ' | sort | while read mac name;  do
-    if [[ "$chosen" == "$name" ]]; then
-      bluetoothctl disconnect "$mac"
-      bluetoothctl connect "$mac"
-    fi
-  done
-  }
-
-  source "$SCRIPTS_LIB_FOLDER/menu.sh"
-
-}
-
-
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"

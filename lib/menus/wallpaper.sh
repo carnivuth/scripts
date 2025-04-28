@@ -13,20 +13,11 @@ splash = false
 EOT
 }
 
-
-MENU_NAME="themeswitcher"
-PROMPT="themes"
-
-help_message(){
-  echo "script for changing wallpaper and theme in supported applications"
-  echo "usage: $0"
+list_wallpaper(){
+  find $THEMESWITCHER_FOLDERS -name '*.png' -or -name '*.jpg' -or -name '*.jpeg' | sed 's/^/wallpaper:/g'
 }
 
-list_elements_to_user(){
-  echo -e "$(for dir in $THEMESWITCHER_FOLDERS; do ls -d "$dir"/*.png;ls -d "$dir"/*.jpg;ls -d "$dir"/*.jpeg; done)"
-}
-
-exec_command_with_chosen_element(){
+run_wallpaper(){
   # run specific scripts based on current desktop
   case "$XDG_CURRENT_DESKTOP" in
     "Hyprland")
@@ -37,4 +28,3 @@ exec_command_with_chosen_element(){
       # TODO
     esac
 }
-source "$SCRIPTS_LIB_FOLDER/menu.sh"

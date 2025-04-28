@@ -7,6 +7,7 @@ swaylock'
 
 HYPRLAND_DEPS='
 hyprland
+hyprpolkitagent
 hyprlock
 hypridle
 hyprpaper
@@ -96,36 +97,33 @@ install_systemd_units(){
   source "$HOME/.config/scripts/settings.sh"
 
   echo 'installing systemd units'
-  # installing systemd services
-
   systemctl --user daemon-reload
 
-# enable all services
-for service in ${ENABLED_SERVICES}; do
-  echo "enabling $service"
-  systemctl --user enable --now "$service"
-done
+  # enable all services
+  for service in ${ENABLED_SERVICES}; do
+    echo "enabling $service"
+    systemctl --user enable --now "$service"
+  done
 
-# enable all services templates
-for service in ${TEMPLATE_SERVICES}; do
-  echo "enabling $service"
-  systemctl --user enable --now "$service"
-done
+  # enable all services templates
+  for service in ${TEMPLATE_SERVICES}; do
+    echo "enabling $service"
+    systemctl --user enable --now "$service"
+  done
 
-# enable all services
-for timer in ${ENABLED_TIMERS}; do
-  echo "enabling $timer"
-  systemctl --user enable --now "$timer"
-done
-echo ""
-echo "if you enable the backup service remember to run backup.sh init to initialize the borg repo"
-
+  # enable all services
+  for timer in ${ENABLED_TIMERS}; do
+    echo "enabling $timer"
+    systemctl --user enable --now "$timer"
+  done
+  echo ""
+  echo "if you enable the backup service remember to run backup.sh init to initialize the borg repo"
 }
 
 function configure_wallpaper(){
   if [[ ! -e "$HOME/.config/hypr/hyprpaper.conf" ]]; then
     echo 'create wallpaper config'
-    "$HOME/.local/bin/themeswitcher.sh" -b fzf
+    "$HOME/.local/bin/L.sh" -b fzf wallpaper
   fi
 }
 
@@ -147,21 +145,19 @@ function configure_monitors(){
 }
 
 function configure_ssh(){
-
-  # add include ssh config
-  mkdir -p "$HOME/.ssh"
-  # check if configuration file exist and if ssh config is sourced
-  if  [[ -f "$HOME/.ssh/config" ]] && ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
-    echo 'include ssh config'
-    echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
-  fi
+# add include ssh config
+mkdir -p "$HOME/.ssh"
+# check if configuration file exist and if ssh config is sourced
+if  [[ -f "$HOME/.ssh/config" ]] && ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
+  echo 'include ssh config'
+  echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
+fi
 }
 
 function configure_gnupg(){
-
-  # add link to gpg folder
-  mkdir -p "$HOME/.gnupg/"
-  echo "pinentry-program /bin/pinentry-bemenu" > "$HOME/.gnupg/gpg-agent.conf"
+# add link to gpg folder
+mkdir -p "$HOME/.gnupg/"
+echo "pinentry-program /bin/pinentry-bemenu" > "$HOME/.gnupg/gpg-agent.conf"
 }
 
 SCRIPT_PATH="$(dirname "$(realpath "$0")")"

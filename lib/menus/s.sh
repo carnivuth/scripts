@@ -1,17 +1,11 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
-MENU_NAME="quicksearch"
-PROMPT="search with firefox"
-
-help_message(){
-  echo "script for make searches using firefox"
-}
-list_elements_to_user(){
-  cat "/dev/null"
+list_s(){
+  true
 }
 
-exec_command_with_chosen_element(){
+run_s(){
 	case "$1" in
 	https://*)
 		firefox --new-tab "$1"
@@ -23,6 +17,7 @@ exec_command_with_chosen_element(){
 			firefox --new-tab "$BASE_QUICKSEARCH_URL$1"
 		 ;;
 	esac
+
   # draw attention to the firefox window if running on hyprland
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow class:firefox'
@@ -33,4 +28,3 @@ exec_command_with_chosen_element(){
     i3-msg '[class="firefox"] focus'
   fi
 }
-source "$SCRIPTS_LIB_FOLDER/menu.sh"
