@@ -35,7 +35,7 @@
 
     width = 250
 
-    height = 20
+    height = 40
 
     notification_limit = 1
 
