@@ -3,7 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 function list_network(){
-  nmcli device wifi rescan; nmcli -f name connection | grep -v NAME | sed 's/^/network:/g'
+  nmcli device wifi rescan; nmcli -t -f name connection | sed 's/^/network:/g'
 }
 
 function exec_command_with_chosen_element(){
