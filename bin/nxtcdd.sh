@@ -74,7 +74,7 @@ function start(){
   if test ! -d "$HOME/$NEXTCLOUD_DIR"; then mkdir -p "$HOME/$NEXTCLOUD_DIR";fi
 
     nxt_sync
-  inotifywait -r -m "$HOME/$NEXTCLOUD_DIR" --exclude '.git/*' --exclude '.sync.*' -e move,create,delete,modify | while read file; do
+  inotifywait -r -m "$HOME/$NEXTCLOUD_DIR" --exclude "$HOME/$NEXTCLOUD_DIR/.git" --exclude "$HOME/$NEXTCLOUD_DIR/.sync.*" -e move,create,delete,modify | while read file; do
     echo  "$file detected change in $NEXTCLOUD_DIR"
     notify "normal"  "$file detected change in $NEXTCLOUD_DIR"
     nxt_sync
