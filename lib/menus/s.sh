@@ -20,7 +20,7 @@ run_s(){
 
   # draw attention to the firefox window if running on hyprland
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-    hyprctl dispatch 'focuswindow class:firefox'
+    hyprctl dispatch 'focuswindow class:[Ff]irefox'
   fi
 
   # draw attention to the firefox window if running on i3
