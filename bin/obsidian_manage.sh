@@ -11,35 +11,35 @@ OBSIDIAN_CONFIGS="$SCRIPTS_LIB_FOLDER/obsidian_configs"
 ARGUMENTS_FOLDER="pages"
 
 # FLAGS
-FLAGS_STRING="i:s:b:v:p:f:t:n:rgu"
+FLAGS_STRING="b:v:p:t:n:rgu"
 declare -A FLAGS
 FLAGS[v]='VAULT=${OPTARG}'
 FLAGS[p]='PROP=${OPTARG}'
 FLAGS[g]='GIT_INIT="TRUE"'
-FLAGS[f]='FROM=${OPTARG}'
 FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
-FLAGS[i]='START_INDEX=${OPTARG}'
-FLAGS[s]='BUMP_VALUE=${OPTARG}'
 FLAGS[n]='NOTE=${OPTARG}'
 
 # COMMANDS
 declare -A COMMANDS
 
 COMMANDS[convert_to]="convert pages to other formats"
-COMMANDS[merged_md]="create a md file with all notes linked"
 COMMANDS[create]="create a new vault with default configs and git"
 COMMANDS[update]="update all known vaults to obsidian with default configs in $OBSIDIAN_CONFIGS"
-COMMANDS[index]="create an index.md file with the list of the first page of each argument in the repo"
 COMMANDS[add_footer]="add footer to an obsidian page using index prop"
 COMMANDS[prop]="show prop status"
 COMMANDS[push]="push content to remotes"
 COMMANDS[link]="check if link of a file are broken"
-COMMANDS[bulk_index]="rewrite indexes in all repo"
+
+function pwd_is_obsidian_vault(){
+  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; return 1; fi
+}
+
 
 function link(){
 
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  pwd_is_obsidian_vault || exit 1
+
   if [[ "$NOTE" == '' ]];then echo "note file is required run with -n '[path to file]'"; exit 1; fi
 
   ## Extract link and test if link is broken
@@ -53,48 +53,22 @@ function link(){
   done
 }
 
-function bulk_index(){
-  # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
-  if [[ "$START_INDEX" == '' ]];then echo "start index is required run with -i '[NUM]'"; exit 1; fi
-  if [[ "$BUMP_VALUE" == '' ]];then echo "bump value is required run with -s '[NUM]'"; exit 1; fi
-
-  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-  if [[ "$index" -gt "$START_INDEX" ]];then
-    newindex=$(( "$index" + "$BUMP_VALUE" ))
-    echo "change index of $file from $index to $newindex"
-    sed -i "s/index:.*/index: $newindex/g" "$file"
-  fi
-  done
-}
-
 function prop(){
-  # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+
+  pwd_is_obsidian_vault || exit 1
   if [[ "$PROP" == '' ]];then echo "property is required run with -p 'prop_name'"; exit 1; fi
-  echo "pages with $PROP"
-  grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r prop file; do
+
+  grep "$PROP:" $(find $ARGUMENTS_FOLDER -type f -name '*.md') 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r prop file; do
     echo "$file $prop"
   done
-  echo "pages without $PROP"
+
   grep "$PROP:" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md -L 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read -r file; do
-    echo "$file"
+    echo "$file: undefined $PROP"
   done
-}
-
-function merged_md(){
-
-  outfile=merged.md
-  # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
-  rm -f "$outfile"
-  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-  if [[ -f "$file" ]];then echo "![$(basename $file)]($file)" >> "$outfile"; fi
-done
-echo "created $outfile"
 }
 
 function create(){
+
   # check for vault variable
   if [[ "$VAULT" == '' ]];then echo "path to vault is required run with -v '/path/to/vault'"; exit 1; fi
 
@@ -130,95 +104,47 @@ function update(){
 done
 }
 
+# based on the props next: and previous in the following format
+# previous: full/path/to/file
+# next: full/path/to/file
 function add_footer(){
 
-  # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
+  pwd_is_obsidian_vault || exit 1
 
-  for file in $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md; do
-    if [[ -f "$file" ]];then
+  for file in $(find $ARGUMENTS_FOLDER -type f -name '*.md'); do
 
+      # remove old links
       sed -i '/\[PREVIOUS\]/d' "$file"
       sed -i '/\[NEXT\]/d' "$file"
       sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$file"
 
       # extract index props
-      prec=''
-      prec_file=''
-      next=''
-      next_file=''
-      message=''
+      previous="$( grep 'previous:' "$file" |awk -F ' ' '{print $2}'| sed 's/"//g')"
+      next="$( grep 'next:' "$file" |awk -F ' ' '{print $2}' | sed 's/"//g')"
 
-      index="$( grep 'index:' "$file" |awk -F ' ' '{print $2}')"
-      if [[ index != "" ]];then
-        # compute prec value and next value
-        prec=$(($index - 1))
-        next=$(($index + 1))
-        echo "prec: $prec"
-        echo "index: $index"
-        echo "next: $next"
-
-        # grep for prec value and next value
-        prec_file="$( grep -xl "index: $prec" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null)"
-        next_file="$( grep -xl "index: $next" $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null)"
-
-        if [[ -f "$prec_file" ]]; then
-          message="[PREVIOUS]($prec_file)"
+        if [[ -f "$previous" ]]; then
+          echo "[PREVIOUS]($previous)" >> "$file"
         fi
-        if [[ -f "$next_file" ]]; then
-          message="$message [NEXT]($next_file)"
+        if [[ -f "$next" ]]; then
+          echo "[NEXT]($next)" >> "$file"
         fi
-        echo "$message"
-        if [[ "$(grep 'NEXT' "$file")" == '' ]] && [[ "$(grep 'PREVIOUS' "$file")" == '' ]]; then
-          echo  -e "\n$message" >> $file
-        fi
-      fi
-    fi
   done
-}
-
-# create an index file with a link to the first page of an argument using the index obsidian properties
-# usefull for quartz site generation
-function index(){
-
-  index=index.md
-  newindex=index.new.md
-
-  # check for correct directory
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
-
-  PROJECT_NAME="$(basename $(pwd) | tr '[:lower:]' '[:upper:]' | sed 's/_/ /g')"
-  echo -e "# $PROJECT_NAME\n\n## CONTENTS" > "$newindex"
-
-  grep index: $ARGUMENTS_FOLDER/*.md $ARGUMENTS_FOLDER/**/*.md 2>/dev/null | awk -F':' '{print $3 " " $1}' | sort -b -g | while read index file; do
-  if [[ -f "$file" ]];then echo "- [$(basename $file '.md' | tr '[:upper:]' '[:lower:]' )]($file)" >> "$newindex"; fi
-done
-if [[ ! -f "$index" ]];then mv "$newindex" "$index"; echo "created $index"; fi
-if [[ -f "$index" ]];then nvim -d "$index" "$newindex";rm "$newindex"; fi
 }
 
 function convert_to(){
 
-  if [[ ! -d ".obsidian" ]];then echo "$(pwd) is not an obsidian vault run inside one"; exit 1; fi
-
-  # check for FROM variable
-  if [[ "$FROM" == '' ]];then echo "FROM required run with -f 'format'"; exit 1; fi
+  pwd_is_obsidian_vault || exit 1
 
   # check for TO variable
   if [[ "$TO" == '' ]];then echo "TO required run with -t 'format'"; exit 1; fi
 
   DEST_FOLDER="$TO"_converted; if [[ ! -d "$DEST_FOLDER" ]]; then mkdir -p "$DEST_FOLDER"; fi
 
-  if [[ "$FROM" == *.lua ]];then FROM="$SCRIPTS_LIB_FOLDER/$FROM"; fi
   if [[ "$TO" == *.lua ]];then TO="$SCRIPTS_LIB_FOLDER/$TO"; fi
 
-  for file in $ARGUMENTS_FOLDER/**/*.md $ARGUMENTS_FOLDER/*.md ; do
-    if [[ -f "$file" ]]; then
-      filename="$(basename "$file" | cut -d '.' -f '1' )"
-      echo "converting $filename"
-      pandoc -f "$FROM" -t "$TO" "$file" > "$DEST_FOLDER/$filename"
-    fi
-  done
+  export OBSIDIAN_MANAGE_TO="$TO"
+  export OBSIDIAN_MANAGE_DEST_FOLDER="$DEST_FOLDER"
+  find "$ARGUMENTS_FOLDER" -type f -name '*.md' | parallel --eta 'filename="$(basename "{}" .md)"; echo "converting $filename"; pandoc -f "gfm" -t "$OBSIDIAN_MANAGE_TO" "{}" > "$OBSIDIAN_MANAGE_DEST_FOLDER/$filename"'
 
 }
 
