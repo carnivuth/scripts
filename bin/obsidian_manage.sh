@@ -114,8 +114,8 @@ function add_footer(){
   for file in $(find $ARGUMENTS_FOLDER -type f -name '*.md'); do
 
       # remove old links
-      sed -i '/\[PREVIOUS\]/d' "$file"
-      sed -i '/\[NEXT\]/d' "$file"
+      sed -i '/\[<\]/d' "$file"
+      sed -i '/\[>\]/d' "$file"
       sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$file"
 
       # extract index props
@@ -123,12 +123,12 @@ function add_footer(){
       next="$( grep 'next:' "$file" |awk -F ' ' '{print $2}' | sed 's/"//g')"
 
         if [[ -f "$previous" ]]; then
-          footer="[<]($previous)"
+          echo -n "[<]($previous)" >> "$file"
         fi
         if [[ -f "$next" ]]; then
-          footer="$footer [>]($next)"
+          echo -n "[>]($next)" >> "$file"
         fi
-        echo "$footer" >> "$file"
+        echo "" >> "$file"
   done
 }
 
