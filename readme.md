@@ -17,20 +17,23 @@ The repo contains a bunch of scripts and utilities for day to day use, it's almo
 - mount volumes with `rclone` utility
 - daemon for weather forecasts
 
-### Menus
+### The `L.sh` Menu
 
-- Bluetooth menus
-- clipboard menu
-- github  menus for quick access to github repos and github pages
-- `kanshi` profiles menu
-- application and websites launcher
-- menu for quick connection to networks
-- menu for quick access to obsidian vaults
-- menu for pass password manager
-- power options menu
-- quick browse on `firefox` applet
-- file opener menu
-- steam games launcher
+It's a script that uses bemenu and other menu backends to print a list of options from different sources and run an action for a selected item given the type item, for example given an item of type site the action will be to open the given site on the browser, every item source define it's own item type, some of the implemented sources are
+
+- Bluetooth devices
+- clipboard content
+- github repo
+- github ghpages
+- `kanshi` profiles
+- applications
+- websites
+- nmcli networks
+- obsidian vaults
+- pass password manager content
+- power options
+- files
+- steam games
 
 ### General command line utilities
 
@@ -165,3 +168,55 @@ Configuration is done in the `$HOME/.config/settings.sh` file, see the `.sample`
 ## Supported systems
 
 The repo is tested and used on arch linux, it should work on other distros if you install the dependencies listed in the `./scripts.sh` script and manually link dotfiles, testing is done trough the use of a archlinux vagrant box
+
+## Development documentation
+
+>[!WARNING]
+> this documentation is for development only
+
+### Systemd templates scripts
+
+Some tools need to run as daemons and monitor folders such as [the script for nextcloud synchronization](bin/nxtcdd.sh) and the [folder manager](bin/folder_manager.sh), this scripts are implemented using systemd template units functionality to spawn multiple instances of the daemon and manages different directories:
+
+```mermaid
+flowchart LR
+subgraph server
+A[(nextcloud folders:<br>Documents<br>Pictures)]
+end
+subgraph client
+B[nxtcdd.service]
+C[nxtcdd@Documents]
+D[nxtcdd.sh start -d Documents]
+E[nxtcdd@Pictures]
+F[nxtcdd.sh start -d Pictures]
+end
+A --> B -- spawns --> C & E
+C -- runs --> D
+E -- runs --> F
+```
+
+### The `L.sh` script
+
+The menu is structured as follows, the [L script](bin/L.sh) load sources based on filters given as parameters an get data from each sources in parallel, then it prints the menu and run the action specified by the item type
+
+```mermaid
+sequenceDiagram
+participant L
+L ->> L: source all scripts in lib/menus based on filters
+L ->> L: print menu
+L ->> L: execute run_<type> function of the selected item type
+```
+
+The single source is implemented as a script that is named after the defined item type (*for example the site resource is implemented in the `site.sh` script*) the source script must obey to the following interface:
+
+>lib/menus/mysource.sh
+```bash
+#!/bin/bash
+source "$HOME/.config/scripts/settings.sh"
+
+# this function  must print the elements to select from in the format type:<DATA>, to add type use sed 's/^/file:/g'
+list_mysource(){ }
+
+# this function is invoked when the element is selected with it as first argument
+run_file(){ }
+```
