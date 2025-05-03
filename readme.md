@@ -180,16 +180,12 @@ Some tools need to run as daemons and monitor folders such as [the script for ne
 
 ```mermaid
 flowchart LR
-subgraph server
 A[(nextcloud folders:<br>Documents<br>Pictures)]
-END
-subgraph client
 B[nxtcdd.service]
 C[nxtcdd@Documents]
 D[nxtcdd.sh start -d Documents]
 E[nxtcdd@Pictures]
 F[nxtcdd.sh start -d Pictures]
-END
 A --> B -- spawns --> C & E
 C -- runs --> D
 E -- runs --> F
