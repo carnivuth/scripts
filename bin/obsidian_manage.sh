@@ -122,6 +122,7 @@ function add_footer(){
       previous="$( grep 'previous:' "$file" |awk -F ' ' '{print $2}'| sed 's/"//g')"
       next="$( grep 'next:' "$file" |awk -F ' ' '{print $2}' | sed 's/"//g')"
 
+        echo "" >> "$file"
         if [[ -f "$previous" ]]; then
           echo -n "[<]($previous)" >> "$file"
         fi
