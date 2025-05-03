@@ -182,9 +182,9 @@ Some tools need to run as daemons and monitor folders such as [the script for ne
 flowchart LR
 A[(nextcloud folders:<br>Documents<br>Pictures)]
 B[nxtcdd.service]
-C[nxtcdd@Documents]
+C[nxtcdd-Documents]
 D[nxtcdd.sh start -d Documents]
-E[nxtcdd@Pictures]
+E[nxtcdd-Pictures]
 F[nxtcdd.sh start -d Pictures]
 A --> B -- spawns --> C & E
 C -- runs --> D
