@@ -182,14 +182,14 @@ Some tools need to run as daemons and monitor folders such as [the script for ne
 flowchart LR
 subgraph server
 A[(nextcloud folders:<br>Documents<br>Pictures)]
-end
+END
 subgraph client
 B[nxtcdd.service]
 C[nxtcdd@Documents]
 D[nxtcdd.sh start -d Documents]
 E[nxtcdd@Pictures]
 F[nxtcdd.sh start -d Pictures]
-end
+END
 A --> B -- spawns --> C & E
 C -- runs --> D
 E -- runs --> F
