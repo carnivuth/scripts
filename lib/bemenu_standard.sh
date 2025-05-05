@@ -6,11 +6,6 @@ BEMENU_BORDER=1
 BEMENU_PADDING=10
 BEMENU_FONT='JetBrainsMono Nerd Font,JetBrainsMono NF:style=ExtraBold 9'
 
-menu_theme_setup(){
-  true
-}
-
-# $1 wofi prompt
 menu_cmd() {
   bemenu \
     -p "$1"\
