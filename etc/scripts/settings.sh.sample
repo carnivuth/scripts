@@ -56,7 +56,7 @@ POWERMENU_FORMAT='long'
 MENU_BACKEND=fzf
 
 # enabled systemd services
-ENABLED_SERVICES="weather.service updates.service battery.service ntfyd.service"
+ENABLED_SERVICES="weather.service updates.service battery.service"
 TEMPLATE_SERVICES="nxtcdd@wallpapers.service nxtcdd@projects.service nxtcdd@Documents.service folder_manager@Downloads.service"
 
 # enabled systemd timers
