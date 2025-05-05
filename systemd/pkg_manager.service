@@ -2,7 +2,7 @@
 Description=updates notification deamon
 
 [Service]
-ExecStart=/bin/bash ${HOME}/.local/bin/updates.sh
+ExecStart=/bin/bash ${HOME}/.local/bin/pkg_manager.sh start
 Restart=always
 
 [Install]

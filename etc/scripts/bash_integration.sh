@@ -47,7 +47,7 @@ alias yay='yay --color=auto'
 
 # pacman
 alias pacman='pacman --color=auto'
-alias update='sudo pacman -Syu --noconfirm && pkgs=$(sudo pacman -Qdtq); if [[ "$pkgs" != "" ]];then sudo pacman -Rns $pkgs --noconfirm; fi && sudo pacman -Sc --noconfirm && if [[ "$XDG_SESSION_TYPE" != "tty" ]]; then notify-send -u normal -a updates "system is up to date" -i /usr/share/icons/Papirus/32x32/apps/system-software-update.svg; fi'
+alias update='pkg_manager.sh update'
 alias autoremove='pkgs=$(sudo pacman -Qdtq); if [[ "$pkgs" != "" ]];then sudo pacman -Rns $pkgs; fi'
 
 # xdg-open
