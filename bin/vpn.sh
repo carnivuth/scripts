@@ -12,6 +12,7 @@ COMMANDS[init]="initialize vpn"
 
 APP_NAME="vpn"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/openvpn.svg"
+STATUS_FILE="$SCRIPTS_RUN_FOLDER/vpn.status"
 
 function init(){
 
@@ -26,9 +27,9 @@ function init(){
 }
 
 function check_connection(){
-  while true ; do
-    connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
-    if [[ "$connection_status" != "" ]]; then
+  if [[ ! -f "$STATUS_FILE" ]]; then echo $0 > "$STATUS_FILE"; fi
+    connection_status="$( cat "$STATUS_FILE" )"
+    if [[ "$connection_status" == 1 ]]; then
       text=" $VPN_CONNECTION_NAME"
       tooltip="connected to $VPN_CONNECTION_NAME"
     else
@@ -36,17 +37,27 @@ function check_connection(){
       tooltip="not connected to $VPN_CONNECTION_NAME"
     fi
     echo "{ \"text\":\"$text\",\"tooltip\":\"$tooltip\"}" |jq --unbuffered --compact-output
-    sleep 5s
+
+  inotifywait -m "$STATUS_FILE" -e close_write | while read event; do
+    connection_status="$( cat "$STATUS_FILE" )"
+    if [[ "$connection_status" == 1 ]]; then
+      text=" $VPN_CONNECTION_NAME"
+      tooltip="connected to $VPN_CONNECTION_NAME"
+    else
+      text="  $VPN_CONNECTION_NAME"
+      tooltip="not connected to $VPN_CONNECTION_NAME"
+    fi
+    echo "{ \"text\":\"$text\",\"tooltip\":\"$tooltip\"}" |jq --unbuffered --compact-output
   done
 }
 
 toggle(){
   connection_status="$( nmcli connection show --active | grep "$VPN_CONNECTION_NAME")"
   if [[ "$connection_status" != "" ]]; then
-    nmcli connection down "$VPN_CONNECTION_NAME" && notify "normal"  "VPN $VPN_CONNECTION_NAME turned off"
+    nmcli connection down "$VPN_CONNECTION_NAME" && notify "normal"  "VPN $VPN_CONNECTION_NAME turned off" && echo 0 > "$SCRIPTS_RUN_FOLDER/vpn.status"
   else
     if [[ "$(secret-tool search vpn-repository vpn_passphrase)" != '' ]]; then
-      secret-tool lookup vpn-repository vpn_passphrase | nmcli connection up "$VPN_CONNECTION_NAME" --ask   && notify "normal" "VPN $VPN_CONNECTION_NAME turned on"
+      secret-tool lookup vpn-repository vpn_passphrase | nmcli connection up "$VPN_CONNECTION_NAME" --ask   && notify "normal" "VPN $VPN_CONNECTION_NAME turned on" && echo 1 > "$SCRIPTS_RUN_FOLDER/vpn.status"
     else
       notify "critical" "VPN $VPN_CONNECTION_NAME not configured, run $0 init and set passphrase"
     fi
