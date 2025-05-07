@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 FLAGS_STRING=''
 declare -A FLAGS
@@ -15,10 +16,15 @@ if [[ "$DESKTOP_SESSION" == 'hyprland' ]];then idle_daemon="hypridle";fi
 
 STATUS_FILE="$SCRIPTS_RUN_FOLDER/caffeine.status"
 
+APP_NAME="Caffeine mode"
+APP_ICON="/usr/share/icons/Papirus/16x16/apps/kaffeine.svg"
+
 off(){
   if ! pgrep $idle_daemon;then
     $idle_daemon &
     echo 0 > "$STATUS_FILE"
+    notify low "caffeine mode off"
+
   fi
 }
 
@@ -27,6 +33,7 @@ on(){
     kill -9 "$(pgrep $idle_daemon )"
   fi
   echo 1 > "$STATUS_FILE"
+  notify low "caffeine mode on"
 }
 
 toggle(){
