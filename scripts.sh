@@ -157,6 +157,7 @@ fi
 function configure_gnupg(){
 # add link to gpg folder
 mkdir -p "$HOME/.gnupg/"
+chmod 700 "$HOME/.gnupg/"
 echo "pinentry-program /bin/pinentry-bemenu" > "$HOME/.gnupg/gpg-agent.conf"
 }
 
