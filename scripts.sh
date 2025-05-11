@@ -14,6 +14,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+bash-completion
 wol
 parallel
 gst-plugin-spotify
