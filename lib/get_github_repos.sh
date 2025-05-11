@@ -1,7 +1,9 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 get_file(){
-  curl "https://api.github.com/users/$GITHUB_REPOVIEWER_ACCOUNT/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
+  if ping -w 1 "api.github.com"; then
+    curl "https://api.github.com/users/$GITHUB_REPOVIEWER_ACCOUNT/repos?per_page=100" > "$SCRIPTS_LOCAL_FOLDER/repos.json"
+  fi
 }
 function get_github_repos(){
 
