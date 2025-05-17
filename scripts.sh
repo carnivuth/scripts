@@ -73,6 +73,7 @@ alacritty
 obsidian
 nm-connection-editor
 noto-fonts-emoji
+noto-fonts-cjk
 greetd
 greetd-tuigreet
 wev
