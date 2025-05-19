@@ -170,6 +170,7 @@ SCRIPT_PATH="$(dirname "$(realpath "$0")")"
 if [[ ! -f "$SCRIPT_PATH/etc/scripts/settings.sh" ]]; then
   echo 'no settings.sh file found, creating default one'
   echo 'source $HOME/.config/scripts/settings.sh.sample' > "$SCRIPT_PATH/etc/scripts/settings.sh"
+  grep '""' etc/scripts/settings.sh.sample >> "$SCRIPT_PATH/etc/scripts/settings.sh"
 fi
 
 OPTIND=1

@@ -19,7 +19,7 @@ SCRIPTS_SYSTEMD_FOLDER="$HOME/.config/systemd/user"
 OBSIDIAN_NOTE_VAULT="$HOME/vaults/TIL"
 
 # GITHUB ACCOUNT FOR GITHUB APPLET
-GITHUB_REPOVIEWER_ACCOUNT="insert your personal github account name"
+GITHUB_REPOVIEWER_ACCOUNT=""
 
 # PATHS TO FOLDERS WITH IMAGES FOR THEMESWITCHER APPLET
 THEMESWITCHER_FOLDERS="$HOME/.local/lib $HOME/wallpapers"
@@ -81,7 +81,7 @@ $HOME/.ssh/config"
 # enable remote sync [1/0]
 BORG_REMOTE_ENABLED=0
 
-BORG_BACKUP_REMOTE_SERVER=''
+BORG_BACKUP_REMOTE_SERVER=""
 BORG_BACKUP_REMOTE_PATH="/mnt/datastore/pc-backups/$HOSTNAME"
 
 # rclone config parameters
@@ -90,18 +90,18 @@ BORG_RCLONE_REMOTE="google drive"
 BORG_BACKUP_RCLONE_PATH="backup/$HOSTNAME"
 
 # WEATHER WAYBAR INTEGRATION SCRIPT
-WEATHER_LOCATION=''
+WEATHER_LOCATION=""
 
 # GIT AUTOSYNC FUNCTIONALITY
 GIT_REPOS="$HOME/scripts $HOME/toolbox $HOME/vaults/* $HOME/projects/*"
 # insert here ignored remote for git_sync timer
-GIT_IGNORED_REMOTES=''
+GIT_IGNORED_REMOTES=""
 
 # MPV SOCKET FOR IPC
 MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.sock"
 
 # NTFYD CONFIGURATIONS
-NTFYD_ENDPOINT="https://ntfy.carnivuth.org"
+NTFYD_ENDPOINT=""
 NTFYD_TOPICS="homelab,work,random"
 NTFYD_MESSAGE_BUFFER="$SCRIPTS_RUN_FOLDER/ntfy.run"
 # set to -vvv to see curl debug when running ntfyd
@@ -112,7 +112,7 @@ RECORDER="wf-recorder"
 RECORDER_OUTPUT_PATH="/tmp/captures"
 
 # vpn connection name
-VPN_CONNECTION_NAME="not configured"
+VPN_CONNECTION_NAME=""
 
 # nextcloud script settings
 NEXTCLOUD_URL=""
