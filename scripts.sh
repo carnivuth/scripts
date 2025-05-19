@@ -165,6 +165,22 @@ chmod 700 "$HOME/.gnupg/"
 echo "pinentry-program /bin/pinentry-bemenu" > "$HOME/.gnupg/gpg-agent.conf"
 }
 
+function configure_system_settings(){
+
+SCRIPT_PATH="$(dirname "$(realpath "$0")")"
+if [[ ! -f "$SCRIPT_PATH/etc/scripts/settings.sh" ]]; then echo "no setting.sh file found, exiting"; exit 1; fi
+source "$HOME/.config/scripts/settings.sh"
+
+echo "configure greetd"
+sudo cp "$SCRIPTS_LIB_FOLDER/greetd/config.toml" "/etc/greetd/config.toml"
+
+echo "configure pam for unlock gnome keyring at startup"
+sudo cp "$SCRIPTS_LIB_FOLDER/pam.d/greetd" "/etc/pam.d/greetd"
+
+echo "configuring sudo to execute pacman without password for update automation"
+echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" |sudo tee "/etc/sudoers.d/$USER"
+}
+
 SCRIPT_PATH="$(dirname "$(realpath "$0")")"
 
 # check on settings.sh file
@@ -200,6 +216,10 @@ case "$1" in
     if [[ "$PACKAGES" == 'TRUE' ]];then
       sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
     fi
+    ;;
+
+  system)
+    configure_system_settings
     ;;
 
   *)

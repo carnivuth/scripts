@@ -103,7 +103,7 @@ session    optional     pam_gnome_keyring.so auto_start
 The installation scripts creates a git hook that runs on merge event and execute the `./scripts.sh` installation script, to avoid input password for pacman configure sudo as follows
 
 ```bash
-echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" > "/etc/sudoers.d/$USER"
+echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" | sudo tee "/etc/sudoers.d/$USER"
 ```
 
 ### How it works
