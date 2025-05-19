@@ -103,8 +103,10 @@ function backup(){
 
   # making actual backups
   while read TARGET ;do
-    NAME="$(echo "$TARGET" | rev | cut -d '/' -f 1 | rev)"
+    if [[ -e "$TARGET" ]]; then
+    NAME="$(basename "$TARGET")"
     borg create --info --stats --progress "$BORG_REPOSITORY_FOLDER::$NAME-$(date +%s)" "${TARGET}"  && BACKUPPED_TARGETS="${TARGET},$BACKUPPED_TARGETS"
+    fi
   done <<<$(echo "$BORG_BACKUP_TARGETS")
 
   # check backup output for notifications
