@@ -150,7 +150,8 @@ function configure_monitors(){
 function configure_ssh(){
 # add include ssh config
 mkdir -p "$HOME/.ssh"
-# check if configuration file exist and if ssh config is sourced
+touch "$HOME/.ssh/config"
+# check if configuration file exist and include ssh config for homelab
 if  [[ -f "$HOME/.ssh/config" ]] && ! grep -q 'Include ~/.config/ssh/config' "$HOME/.ssh/config" ; then
   echo 'include ssh config'
   echo  "Include ~/.config/ssh/config" >> "$HOME/.ssh/config"
