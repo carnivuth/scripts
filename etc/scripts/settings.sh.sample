@@ -39,7 +39,7 @@ BASE_QUICKSEARCH_URL='https://google.com/search?q='
 # format for power menu script options [long|short]
 POWERMENU_FORMAT='long'
 
-# applet menu backend [rofi/wofi]
+# applet menu backend [rofi|wofi|fzf|bemenu] this configuration is valid only when running L.sh from command line, not from keybinds
 MENU_BACKEND=fzf
 
 # enabled systemd services
