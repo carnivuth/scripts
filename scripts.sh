@@ -14,6 +14,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+udiskie
 bash-completion
 wol
 parallel
