@@ -22,11 +22,12 @@ gst-plugin-spotify
 strawberry
 inotify-tools
 passff-host
+pass-otp
+pass
 wireshark-cli
 fastfetch
 nextcloud-client
 pinentry-bemenu
-pass
 kanshi
 btop
 cliphist
