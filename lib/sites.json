@@ -33,6 +33,7 @@
   { "site": "master-duel-meta","link": "https://www.masterduelmeta.com"},
   { "site": "matrix-labs","link": "https://matrix.labs.it"},
   { "site": "meet","link": "https://meet.google.com"},
+  { "site": "jellyfin","link": "https://jellyfin.carnivuth.org"},
   { "site": "navidrome","link": "https://navidrome.carnivuth.org"},
   { "site": "nextcloud-web","link": "https://nextcloud.carnivuth.org"},
   { "site": "ntfy","link": "https://ntfy.carnivuth.org"},
