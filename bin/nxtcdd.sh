@@ -13,7 +13,7 @@ COMMANDS[restart_all]="restart all units of this daemon using systemd"
 COMMANDS[status_all]="check status of all units of this daemon using systemd"
 
 NEXTCLOUD_UNSYNCED_FOLDERS_FILE="$HOME/.config/Nextcloud/unsyncedfolders.conf"
-NEXTCLOUD_PARAMS="--non-interactive --exclude $HOME/.config/Nextcloud/sync-exclude.lst"
+NEXTCLOUD_PARAMS="-s --non-interactive --exclude $HOME/.config/Nextcloud/sync-exclude.lst"
 
 APP_NAME="nextcloud sync daemon"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/nextcloud.svg"
