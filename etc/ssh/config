@@ -1,8 +1,11 @@
 # HOMELAB
 Host torterra
+  hostname torterra.carnivuth.org
+  User matteo
+  IdentityFile ~/.ssh/id_rsa
   DynamicForward 40034
 
-Host torterra wailord staraptor espeon umbreon ditto arcanine klefky sanet-test cp worker1 worker2 worker3
+Host wailord staraptor espeon umbreon ditto arcanine klefky sanet-test cp worker1 worker2 worker3
   User root
   IdentityFile ~/.ssh/id_rsa
 
