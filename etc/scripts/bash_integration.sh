@@ -94,3 +94,6 @@ alias tb='docker run  --pull=always --rm -u $UID:$UID -v "$(pwd)"/:/home/toolbox
 # store alises
 alias si='store.sh install'
 alias sr='store.sh remove'
+
+# rip audio cd
+alias ripCD='mkdir temp && cd temp && cdda2wav -vall cddb=-1 speed=4 -paranoia paraopts=proof -B -D /dev/sr0'
