@@ -14,6 +14,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+cdrtools
 udiskie
 bash-completion
 wol
