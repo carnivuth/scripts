@@ -103,7 +103,7 @@ bindsym xf86audionext exec --no-startup-id playerctl next
 bindsym xf86audioprev exec --no-startup-id playerctl previous
 
 #launch telegram
-bindsym $mod+t exec --no-startup-id telegram-desktop
+bindsym $mod+t exec --no-startup-id Telegram
 
 #launch blueman
 bindsym $mod+b exec --no-startup-id blueman-manager
