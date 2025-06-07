@@ -1,7 +1,8 @@
 ---
 date: '2025-06-07T10:48:07+02:00'
-draft: true
-title: 'Scripts installation'
+draft: false
+title: 'Installation'
+weight: 10
 ---
 
 In order to install the repository run the following commands:
@@ -21,9 +22,9 @@ cd $HOME/scripts
 ./scripts.sh system
 ```
 
-## What does the installation script
+## What does the installation script do
 
-The scripts will link the repo content (e.g. bash scripts, systemd units,dotfiles and general content) using stow following this file structure
+The scripts will link the repository content (e.g. bash scripts, systemd units,dotfiles and general content) using stow following this file structure
 
 {{< mermaid >}}
 flowchart LR
@@ -41,13 +42,13 @@ The script will also add to the `~/.bashrc` an include line to enable common ali
 
 The installation script runs also other system wide configurations (*`sudo` is required*) when called with the parameter `system` such as:
 
-- greeter and greetd configuration
+- greeter and `greetd` configuration
 - sudo configuration for the current user `$USER`
-- pam configuration for unlocking gnome keyring on login
+- `pam` configuration for unlocking gnome key ring on login
 
 ### Configure greeter
 
-The installation scripts install greetd as a login daemon and hyprland and sway as window managers, configuration is done for both the environments (hyprland is more updated since is my default one), to set one of them as default program after login edit `/etc/greetd/config.toml` as follows
+The installation scripts install `greetd` as a login daemon and `hyprland` and sway as window managers, configuration is done for both the environments (`hyprland` is more updated since is my default one), to set one of them as default program after login edit `/etc/greetd/config.toml` as follows
 
 ```toml
 [terminal]

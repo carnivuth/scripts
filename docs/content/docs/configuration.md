@@ -2,6 +2,7 @@
 date: '2025-06-07T11:10:40+02:00'
 draft: true
 title: 'Configuration'
+weight: 20
 ---
 
 {{< alert >}}
