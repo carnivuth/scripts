@@ -3,6 +3,8 @@ date: '2025-06-07T10:48:07+02:00'
 draft: false
 title: 'Installation'
 weight: 10
+series: ["Documentation"]
+series_order: 1
 ---
 
 In order to install the repository run the following commands:
