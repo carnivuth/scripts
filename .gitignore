@@ -29,3 +29,9 @@ hyprpaper.conf
 # Nextcloud config folder
 etc/Nextcloud/*
 !etc/Nextcloud/sync-exclude.lst
+
+
+# documentation
+docs/public
+docs/resources/_gen
+docs/.hugo_build.lock
