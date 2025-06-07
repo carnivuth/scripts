@@ -40,12 +40,12 @@ defaultBackgroundImage = "background.gif" # used as default for background image
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
+  layout = "card" # valid options: page, profile, hero, card, background, custom
   #homepageImage = "IMAGE.jpg" # used in: hero, and card
-  showRecent = false
-  showRecentItems = 6
-  showMoreLink = false
-  showMoreLinkDest = ""
+  showRecent = true
+  showRecentItems = 3
+  showMoreLink = true
+  showMoreLinkDest = "/docs/"
   cardView = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
@@ -93,11 +93,11 @@ defaultBackgroundImage = "background.gif" # used as default for background image
   showLikes = false
   showTableOfContents = true
   showCards = true
-  orderByWeight = false
-  groupByYear = true
+  orderByWeight = true
+  groupByYear = false
   cardView = true
   cardViewScreenWidth = false
-  constrainItemsWidth = false
+  constrainItemsWidth = true
 
 [sitemap]
   excludedKinds = ["taxonomy", "term"]

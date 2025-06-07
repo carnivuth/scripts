@@ -13,11 +13,10 @@
 
 
 
-#[[main]]
-#  name = "example sub-menu 2"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 20
+[[main]]
+  name = "docs"
+  pageRef = "/docs"
+  weight = 20
 
 #[[subnavigation]]
 #  name = "An interesting topic"
