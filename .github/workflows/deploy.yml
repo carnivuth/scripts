@@ -26,12 +26,12 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo mod get && hugo build
+        run: cd docs && hugo mod get && hugo build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./docs/public
 
   deploy:
     # Add a dependency to the build job
