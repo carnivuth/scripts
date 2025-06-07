@@ -1,6 +1,6 @@
 ---
 date: '2025-06-07T10:48:07+02:00'
-draft: false
+draft: true
 title: 'Scripts installation'
 ---
 
