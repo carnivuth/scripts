@@ -13,11 +13,11 @@ The repo contains a bunch of scripts and utilities for day to day use, it's almo
 
 ## Installation
 
-Refer to the [installation wiki](https://scripts.carnivuth.org/docs/Installation)
+Refer to the [installation wiki](https://scripts.carnivuth.org/docs/installation/)
 
 ## Configuration
 
-Refer to the [configuration wiki](https://scripts.carnivuth.org/docs/Configuration)
+Refer to the [configuration wiki](https://scripts.carnivuth.org/docs/configuration/)
 
 ## Supported systems
 
