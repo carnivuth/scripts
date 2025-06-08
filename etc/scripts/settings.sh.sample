@@ -118,3 +118,6 @@ VPN_CONNECTION_NAME=""
 NEXTCLOUD_URL=""
 NXTCDD_USERNAME=""
 NXTCDD_PASSWORD=""
+
+# notification urgency to be displayed
+NOTIFICATION_LEVELS="critical"

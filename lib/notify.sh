@@ -7,5 +7,8 @@ notify(){
   if [[ -z $1 ]]; then "pass urgency as first parameter"; exit 1; fi
   if [[ -z $2 ]]; then "pass message as first parameter"; exit 1; fi
 
-  notify-send -i "$APP_ICON" -a "$APP_NAME" -u "$1"  "$2"
+  # display notification only if urgency level is enabled in configs
+  if echo $NOTIFICATION_LEVELS | grep -q "$1"; then
+    notify-send -i "$APP_ICON" -a "$APP_NAME" -u "$1"  "$2"
+  fi
 }
