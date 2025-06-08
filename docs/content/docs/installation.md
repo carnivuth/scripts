@@ -48,30 +48,14 @@ The installation script runs also other system wide configurations (*`sudo` is r
 - sudo configuration for the current user `$USER`
 - `pam` configuration for unlocking gnome key ring on login
 
-### Configure greeter
+### Greeter configuration
 
 The installation scripts install `greetd` as a login daemon and `hyprland` and sway as window managers, configuration is done for both the environments (`hyprland` is more updated since is my default one), to set one of them as default program after login edit `/etc/greetd/config.toml` as follows
 
-```toml
-[terminal]
+> `/etc/greetd/config.toml`
+{{< codeimporter url="https://raw.githubusercontent.com/carnivuth/scripts/refs/heads/main/lib/greetd/config.toml">}}
 
-vt = 1
-
-[default_session]
-
-# run hyprland on login
-#command = "agreety --cmd /bin/Hyprland"
-
-# run sway on login
-#command = "agreety --cmd /bin/sway"
-
-# login with tuigreet
-command = "tuigreet --remember --remember-user-session"
-
-user = "greeter"
-```
-
-### Configure sudo for updates
+### Sudo configuration for updates
 
 The installation scripts creates a git hook that runs on merge event and execute the `./scripts.sh` installation script, and adds a sudo config for the current `$USER` to allow `pacman` without password
 
@@ -84,14 +68,4 @@ echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" | sudo tee "/etc/sudoers.d/$USER
 The installation script configure also pam module to unlock the gnome keyring on login, this is important because a lot of scripts store secrets in it
 
 > `/etc/pam.d/greetd`
-```
-#%PAM-1.0
-
-auth       required     pam_securetty.so
-auth       requisite    pam_nologin.so
-auth       include      system-local-login
-auth       optional     pam_gnome_keyring.so
-account    include      system-local-login
-session    include      system-local-login
-session    optional     pam_gnome_keyring.so auto_start
-```
+{{< codeimporter url="https://raw.githubusercontent.com/carnivuth/scripts/refs/heads/main/lib/pam.d/greetd">}}
