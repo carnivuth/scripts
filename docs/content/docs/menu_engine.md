@@ -74,6 +74,50 @@ list_type(){ }
 run_type(){ }
 ```
 
+### Implemented types
+
+The repository contains a set of already implemented type:
+
+- `app` launch exec binaries of `.desktop` files
+- `btdevice` connect to bluetooth devices
+- `clipboard` get content from the clipboard history
+- `file` open files
+- `ghpage` open github pages site of a given repository
+- `ghrepo` open github repository page
+- `ksprofile` switch between [kanshi](https://sr.ht/~emersion/kanshi/) profiles
+- `network` connect to wifi networks
+- `notification` display notifications
+- `otp` copy otp codes [pass-otp integration](https://github.com/tadfisher/pass-otp#readme) for [password store](https://www.passwordstore.org/)
+- `password` copy a password store in a [password store](https://www.passwordstore.org/)
+- `site` open a firefox tab in a given site
+- `s` open sites
+- `steam` open steam games
+- `system` power management options
+- `vault` open obsidian vault with obsidian
+- `wallpaper` change wallpaper
+- `window` move focus to a specific window
+
+#### Adding sites to the `site` type
+
+The `site` type load the sytes to display from a file in the filesystem at the following paths
+
+- `~/.local/lib/sites.json` this is a default under version control that **should NOT be edited** and should be used as reference instead
+- `~/.local/lib/sites.json.d` this is a directory for extra `sites.json` files that are installation specific
+
+So in order to add a site do as follows
+
+> inside `$HOME/.local/lib/sites.json.d/mysites.json`
+```json
+[
+  { "site": "my-site","link": "https://mysite.com"}
+]
+```
+
+Where:
+
+- `site` field is the name displayed inside the menu
+- `link` field is the site url to open with firefox
+
 ### Add custom types in menus
 
 To add custom types create a file in the `$HOME/.local/lib/menus` directory following the structure above
