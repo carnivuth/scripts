@@ -64,7 +64,7 @@ pop-icon-theme
 pulsemixer
 firefox
 telegram-desktop
-epapirus-icon-theme
+papirus-icon-theme
 brightnessctl
 mpv-mpris
 ttf-font-awesome
