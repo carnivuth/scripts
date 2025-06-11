@@ -97,6 +97,10 @@ The repository contains a set of already implemented type:
 - `wallpaper` change wallpaper
 - `window` move focus to a specific window
 
+#### Github menus configuration
+
+To use github menus correctly the parameter `GITHUB_REPOVIEWER_ACCOUNT` must be set, see [configuration section](/docs/configuration)
+
 #### Adding sites to the `site` type
 
 The `site` type load the sytes to display from a file in the filesystem at the following paths
