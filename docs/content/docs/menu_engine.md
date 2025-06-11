@@ -97,6 +97,10 @@ The repository contains a set of already implemented type:
 - `wallpaper` change wallpaper
 - `window` move focus to a specific window
 
+#### password menus configuration
+
+The password menu can show password from multiple password repositories, set the `PASSWORD_STORES`, see [configuration section](/docs/configuration)
+
 #### Github menus configuration
 
 To use github menus correctly the parameter `GITHUB_REPOVIEWER_ACCOUNT` must be set, see [configuration section](/docs/configuration)
