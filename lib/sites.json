@@ -15,6 +15,7 @@
   { "site": "duelling-nexus","link": "https://duelingnexus.com"},
   { "site": "ebay","link": "https://www.ebay.it"},
   { "site": "facebook","link": "https://www.facebook.com"},
+  { "site": "last.fm","link": "https://www.last.fm"},
   { "site": "github","link": "https://www.github.com"},
   { "site": "gmail","link": "https://mail.google.com"},
   { "site": "google-drive","link": "https://drive.google.com"},
