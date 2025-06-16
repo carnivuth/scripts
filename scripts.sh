@@ -20,7 +20,6 @@ bash-completion
 wol
 parallel
 gst-plugin-spotify
-strawberry
 inotify-tools
 passff-host
 pass-otp
