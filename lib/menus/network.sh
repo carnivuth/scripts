@@ -6,7 +6,8 @@ APP_NAME="network"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/gnome-networktool.svg"
 
 function list_network(){
-  nmcli device wifi rescan; nmcli -t -f name connection | sed 's/^/network:/g'
+  nmcli device wifi rescan;
+  nmcli -t -f name connection show --active | sed 's/^/network:/g'
 }
 
 function run_network(){
