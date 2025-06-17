@@ -20,7 +20,6 @@
     "modules-center": [
     "custom/caffeine",
       "clock",
-    "custom/weather"
     ],
 
     "modules-right": [
