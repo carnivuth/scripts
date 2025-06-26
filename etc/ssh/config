@@ -15,3 +15,21 @@ Host u425518.your-storagebox.de storagebox
   User u425518
   Port 23
   IdentityFile ~/.ssh/backup_key
+
+Host luca
+  Hostname luca.mmwunibo.it
+  User mlonghi
+  IdentityFile ~/.ssh/unibo_key
+
+Host paolo
+  Hostname paolo.mmwunibo.it
+  User mlonghi
+  IdentityFile ~/.ssh/unibo_key
+Host antonio
+  Hostname antonio.mmwunibo.it
+  User mlonghi
+  IdentityFile ~/.ssh/unibo_key
+
+Host gitea.hyperting.it
+  IdentityFile ~/.ssh/hyperting_key
+  User matteo.longhi5
