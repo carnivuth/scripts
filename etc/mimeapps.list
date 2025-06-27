@@ -20,6 +20,7 @@ x-scheme-handler/discord-694795560288256021=discord-694795560288256021.desktop
 audio/mpeg=mpv.desktop
 video/mp4=mpv.desktop
 audio/opus=mpv.desktop
+x-scheme-handler/msteams=teams.desktop
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-J8DZ71.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-J8DZ71.desktop;
