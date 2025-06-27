@@ -23,7 +23,6 @@
 
     "modules-right": [
       "pulseaudio",
-    "custom/vpn",
     "network",
     "battery",
     "tray"
