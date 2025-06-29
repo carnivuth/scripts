@@ -16,6 +16,7 @@ declare -A COMMANDS
 COMMANDS[dwl]="download content"
 COMMANDS[nv_album]="download audio files from youtube links"
 COMMANDS[all_lyrics]="download lyrics from lrclib.net"
+COMMANDS[ripcd]="download lyrics from lrclib.net"
 
 # constants
 COLLECTION_DIR="$HOME/collection"
@@ -103,6 +104,14 @@ function lyrics(){
     fi
 
   fi
+}
+
+function ripcd(){
+  mkdir -p "$NV_ALBUM_DIR"
+  (
+    cd "$NV_ALBUM_DIR"
+    cdda2wav -vall cddb=-1 speed=4 -B -D /dev/sr0
+  )
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"

@@ -96,4 +96,4 @@ alias si='store.sh install'
 alias sr='store.sh remove'
 
 # rip audio cd
-alias ripCD='mkdir temp && cd temp && cdda2wav -vall cddb=-1 speed=4 -B -D /dev/sr0; notify-send -a ripCD -u normal "rip completed"'
+alias ripCD='collection_manage.sh ripcd'
