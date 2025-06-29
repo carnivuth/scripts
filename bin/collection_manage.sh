@@ -9,7 +9,8 @@ FLAGS[f]='FORMAT="-f "${OPTARG}'
 FLAGS[d]='DEST_FOLDER=${OPTARG}'
 FLAGS[l]='LINKS_FILE=${OPTARG}'
 FLAGS[D]='DEBUG=1'
-FLAGS_STRING='acf:u:d:l:D'
+FLAGS[C]='COLLECTION_DIR=${OPTARG}'
+FLAGS_STRING='acf:u:d:l:C:D'
 
 declare -A COMMANDS
 COMMANDS[dwl]="download content"
