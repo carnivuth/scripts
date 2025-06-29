@@ -6,7 +6,8 @@ PDF_READER=evince
 FILE_EDITOR="$TERM vim"
 
 list_file(){
-  find $HOME -type f -not -path '*/.*' -not -path '*/site-packages/*' -not -path '*/env/*' -not -path '*/go/pkg*' | sed 's/^/file:/g'
+  find $HOME -type f -not -path '*/.*' -not -path '*/site-packages/*' -not -path '*/env/*' -not -path '*/go/pkg*' -mount | sed 's/^/file:/g'
+
 }
 
 run_file(){
