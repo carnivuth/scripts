@@ -3,6 +3,7 @@
   { "site": "prime-video","link": "https://www.primevideo.com"},
   { "site": "aws","link": "https://aws.amazon.com"},
   { "site": "cloudflare","link": "https://dash.cloudflare.com"},
+  { "site": "rust-book","link": "https://doc.rust-lang.org/book/"},
   { "site": "calendar","link": "https://calendar.google.com"},
   { "site": "awsome-selfhosted","link": "https://www.github.com/awesome-selfhosted/awesome-selfhosted"},
   { "site": "cardmarket","link": "https://www.cardmarket.com"},
