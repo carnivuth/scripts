@@ -5,31 +5,32 @@ Host torterra
   IdentityFile ~/.ssh/id_rsa
   DynamicForward 40034
 
-Host wailord staraptor espeon umbreon ditto arcanine klefky sanet-test cp worker1 worker2 worker3
-  User root
-  ProxyJump torterra
-  IdentityFile ~/.ssh/id_rsa
-
 Host u425518.your-storagebox.de storagebox
   HostName u425518.your-storagebox.de
   User u425518
   Port 23
   IdentityFile ~/.ssh/backup_key
 
+Host wailord staraptor espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
+  User root
+  ProxyJump torterra
+  IdentityFile ~/.ssh/id_rsa
+
+# mmwunibo.it
 Host luca
   Hostname luca.mmwunibo.it
-  User mlonghi
-  IdentityFile ~/.ssh/unibo_key
 
 Host paolo
   Hostname paolo.mmwunibo.it
-  User mlonghi
-  IdentityFile ~/.ssh/unibo_key
+
 Host antonio
   Hostname antonio.mmwunibo.it
+
+Host antonio luca paolo
   User mlonghi
   IdentityFile ~/.ssh/unibo_key
 
+# hyperting
 Host gitea.hyperting.it
   IdentityFile ~/.ssh/hyperting_key
   User matteo.longhi5
