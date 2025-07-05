@@ -66,11 +66,11 @@ function nv_album(){
 function lyrics(){
   # loop all music files in collection
   find "$COLLECTION_DIR" -regextype posix-egrep -regex ".*\.(m4a|opus|wav)$" | while read file; do
-    lyrics "$file"
+    download_lyrcs_by_file "$file"
   done
 }
 
-function lyrics(){
+function download_lyrcs_by_file(){
   # test if a lyrics file is already downloaded
   if test ! -f "${file%.*}.lrc" && test ! -f "${file%.*}.txt"; then
 
