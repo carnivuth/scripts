@@ -15,7 +15,7 @@ FLAGS_STRING='acf:u:d:l:C:D'
 declare -A COMMANDS
 COMMANDS[dwl]="download content"
 COMMANDS[nv_album]="download audio files from youtube links"
-COMMANDS[all_lyrics]="download lyrics from lrclib.net"
+COMMANDS[lyrics]="download lyrics from lrclib.net"
 COMMANDS[ripcd]="download lyrics from lrclib.net"
 
 # constants
@@ -63,7 +63,7 @@ function nv_album(){
 
 }
 
-function all_lyrics(){
+function lyrics(){
   # loop all music files in collection
   find "$COLLECTION_DIR" -regextype posix-egrep -regex ".*\.(m4a|opus|wav)$" | while read file; do
     lyrics "$file"
