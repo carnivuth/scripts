@@ -1,5 +1,8 @@
 directory: ~/collection
+library: ~/collection/library.db
+
 plugins: chroma fetchart embedart lyrics lastgenre
+
 lyrics:
     auto: yes
     dist_thresh: 0.11
