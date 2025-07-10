@@ -14,7 +14,7 @@ FLAGS_STRING='acf:u:d:l:C:D'
 
 declare -A COMMANDS
 COMMANDS[dwl]="download content"
-COMMANDS[nv_album]="download audio files from youtube links"
+COMMANDS[download]="download audio files from youtube links"
 COMMANDS[lyrics]="download lyrics from lrclib.net"
 COMMANDS[ripcd]="download lyrics from lrclib.net"
 
@@ -50,7 +50,7 @@ function dwl() {
   rm -f "$YT_DLP_PROGRESS_FILE"
 }
 
-function nv_album(){
+function download(){
 
   if [[ -n $LINKS_FILE ]]; then
   cat "$LINKS_FILE" | while read link; do
