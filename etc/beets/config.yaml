@@ -1,0 +1,14 @@
+directory: ~/collection
+plugins: chroma fetchart embedart lyrics lastgenre
+lyrics:
+    auto: yes
+    dist_thresh: 0.11
+    fallback: null
+    force: no
+    print: no
+    sources: [lrclib, google, genius, tekstowo]
+    synced: yes
+
+lastgenre:
+  auto: yes
+  count: 1000
