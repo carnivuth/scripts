@@ -15,3 +15,6 @@ lyrics:
 lastgenre:
   auto: yes
   count: 1000
+
+paths:
+  default: $albumartist/$album%aunique{}/$disc-$track. $title
