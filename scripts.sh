@@ -15,6 +15,10 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+python-pyacoustid
+chromaprint
+python-pymad
+beets
 cdrtools
 udiskie
 bash-completion
