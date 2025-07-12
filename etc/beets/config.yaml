@@ -18,3 +18,4 @@ lastgenre:
 
 paths:
   default: $albumartist/$album%aunique{}/$disc-$track. $title
+  albumtype:soundtrack: Soundtracks/$album/$disc-$track. $title
