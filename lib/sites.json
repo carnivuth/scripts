@@ -19,6 +19,7 @@
   { "site": "facebook","link": "https://www.facebook.com"},
   { "site": "last.fm","link": "https://www.last.fm"},
   { "site": "github","link": "https://www.github.com"},
+  { "site": "gitlab","link": "https://www.gitlab.com"},
   { "site": "gmail","link": "https://mail.google.com"},
   { "site": "google-drive","link": "https://drive.google.com"},
   { "site": "scholar-google","link": "https://scholar.google.com/"},
