@@ -1,0 +1,5 @@
+[Unit]
+Description=Change current wallpaper
+
+[Service]
+ExecStart=/bin/bash ${HOME}/.local/bin/wallpaper_randomizer.sh change_wall
