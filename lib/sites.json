@@ -37,6 +37,8 @@
   { "site": "jellyfin","link": "https://jellyfin.carnivuth.org"},
   { "site": "navidrome","link": "https://navidrome.carnivuth.org"},
   { "site": "nextcloud-web","link": "https://nextcloud.carnivuth.org"},
+  { "site": "nextcloud-deck","link": "https://nextcloud.carnivuth.org/apps/deck"},
+  { "site": "nextcloud-calendar","link": "https://nextcloud.carnivuth.org/apps/calendar"},
   { "site": "pbs","link": "https://ditto:8007"},
   { "site": "proxmox","link": "https://torterra:8006"},
   { "site": "portainer","link": "https://wailord:8086"},
