@@ -43,10 +43,7 @@ The installation script runs also other system wide configurations (*`sudo` is r
 
 ### Greeter configuration
 
-The installation scripts install `greetd` as a login daemon and `hyprland` and sway as window managers, configuration is done for both the environments (`hyprland` is more updated since is my default one), to set one of them as default program after login edit `/etc/greetd/config.toml` as follows
-
-> `/etc/greetd/config.toml`
-{{< codeimporter url="https://raw.githubusercontent.com/carnivuth/scripts/refs/heads/main/lib/greetd/config.toml">}}
+The installation scripts install `greetd` as a login daemon and `hyprland` and sway as window managers, configuration is done for both the environments (`hyprland` is more updated since is my default one), to set one of them as default program after login edit `/etc/greetd/config.toml` following the file [here](../lib/greetd/config.toml)
 
 ### Sudo configuration for updates
 
@@ -58,7 +55,5 @@ echo "$USER ALL=(ALL:ALL) NOPASSWD:/bin/pacman" | sudo tee "/etc/sudoers.d/$USER
 
 ### Configuring pam for gnome keyring
 
-The installation script configure also pam module to unlock the gnome keyring on login, this is important because a lot of scripts store secrets in it
+The installation script configure also pam module to unlock the gnome keyring on login, this is important because a lot of scripts store secrets in it, look [here](../lib/pam.d/greetd) for the sample file
 
-> `/etc/pam.d/greetd`
-{{< codeimporter url="https://raw.githubusercontent.com/carnivuth/scripts/refs/heads/main/lib/pam.d/greetd">}}
