@@ -15,8 +15,8 @@ The repo contains a bunch of scripts and utilities for day to day use, it's almo
 
 ## Installation
 
-Refer to the [installation wiki](docs/installation.md)
+Refer to the [installation wiki](doc/installation.md)
 
 ## Configuration
 
-Refer to the [configuration wiki](docs/configuration.md)
+Refer to the [configuration wiki](doc/configuration.md)
