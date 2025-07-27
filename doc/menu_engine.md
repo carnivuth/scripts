@@ -1,26 +1,19 @@
----
-date: '2025-06-07T16:37:29+02:00'
-draft: false
-title: 'Menu_engine'
-weight: 30
-series: ["Documentation"]
-series_order: 3
----
+# Menu engine
 
 One of the most important utilities in the repository is the universal menu engine to avoid using interactive menus that require a mouse pointer, the utility is inspired by the various `dmenu` replacements and it can use one of them as a backend to display item lists, the concept is simple:
 
-{{< mermaid >}}
+```mermaid
 flowchart LR
 A[display list of elements]
 B[chose element]
 C[do something with the chosen element]
 A --> B --> C
-{{</ mermaid >}}
+```
 
 
-{{< alert >}}
-For example a menu could display sites and open them in the browser and another one could display password elements from the password store and copy one of them in the clipboard :)
-{{</ alert >}}
+> [!ALERT]
+> For example a menu could display sites and open them in the browser and another one could display password elements from the password store and copy one of them in the clipboard :)
+
 
 The advantage in a similar approach is that there is an **homogeneous way** to access most common operations that a user does with a desktop environment
 
@@ -34,14 +27,14 @@ The menu utility has the following requirements
 
 In order to accomplish this requirements the utility follows a domain model where the menu items are called `elements` that are defined by a `type` which indicates how elements has to be retrieved from the system and what the system has to do with the selected `element`
 
-{{< mermaid >}}
+```mermaid
 flowchart TD
 A[element]
 B{type}
 C[elements retrival]
 D[what to do with element]
 A -- has --> B -- defines --> C & D
-{{</ mermaid >}}
+```
 
 ### Usage
 
@@ -54,9 +47,8 @@ L.sh -b [backend] [lists of types]
 Where:
 
 - `backend` is the program that has to print the elements on display, all `dmenu` replacement are valid options, (*default is defined in the [configuration file](/configuration) `MENU_BACKEND`*)
-{{< alert >}}
-**NOTE** when called from the [hyprland](https://hyprland.org) bindings the script will use a different backend that the one defined in the configuration file !!!!
-{{</ alert >}}
+> [!ALERT]
+> When called from the [hyprland](https://hyprland.org) bindings the script will use a different backend that the one defined in the configuration file !!!!
 
 - `list of types` is a list of types to be considered when searching elements to display (*default behavior is to print all known types*) the elements type are defined as files in the `$HOME/.local/lib/menus/` directory and are defined as follows
 
@@ -99,11 +91,11 @@ The repository contains a set of already implemented type:
 
 #### password menus configuration
 
-The password menu can show password from multiple password repositories, set the `PASSWORD_STORES`, see [configuration section](/docs/configuration)
+The password menu can show password from multiple password repositories, set the `PASSWORD_STORES`, see [configuration section](configuration.md)
 
 #### Github menus configuration
 
-To use github menus correctly the parameter `GITHUB_REPOVIEWER_ACCOUNT` must be set, see [configuration section](/docs/configuration)
+To use github menus correctly the parameter `GITHUB_REPOVIEWER_ACCOUNT` must be set, see [configuration section](configuration.md)
 
 #### Adding sites to the `site` type
 
@@ -132,12 +124,12 @@ To add custom types create a file in the `$HOME/.local/lib/menus` directory foll
 
 ### Runtime
 
-The menu is structured as follows, the [L script](bin/L.sh) load sources based on filters given as parameters an get data from each sources in parallel, then it prints the menu and run the action specified by the item type
+The menu is structured as follows, the [L script](../bin/L.sh) load sources based on filters given as parameters an get data from each sources in parallel, then it prints the menu and run the action specified by the item type
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 participant L
 L ->> L: source all scripts in lib/menus based on filters
 L ->> L: print menu
 L ->> L: execute run_<type> function of the selected item type
-{{</ mermaid >}}
+```

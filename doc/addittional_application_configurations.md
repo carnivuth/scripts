@@ -1,10 +1,4 @@
----
-date: '2025-06-08T14:33:44+02:00'
-draft: true
-title: 'Additional_application_configurations'
-series: ["Documentation"]
-series_order:
----
+# Additional application configurations
 
 ### Firefox
 

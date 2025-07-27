@@ -1,10 +1,6 @@
----
-date: '2025-06-07T16:37:43+02:00'
-draft: true
-title: 'Nxtcdd'
-series: ["Documentation"]
-series_order: 6
----
+# Nextcloud systemd sync daemon (nxtcdd)
+
+# WORK IN PROGRESS
 
 ## Development documentation
 

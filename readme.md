@@ -1,4 +1,4 @@
-# SCRIPTS
+# Carnivuth's dotfiles
 
 Personal dotfiles (wayland configuration) + some useful scripts and tools for everyday use
 
@@ -6,6 +6,8 @@ Personal dotfiles (wayland configuration) + some useful scripts and tools for ev
 
 The repo contains a bunch of scripts and utilities for day to day use, it's almost as a fully desktop environment (at least for my use case 😅), some of the features are
 
+- dotfiles for a wayland(*[Hyprland](https://hyprland.org/)*) configuration for keybindings (mostly like [i3](https://i3wm.org/) ones)
+- default configuration for some softwares that i use every day
 - Automatic backups using systemd timers and borg
 - nextcloud sync daemon
 - main menu to interact with the system
@@ -13,12 +15,8 @@ The repo contains a bunch of scripts and utilities for day to day use, it's almo
 
 ## Installation
 
-Refer to the [installation wiki](https://scripts.carnivuth.org/docs/installation/)
+Refer to the [installation wiki](docs/installation.md)
 
 ## Configuration
 
-Refer to the [configuration wiki](https://scripts.carnivuth.org/docs/configuration/)
-
-## Supported systems
-
-The repo is tested and used on arch linux, it should work on other distros if you install the dependencies listed in the `./scripts.sh` script and manually link dotfiles
+Refer to the [configuration wiki](docs/configuration.md)
