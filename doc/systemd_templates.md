@@ -14,3 +14,7 @@ A --> B -- spawns --> C & E
 C -- runs --> D
 E -- runs --> F
 ```
+
+## Add systemd services in the configuration file
+
+To enable systemd user template units at installation time edit `TEMPLATE_SERVICES` in the [configuration file](configuration.md)
