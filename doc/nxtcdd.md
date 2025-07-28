@@ -1,25 +1,48 @@
 # Nextcloud systemd sync daemon (nxtcdd)
 
-# WORK IN PROGRESS
+Systemd managed daemon to sync [nextcloud](https://nextcloud.com/) folders
 
-## Development documentation
+This script tries to replace the desktop client using the `nextcloudcmd` to run sync operations and `inotifywait` to listen to file changes in the monitored folders.
 
->[!WARNING]
-> this documentation is for development only
+## Usage
 
-### Systemd templates scripts
+The script is meant to be run using [systemd template units](https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html), each spawned unit manage a specific nextcloud folder under your home directory, so if your nextcloud folders are as follows:
 
-Some tools need to run as daemons and monitor folders such as [the script for nextcloud synchronization](bin/nxtcdd.sh) and the [folder manager](bin/folder_manager.sh), this scripts are implemented using systemd template units functionality to spawn multiple instances of the daemon and manages different directories:
+> [!TIP]
+> For more information on how this daemon is implemented watch [this](systemd_templates.md)
 
-```mermaid
-flowchart LR
-A[(nextcloud folders:<br>Documents<br>Pictures)]
-B[nxtcdd.service]
-C[nxtcdd-Documents]
-D[nxtcdd.sh start -d Documents]
-E[nxtcdd-Pictures]
-F[nxtcdd.sh start -d Pictures]
-A --> B -- spawns --> C & E
-C -- runs --> D
-E -- runs --> F
+```text
+/
+├── Camera
+├── Documents
+├── projects
+└── wallpapers
+```
+
+To sync only the `projects` and the `Documents` folders run
+
+```bash
+systemctl --user start nxtcdd@Documents
+systemctl --user start nxtcdd@projects
+```
+
+> [!TIP]
+> To enable systemd units for specific folders modify the variable `TEMPLATE_SERVICES` in the [config file](configuration.md)
+
+## Credentials
+
+To enable the script credentials must be provided in the [configuration file](configuration.md)
+
+```bash
+NEXTCLOUD_URL="url to the nextcloud instance"
+NXTCDD_USERNAME="username"
+NXTCDD_PASSWORD="password"
+```
+
+## Troubleshooting
+
+The script runs a sync operation each time a file is modified inside the watched folder, when there are errors in the sync operation watch the daemon journal with
+
+```bash
+journalctl --user -fu ntxcdd@[FOLDER]
 ```
