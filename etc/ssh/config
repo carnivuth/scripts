@@ -11,6 +11,11 @@ Host u425518.your-storagebox.de storagebox
   Port 23
   IdentityFile ~/.ssh/backup_key
 
+Host garchomp
+  User matteo
+  ProxyJump torterra
+  IdentityFile ~/.ssh/id_rsa
+
 Host wailord staraptor espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
   User root
   ProxyJump torterra
