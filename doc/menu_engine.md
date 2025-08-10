@@ -83,7 +83,7 @@ The repository contains a set of already implemented type:
 - `password` copy a password store in a [password store](https://www.passwordstore.org/)
 - `site` open a firefox tab in a given site
 - `s` open sites
-- `steam` open steam games
+- `sgame` open steam games
 - `system` power management options
 - `vault` open obsidian vault with obsidian
 - `wallpaper` change wallpaper
