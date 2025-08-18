@@ -348,7 +348,7 @@
     foreground = "#cdd6f4"
     frame_color = "#fab387"
     icon = "/home/probe/.config/dunst/icons/critical.svg"
-    timeout = 0
+    timeout = 3
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
     #frame_color = ""
