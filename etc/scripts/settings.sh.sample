@@ -39,8 +39,14 @@ BASE_QUICKSEARCH_URL='https://google.com/search?q='
 # format for power menu script options [long|short]
 POWERMENU_FORMAT='long'
 
-# applet menu backend [rofi|wofi|fzf|bemenu] this configuration is valid only when running L.sh from command line, not from keybinds
-MENU_BACKEND=fzf
+# applet menu backend  this configuration is valid only when running L.sh from command line, not from keybinds, see etc/hypr/bindings.conf
+# examples are:
+# MENU_BACKEND='fzf --prompt'
+# MENU_BACKEND='wofi -d --show dmenu -p'
+# MENU_BACKEND='fuzzel  -d -p'
+# MENU_BACKEND='rofi -dmenu -p'
+# MENU_BACKEND='bemenu -p'
+MENU_BACKEND='fzf --prompt'
 
 # enabled systemd services
 ENABLED_SERVICES="weather.service pkg_manager.service battery.service"
@@ -124,3 +130,6 @@ NOTIFICATION_LEVELS="critical"
 
 # password store dirs to look for passwords
 PASSWORD_STORES="$HOME/.password-store"
+
+# bemenu configs
+export BEMENU_OPTS="--fb '#24273a' --ff '#cad3f5' --nb '#24273a' --nf '#cad3f5' --tb '#24273a' --hb '#24273a' --tf '#ed8796' --hf '#eed49f' --af '#cad3f5' --ab '#24273a' --bdr '#b4befe' --hp 10 -B 1 --fn 'JetBrainsMono Nerd Font,JetBrainsMono NF:style=ExtraBold 9' -H 21"

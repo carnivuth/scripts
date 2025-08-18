@@ -23,14 +23,6 @@ while getopts b:h flag; do
   esac
 done
 
-# get menu backend
-if [[ -f "$SCRIPTS_LIB_FOLDER/$MENU_BACKEND"_standard.sh ]] ; then
-  source "$SCRIPTS_LIB_FOLDER/$MENU_BACKEND"_standard.sh;
-else
-  echo "no backend $MENU_BACKEND found"
-  exit 1
-fi
-
 # get filters
 menus=''
 if [[ -n $@ ]];then
@@ -44,7 +36,7 @@ if [[ -n $@ ]];then
 fi
 
 # print elements
-chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' $menus | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | menu_cmd "$PROMPT" )"
+chosen="$(find $SCRIPTS_LIB_FOLDER/menus/ -name '*.sh' $menus | tr ' ' '\n' | parallel 'source {}; list_$(basename {} .sh)' | $MENU_BACKEND  "$PROMPT" )"
 if [[ "$chosen" != '' ]];then
   echo $chosen | while IFS=':' read t element; do
   source "$SCRIPTS_LIB_FOLDER/menus/$t.sh"
