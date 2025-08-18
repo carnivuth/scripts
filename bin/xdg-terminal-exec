@@ -1,2 +1,2 @@
 #!/bin/bash
-alacritty -e $1
+alacritty --class $1 -e $1
