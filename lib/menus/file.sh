@@ -9,4 +9,3 @@ run_file(){
   chosen="$1"
   gio open "$chosen"
 }
-
