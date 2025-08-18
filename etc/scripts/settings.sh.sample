@@ -1,5 +1,7 @@
 #!/bin/bash
+
 export PATH="$HOME/.local/bin:$PATH"
+
 # LOGS FOLDER PATH
 SCRIPTS_LOGS_FOLDER="$HOME/.local/log/scripts"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi

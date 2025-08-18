@@ -6,6 +6,6 @@ list_app(){
 }
 
 run_app(){
-        echo gtk-launch "$1" >> /tmp/debug
-        gtk-launch "$1" >> /tmp/debug
+  app_file="$(find "$HOME/.local/share/applications/" "/usr/share/applications/" -name "$1.desktop")"
+  gio launch "$app_file"
 }

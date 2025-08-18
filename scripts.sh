@@ -61,6 +61,7 @@ loupe
 evince
 ttf-dejavu
 mpv
+ranger
 thunderbird
 adwaita-icon-theme
 libnotify

@@ -1,9 +1,5 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
-FILE_MANAGER=thunar
-MUSIC_PLAYER=mpv
-PDF_READER=evince
-FILE_EDITOR="$TERM vim"
 
 list_file(){
   find $HOME -type f -not -path '*/.*' -not -path '*/site-packages/*' -not -path '*/env/*' -not -path '*/go/pkg*' -mount | sed 's/^/file:/g'
@@ -11,5 +7,6 @@ list_file(){
 
 run_file(){
   chosen="$1"
-  xdg-open "$chosen"
+  gio open "$chosen"
 }
+

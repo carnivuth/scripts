@@ -1,5 +1,4 @@
 #!/bin/bash
-
 export PATH="$HOME/.local/bin:$PATH"
 
 # include scripts settings
@@ -50,8 +49,8 @@ alias pacman='pacman --color=auto'
 alias update='pkg_manager.sh update'
 alias autoremove='pkgs=$(sudo pacman -Qdtq); if [[ "$pkgs" != "" ]];then sudo pacman -Rns $pkgs; fi'
 
-# xdg-open
-alias open='xdg-open'
+# gio open
+alias open='gio open'
 
 # grep
 alias grep='grep --color=auto'
