@@ -216,7 +216,7 @@ case "$1" in
     stow --target="$HOME/.local/bin" -D bin
     stow --target="$HOME/.config/systemd/user" -D systemd
     systemctl --user daemon-reload
-    sed '/source \$HOME\/\.config\/scripts\/bash_integration.sh/d' -i "$HOME/.bashrc"
+    sed '/source \$HOME\/\.config\/scripts\/settings.sh/d' -i "$HOME/.bashrc"
     sed 'Include ~/.config/ssh/config' -i "$HOME/.ssh/config"
 
     echo "removing packages"
