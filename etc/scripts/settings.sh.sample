@@ -1,4 +1,5 @@
 #!/bin/bash
+export PATH="$HOME/.local/bin:$PATH"
 # LOGS FOLDER PATH
 SCRIPTS_LOGS_FOLDER="$HOME/.local/log/scripts"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi
@@ -41,7 +42,6 @@ POWERMENU_FORMAT='long'
 
 # applet menu backend  this configuration is valid only when running L.sh from command line, not from keybinds, see etc/hypr/bindings.conf
 # examples are:
-# MENU_BACKEND='fzf --prompt'
 # MENU_BACKEND='wofi -d --show dmenu -p'
 # MENU_BACKEND='fuzzel  -d -p'
 # MENU_BACKEND='rofi -dmenu -p'

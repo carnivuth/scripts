@@ -2,9 +2,10 @@
 source "$HOME/.config/scripts/settings.sh"
 
 list_app(){
-  grep -o -e '^Exec=.*' $HOME/.local/share/applications/* /usr/share/applications/*.desktop | awk -F'[ =]' '{print $2}' | awk -F'/' '{print $NF}' | sort -u | sed 's/^/app:/g'
+  find $HOME/.local/share/applications/ /usr/share/applications/ -name '*.desktop'   -exec basename {} .desktop \; |  sed 's/^/app:/g'
 }
 
 run_app(){
-        exec "$1"
+        echo gtk-launch "$1" >> /tmp/debug
+        gtk-launch "$1" >> /tmp/debug
 }
