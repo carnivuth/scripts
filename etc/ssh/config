@@ -16,7 +16,10 @@ Host garchomp
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
 
-Host wailord staraptor espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
+Host metapod
+  DynamicForward 40035
+
+Host beartic avalug metapod wailord staraptor espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
