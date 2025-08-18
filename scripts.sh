@@ -244,8 +244,8 @@ case "$1" in
     stow --target="$HOME/.config/systemd/user" systemd
 
     echo 'adding bash integration'
-    if [[ "$(grep 'source $HOME/.config/scripts/bash_integration.sh' "$HOME/.bashrc" )" == "" ]]; then
-      echo 'source $HOME/.config/scripts/bash_integration.sh' >> "$HOME/.bashrc";
+    if [[ "$(grep 'source $HOME/.config/scripts/settings.sh' "$HOME/.bashrc" )" == "" ]]; then
+      echo 'source $HOME/.config/scripts/settings.sh' >> "$HOME/.bashrc";
     fi
 
     install_systemd_units
