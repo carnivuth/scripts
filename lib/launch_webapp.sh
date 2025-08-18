@@ -3,7 +3,7 @@
 launch_webapp(){
   source "$HOME/.config/scripts/settings.sh"
 
-  firefox --new-tab "$1"
+  gio open "$1"
 
   # draw attention to the firefox window based on window manager
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
