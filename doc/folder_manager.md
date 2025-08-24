@@ -4,6 +4,8 @@ Utility to manage content inside directories, this script is intended to run as 
 
 The script will trigger itself when a file is closed after been open in write mode (`close_write` event) and re arrange the files inside the monitored directory
 
+The content is re arranged based on the file mime type, for example `pdf` files are stored inside `application/pdf` directory
+
 ## Usage
 
 To use the script just enable the systemd template services for the directories that need to be monitored, for example to monitor the `~/Downloads` and `~/Pictures` directory run:

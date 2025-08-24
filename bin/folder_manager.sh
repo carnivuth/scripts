@@ -13,33 +13,18 @@ COMMANDS[watch]="watch a folder for changes and run cleanup operations"
 APP_NAME="Folder manager"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/document-viewer.svg"
 
-declare -A DIRS
-DIRS[png]="images"
-DIRS[jpg]="images"
-DIRS[tar]="compressed"
-DIRS[gz]="compressed"
-DIRS[zst]="compressed"
-DIRS[zip]="compressed"
-DIRS[7z]="compressed"
-DIRS[pdf]="documents"
-DIRS[docx]="documents"
-DIRS[txt]="documents"
-DIRS[mp3]="audio"
-DIRS[opus]="audio"
-DIRS[wav]="audio"
-DIRS[torrent]="torrents"
-
 function run(){
 
   if [[ -z $DIRECTORY ]]; then echo "set DIRECTORY with -d option";exit 1; fi
   if [[ ! -d "$DIRECTORY" ]]; then echo "$DIRECTORY is not a DIRECTORY";exit 1; fi
 
-  for file in $DIRECTORY/* ; do
+   find "$DIRECTORY" -type f | while read file; do
     if [[ -f "$file" ]]; then
+      echo "processing $file"
 
       filename="$(basename "$file")"
       extension="${filename##*.}"
-      dest_dir=${DIRS[$extension]}
+      dest_dir=$(gio info "$file"  | grep  'standard::content-type'  | awk '{print $2}')
 
       if [[ -n $dest_dir ]]; then
         mkdir -p "$DIRECTORY/$dest_dir"
@@ -48,6 +33,8 @@ function run(){
       fi
     fi
   done
+  # delete empty folders after cicling all files
+  find "$DIRECTORY" -type d -empty -delete
 }
 
 function watch(){
@@ -55,6 +42,7 @@ function watch(){
   if [[ -z $DIRECTORY ]]; then echo "set DIRECTORY with -d option";exit 1; fi
   if [[ ! -d "$DIRECTORY" ]]; then echo "$DIRECTORY is not a DIRECTORY";exit 1; fi
 
+  run
   echo "started watching for changes in $DIRECTORY"
   notify "normal" "started watching for changes in $DIRECTORY"
   inotifywait --format '%w %f' -e close_write -m "$DIRECTORY" | while read directory filename; do
@@ -62,6 +50,7 @@ function watch(){
     echo "$filename detected change in $DIRECTORY"
     notify "low" "$filename detected change in $DIRECTORY"
     run
+
   done
 }
 
