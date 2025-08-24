@@ -26,6 +26,8 @@ DIRS[docx]="documents"
 DIRS[txt]="documents"
 DIRS[mp3]="audio"
 DIRS[opus]="audio"
+DIRS[wav]="audio"
+DIRS[torrent]="torrents"
 
 function run(){
 
