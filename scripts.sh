@@ -16,6 +16,7 @@ xdg-desktop-portal-hyprland'
 
 DEPS='
 python-pyacoustid
+python-pylast
 chromaprint
 python-pymad
 beets
