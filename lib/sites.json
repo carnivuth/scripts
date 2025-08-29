@@ -35,7 +35,6 @@
   { "site": "instagram","link": "https://www.instagram.com"},
   { "site": "linkedin","link": "https://www.linkedin.com"},
   { "site": "master-duel-meta","link": "https://www.masterduelmeta.com"},
-  { "site": "steam-headless","link": "http://garchomp.local.carnivuth.org:8083"},
   { "site": "portainer","link": "https://portainer.carnivuth.org"},
   { "site": "jellyfin","link": "https://jellyfin.carnivuth.org"},
   { "site": "navidrome","link": "https://navidrome.carnivuth.org"},
