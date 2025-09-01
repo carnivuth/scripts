@@ -102,7 +102,7 @@ ENABLED_SERVICES="weather.service pkg_manager.service battery.service"
 TEMPLATE_SERVICES=" nxtcdd@projects.service nxtcdd@Documents.service folder_manager@Downloads.service"
 
 # enabled systemd timers
-ENABLED_TIMERS="git_sync.timer backup.timer prune.timer wallpaper_randomizer.timer"
+ENABLED_TIMERS="git_sync.timer prune.timer wallpaper_randomizer.timer"
 
 # BATTERY SERVICE SETTINGS
 
