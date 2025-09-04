@@ -86,9 +86,6 @@ MOUNTS["google drive"]="$HOME/google_drive"
 # base url for quicksearch applet
 BASE_QUICKSEARCH_URL='https://duckduckgo.com/?q='
 
-# format for power menu script options [long|short]
-POWERMENU_FORMAT='long'
-
 # applet menu backend  this configuration is valid only when running L.sh from command line, not from keybinds, see etc/hypr/bindings.conf
 # examples are:
 # MENU_BACKEND='wofi -d --show dmenu -p'
