@@ -27,8 +27,6 @@ wol
 parallel
 gst-plugin-spotify
 inotify-tools
-passff-host
-pass-otp
 pass
 wireshark-cli
 fastfetch
@@ -67,7 +65,7 @@ thunderbird
 adwaita-icon-theme
 libnotify
 pop-icon-theme
-pulsemixer
+pavucontrol
 firefox
 telegram-desktop
 papirus-icon-theme
@@ -98,7 +96,7 @@ wl-clipboard
 dunst
 curl
 borg
-rclone
+retroarch
 newsboat
 upower
 libsecret'
@@ -222,7 +220,7 @@ case "$1" in
 
     echo "removing packages"
     if [[ "$PACKAGES" == 'TRUE' ]];then
-      sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+      sudo pacman -Rns --noconfirm $DEPS $HYPRLAND_DEPS
     fi
     ;;
 
@@ -235,7 +233,7 @@ case "$1" in
 
     echo 'installing packages'
     if [[ "$PACKAGES" == 'TRUE' ]];then
-      sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS $SWAY_DEPS
+      sudo pacman -S --noconfirm $DEPS $HYPRLAND_DEPS
     fi
 
     echo 'installing configs'
