@@ -12,6 +12,8 @@ COMMANDS[watch]="watch a folder for changes and run cleanup operations"
 
 APP_NAME="Folder manager"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/document-viewer.svg"
+# files to avoid touch
+UNMANAGED_FILES="part"
 
 function run(){
 
@@ -26,7 +28,7 @@ function run(){
       extension="${filename##*.}"
       dest_dir=$(gio info "$file"  | grep  'standard::content-type'  | awk '{print $2}')
 
-      if [[ -n $dest_dir ]]; then
+      if [[ -n $dest_dir ]] && ! grep -q "$extension" "$UNMANAGED_FILES"; then
         mkdir -p "$DIRECTORY/$dest_dir"
         echo "moving $file in $DIRECTORY/$dest_dir"
         mv "$file" "$DIRECTORY/$dest_dir" && notify "normal" "moved $file to $dest_dir"
