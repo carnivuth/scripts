@@ -12,6 +12,7 @@ Host u425518.your-storagebox.de storagebox
   IdentityFile ~/.ssh/backup_key
 
 Host garchomp
+  hostname garchomp.local.carnivuth.org
   User matteo
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
@@ -19,7 +20,7 @@ Host garchomp
 Host metapod
   DynamicForward 40035
 
-Host beartic avalug metapod wailord staraptor espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
+Host snorlax avalug metapod wailord espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa

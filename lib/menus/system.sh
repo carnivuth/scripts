@@ -1,22 +1,11 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
-# set menu entries based on format setting
-if [[ $POWERMENU_FORMAT == 'long' ]]; then
-  SHUTDOWN=' poweroff'
-  REBOOT=' reboot'
-  LOCK=' lock'
-  SUSPEND=' suspend'
-  LOGOUT=' logout'
-fi
-
-if [[ $POWERMENU_FORMAT == 'short' ]]; then
-  SHUTDOWN=''
-  REBOOT=''
-  LOCK=''
-  SUSPEND=''
-  LOGOUT=''
-fi
+SHUTDOWN=' poweroff'
+REBOOT=' reboot'
+LOCK=' lock'
+SUSPEND=' suspend'
+LOGOUT=' logout'
 
 list_system(){
   echo -e "$LOCK\n$SUSPEND\n$LOGOUT\n$REBOOT\n$SHUTDOWN" | sed 's/^/system:/'
