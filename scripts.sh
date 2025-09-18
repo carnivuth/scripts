@@ -15,6 +15,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+python-langdetect
 python-pyacoustid
 python-pylast
 chromaprint
