@@ -1,7 +1,7 @@
 directory: ~/collection
 library: ~/collection/library.db
 
-plugins: chroma fetchart embedart lyrics lastgenre
+plugins: chroma fetchart embedart lyrics lastgenre missing
 
 lyrics:
     auto: yes
