@@ -2,72 +2,60 @@
 source "$HOME/.config/scripts/settings.sh"
 
 declare -A FLAGS
-FLAGS[a]='AUDIO_ONLY="-x -f bestaudio"'
-FLAGS[c]='SUBS=--embed-subs'
+FLAGS[a]='AUDIO_ONLY=""'
 FLAGS[u]='URL=${OPTARG}'
-FLAGS[f]='FORMAT="-f "${OPTARG}'
-FLAGS[d]='DEST_FOLDER=${OPTARG}'
-FLAGS[l]='LINKS_FILE=${OPTARG}'
-FLAGS[D]='DEBUG=1'
-FLAGS[C]='COLLECTION_DIR=${OPTARG}'
-FLAGS_STRING='acf:u:d:l:C:D'
+FLAGS[d]='DEVICE=${OPTARG}'
+FLAGS_STRING='au:d:'
 
 declare -A COMMANDS
-COMMANDS[dwl]="download content"
-COMMANDS[download]="download audio files from youtube links"
-COMMANDS[ripcd]="download lyrics from lrclib.net"
+COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
+COMMANDS[ripcd]="rip a cd and import inside beet collection"
 
-# constants
-COLLECTION_DIR="$HOME/collection"
-BASEURL="https://lrclib.net/api/get?"
-LOG_DIR="$SCRIPTS_LOGS_FOLDER/$(basename $0 .sh)"; if test ! -d $LOG_DIR;then mkdir "$LOG_DIR";fi
-NOW="$(date +%s)"
-YT_DLP_PROGRESS_FILE='/tmp/progress.txt'
-NV_ALBUM_DIR="/tmp/nv_album"
+# download only audio files default yes
+AUDIO_ONLY="-x"
 
-function dwl() {
-  if [[ -z $DEST_FOLDER ]] || [[ -z $URL ]]; then help; exit 1; fi
-  # setting yt-dlp command
+# path for temporary files download
+NEW_ALBUM_PATH="/tmp/$(basename "$0" .sh)/$(uuidgen)"; if [[ ! -d "$NEW_ALBUM_PATH" ]]; then mkdir -p "$NEW_ALBUM_PATH"; fi
+echo "$NEW_ALBUM_PATH"
+
+YT_DLP_PROGRESS_FILE="$NEW_ALBUM_PATH/yt_dlp_progress.txt"
+
+# device to read for cd ripping
+DEVICE='/dev/sr0'
+
+function download() {
+
+  # check on url parameter
+  if [[ -z $URL ]]; then echo "URL variable not set, use -u option"; help; exit 1; fi
+
   YT_DLP_CMD="yt-dlp \
     --ignore-errors \
     --continue \
     --no-overwrites \
     --download-archive $YT_DLP_PROGRESS_FILE \
-    ${AUDIO_ONLY} \
-    ${SUBS} \
-    ${FORMAT} \
-    -P $DEST_FOLDER \
+    $AUDIO_ONLY \
+    -f bestaudio \
+    -P $NEW_ALBUM_PATH \
     $URL"
 
-  # printing command for debugging purposes
-  if [[ "$DEBUG" == "1" ]]; then echo "running $YT_DLP_CMD"; fi
+  echo "$YT_DLP_CMD"
 
-  # run command
   $YT_DLP_CMD
 
-  # remove progress file
-  rm -f "$YT_DLP_PROGRESS_FILE"
-}
-
-function download(){
-
-  if [[ -n $LINKS_FILE ]]; then
-  cat "$LINKS_FILE" | while read link; do
-    echo "downloading $link"
-    ($0 dwl -a -d $NV_ALBUM_DIR/$(uuidgen) -u "$link")
-  done
-  elif [[ -n $URL ]]; then
-    ($0 dwl -a -d $NV_ALBUM_DIR/$(uuidgen) -u "$URL")
-  fi
-
+  echo "beet import $NEW_ALBUM_PATH"
+  beet import "$NEW_ALBUM_PATH"
 }
 
 function ripcd(){
-  mkdir -p "$NV_ALBUM_DIR"
+  if [[ -z $DEVICE ]]; then echo "DEVICE variable not set, use -d option"; help; exit 1; fi
   (
-    cd "$NV_ALBUM_DIR"
-    cdda2wav -vall cddb=-1 speed=4 -B -D /dev/sr0
+    cd "$NEW_ALBUM_PATH"
+    echo "cdda2wav -vall cddb=-1 speed=4 -B -D $DEVICE"
+    cdda2wav -vall cddb=-1 speed=4 -B -D "$DEVICE"
   )
+
+  echo "beet import $NEW_ALBUM_PATH"
+  beet import "$NEW_ALBUM_PATH"
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
