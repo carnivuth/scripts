@@ -43,22 +43,26 @@ function update(){
   status=0
   # update system
   sudo pacman -Syu --noconfirm
-  status=$?
+  rt=$?
+  if [[ $rt != 0 ]];then status=$rt; fi
 
   # remove orphans
   pkgs=$(sudo pacman -Qdtq)
   if [[ "$pkgs" != "" ]];then
     sudo pacman -Rns $pkgs --noconfirm
-    status=$?
+  rt=$?
+  if [[ $rt != 0 ]];then status=$rt; fi
   fi
 
   # clean cache
   sudo pacman -Sc --noconfirm
-  status=$?
+  rt=$?
+  if [[ $rt != 0 ]];then status=$rt; fi
 
   if [[ "$XDG_SESSION_TYPE" != "tty" ]] && [[ "$status" == "0" ]]; then
     notify normal "system is up to date"
   fi
+  return $status
 }
 
 function start(){
