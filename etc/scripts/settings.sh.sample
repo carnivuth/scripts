@@ -99,7 +99,7 @@ MENU_BACKEND='fzf --prompt'
 
 # enabled systemd services
 ENABLED_SERVICES="weather.service pkg_manager.service battery.service"
-TEMPLATE_SERVICES=" nxtcdd@projects.service nxtcdd@Documents.service folder_manager@Downloads.service"
+TEMPLATE_SERVICES="folder_manager@Downloads.service"
 
 # enabled systemd timers
 ENABLED_TIMERS="git_sync.timer prune.timer"
