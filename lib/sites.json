@@ -10,6 +10,7 @@
   { "site": "netflix","link": "https://www.netflix.com"},
   { "site": "instant-gaming","link": "https://www.instant-gaming.com"},
   { "site": "blowfish-docs","link": "https://blowfish.page/"},
+  { "site": "healthchecks","link": "https://healthchecks.io/"},
   { "site": "datacamp","link": "https://app.datacamp.com"},
   { "site": "discord","link": "https://discord.com/app"},
   { "site": "docker-hub","link": "https://hub.docker.com"},
