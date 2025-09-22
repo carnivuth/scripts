@@ -38,6 +38,8 @@
   { "site": "linkedin","link": "https://www.linkedin.com"},
   { "site": "master-duel-meta","link": "https://www.masterduelmeta.com"},
   { "site": "portainer","link": "https://portainer.carnivuth.org"},
+  { "site": "komga","link": "https://komga.carnivuth.org"},
+  { "site": "freshrss","link": "https://freshrss.carnivuth.org"},
   { "site": "jellyfin","link": "https://jellyfin.carnivuth.org"},
   { "site": "navidrome","link": "https://navidrome.carnivuth.org"},
   { "site": "homepage","link": "https://homepage.carnivuth.org"},
