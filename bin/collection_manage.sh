@@ -42,8 +42,8 @@ function download() {
 
   $YT_DLP_CMD
 
-  echo "beet import $NEW_ALBUM_PATH"
-  beet import "$NEW_ALBUM_PATH"
+  echo "beet -v import $NEW_ALBUM_PATH"
+  beet -v import "$NEW_ALBUM_PATH"
 }
 
 function ripcd(){
@@ -54,8 +54,8 @@ function ripcd(){
     cdda2wav -vall cddb=-1 speed=4 -B -D "$DEVICE"
   )
 
-  echo "beet import $NEW_ALBUM_PATH"
-  beet import "$NEW_ALBUM_PATH"
+  echo "beet -v import $NEW_ALBUM_PATH"
+  beet -v import "$NEW_ALBUM_PATH"
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
