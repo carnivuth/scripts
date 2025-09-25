@@ -27,7 +27,7 @@ function help(){
   done
   echo "list of flags:"
   for flag in "${!FLAGS_DESCRIPTIONS[@]}"; do
-    echo "       $flag -> ${FLAGS_DESCRIPTIONS[$flag]}"
+    echo "       -$flag -> ${FLAGS_DESCRIPTIONS[$flag]}"
   done
 }
 
