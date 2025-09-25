@@ -215,6 +215,7 @@ case "$1" in
     stow --target="$HOME/.local/lib" -D lib
     stow --target="$HOME/.local/bin" -D bin
     stow --target="$HOME/.config/systemd/user" -D systemd
+    stow --target="$HOME/.mozilla/firefox" -D firefox
     systemctl --user daemon-reload
     sed '/source \$HOME\/\.config\/scripts\/settings.sh/d' -i "$HOME/.bashrc"
     sed 'Include ~/.config/ssh/config' -i "$HOME/.ssh/config"
@@ -230,7 +231,7 @@ case "$1" in
     ;;
 
   *)
-    mkdir -p "$HOME/.config/" "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib"
+    mkdir -p "$HOME/.config/" "$HOME/.config/systemd/user" "$HOME/.local/bin" "$HOME/.local/lib" "$HOME/.mozilla/firefox"
 
     echo 'installing packages'
     if [[ "$PACKAGES" == 'TRUE' ]];then
@@ -242,6 +243,7 @@ case "$1" in
     stow --target="$HOME/.local/lib" lib
     stow --target="$HOME/.local/bin" bin
     stow --target="$HOME/.config/systemd/user" systemd
+    stow --target="$HOME/.mozilla/firefox" firefox
 
     echo 'adding bash integration'
     if [[ "$(grep 'source $HOME/.config/scripts/settings.sh' "$HOME/.bashrc" )" == "" ]]; then
