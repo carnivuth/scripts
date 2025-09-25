@@ -27,6 +27,7 @@ A[etc] --> E[~/.config]
 B[bin] --> F[~/.local/bin]
 C[lib] --> G[~/.local/lib]
 D[systemd] --> H[~/.config/systemd/user]
+D[firefox] --> H[~/.mozilla/firefox]
 ```
 
 Then it will enabled [systemd](https://systemd.io/) user units and timers for common tasks (*e.g. backup and other stuff*), the enabled unit are defined in the configuration file (`ENABLED_SERVICES` `TEMPLATE_SERVICES` `ENABLED_TIMERS`)
