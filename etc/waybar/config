@@ -200,13 +200,6 @@
       "format": "  ",
       "on-click":"~/.local/bin/nxtcdd.sh restart_all",
     },
-    "custom/vpn": {
-      "format": "{}",
-      "tooltip": true,
-      "exec": "~/.local/bin/vpn.sh check_connection",
-      "on-click":"~/.local/bin/vpn.sh toggle",
-      "return-type": "json"
-    },
     "custom/weather": {
       "format": "{}",
       "tooltip": true,

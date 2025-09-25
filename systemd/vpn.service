@@ -1,9 +1,0 @@
-[Unit]
-Description=Attach to vpn on startup
-
-[Service]
-ExecStart=/bin/bash ${HOME}/.local/bin/vpn.sh toggle
-Type=oneshot
-
-[Install]
-RequiredBy=default.target
