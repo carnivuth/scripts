@@ -20,6 +20,14 @@ FLAGS[t]='TO=${OPTARG}'
 FLAGS[r]='RESET="TRUE"'
 FLAGS[n]='NOTE=${OPTARG}'
 
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS[v]='vault to target'
+FLAGS_DESCRIPTIONS[p]='property value to read from frontmatter'
+FLAGS_DESCRIPTIONS[g]='initialize git inside vault'
+FLAGS_DESCRIPTIONS[t]='destination format to convert files to'
+FLAGS_DESCRIPTIONS[r]='reset default configurations and plugins'
+FLAGS_DESCRIPTIONS[n]='path to file to scan for broken links'
+
 # COMMANDS
 declare -A COMMANDS
 
