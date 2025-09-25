@@ -31,3 +31,6 @@ state.pickle
 # Nextcloud config folder
 etc/Nextcloud/*
 !etc/Nextcloud/sync-exclude.lst
+
+# firefox config
+firefox/carnivuth-profile/*
