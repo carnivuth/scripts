@@ -5,6 +5,7 @@ source "$SCRIPTS_LIB_FOLDER/notify.sh"
 declare -A FLAGS
 FLAGS_STRING='d:'
 FLAGS[d]='NEXTCLOUD_DIR=${OPTARG}'
+FLAGS_DESCRIPTIONS[d]='nextcloud directory to manage'
 
 declare -A COMMANDS
 COMMANDS[start]="start nextcloud sync daemon"

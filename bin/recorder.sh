@@ -6,6 +6,7 @@ APP_NAME="Recorder"
 APP_ICON="/usr/share/icons/Papirus/16x16/apps/gtkam-camera.svg"
 
 declare -A FLAGS
+declare -A FLAGS_DESCRIPTIONS
 FLAGS_STRING=''
 
 declare -A COMMANDS

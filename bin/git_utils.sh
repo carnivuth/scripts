@@ -8,6 +8,11 @@ FLAGS[t]='TAG=${OPTARG}'
 FLAGS[m]='MESSAGE=${OPTARG}'
 FLAGS[r]='GIT_REPOS=${OPTARG}'
 
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS[t]='git tag to create'
+FLAGS_DESCRIPTIONS[m]='git message'
+FLAGS_DESCRIPTIONS[r]='git repos to target'
+
 declare -A COMMANDS
 COMMANDS[sync]="sync repos specified in the config file"
 COMMANDS[prmain]="make a pull request to main branch and accept it"

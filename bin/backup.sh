@@ -7,6 +7,7 @@ source "$SCRIPTS_LIB_FOLDER/notify.sh"
 # the script is meant to run with a systemd timer
 
 declare -A FLAGS
+declare -A FLAGS_DESCRIPTIONS
 FLAGS_STRING=''
 
 declare -A COMMANDS

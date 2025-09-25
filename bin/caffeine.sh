@@ -4,6 +4,7 @@ source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 FLAGS_STRING=''
 declare -A FLAGS
+declare -A FLAGS_DESCRIPTIONS
 
 declare -A COMMANDS
 COMMANDS[toggle]="toggle caffeine mode"

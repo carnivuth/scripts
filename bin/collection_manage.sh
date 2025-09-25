@@ -1,27 +1,32 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 
-declare -A FLAGS
-FLAGS[a]='AUDIO_ONLY=""'
-FLAGS[u]='URL=${OPTARG}'
-FLAGS[d]='DEVICE=${OPTARG}'
-FLAGS_STRING='au:d:'
-
-declare -A COMMANDS
-COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
-COMMANDS[ripcd]="rip a cd and import inside beet collection"
+# device to read for cd ripping
+DEVICE='/dev/sr0'
 
 # download only audio files default yes
 AUDIO_ONLY="-x"
 
 # path for temporary files download
 NEW_ALBUM_PATH="/tmp/$(basename "$0" .sh)/$(uuidgen)"; if [[ ! -d "$NEW_ALBUM_PATH" ]]; then mkdir -p "$NEW_ALBUM_PATH"; fi
-echo "$NEW_ALBUM_PATH"
 
 YT_DLP_PROGRESS_FILE="$NEW_ALBUM_PATH/yt_dlp_progress.txt"
 
-# device to read for cd ripping
-DEVICE='/dev/sr0'
+declare -A FLAGS
+FLAGS[a]='AUDIO_ONLY=""'
+FLAGS[u]='URL=${OPTARG}'
+FLAGS[d]='DEVICE=${OPTARG}'
+
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS[a]='disable audio only downloads'
+FLAGS_DESCRIPTIONS[u]='url of the playlist to download'
+FLAGS_DESCRIPTIONS[d]="device to read when ripping cds, default $DEVICE"
+
+FLAGS_STRING='au:d:'
+
+declare -A COMMANDS
+COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
+COMMANDS[ripcd]="rip a cd and import inside beet collection"
 
 function download() {
 

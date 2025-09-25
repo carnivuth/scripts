@@ -15,6 +15,7 @@ source "$SCRIPTS_LIB_FOLDER/check_if_function_exist.sh"
 
 if  ! declare -p COMMANDS >/dev/null 2>&1; then echo "COMMANDS array not declared"; exit 1; fi
 if  ! declare -p FLAGS >/dev/null 2>&1; then echo "FLAGS array not declared"; exit 1; fi
+if  ! declare -p FLAGS_DESCRIPTIONS >/dev/null 2>&1; then echo "FLAGS_DESCRIPTIONS array not declared"; exit 1; fi
 
 COMMANDS[help]="show this help command"
 
@@ -23,6 +24,10 @@ function help(){
   echo "list of commands:"
   for command in "${!COMMANDS[@]}"; do
     echo "       $command -> ${COMMANDS[$command]}"
+  done
+  echo "list of flags:"
+  for flag in "${!FLAGS_DESCRIPTIONS[@]}"; do
+    echo "       $flag -> ${FLAGS_DESCRIPTIONS[$flag]}"
   done
 }
 

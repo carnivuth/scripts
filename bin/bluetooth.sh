@@ -1,8 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
 declare -A FLAGS
-FLAGS["b"]='MENU_BACKEND=${OPTARG}'
-FLAGS_STRING='b:'
+declare -A FLAGS_DESCRIPTIONS
 
 declare -A COMMANDS
 COMMANDS[bluetooth_print]="print bluetooth devices"

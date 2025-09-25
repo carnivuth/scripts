@@ -2,18 +2,22 @@
 source "$HOME/.config/scripts/settings.sh"
 
 declare -A FLAGS
-FLAGS[t]='TITLE_PROGRAM=${OPTARG}'
-FLAGS[a]='ARTIST_PROGRAM=${OPTARG}'
-FLAGS[l]='ALBUM_PROGRAM=${OPTARG}'
 FLAGS[f]='FILE_FORMAT=${OPTARG}'
 FLAGS[s]='SRC_FOLDER=${OPTARG}'
 FLAGS[d]='DEST_FOLDER=${OPTARG}'
 FLAGS[i]='INPUT_FILE=${OPTARG}'
 FLAGS[T]='DURATION=${OPTARG}'
-FLAGS_STRING='t:a:l:f:s:d:i:T'
+
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS[f]='file format to convert the file to'
+FLAGS_DESCRIPTIONS[s]='content src folder'
+FLAGS_DESCRIPTIONS[d]='content dest folder'
+FLAGS_DESCRIPTIONS[i]='file to cut'
+FLAGS_DESCRIPTIONS[T]='seconds to cut of the given file'
+
+FLAGS_STRING='f:s:d:i:T'
 
 declare -A COMMANDS
-COMMANDS[add_metadata]="apply metadata given the parameters"
 COMMANDS[convert_to]="convert audio video files in batch"
 COMMANDS[cut_video]="cut video to a specific duration"
 COMMANDS[video2gif]="convert video to gif"
@@ -23,52 +27,6 @@ function wait_n_proc {
   while [ $(jobs | wc -l) -ge $n_proc ]
   do
     sleep 3
-  done
-}
-
-function add_metadata(){
-
-  # check for folder parameters and exit if absent
-  if [[ -z $SRC_FOLDER ]] || [[ -z $DEST_FOLDER ]]; then help; exit 1; fi
-
-  # check the src folder existance
-  if [[ ! -d "$SRC_FOLDER" ]]; then echo "first parameter must be a folder"; exit 1; fi
-
-  # create folder if dosent exist
-  if [[ ! -d "$DEST_FOLDER" ]]; then mkdir "$DEST_FOLDER"; fi
-
-  # set default file format to opus if no format is provided
-  if [[ -z $FILE_FORMAT  ]]; then FILE_FORMAT='opus'; fi
-
-  # main loop
-  for file in "$SRC_FOLDER"/*.$FILE_FORMAT; do
-
-      # get name file
-      name=${file%.*}
-
-      # get metadata values from names
-      if [[ "$ARTIST_PROGRAM" != '' ]]; then
-        ARTIST="$(echo $name | awk -f "$ARTIST_PROGRAM")"
-
-      fi
-      if [[ "$ALBUM_PROGRAM" != '' ]]; then
-        ALBUM="$(echo $name | awk -f "$ALBUM_PROGRAM")"
-      fi
-      if [[ "$TITLE_PROGRAM" != '' ]]; then
-        TITLE="$(echo $name | awk -f "$TITLE_PROGRAM" )"
-      fi
-
-      echo -e " processing $name file with\n TITLE:$TITLE\n ALBUM:$ALBUM\n ARTIST:$ARTIST"
-
-      # ffmpeg decoding
-      ffmpeg -y -v quiet -stats -i "$file" -acodec copy \
-        -metadata album="$ALBUM" \
-        -metadata title="$TITLE" \
-        -map 0:0 -metadata:s:a:0 title="$TITLE" \
-        -metadata Title="$TITLE" \
-        -metadata artist="$ARTIST" \
-        "$DEST_FOLDER"/"$TITLE.$FILE_FORMAT"
-
   done
 }
 

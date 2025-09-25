@@ -3,6 +3,7 @@ source "$HOME/.config/scripts/settings.sh"
 source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
+declare -A FLAGS_DESCRIPTIONS
 FLAGS_STRING=''
 
 APP_NAME="ntfyd"

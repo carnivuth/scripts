@@ -2,8 +2,10 @@
 source "$HOME/.config/scripts/settings.sh"
 
 declare -A FLAGS
-FLAGS_STRING='u'
 FLAGS['u']="AUR=TRUE"
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS['u']="include aur packages using yay"
+FLAGS_STRING='u'
 
 declare -A COMMANDS
 COMMANDS[install]="install a package from repo"

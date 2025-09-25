@@ -4,6 +4,8 @@ source "$SCRIPTS_LIB_FOLDER/notify.sh"
 
 declare -A FLAGS
 FLAGS[d]='DIRECTORY=${OPTARG}'
+declare -A FLAGS_DESCRIPTIONS
+FLAGS_DESCRIPTIONS[d]='directory to manage'
 FLAGS_STRING='d:'
 
 declare -A COMMANDS
