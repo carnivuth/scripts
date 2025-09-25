@@ -34,3 +34,5 @@ etc/Nextcloud/*
 
 # firefox config
 firefox/carnivuth-profile/*
+!firefox/carnivuth-profile/chrome/
+!firefox/carnivuth-profile/chrome/userChrome.css
