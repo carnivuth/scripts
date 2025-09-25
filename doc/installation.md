@@ -34,6 +34,10 @@ Then it will enabled [systemd](https://systemd.io/) user units and timers for co
 
 The script will also add to the `~/.bashrc` an include line to enable common aliases for the scripts inside the repository
 
+## Configure firefox
+
+To make the `userChrome.css` file valid the option `toolkit.legacyUserProfileCustomizations.stylesheets` must be enabled in the `about:config` firefox panel
+
 ## System wide configuration
 
 The installation script runs also other system wide configurations (*`sudo` is required*) when called with the parameter `system` such as:
