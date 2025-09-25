@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/scripts/settings.sh"
+source "$SCRIPTS_LIB_FOLDER/launch_webapp.sh"
 
 list_s(){
   true
@@ -8,23 +9,16 @@ list_s(){
 run_s(){
 	case "$1" in
 	https://*)
-		firefox --new-tab "$1"
+		launch_webapp "$1"
+    break
 		;;
 	http://*)
-		firefox --new-tab "$1"
+		launch_webapp "$1"
+    break
 		;;
 	*)
-			firefox --new-tab "$BASE_QUICKSEARCH_URL$1"
-		 ;;
+		launch_webapp "$BASE_QUICKSEARCH_URL$1"
+    break
+		;;
 	esac
-
-  # draw attention to the firefox window if running on hyprland
-  if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-    hyprctl dispatch 'focuswindow class:[Ff]irefox'
-  fi
-
-  # draw attention to the firefox window if running on i3
-  if [[ "$XDG_CURRENT_DESKTOP" == 'i3' ]]; then
-    i3-msg '[class="firefox"] focus'
-  fi
 }
