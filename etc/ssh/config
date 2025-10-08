@@ -20,7 +20,9 @@ Host garchomp
 Host metapod
   DynamicForward 40035
 
-Host snorlax avalug metapod wailord espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
+Host glaceon
+  host 192.168.1.201
+Host glaceon snorlax avalug metapod wailord espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
@@ -39,6 +41,10 @@ Host antonio luca paolo
   User mlonghi
   IdentityFile ~/.ssh/unibo_key
 
+Host mlonghi-hyperflowbirex
+  Hostname 192.168.17.134
+  User default
+  IdentityFile ~/.ssh/unibo_key
 # hyperting
 Host gitea.hyperting.it
   IdentityFile ~/.ssh/hyperting_key
