@@ -93,10 +93,6 @@ The repository contains a set of already implemented type:
 
 The password menu can show password from multiple password repositories, set the `PASSWORD_STORES`, see [configuration section](configuration.md)
 
-#### Github menus configuration
-
-To use github menus correctly the parameter `GITHUB_REPOVIEWER_ACCOUNT` must be set, see [configuration section](configuration.md)
-
 #### Adding sites to the `site` type
 
 The `site` type load the sytes to display from a file in the filesystem at the following paths
