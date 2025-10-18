@@ -9,6 +9,7 @@ x-scheme-handler/webcals=userapp-Thunderbird-NKB071.desktop
 application/pdf=org.gnome.Evince.desktop
 image/png=org.gnome.Loupe.desktop
 image/jpeg=org.gnome.Loupe.desktop
+image/svg+xml=org.gnome.Loupe.desktop
 application/link=firefox.desktop
 inode/directory=ranger.desktop
 text/html=firefox.desktop
