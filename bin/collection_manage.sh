@@ -10,6 +10,9 @@ COLLECTION_DIR="$HOME/collection"
 # download only audio files default yes
 AUDIO_ONLY="-x"
 
+# enable beet import
+BEET_IMPORT="TRUE"
+
 # path for temporary files download
 NEW_ALBUM_PATH="/tmp/$(basename "$0" .sh)/$(uuidgen)"; if [[ ! -d "$NEW_ALBUM_PATH" ]]; then mkdir -p "$NEW_ALBUM_PATH"; fi
 
@@ -17,6 +20,7 @@ YT_DLP_PROGRESS_FILE="$NEW_ALBUM_PATH/yt_dlp_progress.txt"
 
 declare -A FLAGS
 FLAGS[a]='AUDIO_ONLY=""'
+FLAGS[b]='BEET_IMPORT="FALSE"'
 FLAGS[u]='URL=${OPTARG}'
 FLAGS[d]='DEVICE=${OPTARG}'
 FLAGS[C]='COLLECTION_DIR=${OPTARG}'
@@ -27,7 +31,7 @@ FLAGS_DESCRIPTIONS[u]='url of the playlist to download'
 FLAGS_DESCRIPTIONS[d]="device to read when ripping cds, default $DEVICE"
 FLAGS_DESCRIPTIONS[C]="Beets collection directory, default $COLLECTION_DIR"
 
-FLAGS_STRING='au:C:d:'
+FLAGS_STRING='bau:C:d:'
 
 declare -A COMMANDS
 COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
@@ -54,8 +58,10 @@ function download() {
 
   $YT_DLP_CMD
 
-  echo "beet -d $COLLECTION_DIR -v import $NEW_ALBUM_PATH"
-  beet -d $COLLECTION_DIR -v import "$NEW_ALBUM_PATH"
+  if [[ "$BEET_IMPORT" == 'TRUE' ]]; then
+    echo "beet -d $COLLECTION_DIR -v import $NEW_ALBUM_PATH"
+    beet -d $COLLECTION_DIR -v import "$NEW_ALBUM_PATH"
+  fi
 }
 
 function ripcd(){
@@ -69,8 +75,10 @@ function ripcd(){
     cdda2wav -vall cddb=-1 speed=4 -B -D "$DEVICE"
   )
 
-  echo "beet -d $COLLECTION_DIR -v import $NEW_ALBUM_PATH"
-  beet -d $COLLECTION_DIR -v import "$NEW_ALBUM_PATH"
+  if [[ "$BEET_IMPORT" == 'TRUE' ]]; then
+    echo "beet -d $COLLECTION_DIR -v import $NEW_ALBUM_PATH"
+    beet -d $COLLECTION_DIR -v import "$NEW_ALBUM_PATH"
+  fi
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
