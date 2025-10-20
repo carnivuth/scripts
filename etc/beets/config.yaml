@@ -2,18 +2,20 @@ directory: ~/collection
 library: ~/collection/library.db
 
 plugins: chroma fetchart embedart lyrics lastgenre missing
+chroma:
+  auto: true
 
 lyrics:
-    auto: yes
+    auto: true
     dist_thresh: 0.11
     fallback: null
     force: no
     print: no
     sources: [lrclib, google, genius, tekstowo]
-    synced: yes
+    synced: true
 
 lastgenre:
-  auto: yes
+  auto: true
   count: 1000
 
 paths:
