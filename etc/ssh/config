@@ -1,15 +1,9 @@
-# HOMELAB
+# homelab
 Host torterra
   hostname torterra.carnivuth.org
   User matteo
   IdentityFile ~/.ssh/id_rsa
   DynamicForward 40034
-
-Host u425518.your-storagebox.de storagebox
-  HostName u425518.your-storagebox.de
-  User u425518
-  Port 23
-  IdentityFile ~/.ssh/backup_key
 
 Host garchomp
   hostname garchomp.local.carnivuth.org
@@ -17,17 +11,26 @@ Host garchomp
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
 
-Host metapod
-  DynamicForward 40035
+# parameters for sshfs mount
+Host avalug
+  reconnect
+  ServerAliveInterval=15
 
-Host glaceon
-  host 192.168.1.201
-Host glaceon snorlax avalug metapod wailord espeon umbreon ditto arcanine klefky storagebox u425518.your-storagebox.de
+Host avalug espeon umbreon arcanine
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
 
-# mmwunibo.it
+# hetzner storage box for backups
+Host u425518.your-storagebox.de storagebox
+  HostName u425518.your-storagebox.de
+  # jump from torterra when connected to ALMAWIFI that does not allow ssh on port 23
+  ProxyJump torterra
+  User u425518
+  Port 23
+  IdentityFile ~/.ssh/backup_key
+
+# mmwunibo edge
 Host luca
   Hostname luca.mmwunibo.it
 
@@ -41,10 +44,12 @@ Host antonio luca paolo
   User mlonghi
   IdentityFile ~/.ssh/unibo_key
 
+# mmwunibo cloud
 Host mlonghi-hyperflowbirex
   Hostname 192.168.17.134
   User default
   IdentityFile ~/.ssh/unibo_key
+
 # hyperting
 Host gitea.hyperting.it
   IdentityFile ~/.ssh/hyperting_key
