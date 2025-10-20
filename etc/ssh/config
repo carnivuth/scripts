@@ -13,7 +13,6 @@ Host garchomp
 
 # parameters for sshfs mount
 Host avalug
-  reconnect
   ServerAliveInterval=15
 
 Host avalug espeon umbreon arcanine
