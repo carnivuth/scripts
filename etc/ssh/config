@@ -45,7 +45,7 @@ Host antonio luca paolo
 
 # mmwunibo cloud
 Host mlonghi-hyperflowbirex
-  Hostname 192.168.17.134
+  Hostname mlonghi-hyperflowbirex.mmwunibo.it
   User default
   IdentityFile ~/.ssh/unibo_key
 
