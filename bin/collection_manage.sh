@@ -22,16 +22,19 @@ declare -A FLAGS
 FLAGS[a]='AUDIO_ONLY=""'
 FLAGS[b]='BEET_IMPORT="FALSE"'
 FLAGS[u]='URL=${OPTARG}'
+FLAGS[p]='PROXY="--proxy ${OPTARG}"'
 FLAGS[d]='DEVICE=${OPTARG}'
 FLAGS[C]='COLLECTION_DIR=${OPTARG}'
 
 declare -A FLAGS_DESCRIPTIONS
 FLAGS_DESCRIPTIONS[a]='disable audio only downloads'
 FLAGS_DESCRIPTIONS[u]='url of the playlist to download'
+FLAGS_DESCRIPTIONS[b]='disable import with beets'
+FLAGS_DESCRIPTIONS[p]='proxy server for tracks download es socks5://localhost:40034'
 FLAGS_DESCRIPTIONS[d]="device to read when ripping cds, default $DEVICE"
 FLAGS_DESCRIPTIONS[C]="Beets collection directory, default $COLLECTION_DIR"
 
-FLAGS_STRING='bau:C:d:'
+FLAGS_STRING='bap:u:C:d:'
 
 declare -A COMMANDS
 COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
@@ -49,6 +52,7 @@ function download() {
     --continue \
     --no-overwrites \
     --download-archive $YT_DLP_PROGRESS_FILE \
+    $PROXY \
     $AUDIO_ONLY \
     -f bestaudio \
     -P $NEW_ALBUM_PATH \
