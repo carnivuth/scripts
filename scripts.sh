@@ -8,6 +8,7 @@ swaylock'
 HYPRLAND_DEPS='
 hyprland
 hyprshot
+hyprpicker
 hyprpolkitagent
 hyprlock
 hypridle
