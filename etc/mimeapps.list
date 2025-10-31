@@ -20,6 +20,7 @@ x-scheme-handler/unknown=firefox.desktop
 audio/mpeg=mpv.desktop
 video/mp4=mpv.desktop
 audio/opus=mpv.desktop
+audio/x-opus+ogg=mpv.desktop
 audio/wav=mpv.desktop
 x-scheme-handler/msteams=teams.desktop
 application/octet-stream=vim.desktop
