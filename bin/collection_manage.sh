@@ -21,6 +21,7 @@ YT_DLP_PROGRESS_FILE="$NEW_ALBUM_PATH/yt_dlp_progress.txt"
 declare -A FLAGS
 FLAGS[a]='AUDIO_ONLY=""'
 FLAGS[b]='BEET_IMPORT="FALSE"'
+FLAGS[s]='BEET_UPDATE="TRUE"'
 FLAGS[u]='URL=${OPTARG}'
 FLAGS[p]='PROXY="--proxy ${OPTARG}"'
 FLAGS[d]='DEVICE=${OPTARG}'
@@ -32,20 +33,22 @@ FLAGS_DESCRIPTIONS[u]='url of the playlist to download'
 FLAGS_DESCRIPTIONS[b]='disable import with beets'
 FLAGS_DESCRIPTIONS[p]='proxy server for tracks download es socks5://localhost:40034'
 FLAGS_DESCRIPTIONS[d]="device to read when ripping cds, default $DEVICE"
+FLAGS_DESCRIPTIONS[s]="update beets database when executing check, default FALSE"
 FLAGS_DESCRIPTIONS[C]="Beets collection directory, default $COLLECTION_DIR"
 
-FLAGS_STRING='bap:u:C:d:'
+FLAGS_STRING='bsap:u:C:d:'
 
 declare -A COMMANDS
 COMMANDS[download]="download album from youtube playlist link and import inside beet collection"
 COMMANDS[ripcd]="rip a cd and import inside beet collection"
+COMMANDS[status]="check collection status"
 
 function download() {
 
   # check on url parameter
   if [[ -z $URL ]]; then echo "URL variable not set, use -u option"; help; exit 1; fi
   if [[ -z $COLLECTION_DIR ]]; then echo "COLLECTION_DIR variable not set, use -C option"; help; exit 1; fi
-  if [[ ! -e "$COLLECTION_DIR/library.db" ]];then  echo "beet database $COLLECTION_DIR/library.db does not exists, maybe collection folder is not mounted"; exit 1; fi
+  if [[ ! -e "$COLLECTION_DIR/library.db" ]];then  echo "beet database $COLLECTION_DIR/library.db does not exists, maybe collection folder is not mounted";rm -rf $NEW_ALBUM_PATH; exit 1; fi
 
   YT_DLP_CMD="yt-dlp \
     --ignore-errors \
@@ -71,7 +74,7 @@ function download() {
 function ripcd(){
   if [[ -z $DEVICE ]]; then echo "DEVICE variable not set, use -d option"; help; exit 1; fi
   if [[ -z $COLLECTION_DIR ]]; then echo "COLLECTION_DIR variable not set, use -C option"; help; exit 1; fi
-  if [[ ! -e "$COLLECTION_DIR/library.db" ]];then  echo "beet database $COLLECTION_DIR/library.db does not exists, maybe collection folder is not mounted"; exit 1; fi
+  if [[ ! -e "$COLLECTION_DIR/library.db" ]];then  echo "beet database $COLLECTION_DIR/library.db does not exists, maybe collection folder is not mounted";rm -rf $NEW_ALBUM_PATH; exit 1; fi
 
   (
     cd "$NEW_ALBUM_PATH"
@@ -84,5 +87,22 @@ function ripcd(){
     beet -d $COLLECTION_DIR -v import "$NEW_ALBUM_PATH"
   fi
 }
+
+# checks collection status:
+# list tracks without lyrics
+# update beet database
+function status(){
+  if [[ -z $COLLECTION_DIR ]]; then echo "COLLECTION_DIR variable not set, use -C option"; help; exit 1; fi
+  if [[ ! -e "$COLLECTION_DIR/library.db" ]];then  echo "beet database $COLLECTION_DIR/library.db does not exists, maybe collection folder is not mounted";rm -rf $NEW_ALBUM_PATH; exit 1; fi
+  if [[ "$BEET_UPDATE" == 'TRUE' ]]; then
+    beet update
+  fi
+  beet list lyrics:'' > "$COLLECTION_DIR/lyrics_status.txt"
+  beet missing > "$COLLECTION_DIR/missing_tracks_status.txt"
+
+}
+
+
+
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
