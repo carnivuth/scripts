@@ -10,6 +10,16 @@ profile home_double {
      }
 }
 
+profile home_single {
+     output "eDP-1" {
+          disable
+      }
+     output "AOC 27G2G4 GYGLAHA242374" {
+          mode 1920x1080
+          position 0,0
+     }
+}
+
 profile home_double_vertical {
      output "eDP-1" {
           enable
