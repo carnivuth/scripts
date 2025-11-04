@@ -10,22 +10,20 @@
 
     "modules-left": [
       "sway/workspaces",
-    "hyprland/workspaces",
-    "custom/nxtcdd",
-    "custom/githubsync",
-    "mpris",
+      "hyprland/workspaces",
+      "mpris",
     ],
 
     "modules-center": [
-    "custom/caffeine",
+      "custom/caffeine",
       "clock",
     ],
 
     "modules-right": [
       "pulseaudio",
-    "network",
-    "battery",
-    "tray"
+      "network",
+      "battery",
+      "tray"
     ],
 
     "sway/workspaces": {
