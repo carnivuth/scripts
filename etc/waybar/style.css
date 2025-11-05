@@ -2,7 +2,7 @@
 
 * {
   font-family: Material Design Icons, JetBrainsMono Nerd Font;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: bolder;
   background-color: @base;
   color: @text;
@@ -35,22 +35,20 @@ color: @peach;
 color: @red;
 }
 
-#pulseaudio{
-color: @peach;
-}
 #pulseaudio.bluetooth{
 color: @teal;
 }
 #pulseaudio.headphone{
 color: @blue;
 }
+#pulseaudio{
+color: @peach;
+}
 #pulseaudio.muted{
 color: @red;
 }
 
 #workspaces button {
-        min-width: 0;
-        min-height: 0;
   border: none;
   color: @peach;
 }
@@ -67,10 +65,6 @@ color: @red;
   color: @maroon;
 }
 
-#tray{
-        min-width: 0;
-        min-height: 0;
-}
 
 #tray>.passive {
   -gtk-icon-effect: dim;
@@ -78,4 +72,5 @@ color: @red;
 
 #tray>.needs-attention {
   -gtk-icon-effect: highlight;
+  color: @peach;
 }
