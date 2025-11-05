@@ -54,11 +54,11 @@
         "3": "3",
         "4": "4",
         "5": "5",
-        "6": "6",
+        "6": "󰊗",
         "7": "7",
         "8": "8",
-        "9": "9",
-        "10": "10",
+        "9": "󰈹",
+        "10": "",
         "active": "A",
         "urgent": "U"
       }
@@ -160,12 +160,11 @@
       "format-len": 1,
       "format-paused": "{status_icon} <i>{dynamic}</i>",
       "player-icons": {
-        "firefox": "󰈹",
-        "mpv": "",
         "default": "󰫔"
       },
       "dynamic-order": [
-        "title"
+        "title",
+        "artist",
       ],
       "interval": 1,
       "status-icons": {
