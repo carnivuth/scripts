@@ -24,7 +24,15 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-
+#battery{
+color: @teal;
+}
+#battery.warning{
+color: @peach;
+}
+#battery.critical{
+color: @red;
+}
 #workspaces button {
         min-width: 0;
         min-height: 0;
@@ -33,7 +41,7 @@
 }
 
 #workspaces button.active {
-  color: @red;
+  color: @green;
 }
 
 #workspaces button.urgent {
