@@ -21,9 +21,9 @@
 
     "modules-right": [
       "pulseaudio",
-      "network",
       "battery",
-      "tray"
+      "network",
+      "tray",
     ],
 
     "sway/workspaces": {
@@ -67,7 +67,7 @@
 
     "tray": {
       "spacing": 10,
-      "icon-size": 15
+      "icon-size": 12
     },
 
     "clock": {
