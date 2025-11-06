@@ -1,8 +1,21 @@
+profile lia_second_row_center {
+     output "eDP-1" {
+          enable
+          mode 1920x1080
+          position 0,-1080
+      }
+     output "Lenovo Group Limited LEN T32q-27 VNA8YMA5" {
+          enable
+          mode 1920x1080
+          position 0,0
+     }
+}
+
 profile home_double {
      output "eDP-1" {
           enable
           mode 1920x1080
-          position 1920,0
+          position 0,1080
       }
      output "AOC 27G2G4 GYGLAHA242374" {
           mode 1920x1080
@@ -181,16 +194,6 @@ profile noc_right_right_3 {
      output "Philips Consumer Electronics Company PHL 273V7 0x000041A6" {
           mode 1920x1080
           position 1920,-1080
-          transform normal
-     }
-}
-
-profile lia {
-     output "eDP-1" {
-          position 0,-1080
-      }
-     output "Lenovo Group Limited LEN T32q-27 VNA8YMA5" {
-          position 0,0
           transform normal
      }
 }
