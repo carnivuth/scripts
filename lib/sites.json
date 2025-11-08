@@ -23,6 +23,7 @@
   { "site": "lrclib","link": "https://lrclib.net/"},
   { "site": "github","link": "https://www.github.com"},
   { "site": "gitlab","link": "https://www.gitlab.com"},
+  { "site": "gitlab-mmw-unibo","link": "https://gitlab.com/MMw_Unibo"},
   { "site": "grafana-cloud","link": "https://carnivuth.grafana.net"},
   { "site": "gmail","link": "https://mail.google.com"},
   { "site": "google-drive","link": "https://drive.google.com"},
