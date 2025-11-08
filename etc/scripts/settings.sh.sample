@@ -177,5 +177,12 @@ NOTIFICATION_LEVELS="critical normal"
 # password store dirs to look for passwords
 PASSWORD_STORES="$HOME/.password-store"
 
+# subsonic menus config parameters
+SUBSONIC_CLIENT_VERSION=v1.16.1
+SUBSONIC_CLIENT_NAME="L.sh"
+SUBSONIC_API_ENDPOINT=""
+SUBSONIC_USERNAME=""
+SUBSONIC_PASSWORD=""
+
 # bemenu configs
 export BEMENU_OPTS="--fb '#24273a' --ff '#cad3f5' --nb '#24273a' --nf '#cad3f5' --tb '#24273a' --hb '#24273a' --tf '#ed8796' --hf '#eed49f' --af '#cad3f5' --ab '#24273a' --bdr '#b4befe' --hp 10 -B 1 --fn 'JetBrainsMono Nerd Font,JetBrainsMono NF:style=ExtraBold 9' -H 21"
