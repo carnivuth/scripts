@@ -172,7 +172,7 @@ NXTCDD_USERNAME=""
 NXTCDD_PASSWORD=""
 
 # notification urgency to be displayed
-NOTIFICATION_LEVELS="critical"
+NOTIFICATION_LEVELS="critical normal"
 
 # password store dirs to look for passwords
 PASSWORD_STORES="$HOME/.password-store"
