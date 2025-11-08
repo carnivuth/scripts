@@ -11,7 +11,7 @@ lyrics:
     fallback: null
     force: no
     print: no
-    sources: [lrclib, google, genius, tekstowo]
+    sources: [lrclib, genius, tekstowo]
     synced: true
 
 lastgenre:
