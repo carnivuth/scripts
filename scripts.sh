@@ -23,6 +23,8 @@ python-pyacoustid
 python-pylast
 chromaprint
 python-pymad
+python-beautifulsoup4
+python-typing_extensions
 beets
 cdrtools
 udiskie
