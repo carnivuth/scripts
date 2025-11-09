@@ -96,7 +96,7 @@ MENU_BACKEND='fzf --prompt'
 
 # enabled systemd services
 ENABLED_SERVICES="weather.service pkg_manager.service battery.service"
-TEMPLATE_SERVICES="folder_manager@Downloads.service"
+TEMPLATE_SERVICES=""
 
 # enabled systemd timers
 ENABLED_TIMERS="git_sync.timer"
@@ -148,9 +148,6 @@ WEATHER_LOCATION=""
 GIT_REPOS="$HOME/scripts $HOME/toolbox $HOME/vaults/* $HOME/projects/*"
 # insert here ignored remote for git_sync timer
 GIT_IGNORED_REMOTES=""
-
-# MPV SOCKET FOR IPC
-MPV_SOCKET="$SCRIPTS_RUN_FOLDER/mpv.sock"
 
 # NTFYD CONFIGURATIONS
 NTFYD_ENDPOINT=""
