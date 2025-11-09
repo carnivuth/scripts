@@ -5,7 +5,7 @@
 # run_X function that will be run after the selected element is detected, the element is passed in the form <CONTENT>
 
 source "$HOME/.config/scripts/settings.sh"
-PROMPT="carni-launcher"
+PROMPT="L.sh"
 
 standard_help_message(){
   echo "standard parameters for all menus"
