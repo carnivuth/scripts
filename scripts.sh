@@ -16,6 +16,8 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+gamemode
+mangohud
 python-langdetect
 python-pyacoustid
 python-pylast
