@@ -16,6 +16,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+fuzzel
 python-langdetect
 python-pyacoustid
 python-pylast
