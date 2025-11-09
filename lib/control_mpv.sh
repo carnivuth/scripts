@@ -15,7 +15,7 @@ function run_mpv_or_send_command(){
 }
 
 function append_track_on_mpv(){
-    run_mpv_or_send_command "{ \"command\": [\"loadfile\", \"$1\",\"append\"] }" "$1"
+    run_mpv_or_send_command "{ \"command\": [\"loadfile\", \"$1\",\"append-play\"] }" "$1"
 }
 
 function replace_track_on_mpv(){
