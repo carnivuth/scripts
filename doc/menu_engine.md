@@ -47,7 +47,7 @@ L.sh -b [backend] [lists of types]
 Where:
 
 - `backend` is the program that has to print the elements on display, all `dmenu` replacement are valid options, (*default is defined in the [configuration file](/configuration) `MENU_BACKEND`*)
-> [!ALERT]
+> [!WARNING]
 > When called from the [hyprland](https://hyprland.org) bindings the script will use a different backend that the one defined in the configuration file !!!!
 
 - `list of types` is a list of types to be considered when searching elements to display (*default behavior is to print all known types*) the elements type are defined as files in the `$HOME/.local/lib/menus/` directory and are defined as follows
