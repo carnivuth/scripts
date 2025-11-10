@@ -11,7 +11,7 @@ A --> B --> C
 ```
 
 
-> [!ALERT]
+> [!WARNING]
 > For example a menu could display sites and open them in the browser and another one could display password elements from the password store and copy one of them in the clipboard :)
 
 
