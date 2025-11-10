@@ -11,39 +11,19 @@ profile lia_second_row_center {
      }
 }
 
-profile home_double {
-     output "eDP-1" {
-          enable
-          mode 1920x1080
-          position 0,1080
-      }
+profile garchomp {
      output "AOC 27G2G4 GYGLAHA242374" {
           mode 1920x1080
           position 0,0
      }
-}
-
-profile home_single {
-     output "eDP-1" {
-          disable
-      }
-     output "AOC 27G2G4 GYGLAHA242374" {
-          mode 1920x1080
-          position 0,0
-     }
-}
-
-profile home_double_vertical {
-     output "eDP-1" {
+     output "Hewlett Packard HP Z23i 3CQ4513C16" {
           enable
           mode 1920x1080
           position 1920,0
-      }
-     output "AOC 27G2G4 GYGLAHA242374" {
-          mode 1920x1080
-          position 0,0
           transform 90
-     }
+      }
+     exec hyprctl dispatch moveworkspacetomonitor 1 r
+     exec hyprctl dispatch moveworkspacetomonitor 9 l
 }
 
 profile rio_office {
