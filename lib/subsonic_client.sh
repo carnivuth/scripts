@@ -25,7 +25,7 @@ function get_artists(){
 }
 
 function get_albums(){
-  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_ALBUMS" | jq -r '."subsonic-response".albumList.album[] | "\( .id)|\(.title)"'
+  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_ALBUMS" | jq -r '."subsonic-response".albumList.album[] | "\( .id)|\(.title)|\(.artist)"'
 }
 
 function get_playlists(){
