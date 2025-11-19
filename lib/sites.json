@@ -2,6 +2,7 @@
   { "site": "amazon","link": "https://www.amazon.it"},
   { "site": "prime-video","link": "https://www.primevideo.com"},
   { "site": "aws","link": "https://aws.amazon.com"},
+  { "site": "zotero","link": "https://www.zotero.org/carnivuth/library"},
   { "site": "cloudflare","link": "https://dash.cloudflare.com"},
   { "site": "rust-book","link": "https://doc.rust-lang.org/book/"},
   { "site": "awesome-selfhosted","link": "https://www.github.com/awesome-selfhosted/awesome-selfhosted"},
