@@ -1,6 +1,7 @@
 [
   { "site": "amazon","link": "https://www.amazon.it"},
   { "site": "prime-video","link": "https://www.primevideo.com"},
+  { "site": "drawio","link": "https://app.diagrams.net"},
   { "site": "aws","link": "https://aws.amazon.com"},
   { "site": "zotero","link": "https://www.zotero.org/carnivuth/library"},
   { "site": "cloudflare","link": "https://dash.cloudflare.com"},
