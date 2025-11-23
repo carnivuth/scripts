@@ -38,7 +38,6 @@ wireshark-cli
 fastfetch
 nextcloud-client
 pinentry-bemenu
-kanshi
 btop
 cliphist
 which
