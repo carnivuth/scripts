@@ -49,8 +49,6 @@ color: @red;
 }
 
 #workspaces button {
-  border: none;
-  color: @peach;
 }
 
 #workspaces button.active {
