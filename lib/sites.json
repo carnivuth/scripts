@@ -77,7 +77,7 @@
   { "site": "trenitalia","link": "https://www.trenitalia.com"},
   { "site": "twitch","link": "https://www.twitch.tv"},
   { "site": "freeipa-mmwunibo","link": "https://freeipa.mmwunibo.it"},
-  { "site": "pfsense-mmwunibo","link": "https://pfSense.mmwunibo.it"},
+  { "site": "pfsense-mmwunibo","link": "http://pfSense.mmwunibo.it"},
   { "site": "proxmox-mmwunibo","link": "https://192.168.17.105:8006"},
   { "site": "virtuale","link": "https://virtuale.unibo.it"},
   { "site": "whatsapp","link": "https://web.whatsapp.com"},
