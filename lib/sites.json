@@ -42,6 +42,7 @@
   { "site": "instagram","link": "https://www.instagram.com"},
   { "site": "linkedin","link": "https://www.linkedin.com"},
   { "site": "master-duel-meta","link": "https://www.masterduelmeta.com"},
+  { "site": "vikunja","link": "https://vikunja.carnivuth.org"},
   { "site": "portainer","link": "https://portainer.carnivuth.org"},
   { "site": "jackett","link": "https://jackett.carnivuth.org"},
   { "site": "recipiya","link": "https://recipya.carnivuth.org"},
