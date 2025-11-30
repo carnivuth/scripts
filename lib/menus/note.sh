@@ -11,7 +11,7 @@ run_note(){
 
   permalink=$(echo $1 | awk -F '|' '{print $2}');
 
-  launch_webapp "$NOTES_SITE/$permalink"
+  launch_webapp "$permalink"
   # draw attention to the firefox window if running on hyprland
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
     hyprctl dispatch 'focuswindow firefox'
