@@ -25,3 +25,7 @@ function replace_track_on_mpv(){
 function toggle_mpv(){
   run_mpv_or_send_command '{"command": ["cycle", "pause"]}' ''
 }
+
+function quit_mpv(){
+  run_mpv_or_send_command '{"command": ["quit"]}' ''
+}
