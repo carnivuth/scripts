@@ -22,3 +22,6 @@ function replace_track_on_mpv(){
     run_mpv_or_send_command "{ \"command\": [\"loadfile\", \"$1\"] }" "$1"
 }
 
+function toggle_mpv(){
+  run_mpv_or_send_command '{"command": ["cycle", "pause"]}' ''
+}
