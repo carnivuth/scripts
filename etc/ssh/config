@@ -15,7 +15,7 @@ Host garchomp
 Host avalug
   ServerAliveInterval=15
 
-Host avalug espeon umbreon arcanine
+Host avalug espeon umbreon arcanine kttack
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
@@ -27,7 +27,7 @@ Host u425518.your-storagebox.de storagebox
   ProxyJump torterra
   User u425518
   Port 23
-  IdentityFile ~/.ssh/backup_key
+  IdentityFile ~/.ssh/hetzner_key
 
 # mmwunibo edge
 Host luca
@@ -47,7 +47,7 @@ Host antonio luca paolo
 Host mlonghi-hyperflowbirex
   Hostname mlonghi-hyperflowbirex.mmwunibo.it
   User default
-  IdentityFile ~/.ssh/unibo_key
+  IdentityFile ~/.ssh/id_rsa
 
 # hyperting
 Host gitea.hyperting.it
