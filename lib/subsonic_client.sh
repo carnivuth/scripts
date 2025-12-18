@@ -5,12 +5,16 @@ source "$HOME/.config/scripts/settings.sh"
 QUERY_TRACKS_FROM_PLAYLIST="https://$SUBSONIC_API_ENDPOINT/getPlaylist?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json&id="
 # get tracks from album
 QUERY_TRACKS_FROM_ALBUM="https://$SUBSONIC_API_ENDPOINT/getAlbum?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json&id="
+# get tracks from genre
+QUERY_TRACKS_FROM_GENRE="https://$SUBSONIC_API_ENDPOINT/getSongsByGenre?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&count=500&f=json&genre="
 # get albums from artist
 QUERY_ALBUM_FROM_ARTIST="https://$SUBSONIC_API_ENDPOINT/getArtist?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json&id="
 # list artists
 QUERY_LIST_ARTISTS="https://$SUBSONIC_API_ENDPOINT/getArtists?size=500&type=random&v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
 # list albums
 QUERY_LIST_ALBUMS="https://$SUBSONIC_API_ENDPOINT/getAlbumList?size=500&type=random&v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
+# list genres
+QUERY_LIST_GENRES="https://$SUBSONIC_API_ENDPOINT/getGenres?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
 # list playlists
 QUERY_LIST_PLAYLISTS="https://$SUBSONIC_API_ENDPOINT/getPlaylists?&v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
 # list tracks
@@ -20,6 +24,9 @@ function get_tracks(){
     curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_TRACKS" | jq -r '."subsonic-response".randomSongs.song[] | "\( .id)|\(.title)"'
 }
 
+function get_genres(){
+  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_GENRES"  | jq -r '."subsonic-response".genres.genre[].value'
+}
 function get_artists(){
   curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_ARTISTS"  | jq -r '."subsonic-response".artists.index[].artist[] | "\( .id)|\(.name)"'
 }
@@ -35,6 +42,12 @@ function get_playlists(){
 function get_tracks_from_album(){
   album="$1"
   curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_TRACKS_FROM_ALBUM$album" | jq -r '."subsonic-response".album.song[].id'
+}
+
+function get_tracks_from_genre(){
+  genre="$(echo $1 | tr ' ' '+')"
+  #genre="$1"
+  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_TRACKS_FROM_GENRE$genre" | jq -r '."subsonic-response".songsByGenre.song[].id'
 }
 
 function get_albums_from_artist(){

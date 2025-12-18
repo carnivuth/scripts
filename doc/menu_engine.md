@@ -90,6 +90,7 @@ The repository contains a set of already implemented type:
 - `window` move focus to a specific window
 - `track` play tracks from subsonic server
 - `album` play albums from subsonic server
+- `genre` play specific genre tracks from subsonic server
 - `playlist` play playlist from subsonic server
 
 #### password menus configuration
