@@ -25,3 +25,7 @@ etc/Nextcloud/*
 firefox/carnivuth-profile/*
 !firefox/carnivuth-profile/chrome/
 !firefox/carnivuth-profile/chrome/userChrome.css
+
+# env files
+.envrc
+.env
