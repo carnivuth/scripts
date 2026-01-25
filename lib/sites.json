@@ -22,6 +22,8 @@
   { "site": "discogs","link": "https://www.discogs.com"},
   { "site": "duelling-nexus","link": "https://duelingnexus.com"},
   { "site": "ebay","link": "https://www.ebay.it"},
+  { "site": "cex","link": "https://it.webuy.com/"},
+  { "site": "scoreedge","link": "https://www.scoreedge.it"},
   { "site": "facebook","link": "https://www.facebook.com"},
   { "site": "last.fm","link": "https://www.last.fm"},
   { "site": "lrclib","link": "https://lrclib.net/"},
