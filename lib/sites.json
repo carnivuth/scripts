@@ -28,6 +28,7 @@
   { "site": "last.fm","link": "https://www.last.fm"},
   { "site": "lrclib","link": "https://lrclib.net/"},
   { "site": "github","link": "https://www.github.com"},
+  { "site": "krawl-repo","link": "https://github.com/BlessedRebuS/Krawl"},
   { "site": "gitlab","link": "https://www.gitlab.com"},
   { "site": "gitlab-mmw-unibo","link": "https://gitlab.com/MMw_Unibo"},
   { "site": "gmail","link": "https://mail.google.com"},
