@@ -15,7 +15,7 @@ Host garchomp
 Host avalug
   ServerAliveInterval=15
 
-Host avalug espeon umbreon arcanine kttack
+Host avalug espeon umbreon arcanine kentra krawl
   User root
   ProxyJump torterra
   IdentityFile ~/.ssh/id_rsa
