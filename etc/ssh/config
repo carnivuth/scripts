@@ -5,12 +5,6 @@ Host torterra
   IdentityFile ~/.ssh/id_rsa
   DynamicForward 40034
 
-Host garchomp
-  hostname garchomp.local.carnivuth.org
-  User matteo
-  ProxyJump torterra
-  IdentityFile ~/.ssh/id_rsa
-
 # parameters for sshfs mount
 Host avalug
   ServerAliveInterval=15
@@ -23,33 +17,6 @@ Host avalug espeon umbreon arcanine kentra krawl
 # hetzner storage box for backups
 Host u425518.your-storagebox.de storagebox
   HostName u425518.your-storagebox.de
-  # jump from torterra when connected to ALMAWIFI that does not allow ssh on port 23
-  ProxyJump torterra
   User u425518
   Port 23
   IdentityFile ~/.ssh/hetzner_key
-
-# mmwunibo edge
-Host luca
-  Hostname luca.mmwunibo.it
-
-Host paolo
-  Hostname paolo.mmwunibo.it
-
-Host antonio
-  Hostname antonio.mmwunibo.it
-
-Host antonio luca paolo
-  User mlonghi
-  IdentityFile ~/.ssh/unibo_key
-
-# mmwunibo cloud
-Host mlonghi-hyperflowbirex
-  Hostname mlonghi-hyperflowbirex.mmwunibo.it
-  User default
-  IdentityFile ~/.ssh/id_rsa
-
-# hyperting
-Host gitea.hyperting.it
-  IdentityFile ~/.ssh/hyperting_key
-  User matteo.longhi5
