@@ -16,6 +16,7 @@ hyprpaper
 xdg-desktop-portal-hyprland'
 
 DEPS='
+dosfstools
 discord
 gamemode
 mangohud
