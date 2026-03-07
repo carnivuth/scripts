@@ -115,8 +115,8 @@ bindsym $mod+a exec --no-startup-id pavucontrol
 bindsym $mod+shift+r reload
 
 #lock screen
-bindsym $mod+l exec --no-startup-id "playerctl pause; swaylock -i ~/.local/lib/arch-chan.jpg
-bindsym $mod+shift+l exec --no-startup-id "swaylock -i ~/.local/lib/arch-chan.jpg
+bindsym $mod+l exec --no-startup-id "playerctl pause; swaylock -i ~/.local/lib/wallpapers/arch-chan.jpg
+bindsym $mod+shift+l exec --no-startup-id "swaylock -i ~/.local/lib/wallpapers/arch-chan.jpg
 
 #exit i3
 bindsym $mod+shift+q exit
