@@ -29,3 +29,11 @@ firefox/carnivuth-profile/*
 # env files
 .envrc
 .env
+
+# retroarch configuration directories
+etc/retroarch/autoconfig
+etc/retroarch/cheats
+etc/retroarch/cores
+etc/retroarch/database
+etc/retroarch/system
+etc/retroarch/downloads
