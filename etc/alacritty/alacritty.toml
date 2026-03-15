@@ -9,6 +9,7 @@ TERM= "xterm-256color"
 
 [window]
 decorations = "buttonless"
+opacity = 0.8
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "regular" }
