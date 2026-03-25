@@ -54,6 +54,7 @@ function download() {
     --ignore-errors \
     --continue \
     --no-overwrites \
+    --output %(title)s \
     --download-archive $YT_DLP_PROGRESS_FILE \
     $PROXY \
     $AUDIO_ONLY \
