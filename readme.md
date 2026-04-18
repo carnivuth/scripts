@@ -30,7 +30,7 @@ A[etc] --> E[~/.config]
 B[bin] --> F[~/.local/bin]
 C[lib] --> G[~/.local/lib]
 D[systemd] --> H[~/.config/systemd/user]
-D[firefox] --> H[~/.mozilla/firefox]
+I[firefox] --> J[~/.mozilla/firefox]
 ```
 
 The target will also add to the `~/.bashrc` an include line to enable common aliases for the scripts inside the repository
