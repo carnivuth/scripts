@@ -171,13 +171,6 @@
       "ignored-players": [
       ]
     },
-    "systemd-failed-units": {
-    	"hide-on-ok": false, // Do not hide if there is zero failed units.
-    	"format": "✗ {nr_failed}",
-    	"format-ok": "✓",
-    	"system": false, // Monitor failed systemwide units.
-    	"user": true // Ignore failed user units.
-    },
     "custom/caffeine": {
       "format": "{}",
       "tooltip": true,
