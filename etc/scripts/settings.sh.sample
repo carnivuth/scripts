@@ -94,13 +94,6 @@ POWERMENU_FORMAT='long'
 # MENU_BACKEND='bemenu -p'
 MENU_BACKEND='fzf --prompt'
 
-# enabled systemd services
-ENABLED_SERVICES="weather.service pkg_manager.service battery.service"
-TEMPLATE_SERVICES=""
-
-# enabled systemd timers
-ENABLED_TIMERS="git_sync.timer"
-
 # BATTERY SERVICE SETTINGS
 
 # battery device name (output of upower -e)
