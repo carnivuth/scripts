@@ -5,13 +5,10 @@ Host torterra
   IdentityFile ~/.ssh/homelab_key
   DynamicForward 40034
 
-# parameters for sshfs mount
-Host avalug
-  ServerAliveInterval=15
-
-Host avalug espeon umbreon arcanine kentra krawl
+Host *.local.carnivuth.org
   User root
   ProxyJump torterra
+  ServerAliveInterval=15
   IdentityFile ~/.ssh/homelab_key
 
 # hetzner storage box for backups
