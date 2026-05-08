@@ -2,7 +2,7 @@
 Host torterra
   hostname torterra.carnivuth.org
   User matteo
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/homelab_key
   DynamicForward 40034
 
 # parameters for sshfs mount
@@ -12,7 +12,7 @@ Host avalug
 Host avalug espeon umbreon arcanine kentra krawl
   User root
   ProxyJump torterra
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/homelab_key
 
 # hetzner storage box for backups
 Host u425518.your-storagebox.de storagebox
