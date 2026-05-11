@@ -72,7 +72,7 @@
   { "site": "nextcloud-calendar","link": "https://nextcloud.carnivuth.org/apps/calendar"},
   { "site": "nextcloud-memories","link": "https://nextcloud.carnivuth.org/apps/memories"},
   { "site": "pbs","link": "https://ditto:8007"},
-  { "site": "proxmox","link": "https://torterra:8006"},
+  { "site": "proxmox","link": "https://torterra.local.carnivuth.org:8006"},
   { "site": "nordpass","link": "https://app.nordpass.com"},
   { "site": "outlook","link": "https://outlook.office365.com/mail"},
   { "site": "overleaf","link": "https://www.overleaf.com"},
