@@ -1,19 +1,12 @@
 -- THEME
-require(os.getenv("HOME") .. "/.config/hypr/mocha.lua")
+require("mocha")
 
 -- ENVIRONMENT VARIABLES
-require(os.getenv("HOME") .. "/.config/hypr/environment.lua")
+require("environment")
 
--- HYPRLAND VARIABLES
-
--- possible values
--- menu_backend="fzf --prompt"
--- menu_backend="wofi -d --show dmenu -p"
--- menu_backend="fuzzel  -d -p"
--- menu_backend="rofi -dmenu -p"
 
 -- STARTUP APPLICATIONS
-require(os.getenv("HOME") .. "/.config/hypr/startup.lua")
+require("startup")
 
 
 hl.config( {
@@ -60,13 +53,10 @@ hl.config({
 })
 
 -- WINDOW RULES
-require(os.getenv("HOME") .. "/.config/hypr/window-rules.lua")
+require("window-rules")
 
 -- BINDINGS
-require(os.getenv("HOME") .. "/.config/hypr/bindings.lua")
-
--- ANIMATIONS
-require(os.getenv("HOME") .. "/.config/hypr/animations.lua")
+require("bindings")
 
 hl.config({
   animations = {
@@ -74,10 +64,10 @@ hl.config({
   }
 })
 
-hl.animation({leaf = "workspaces", bezier = "default",style = "slidevert" })
-hl.animation({leaf = "windows", bezier = "default", style = "popin" })
-hl.animation({leaf = "layers", bezier = "default",style = "popin" })
-hl.animation({leaf = "layersOut", bezier = "default",style = "fade" })
+-- hl.animation({enabled = true, leaf = "workspaces", bezier = "default",style = "slidevert" })
+-- hl.animation({enabled = true, leaf = "windows", bezier = "default", style = "popin" })
+-- hl.animation({enabled = true, leaf = "layers", bezier = "default",style = "popin" })
+-- hl.animation({enabled = true, leaf = "layersOut", bezier = "default",style = "fade" })
 
 -- MONITORS
-require(os.getenv("HOME") .. "/.config/hypr/monitors.lua")
+require("monitors")

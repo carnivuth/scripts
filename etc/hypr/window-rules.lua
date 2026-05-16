@@ -7,8 +7,8 @@ local floating_width = "(monitor_w*0.95)"
 local floating_height = "(monitor_h*0.85)"
 
 -- persistent workspaces
-hl.workspace_rule({ workspace = 1,persistent = true})
-hl.workspace_rule({ workspace = 9,persistent = true})
+hl.workspace_rule({ workspace = "1",persistent = true})
+hl.workspace_rule({ workspace = "9",persistent = true})
 
 hl.window_rule({match = { class = "discord"}, workspace = discordWorkspace })
 
@@ -80,7 +80,7 @@ hl.window_rule({match = { class = "(org.strawberrymusicplayer.strawberry)"}, flo
 hl.window_rule({match = { class = "(org.strawberrymusicplayer.strawberry)", title = ".*(Settings — Strawberry Music Player).*" }, float = true,center = true, size = {floating_width,floating_height} })
 hl.window_rule({match = { class = "(org.strawberrymusicplayer.strawberry)",title = ".*(Sponsoring Strawberry — Strawberry Music Player).*"}, float = true,center = true })
 
-hl.window_rule({match = { class = "(org.mozilla.Thunderbird)"}, workspace = mailWorkspace, silent = true })
+hl.window_rule({match = { class = "(org.mozilla.Thunderbird)"}, workspace = mailWorkspace })
 hl.window_rule({match = { class = "(org.mozilla.Thunderbird)", title  = ".*(Write).*"}, float = true,center = true, size = {floating_width,floating_height}, })
 hl.window_rule({match = { class = "(org.mozilla.Thunderbird)", title = ".*(Reminder).*"}, float = true,center = true, size = {floating_width,floating_height} })
 

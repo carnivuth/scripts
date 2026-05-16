@@ -4,7 +4,7 @@
 -- GARCHOMP
 if os.getenv("HOSTNAME") == "garchomp" then
   -- vertical monitor
-  hl.monitor({output = "desc:Hewlett Packard HP Z23i 3CQ4513C16", mode = "1920x1080@60", position = "-1080x0", scale = 1,transform, 1 })
+  hl.monitor({output = "desc:Hewlett Packard HP Z23i 3CQ4513C16", mode = "1920x1080@60", position = "-1080x0", scale = 1,transform = 1 })
   -- main monitor
   hl.monitor({output = "desc:AOC 27G2G4 GYGLAHA242374", mode = "1920x1080@144", position = "0x0", scale = 1 })
   -- lock workspaces to specific monitors

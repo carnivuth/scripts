@@ -1,9 +1,6 @@
 
-gestures {
-}
-
 hl.on("hyprland.start", function ()
-  hl.exec_cmd(os.getenv("TERM"))
+  hl.exec_cmd("alacritty")
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("udiskie")
   hl.exec_cmd("waybar")
