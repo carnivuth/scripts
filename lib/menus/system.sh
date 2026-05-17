@@ -47,9 +47,7 @@ logout_command(){
       i3-msg exit
       ;;
     hyprland)
-      HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
-      hyprctl --batch "$HYPRCMDS" >> /tmp/hypr/hyprexitwithgrace.log 2>&1
-      hyprctl dispatch exit
+      hyprctl dispatch 'hl.dsp.exit()'
       ;;
     awesome)
       killall awesome
