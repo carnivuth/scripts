@@ -1,8 +1,17 @@
 -- monitor configuration
 -- monitor=desc:[DESCRIPTION],resolution@refresh-rate,position,scale,transform,rotation
 
+function GetHostname()
+    local f = io.popen ("cat /etc/hostname")
+    local hostname = f:read("*a") or ""
+    f:close()
+    hostname =string.gsub(hostname, "\n$", "")
+    return hostname
+end
+
+local hostname = GetHostname()
 -- GARCHOMP
-if os.getenv("HOSTNAME") == "garchomp" then
+if hostname == "garchomp" then
   -- vertical monitor
   hl.monitor({output = "desc:Hewlett Packard HP Z23i 3CQ4513C16", mode = "1920x1080@60", position = "-1080x0", scale = 1,transform = 1 })
   -- main monitor
@@ -16,14 +25,14 @@ if os.getenv("HOSTNAME") == "garchomp" then
 end
 
 
-if os.getenv("HOSTNAME") == "conkeldurr" then
+if hostname == "conkeldurr" then
   hl.monitor({output = "desc:AU Optronics 0x243D", mode = "1920x1080@60", position = "0x0", scale = 1.5 })
 end
 
-if os.getenv("HOSTNAME") == "serperior" then
+if hostname == "serperior" then
   hl.monitor({output = "desc:LG Display 0x075C", mode = "2560x1600@120", position = "0x0", scale = 1.60 })
 end
 
-if os.getenv("HOSTNAME") == "drampa" then
+if hostname == "drampa" then
   hl.monitor({output = "desc:Hewlett Packard HP 22cw 6CM5320GZ2@60", mode = "1920x1080", position = "0x0", scale = 1 })
 end
