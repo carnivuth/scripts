@@ -7,7 +7,7 @@ launch_webapp(){
 
   # draw attention to the firefox window based on window manager
   if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-    hyprctl dispatch 'focuswindow class:firefox'
+    hyprctl dispatch 'hl.dsp.focus({window="class:firefox"})'
   fi
 
   if [[ "$XDG_CURRENT_DESKTOP" == 'i3' ]]; then

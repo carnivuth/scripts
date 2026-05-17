@@ -8,9 +8,4 @@ list_ghpage(){
 
 run_ghpage(){
   launch_webapp "$1"
-
-    # draw attention to the firefox window if running on hyprland
-    if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
-      hyprctl dispatch 'focuswindow firefox'
-    fi
-  }
+}
