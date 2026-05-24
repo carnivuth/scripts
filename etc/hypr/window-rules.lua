@@ -105,6 +105,7 @@ hl.window_rule({match = { class = "steam"}, float = true })
 
 -- move games to workspace gamesWorkspace
 hl.window_rule({match = { class = "(steam_app_[0-9]+)"}, float = false, fullscreen = true, workspace = gamesWorkspace })
+hl.window_rule({match = { initial_class = "pcsx2-qt"}, float = false, fullscreen = true, workspace = gamesWorkspace })
 hl.window_rule({match = { initial_class = "VampireSurvivors.exe"}, float = false, fullscreen = true, workspace = gamesWorkspace })
 hl.window_rule({match = { class = "(Minecraft Launcher)"}, float = false, fullscreen = true, workspace = gamesWorkspace })
 hl.window_rule({match = { initial_class = "Godot"}, float = false, fullscreen = true, workspace = gamesWorkspace })
