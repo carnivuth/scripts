@@ -19,11 +19,13 @@ hl.config( {
   general  = {
     gaps_in = 2,
     gaps_out = 2,
-    border_size = 1,
+    border_size = 3,
     layout = "dwindle",
     allow_tearing = false,
-    active_border = { colors = { Lavender, Blue } },
-    inactive_border = {Lavender},
+    col = {
+    active_border = { colors = { Lavender} },
+    inactive_border = {colors = {Blue} },
+  }
   }
 })
 
