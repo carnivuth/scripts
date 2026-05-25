@@ -24,6 +24,9 @@ $(HOME)/.config: etc
 $(HOME)/.mozilla/firefox: firefox
 	$(link_file)
 
+$(HOME)/.config/scripts/settings.sh:
+	echo "source $$HOME/.config/scripts/settings.sh.sample" > $@
+
 $(HOME)/.config/systemd/user: systemd
 	$(link_file)
 	systemctl --user daemon-reload
@@ -57,5 +60,5 @@ $(HOME)/.ssh/config:
 	touch "$(HOME)/.ssh/config"
 	grep -qxF 'Include ~/.config/ssh/config' $@ || echo  "Include ~/.config/ssh/config" >> $@
 
-install: /etc/greetd/config.toml /etc/pam.d/greetd /etc/sudoers.d/$(USER) deps links $(HOME)/.bashrc $(HOME)/.ssh/config $(HOME)/.local/share/MangoHud hooks
-update: deps links $(HOME)/.bashrc $(HOME)/.ssh/config $(HOME)/.local/share/MangoHud hooks
+install: /etc/greetd/config.toml /etc/pam.d/greetd /etc/sudoers.d/$(USER) deps links $(HOME)/.bashrc $(HOME)/.ssh/config $(HOME)/.config/scripts/settings.sh $(HOME)/.local/share/MangoHud hooks
+update: deps links $(HOME)/.bashrc $(HOME)/.ssh/config $(HOME)/.config/scripts/settings.sh $(HOME)/.local/share/MangoHud hooks
