@@ -77,7 +77,7 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(bin_directory .."/L.sh -b ".. menu_backend 
 hl.bind("SUPER + N", hl.dsp.exec_cmd(bin_directory .."/L.sh -b ".. menu_backend .." note"))
 
 -- kill window
-hl.bind("SUPER + Q", hl.dsp.window.kill())
+hl.bind("SUPER + Q", hl.dsp.window.close())
 
 -- toggle floating for a specific window
 hl.bind("SUPER + Space", hl.dsp.window.float())
