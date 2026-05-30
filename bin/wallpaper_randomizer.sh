@@ -9,8 +9,10 @@ declare -A COMMANDS
 COMMANDS[change_wall]="change wallpaper randomly"
 
 function change_wall(){
-  wallpaper=$(find $THEMESWITCHER_FOLDERS -type f | shuf -n 1)
-  hyprctl hyprpaper wallpaper ,"$wallpaper"
+  hyprctl monitors -j | jq '.[].name' -r | while read monitor; do
+    wallpaper=$(find $THEMESWITCHER_FOLDERS -type f | shuf -n 1)
+    hyprctl hyprpaper wallpaper "$monitor","$wallpaper"
+  done
 }
 
 source "$SCRIPTS_LIB_FOLDER/cli.sh"
