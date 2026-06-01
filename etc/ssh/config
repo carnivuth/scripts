@@ -1,5 +1,5 @@
 # homelab
-Host torterra
+Host torterra pve
   hostname torterra.carnivuth.org
   User matteo
   IdentityFile ~/.ssh/homelab_key
