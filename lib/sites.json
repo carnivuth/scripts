@@ -47,6 +47,8 @@
   { "site": "linkedin","link": "https://www.linkedin.com"},
   { "site": "master-duel-meta","link": "https://www.masterduelmeta.com"},
   { "site": "grafana-cloud","link": "https://carnivuth.grafana.net"},
+  { "site": "metube","link": "https://metube.carnivuth.org"},
+  { "site": "picard","link": "https://picard.carnivuth.org"},
   { "site": "prometheus","link": "https://prometheus.carnivuth.org"},
   { "site": "actual","link": "https://actual.carnivuth.org"},
   { "site": "krawl","link": "https://krawl.carnivuth.org"},
