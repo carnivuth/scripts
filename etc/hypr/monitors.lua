@@ -27,10 +27,18 @@ end
 
 if hostname == "conkeldurr" then
   hl.monitor({output = "desc:AU Optronics 0x243D", mode = "1920x1080@60", position = "0x0", scale = 1.5 })
+  -- home monitor
+  hl.monitor({output = "desc:AOC 27G2G4 GYGLAHA242374", mode = "1920x1080@144", position = "-1920x0", scale = 1 })
+  -- home vertical monitor
+  hl.monitor({output = "desc:Hewlett Packard HP Z23i 3CQ4513C16", mode = "1920x1080@60", position = "-3000x0", scale = 1,transform = 1 })
 end
 
 if hostname == "serperior" then
   hl.monitor({output = "desc:LG Display 0x075C", mode = "2560x1600@120", position = "0x0", scale = 1.60 })
+  -- home monitor
+  hl.monitor({output = "desc:AOC 27G2G4 GYGLAHA242374", mode = "1920x1080@144", position = "-1920x0", scale = 1 })
+  -- home vertical monitor
+  hl.monitor({output = "desc:Hewlett Packard HP Z23i 3CQ4513C16", mode = "1920x1080@60", position = "-3000x0", scale = 1,transform = 1 })
 end
 
 if hostname == "drampa" then
