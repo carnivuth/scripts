@@ -19,6 +19,32 @@ QUERY_LIST_GENRES="https://$SUBSONIC_API_ENDPOINT/getGenres?v=$SUBSONIC_CLIENT_V
 QUERY_LIST_PLAYLISTS="https://$SUBSONIC_API_ENDPOINT/getPlaylists?&v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
 # list tracks
 QUERY_LIST_TRACKS="https://$SUBSONIC_API_ENDPOINT/getRandomSongs?size=500&v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
+# get lyrics
+QUERY_LYRICS_FROM_TRACK="https://$SUBSONIC_API_ENDPOINT/getLyrics?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
+
+function urlencode() {
+    # urlencode <string>
+
+    old_lc_collate=$LC_COLLATE
+    LC_COLLATE=C
+
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:$i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+
+    LC_COLLATE=$old_lc_collate
+}
+
+function query(){
+
+  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "https://$SUBSONIC_API_ENDPOINT/$1?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json&$2"
+}
+
 
 function get_tracks(){
     curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LIST_TRACKS" | jq -r '."subsonic-response".randomSongs.song[] | "\( .id)|\(.title)"'
@@ -58,6 +84,12 @@ function get_albums_from_artist(){
 function get_tracks_from_playlist(){
   playlist="$1"
   curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_TRACKS_FROM_PLAYLIST$playlist" | jq -r '."subsonic-response".playlist.entry[].id'
+}
+
+function get_lyrics_from_tracklist(){
+  artist="$1"
+  title="$2"
+  curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LYRICS_FROM_TRACK&artist=$artist&title=$title"
 }
 
 function get_tracks_from_artist(){
