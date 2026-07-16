@@ -2,18 +2,18 @@
 Host torterra pve
   hostname torterra.carnivuth.org
   User matteo
-  IdentityFile ~/.ssh/homelab_key
+  IdentityFile ~/.ssh/id_matteo
   DynamicForward 40034
 
 Host *.local.carnivuth.org
   User root
   ProxyJump torterra
   ServerAliveInterval=15
-  IdentityFile ~/.ssh/homelab_key
+  IdentityFile ~/.ssh/id_matteo
 
 # hetzner storage box for backups
 Host u425518.your-storagebox.de storagebox
   HostName u425518.your-storagebox.de
   User u425518
   Port 23
-  IdentityFile ~/.ssh/hetzner_key
+  IdentityFile ~/.ssh/id_hetzner
