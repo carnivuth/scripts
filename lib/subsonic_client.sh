@@ -22,22 +22,27 @@ QUERY_LIST_TRACKS="https://$SUBSONIC_API_ENDPOINT/getRandomSongs?size=500&v=$SUB
 # get lyrics
 QUERY_LYRICS_FROM_TRACK="https://$SUBSONIC_API_ENDPOINT/getLyrics?v=$SUBSONIC_CLIENT_VERSION&c=$SUBSONIC_CLIENT_NAME&f=json"
 
+#function urlencode() {
+#    # urlencode <string>
+#
+#    old_lc_collate=$LC_COLLATE
+#    LC_COLLATE=C
+#
+#    local length="${#1}"
+#    for (( i = 0; i < length; i++ )); do
+#        local c="${1:$i:1}"
+#        case $c in
+#            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+#            *) printf '%%%02X' "'$c" ;;
+#        esac
+#    done
+#
+#    LC_COLLATE=$old_lc_collate
+#}
+
 function urlencode() {
     # urlencode <string>
-
-    old_lc_collate=$LC_COLLATE
-    LC_COLLATE=C
-
-    local length="${#1}"
-    for (( i = 0; i < length; i++ )); do
-        local c="${1:$i:1}"
-        case $c in
-            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
-            *) printf '%%%02X' "'$c" ;;
-        esac
-    done
-
-    LC_COLLATE=$old_lc_collate
+    echo "$1" | sed 's/ /%20/g'
 }
 
 function query(){
@@ -87,8 +92,8 @@ function get_tracks_from_playlist(){
 }
 
 function get_lyrics_from_tracklist(){
-  artist="$1"
-  title="$2"
+  artist="$( urlencode "$1" )"
+  title="$( urlencode "$2" )"
   curl -L -u $SUBSONIC_USERNAME:$SUBSONIC_PASSWORD "$QUERY_LYRICS_FROM_TRACK&artist=$artist&title=$title"
 }
 
