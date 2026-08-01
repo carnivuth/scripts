@@ -1,13 +1,12 @@
 # homelab
-Host torterra pve
+Host torterra torterra.carnivuth.org
   hostname torterra.carnivuth.org
   User matteo
   IdentityFile ~/.ssh/id_matteo
   DynamicForward 40034
 
-Host *.local.carnivuth.org
-  User root
-  ProxyJump torterra
+Host torterra.local.carnivuth.org
+  User matteo
   ServerAliveInterval=15
   IdentityFile ~/.ssh/id_matteo
 
