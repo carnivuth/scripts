@@ -56,10 +56,10 @@ hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("gio open ~"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("Telegram  --enable-features=UseOzonePlatform --ozone-platform=wayland"))
 
 -- open main menu
-hl.bind("SUPER + D", hl.dsp.exec_cmd(bin_directory .. "/L.sh -b " .. menu_backend .. " app site network btdevice system"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd(bin_directory .. "/L.sh app site network btdevice system"))
 
 -- music menu
-hl.bind("SUPER + M", hl.dsp.exec_cmd(bin_directory .. "/L.sh -b " .. menu_backend .. " album playlist artist cd"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd(bin_directory .. "/L.sh album playlist artist cd"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(bin_directory .. "/player.sh toggle"))
 hl.bind("SUPER + CTRL + M", hl.dsp.exec_cmd(bin_directory .. "/player.sh quit"))
 
