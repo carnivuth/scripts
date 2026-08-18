@@ -64,17 +64,20 @@ hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(bin_directory .. "/player.sh toggle
 hl.bind("SUPER + CTRL + M", hl.dsp.exec_cmd(bin_directory .. "/player.sh quit"))
 
 -- github menus
-hl.bind("SUPER + G", hl.dsp.exec_cmd(bin_directory .. "/L.sh -b " .. menu_backend .. " ghrepo"))
-hl.bind("SUPER + SHIFT + G", hl.dsp.exec_cmd(bin_directory .. "/L.sh -b " .. menu_backend .. " ghpage"))
+hl.bind("SUPER + G", hl.dsp.exec_cmd(bin_directory .. "/L.sh ghrepo"))
+hl.bind("SUPER + SHIFT + G", hl.dsp.exec_cmd(bin_directory .. "/L.sh ghpage"))
 
 -- open clipboard history menu
-hl.bind("SUPER + C", hl.dsp.exec_cmd(bin_directory .. "/L.sh -b " .. menu_backend .. " clipboard"))
+hl.bind("SUPER + C", hl.dsp.exec_cmd(bin_directory .. "/L.sh clipboard"))
 
 -- open fileopener menu
-hl.bind("SUPER + E", hl.dsp.exec_cmd(bin_directory .."/L.sh -b ".. menu_backend .." file"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd(bin_directory .."/L.sh file"))
 
--- open fileopener menu
-hl.bind("SUPER + N", hl.dsp.exec_cmd(bin_directory .."/L.sh -b ".. menu_backend .." note"))
+-- open notes menu
+hl.bind("SUPER + N", hl.dsp.exec_cmd(bin_directory .."/L.sh note"))
+
+-- open roms menu
+hl.bind("SUPER + X", hl.dsp.exec_cmd(bin_directory .."/L.sh rom"))
 
 -- kill window
 hl.bind("SUPER + Q", hl.dsp.window.close())
