@@ -49,6 +49,9 @@ alias jctlu='journalctl --user'
 alias si='store.sh install'
 alias sr='store.sh remove'
 
+# psp backup
+alias psp_backup='mountpoint /run/media/$(whoami)/disk/ && tar -cvf "/home/matteo/Nextcloud/psp/saves-backup-$(date '\''+%M-%S-%d-%m-%Y'\'').tar.gz" -C /run/media/matteo/disk/PSP/ SAVEDATA/'
+
 # LOGS FOLDER PATH
 SCRIPTS_LOGS_FOLDER="$HOME/.local/log/scripts"
 if [[ ! -d "$SCRIPTS_LOCAL_FOLDER" ]] ;then mkdir -p "$SCRIPTS_LOGS_FOLDER"; fi
